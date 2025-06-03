@@ -1,7 +1,7 @@
 ---
 name: 'User Story: '
 about: 'User Story: '
-title: User Story Templates
+title: 'User Story: '
 labels: Could, Must, Should
 assignees: ''
 
