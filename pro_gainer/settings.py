@@ -41,6 +41,9 @@ INSTALLED_APPS = [
     # Allauth apps
     'allauth',
     'allauth.account',
+
+    # Project apps
+    'exercise',
 ]
 
 MIDDLEWARE = [
