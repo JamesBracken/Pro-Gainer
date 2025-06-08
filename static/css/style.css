@@ -54,7 +54,8 @@ html {
 /* Push the body below the header to make it visible */
 body {
     padding-top: 100px;
-    max-width: 1800px !important;
+    max-width: 2500px !important;
+    /* max-width: 1800px !important; */
 }
 
 /* Push the home section up a bit to touch the header */
@@ -139,6 +140,12 @@ i {
     display: inline-block;
 }
 
+.bg-light-grey {
+    background-color: #EFF0F0;
+    /* background-color: #DEE1E1; */
+    #DEE1E1
+}
+
 /* HEADER STYLES */
 
 header {
@@ -204,7 +211,9 @@ header {
 /* MAIN CONTENT STYLES */
 
 .home-hero-img-container {
-    height: 300px;
+    background: url("../images/home_page/hero_image.jpg");
+    background-position: center;
+    height: 400px;
 }
 
 /* Home description cards  */
