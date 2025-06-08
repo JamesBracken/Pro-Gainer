@@ -1,9 +1,92 @@
 {% extends 'base.html' %}
+{% load static %}
+{% block meta %}
+  <meta name="description" content="Home page, welcome to Pro Gainer the site for big gains. Signup for a membership and access the best gyms we have and online assistance." />
+{% endblock %}
+
+{% block extra_title %}
+  Home
+{% endblock %}
 
 {% block content %}
-  <div class="d-flex row">
-    <div class="col-3">
-      <h1 class="text-primary">This is working</h1>
-    </div>
-  </div>
+  <main class="home-section w-100">
+    {% comment %}Hero image section{% endcomment %}
+    <section class="home-hero-img-container p-0 w-100">
+    </section>
+    {% comment %}Opening introductions section{% endcomment %}
+    <section class="bg-light-grey">
+      <div class="container p-0">
+        <div class="row justify-content-center">
+          <div class="col-12 text-center my-5">
+            <h1>Ready for better?</h1>
+          </div>
+          <div class="col-8 mb-5">
+            <p class="text-center">Unlock your full potential with a gym built for results. From cutting-edge equipment and personalized health support to expert trainers who care, we provide everything you need to crush your fitness goals. Whether you're just starting out or pushing your limits, your journey starts here.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    {% comment %}CTA section{% endcomment %}
+    <section class="w-100 home-cta-section">
+      <div class="container w-100 p-0">
+        <div class="row home-cta-section w-100">
+          <div class="row cta-section-item-container w-100">
+            <div class="col-12 cta-section-item">
+              <h2>Join us now!</h2>
+            </div>
+            <div class="col-12 cta-section-item">
+              <ul>
+                <li>
+                  <a href="" class="cta-btn">Join here</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    {% comment %}Gym ammenities cards{% endcomment %}
+    <section>
+      <div class="container">
+        <div class="row d-flex justify-content-center">
+          <div class="col-12 col-sm-6 col-md-4 p-2">
+            <div class="card home-descriptions-card">
+              <div class="card-body">
+                <div class="row justify-content-center text-center">
+                  <i class="fa-solid fa-dumbbell text-center"></i>
+                  <h3 class="card-title">The best equipment</h3>
+                  <p class="card-text">Top-tier machines and free weights designed to support strength, cardio, and functional training.</p>
+                </div>
+              </div>
+            </div>
+            <hr />
+          </div>
+          <div class="col-12 col-sm-6 col-md-4 p-2">
+            <div class="card home-descriptions-card">
+              <div class="card-body">
+                <div class="row justify-content-center text-center">
+                  <i class="fa-solid fa-heart-pulse"></i>
+                  <h3 class="card-title">Physical wellness</h3>
+                  <p class="card-text">Personalized wellness plans and guidance to help you stay fit, energized, and injury-free.</p>
+                </div>
+              </div>
+            </div>
+            <hr />
+          </div>
+          <div class="col-12 col-sm-6 col-md-4 p-2">
+            <div class="card home-descriptions-card">
+              <div class="card-body">
+                <div class="row justify-content-center text-center">
+                  <i class="fa-solid fa-list-check"></i>
+                  <h3 class="card-title">Personal trainers</h3>
+                  <p class="card-text">Certified professionals dedicated to helping you achieve your fitness goals safely and effectively</p>
+                </div>
+              </div>
+            </div>
+            <hr />
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 {% endblock %}
