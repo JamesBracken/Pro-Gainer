@@ -10,11 +10,27 @@
 
 {% block content %}
   <main class="home-section">
+  <main class="home-section w-100">
     {% comment %}Hero image section{% endcomment %}
     <section class="home-hero-img-container">
       <div class="row h-100">
         <div class="col-12 h-100">
           <img class="home-hero-img  h-100" src="{% static 'images/home_page/hero_image.jpg' %}" alt="" />
+    <section class="home-hero-img-container p-0 w-100">
+    </section>
+    {% comment %}Opening introductions section{% endcomment %}
+    <section class="bg-light-grey">
+      <div class="container p-0">
+        <div class="row justify-content-center">
+          <div class="col-12 text-center my-5">
+            <h1>Ready for better?</h1>
+          </div>
+          <div class="col-8 mb-5">
+            <p class="text-center">Unlock your full potential with a gym built for results. From cutting-edge equipment and personalized health support to expert trainers who care, we provide everything you need to crush your fitness goals. Whether you're just starting out or pushing your limits, your journey starts here.</p>
+          </div>
+        </div>
+      </div>
+    </section>
     {% comment %}CTA section{% endcomment %}
     <section class="w-100 home-cta-section">
       <div class="container w-100 p-0">
