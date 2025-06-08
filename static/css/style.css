@@ -45,9 +45,15 @@ https://github.com/JamesBracken/Ember-Ash
 /* setting all styles across the website here to increase uniformity
 across the code and reduce unexpected behaviours and styles */
 
+html {
+    display: flex;
+    justify-content: center;
+}
+
 /* Push the body below the header to make it visible */
 body {
     padding-top: 100px;
+    max-width: 1800px !important;
 }
 
 /* Push the home section up a bit to touch the header */
@@ -197,29 +203,28 @@ header {
 /* MAIN CONTENT STYLES */
 
 .home-hero-img-container {
-    height: 500px;
-    padding: 1px;
-}
-
-.home-hero-img {
-    max-height: 500px;
+    height: 300px;
 }
 
 /* Home description cards  */
 .home-descriptions-card {
-        height: 200px;
-        border-radius: 0;
-        border: 0;
-    }
+    height: 200px;
+}
 
 @media screen and (min-width: 576px) {
     .home-descriptions-card {
         height: 280px;
     }
+
+    .home-hero-img-container {
+        height: 450px;
+    }
 }
 
 @media screen and (min-width:768px) {
-    
+    .home-hero-img-container {
+    height: 700px;
+}
 }
 
 @media screen and (min-width:1024px) {
