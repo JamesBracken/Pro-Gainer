@@ -134,12 +134,14 @@ header {
     font-style: italic;
 }
 
-.nav-link {
+.nav-link,
+.footer-link {
     position: relative;
     display: inline-block;
 }
 
-.nav-link:after {
+.nav-link:after,
+.footer-link:after {
     content: '';
     position: absolute;
     left: 0;
@@ -150,7 +152,8 @@ header {
     transition: width 300ms;
 }
 
-.nav-link:hover:after {
+.nav-link:hover:after,
+.footer-link:hover:after {
     width: 100%;
 }
 
@@ -172,7 +175,6 @@ header {
 .cta-btn:hover {
     background-color: #595352;
     transition: 500ms ease-out;
-
 }
 
 .cta-li-container {
