@@ -45,8 +45,14 @@ https://github.com/JamesBracken/Ember-Ash
 /* setting all styles across the website here to increase uniformity
 across the code and reduce unexpected behaviours and styles */
 
+/* Push the body below the header to make it visible */
 body {
     padding-top: 100px;
+}
+
+/* Push the home section up a bit to touch the header */
+.home-section {
+    margin-top: -15px;
 }
 
 h1 {
@@ -180,4 +186,14 @@ header {
 .cta-li-container {
     display: flex;
     align-items: center;
+/* MAIN CONTENT STYLES */
+
+.home-hero-img-container {
+    height: 500px;
+    padding: 1px;
+}
+
+.home-hero-img {
+    max-height: 500px;
+}
 }

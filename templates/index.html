@@ -1,9 +1,13 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <div class="d-flex row">
-    <div class="col-3">
-      <h1 class="text-primary">This is working</h1>
-    </div>
-  </div>
+  <section class="home-section">
+    {% comment %}Hero image section{% endcomment %}
+    <section class="home-hero-img-container">
+      <div class="row">
+        <div class="col-12">
+          <img class="home-hero-img" src="{% static 'images/home_page/hero_image.jpg' %}" alt="" />
+        </div>
+      </div>
+    </section>
 {% endblock %}
