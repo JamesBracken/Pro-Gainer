@@ -48,6 +48,7 @@ across the code and reduce unexpected behaviours and styles */
 html {
     display: flex;
     justify-content: center;
+    overflow-x: hidden;
 }
 
 /* Push the body below the header to make it visible */
