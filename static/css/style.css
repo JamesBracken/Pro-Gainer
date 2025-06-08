@@ -1,3 +1,113 @@
+/* CSS Variables */
+
+:root {
+    --clr-primary: #f2eee8; /* Isabeline */
+    --clr-secondary: #e10a0a;  /* Red*/
+    --clr-to-be-filled: ;  /* Fill out with tertiary color */
+    --clr-black: #454545; /* Onyx */
+    --clr-white: #ffffff; /* White */
+    /* Headings */
+    --text-primary: "Roboto", serif;
+    /* Body text */
+    --text-secondary: "Lato", serif;
+
+    --fs-heading-1: 3.125rem;
+    /* 50px */
+    --fs-heading-2: 2.5rem;
+    /* 40px */
+    --fs-heading-3: 2.188rem;
+    /* 35px */
+    --fs-heading-4: 1.875rem;
+    /* 30px */
+    --fs-subheading: 1.25rem;
+    /* 20px */
+    --fs-body: 1rem;
+    /* 16px */
+
+    --fw-extra-bold: 800;
+    --fw-bold: 700;
+    --fw-regular: 300;
+
+    --border-radius: 10px;
+    --box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    --transition-duration: 0.3s;
+}
+
+/* GLOBAL STYLES */
+/* setting all styles across the website here to increase uniformity
+across the code and reduce unexpected behaviours and styles */
+
 body {
     padding-top: 100px;
+}
+
+h1 {
+    font-size: var(--fs-heading-1) !important;
+    font-family: var(--text-primary);
+}
+
+h2 {
+    font-size: var(--fs-heading-2) !important;
+    font-family: var(--text-primary);
+}
+
+h3 {
+    font-size: var(--fs-heading-3) !important;
+    font-family: var(--text-primary);
+}
+
+h4 {
+    font-size: var(--fs-heading-4) !important;
+    font-family: var(--text-primary);
+}
+
+.subheading {
+    font-size: var(--fs-subheading) !important;
+}
+
+p {
+    font-size: var(--fs-body) !important;
+    font-family: var(--text-secondary) !important;
+    font-weight: var(--fw-regular) !important;
+}
+
+input,
+button,
+select,
+textarea {
+    border: none;
+    font: inherit;
+    background: none;
+}
+
+ol,
+ul {
+    list-style: none !important;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+a:hover,
+button:hover {
+    cursor: pointer;
+}
+
+*::before,
+*::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+img {
+    object-fit: cover !important;
+    width: 100% !important;
+    border-radius: 0 !important;
+}
+
+hr {
+    color: rgba(0, 0, 0, 0.4)
 }
