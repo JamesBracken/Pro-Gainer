@@ -8,6 +8,16 @@ https://github.com/JamesBracken/Ember-Ash
     --clr-to-be-filled: ;  /* Fill out with tertiary color */
     --clr-black: #454545; /* Onyx */
     --clr-white: #ffffff; /* White */
+    --clr-primary: #f2eee8;
+    /* Isabeline */
+    --clr-secondary: #e10a0a;
+    /* Red*/
+    --clr-tertiary: #6F6866;
+    /* Fill out with tertiary color */
+    --clr-black: #454545;
+    /* Onyx */
+    --clr-white: #ffffff;
+    /* White */
     /* Headings */
     --text-primary: "Roboto", serif;
     /* Body text */
@@ -119,8 +129,38 @@ hr {
 
 /* Header styles */
 
+header {
+    box-shadow: var(--box-shadow);
+}
+
 .logo {
     font-size: var(--fs-heading-2);
     font-weight: var(--fw-semi-bold);
     font-style: italic;
+}
+
+.nav-link {
+    position: relative;
+    display: inline-block;
+}
+
+.nav-link:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0px;
+    background-color: var(--clr-black);
+    height: 1px;
+    width: 0;
+    transition: width 300ms;
+}
+
+.nav-link:hover:after {
+    width: 100%;
+}
+
+.signup-button {
+    padding: 8px 0;
+}
+
 }
