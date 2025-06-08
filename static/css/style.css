@@ -1,5 +1,7 @@
 /* CSS Variables */
-
+/* CSS Variables taken from my other project and adjusted for this project
+https://github.com/JamesBracken/Ember-Ash
+*/
 :root {
     --clr-primary: #f2eee8; /* Isabeline */
     --clr-secondary: #e10a0a;  /* Red*/
@@ -26,6 +28,7 @@
 
     --fw-extra-bold: 800;
     --fw-bold: 700;
+    --fw-semi-bold: 550;
     --fw-regular: 300;
 
     --border-radius: 10px;
@@ -81,6 +84,7 @@ textarea {
 }
 
 ol,
+li,
 ul {
     list-style: none !important;
 }
@@ -110,4 +114,13 @@ img {
 
 hr {
     color: rgba(0, 0, 0, 0.4)
+}
+
+
+/* Header styles */
+
+.logo {
+    font-size: var(--fs-heading-2);
+    font-weight: var(--fw-semi-bold);
+    font-style: italic;
 }
