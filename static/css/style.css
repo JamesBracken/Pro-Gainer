@@ -136,6 +136,7 @@ i {
 
 header {
     box-shadow: var(--box-shadow);
+    padding: 0 !important;
 }
 
 .logo {
