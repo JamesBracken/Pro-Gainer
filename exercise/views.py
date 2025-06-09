@@ -1,9 +1,9 @@
 from django.shortcuts import render
-
-# Create your views here.
+from .models import Exercise
 
 def exercise_list(request):
     """
     Renders the exercise list page
     """
-    return render(request, "exercise/exercise.html")
+    exercises = Exercise.objects.all()
+    return render(request, "exercise/exercise.html", {"exercises": exercises})
