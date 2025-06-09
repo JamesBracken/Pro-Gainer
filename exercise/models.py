@@ -3,13 +3,30 @@ from cloudinary.models import CloudinaryField
 
 # Create your models here.
 
+
+
 class Exercise(models.Model):
+    """
+    Stores an exercise item entry
+    """
+    DIFFICULTY_SELECTION = [
+        ('easy', 'Easy'),
+        ('medium', 'Medium'),
+        ('hard', 'Hard'),
+    ]
+    
+    INTENSITY_SELECTION = [
+        ('light', 'Light'),
+        ('moderate', 'Moderate'),
+        ('intense', 'Intense'),
+    ]
+
     exercise_title = models.CharField(unique=True)
     image = CloudinaryField('image')
-    difficulty = models.CharField()
-    intensity = models.CharField()
-    instruction = models.TextField()
-    equipment = models.CharField()
-    targeted_muscles = models.CharField()
-    indirectly_targeted_muscles = models.CharField()
-    slug = models.SlugField()
+    difficulty = models.CharField(choices=DIFFICULTY_SELECTION) # select
+    intensity = models.CharField(choices=INTENSITY_SELECTION) # select
+    instruction = models.TextField(max_length=1000)
+    equipment = models.CharField(max_length=300)
+    targeted_muscles = models.CharField(max_length=300)
+    indirectly_targeted_muscles = models.CharField(max_length=300)
+    slug = models.SlugField(unique=True)
