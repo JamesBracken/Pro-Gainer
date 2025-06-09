@@ -27,10 +27,10 @@ class Exercise(models.Model):
     equipment = models.CharField(max_length=300)
     targeted_muscles = models.CharField(max_length=300)
     indirectly_targeted_muscles = models.CharField(max_length=300)
-    slug = models.SlugField(unique=True)
+    slug = models.SlugField(unique=True, blank=True)
 
     def save(self, *args, **kwargs):
         if not self.slug:
-            self.slug = slugify(str(self.title))
+            self.slug = slugify(str(self.exercise_title))
             return super().save(*args, **kwargs)
         super().save(*args, **kwargs)
