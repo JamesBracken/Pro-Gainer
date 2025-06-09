@@ -28,6 +28,8 @@ class Exercise(models.Model):
     targeted_muscles = models.CharField(max_length=300)
     indirectly_targeted_muscles = models.CharField(max_length=300)
     slug = models.SlugField(unique=True, blank=True)
+    recommended_sets = models.CharField()
+    recommended_reps = models.CharField()
 
     def save(self, *args, **kwargs):
         if not self.slug:
