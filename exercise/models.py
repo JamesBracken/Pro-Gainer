@@ -1,8 +1,6 @@
 from django.db import models
 from cloudinary.models import CloudinaryField
-
-# Create your models here.
-
+from django.utils.text import slugify
 
 
 class Exercise(models.Model):
@@ -30,3 +28,9 @@ class Exercise(models.Model):
     targeted_muscles = models.CharField(max_length=300)
     indirectly_targeted_muscles = models.CharField(max_length=300)
     slug = models.SlugField(unique=True)
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(str(self.title))
+            return super().save(*args, **kwargs)
+        super().save(*args, **kwargs)
