@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  {% comment %}Exercise section{% endcomment %}
+  <main>
+    {% comment %}Cards list section{% endcomment %}
+    <section class="container p-0">
+      <div class="row">
+        <div class="col-12">
+          <div class="d-flex justify-content-center">
+            <h1>{{ exercise.exercise_title }}</h1>
+          </div>
+          <img src="{{ exercise.image.url }}" alt="{{ exercise.exercise_title }}" />
+          <h2>Instructions</h2>
+          <p>{{ exercise.instruction }}</p>
+          <p>
+            <strong>Difficulty:</strong>{{ exercise.difficulty }}
+          </p>
+          <p>
+            <strong>Intensity:</strong>{{ exercise.intensity }}
+          </p>
+          <p>
+            <strong>Equipment:</strong>{{ exercise.equipment }}
+          </p>
+          <p>
+            <strong>Targeted muscles:</strong>{{ exercise.targeted_muscles }}
+          </p>
+          <p>
+            <strong>Indirectly targeted muscles:</strong>{{ exercise.indirectly_targeted_muscles }}
+          </p>
+          <p>
+            <strong>Recommended sets and reps:</strong>{{ exercise.recommended_sets }} X {{ exercise.recommended_reps }} (sets X reps)
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  {% comment %} {{ exercises }} {% endcomment %}
+{% endblock %}
+
+{% comment %}
+{{ exercise.exercise_title }}
+{{ exercise.image.url }}
+{{ exercise.difficulty }}
+{{ exercise.intensity }}
+{{ exercise.instruction }}
+{{ exercise.equipment }}
+{{ exercise.targeted_muscles }}
+{{ exercise.indirectly_targeted_muscles }}
+{{ exercise.slug }}
+{{ exercise.recommended_sets }}
+{{ exercise.recommended_reps }}
+{% endcomment %}
