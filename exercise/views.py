@@ -14,3 +14,4 @@ def exercise_detail(request, exercise_slug):
     """
     exercise = get_object_or_404(Exercise, slug=exercise_slug)
 
+    return render(request, "exercise/exercise_detail.html", {"exercise": exercise})
