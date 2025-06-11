@@ -2,19 +2,21 @@
 
 {% block content %}
   {% comment %}Exercise list cards section{% endcomment %}
-  <section class="container">
+  <section class="container p-0">
     <div class="row">
       {% for exercise in exercises %}
-        <div class="col-12 exercise-item-container">
-          <div class="row">
-            <div class="col-4 exercise-item-image-container">
-              <img class="exercise-item-image w-100" src="{{ exercise.image.url }}" alt="{{ exercise.exercise_title }}" />
-            </div>
-            <div class="col-8 exercise-item-content-container">
-              <h3>{{ exercise.exercise_title }}</h3>
-              <p>Muscles targeted:{{ exercise.targeted_muscles }}</p>
-              <p>Equipment:{{ exercise.equipment }}</p>
-              <p>Difficulty: {{ exercise.difficulty }}</p>
+        <div class="col-12 col-md-6 col-xl-4 p-0">
+          <div class="p-5 h-100">
+            <div class="row exercise-item-content-container h-100">
+              <div class="col-12 exercise-item-image-container p-0">
+                <img class="exercise-item-image w-100" src="{{ exercise.image.url }}" alt="{{ exercise.exercise_title }}" />
+              </div>
+              <div class="col-12 h-100">
+                <h3 class="my-3 exercise-item-header w-100 pb-3">{{ exercise.exercise_title }}</h3>
+                <p class="mt-2">Muscles targeted: {{ exercise.targeted_muscles }}</p>
+                <p class="mt-2">Equipment: {{ exercise.equipment }}</p>
+                <p class="mt-2">Difficulty: {{ exercise.difficulty }}</p>
+              </div>
             </div>
           </div>
         </div>
