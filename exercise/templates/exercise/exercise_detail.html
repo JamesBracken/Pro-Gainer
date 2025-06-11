@@ -10,10 +10,26 @@
           <div class="d-flex justify-content-center">
             <h1>{{ exercise.exercise_title }}</h1>
           </div>
-          <img src="{{ exercise.image.url }}" alt="{{ exercise.exercise_title }}" />
+          {% comment %}Image and key information section{% endcomment %}
+          <div>
+            <div class="row primary-clr-bg h-100">
+              <div class="col-6 p-0 h-100">
+                <img class="h-100" src="{{ exercise.image.url }}" alt="{{ exercise.exercise_title }}" />
+              </div>
+              <div class="col-6">
+                <h3 class="my-4 fw-light">Difficulty:{{ exercise.difficulty }}</h4>
+                <h3 class="my-4 fw-light">Intensity:{{ exercise.intensity }}</h4>
+                <h3 class="my-4 fw-light">Equipment:{{ exercise.equipment }}</h4>
+              </div>
+            </div>
+          </div>
+          {% comment %} <div class="d-flex justify-content-center">
+            <h1>{{ exercise.exercise_title }}</h1>
+          </div> {% endcomment %}
+          {% comment %} <img src="{{ exercise.image.url }}" alt="{{ exercise.exercise_title }}" /> {% endcomment %}
           <h2>Instructions</h2>
           <p>{{ exercise.instruction }}</p>
-          <p>
+          {% comment %} <p>
             <strong>Difficulty:</strong>{{ exercise.difficulty }}
           </p>
           <p>
@@ -21,7 +37,7 @@
           </p>
           <p>
             <strong>Equipment:</strong>{{ exercise.equipment }}
-          </p>
+          </p> {% endcomment %}
           <p>
             <strong>Targeted muscles:</strong>{{ exercise.targeted_muscles }}
           </p>
