@@ -28,7 +28,7 @@ def add_exercise_item(request):
         exercise_form = ExerciseForm(request.POST, request.FILES)
         if exercise_form.is_valid():
             exercise_form.save()
-        return redirect(request, "exercise/exercise.html")
+        return redirect("exercise_list")
     else:
         exercise_form = ExerciseForm()
         return render(request, "exercise/exercise_form.html", {"exercise_form": exercise_form,})
