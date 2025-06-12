@@ -55,7 +55,13 @@ html {
 body {
     padding-top: 100px;
     max-width: 2500px !important;
-    /* max-width: 1800px !important; */
+    /* height: 100vh; */
+    display: flex;
+    flex-direction: column;
+}
+
+footer {
+    margin-top: auto !important;
 }
 
 /* Push the home section up a bit to touch the header */
