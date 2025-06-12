@@ -3,10 +3,12 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-      <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-      <meta charset="utf-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1" />
-    {% block meta %}{% endblock %}
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    {% block meta %}
+
+    {% endblock %}
 
     {% block extra_meta %}
 
@@ -80,10 +82,10 @@
                 <li>
                   <ul class="me-auto mb-2 mb-lg-0 d-flex">
                     <li class="mx-2">
-                      <a href="{% url "account_signup" %}" class="m-2 nav-link signup-button">Signup</a>
+                      <a href="{% url 'account_signup' %}" class="m-2 nav-link signup-button">Signup</a>
                     </li>
                     <li class="cta-li-container mx-2">
-                      <a href="{% url "account_login" %}" class="cta-btn">Login</a>
+                      <a href="{% url 'account_login' %}" class="cta-btn">Login</a>
                     </li>
                   </ul>
                 </li>
@@ -94,16 +96,31 @@
       </nav>
     </header>
 
-    {% block content %}
+    <main class="h-100">
+      {% comment %}Message code taken from Code institute Codestar practice project which was done in the course{% endcomment %}
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 offset-md-2">
+            {% for message in messages %}
+              <div class="alert {{ message.tags }} alert-dismissible
+              fade show" id="msg" role="alert">
+                {{ message|safe }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+      {% block content %}
 
-    {% endblock %}
-
+      {% endblock %}
+    </main>
     <footer>
       <hr />
       <div class="container">
         <div class="row justify-content-center mt-2 text-center">
           <div class="col-12 col-sm-6 col-md-4">
-            <h3 class="subheading  mt-2">Gym hours</h3>
+            <h3 class="subheading mt-2">Gym hours</h3>
             <p>Monday to Sunday</p>
             <p>6:00AM -- 11:00 PM</p>
           </div>
@@ -113,7 +130,7 @@
             <p>Phone: 0712312311211</p>
           </div>
           <div class="col-12 col-sm-6 col-md-4">
-            <h3 class="subheading  mt-2">Useful resource links</h3>
+            <h3 class="subheading mt-2">Useful resource links</h3>
             <ul>
               <li class="my-2">
                 <a href="https://www.calculator.net/bmi-calculator.html" class="footer-link">BMI Calculator</a>

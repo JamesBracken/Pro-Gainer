@@ -55,18 +55,13 @@ html {
 body {
     padding-top: 100px;
     max-width: 2500px !important;
-    height: 100vh;
+    /* height: 100vh; */
     display: flex;
     flex-direction: column;
 }
 
 footer {
     margin-top: auto !important;
-}
-
-/* Push the home section up a bit to touch the header */
-.home-section {
-    margin-top: -15px;
 }
 
 h1 {
@@ -170,8 +165,8 @@ body button,
 
 body button:hover,
 .button:hover {
-    background-color: #595352;
-    transition: 500ms ease-out;
+    background-color: #c80a0a;
+    transition: 500ms ease-in-out;
 }
 
 body input,

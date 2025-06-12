@@ -54,12 +54,16 @@ INSTALLED_APPS = [
     # Allauth apps
     'allauth',
     'allauth.account',
-
+    'crispy_forms',
+    'crispy_bootstrap5',
     # Project apps
     'exercise',
 ]
 
 SITE_ID = 1
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

@@ -31,6 +31,7 @@ class Exercise(models.Model):
     recommended_sets = models.CharField()
     recommended_reps = models.CharField()
 
+    # This function populates the slug with the slugified title 
     def save(self, *args, **kwargs):
         if not self.slug:
             self.slug = slugify(str(self.exercise_title))
