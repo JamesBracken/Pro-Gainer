@@ -9,18 +9,26 @@ class ExerciseForm(forms.ModelForm):
 
     class Meta:
         DIFFICULTY_SELECTION = [
-        ('easy', 'Easy'),
-        ('medium', 'Medium'),
-        ('hard', 'Hard'),
+            ("easy", "Easy"),
+            ("medium", "Medium"),
+            ("hard", "Hard"),
         ]
         INTENSITY_SELECTION = [
-        ('light', 'Light'),
-        ('moderate', 'Moderate'),
-        ('intense', 'Intense'),
+            ("light", "Light"),
+            ("moderate", "Moderate"),
+            ("intense", "Intense"),
         ]
-
         model = Exercise
-        fields = { "indirectly_targeted_muscles", "recommended_sets", "recommended_reps", "exercise_title", "image", "difficulty", "intensity", "instruction", "equipment", "targeted_muscles", "slug" }
-
-
-    
+        fields = (
+            "exercise_title",
+            "slug",
+            "instruction",
+            "difficulty",
+            "recommended_sets",
+            "recommended_reps",
+            "intensity",
+            "image",
+            "targeted_muscles",
+            "indirectly_targeted_muscles",
+            "equipment",
+        )
