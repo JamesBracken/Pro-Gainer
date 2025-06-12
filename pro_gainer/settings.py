@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 from pathlib import Path
 import os
 import dj_database_url
+import cloudinary
 
 if os.path.isfile('env.py'):
     import env
@@ -47,6 +48,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'cloudinary_storage',
+    'cloudinary',
     'django.contrib.sites',
     # Allauth apps
     'allauth',
@@ -118,6 +121,12 @@ WSGI_APPLICATION = 'pro_gainer.wsgi.application'
 DATABASES = {
     "default": dj_database_url.parse(os.environ.get("DATABASE_URL"))
 }
+
+CLOUDINARY_STORAGE = {
+    os.environ.get("CLOUDINARY_URL"),
+}
+# This sets replaces http with https for security
+cloudinary.config(secure = True)
 
 CSRF_TRUSTED_ORIGINS = {
     "https://*.codeinstitute-ide.net",

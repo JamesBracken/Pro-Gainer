@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <main>
+    {% comment %}Cards list section{% endcomment %}
+    <section class="container p-0">
+      <div class="row">
+        {% for exercise in exercises %}
+          <div class="col-12 col-md-6 col-xl-4 p-0">
+            <div class="p-5 h-100">
+              <div class="row exercise-item-content-container h-100">
+                <a href="{% url "exercise_detail" exercise.slug %}" class="p-0">
+                  <div class="col-12 h-100">
+                    <img class="exercise-item-image w-100" src="{{ exercise.image.url }}" alt="{{ exercise.exercise_title }}" />
+                    <div class="px-3 py-1">
+                      <h3 class="my-3 exercise-item-header w-100 pb-3">{{ exercise.exercise_title }}</h3>
+                      <p class="mt-2">Muscles targeted: {{ exercise.targeted_muscles }}</p>
+                      <p class="mt-2">Equipment: {{ exercise.equipment }}</p>
+                      <p class="mt-2">Difficulty: {{ exercise.difficulty }}</p>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </section>
+  </main>
+
+  {% comment %} {{ exercises }} {% endcomment %}
+{% endblock %}
+
+{% comment %}
+{{ exercise.exercise_title }}
+{{ exercise.image.url }}
+{{ exercise.difficulty }}
+{{ exercise.intensity }}
+{{ exercise.instruction }}
+{{ exercise.equipment }}
+{{ exercise.targeted_muscles }}
+{{ exercise.indirectly_targeted_muscles }}
+{{ exercise.slug }}
+{{ exercise.recommended_sets }}
+{{ exercise.recommended_reps }}
+{% endcomment %}

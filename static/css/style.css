@@ -144,6 +144,10 @@ i {
     background-color: #EFF0F0;
 }
 
+.primary-clr-bg {
+    background-color: var(--clr-primary);
+}
+
 /* HEADER STYLES */
 
 header {
@@ -240,8 +244,21 @@ header {
 .cta-section-item {
     display: flex;
     justify-content: end;
-    /* position: relative;
-    right: 0px; */
+}
+
+/* Exercises styles */
+
+.exercise-item-header {
+    border-bottom: var(--clr-black) solid 1px;
+}
+
+.exercise-item-image,
+.exercise-item-image-container {
+    height: 250px!important;
+}
+
+.exercise-item-content-container {
+    background-color: var(--clr-primary);
 }
 
 @media screen and (min-width: 576px) {
