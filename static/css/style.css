@@ -55,7 +55,13 @@ html {
 body {
     padding-top: 100px;
     max-width: 2500px !important;
-    /* max-width: 1800px !important; */
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+footer {
+    margin-top: auto !important;
 }
 
 /* Push the home section up a bit to touch the header */
@@ -148,6 +154,35 @@ i {
     background-color: var(--clr-primary);
 }
 
+/* General button styles */
+
+body button,
+.button {
+    margin: 0 !important;
+    color: var(--clr-white);
+    padding: 9px 24px;
+    font-weight: var(--fw-semi-bold);
+    background-color: var(--clr-secondary);
+    border-radius: 0;
+    border: 0;
+    margin: 10px 0 !important;
+}
+
+body button:hover,
+.button:hover {
+    background-color: #595352;
+    transition: 500ms ease-out;
+}
+
+body input,
+input {
+    border-bottom: #454545 1px solid;
+}
+
+.underline {
+    border-bottom: var(--clr-black) 1px solid;
+}
+
 /* HEADER STYLES */
 
 header {
@@ -186,6 +221,10 @@ header {
 
 .signup-button {
     padding: 8px 0;
+}
+
+.dropdown-menu {
+    border-radius: 0!important;
 }
 
 /* Adding separate styles for the CTA to attract attention */
@@ -236,7 +275,7 @@ header {
 .cta-section-item-container {
     position: relative;
     right: 0px;
-    align-self:flex-end;
+    align-self: flex-end;
     justify-content: end;
     bottom: 30px;
 }
@@ -254,7 +293,7 @@ header {
 
 .exercise-item-image,
 .exercise-item-image-container {
-    height: 250px!important;
+    height: 250px !important;
 }
 
 .exercise-item-content-container {
@@ -273,8 +312,8 @@ header {
 
 @media screen and (min-width:768px) {
     .home-hero-img-container {
-    height: 700px;
-}
+        height: 700px;
+    }
 }
 
 @media screen and (min-width:1024px) {
