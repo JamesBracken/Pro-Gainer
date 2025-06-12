@@ -64,11 +64,6 @@ footer {
     margin-top: auto !important;
 }
 
-/* Push the home section up a bit to touch the header */
-.home-section {
-    margin-top: -15px;
-}
-
 h1 {
     font-size: var(--fs-heading-1) !important;
     font-family: var(--text-primary);
