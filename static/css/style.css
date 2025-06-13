@@ -67,21 +67,25 @@ footer {
 h1 {
     font-size: var(--fs-heading-1) !important;
     font-family: var(--text-primary);
+    font-weight: var(--fw-semi-bold);
 }
 
 h2 {
     font-size: var(--fs-heading-2) !important;
     font-family: var(--text-primary);
+    font-weight: var(--fw-medium);
 }
 
 h3 {
     font-size: var(--fs-heading-3) !important;
     font-family: var(--text-primary);
+    font-weight: var(--fw-medium);
 }
 
 h4 {
     font-size: var(--fs-heading-4) !important;
     font-family: var(--text-primary);
+    font-weight: var(--fw-medium);
 }
 
 .subheading {
