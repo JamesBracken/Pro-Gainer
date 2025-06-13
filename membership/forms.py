@@ -6,12 +6,11 @@ class SubscribeForm(forms.ModelForm):
     """
     Creates a form for :model:`membership.Membership`
     """
-    
+
 
     class Meta:
         model = Membership
         fields = (
-            "user",
             "full_name",
             "email_address",
             "phone_number",
@@ -21,6 +20,8 @@ class SubscribeForm(forms.ModelForm):
             "street_address_1",
             "street_address_2",
             "country",
+            "gym_location",
+            "membership_type",
         )
 
     # "user"
