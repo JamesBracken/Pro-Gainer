@@ -23,7 +23,7 @@
         </div>
       {% endif %}
       {% comment %} Loops through each exercise and creates a card to display each one {% endcomment %}
-      {% for exercise in exercises %}
+      {% for exercise in page_obj %}
         <div class="col-12 col-md-6 col-xl-4 p-0">
           <div class="p-5 h-100">
             <div class="row exercise-item-content-container h-100">
