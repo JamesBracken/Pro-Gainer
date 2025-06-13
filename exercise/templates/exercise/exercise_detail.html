@@ -21,21 +21,11 @@
               </div>
             </div>
           </div>
-          {% comment %} <div class="d-flex justify-content-center">
-            <h1>{{ exercise.exercise_title }}</h1>
-          </div> {% endcomment %}
-          {% comment %} <img src="{{ exercise.image.url }}" alt="{{ exercise.exercise_title }}" /> {% endcomment %}
           <h2>Instructions</h2>
           <p>{{ exercise.instruction }}</p>
-          {% comment %} <p>
-            <strong>Difficulty:</strong>{{ exercise.difficulty }}
-          </p>
-          <p>
-            <strong>Intensity:</strong>{{ exercise.intensity }}
-          </p>
-          <p>
-            <strong>Equipment:</strong>{{ exercise.equipment }}
-          </p> {% endcomment %}
+
+          <section>
+          <h2>Additional information</h2>
           <p>
             <strong>Targeted muscles:</strong>{{ exercise.targeted_muscles }}
           </p>
@@ -45,6 +35,7 @@
           <p>
             <strong>Recommended sets and reps:</strong>{{ exercise.recommended_sets }} X {{ exercise.recommended_reps }} (sets X reps)
           </p>
+          </section>
         </div>
       </div>
     </section>
