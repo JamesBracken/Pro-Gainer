@@ -3,6 +3,15 @@ from django.contrib.auth.models import User
 
 
 class Membership(models.Model):
+    # Choices for gym locations
+    GYM_LOCATIONS = [
+        ("hounslow", "Hounslow"),
+    ]
+    # Choices for membership types
+    MEMBERSHIP_TYPES = [
+            ("regular", "Regular"),
+        ]
+
     # General user details models is heavily based off of the Code Institute
     # Boutique Ado project. Obviously this information is used across
     # majority of sites so not much if any tweaking involved
@@ -21,8 +30,8 @@ class Membership(models.Model):
 
     # The below models are for use in the functionality of the website
     # and potential future upgrades
-    gym_location = models.CharField() # Create a choices variable for options
-    membership_type = models.CharField() # May use for future functionality, for now we default with 1 
+    gym_location = models.CharField(choices=GYM_LOCATIONS)
+    membership_type = models.CharField(choices=MEMBERSHIP_TYPES)
     is_member_active = models.BooleanField(default=False)
-    membership_start = models.DateTimeField()
-    next_payment_date = models.DateTimeField()
+    membership_start = models.DateTimeField(null=True)
+    next_payment_date = models.DateTimeField(null=True)
