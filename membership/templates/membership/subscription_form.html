@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+  <section>
+    <div class="container">
+      <div>
+        <div class="row">
+          <div class="col-12">
+            <form method="POST" action="">
+                {% csrf_token %}
+                {{ subscription_form|crispy }}
+                <div class="row">
+                    <div class="col-12 d-flex justify-content-center">
+                        <button type="submit">Submit</button>
+                    </div>
+                </div> 
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}
