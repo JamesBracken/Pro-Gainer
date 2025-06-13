@@ -149,6 +149,27 @@ i {
     background-color: var(--clr-primary);
 }
 
+
+.fw-text-extra-bold {
+    font-weight: var(--fw-extra-bold);
+}
+
+.fw-text-bold {
+    font-weight: var(--fw-bold);
+}
+
+.fw-text-semi-bold {
+    font-weight: var(--fw-semi-bold);
+}
+
+.fw-text-medium {
+    font-weight: var(--fw-medium);
+}
+
+.fw-text-regular {
+    font-weight: var(--fw-regular);
+}
+
 /* General button styles */
 
 body button,
