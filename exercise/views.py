@@ -9,7 +9,7 @@ def exercise_list(request):
     Renders the exercise list page
     """
     exercises = Exercise.objects.all()
-    return render(request, "exercise/exercise.html", {"exercises": exercises})
+    return render(request, "exercise/exercise_list.html", {"exercises": exercises})
 
 
 def exercise_detail(request, exercise_slug):
