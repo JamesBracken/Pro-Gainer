@@ -142,6 +142,7 @@ i {
 }
 
 .bg-light-grey {
+.light-grey-bg {
     background-color: #EFF0F0;
 }
 
@@ -149,6 +150,9 @@ i {
     background-color: var(--clr-primary);
 }
 
+.black-bg {
+    background-color: var(--clr-black);
+}
 
 .sz-text-heading-1 {
     font-size: var(--fs-heading-1) !important;
@@ -198,6 +202,14 @@ i {
 
 .fw-text-regular {
     font-weight: var(--fw-regular);
+}
+
+.underline {
+    border-bottom: var(--clr-black) 1px solid;
+}
+
+.white-text {
+    color: var(--clr-white);
 }
 
 /* General button styles */
