@@ -1,3 +1,29 @@
 from django.db import models
+from django.contrib.auth.models import User
 
-# Create your models here.
+
+class Customer(models.Model):
+
+    # General user details models is heavily based off of the Code Institute
+    # Boutique Ado project. Obviously this information is used across
+    # majority of sites so not much if any tweaking involved
+    # Similarly we would like to have the user data for later uses like
+    # potential ads, promotions etc.
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    full_name = models.CharField(max_length=100, null=False, blank=False)
+    email_address = models.EmailField(max_length=250, null=False, blank=False)
+    phone_number = models.CharField(max_length=20, null=False, blank=False)
+    country = models.CharField(max_length=100, null=False, blank=False)
+    post_code = models.CharField(max_length=20, null=True, blank=True)
+    town_or_city = models.CharField(max_length=100, null=False, blank=False)
+    street_address_1 = models.CharField(max_length=200, null=False, blank=False)
+    street_address_2 = models.CharField(max_length=200, null=True, blank=True)
+    country = models.CharField(max_length=70, null=False, blank=False)
+
+    # The below models are for use in the functionality of the website
+    # and potential future upgrades
+    gym_location = models.CharField() # Create a choices variable for options
+    membership_type = models.CharField() # May use for future functionality, for now we default with 1 
+    is_member_active = models.BooleanField(default=False)
+    membership_start = models.DateTimeField()
+    next_payment_date = models.DateTimeField()
