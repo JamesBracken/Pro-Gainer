@@ -150,6 +150,36 @@ i {
 }
 
 
+.sz-text-heading-1 {
+    font-size: var(--fs-heading-1) !important;
+    /* 50px */
+}
+
+.sz-text-heading-2 {
+    font-size: var(--fs-heading-2) !important;
+    /* 40px */
+}
+
+.sz-text-heading-3 {
+    font-size: var(--fs-heading-3) !important;
+    /* 35px */
+}
+
+.sz-text-heading-4 {
+    font-size: var(--fs-heading-4) !important;
+    /* 30px */
+}
+
+.sz-text-subheading {
+    font-size: var(--fs-subheading) !important;
+    /* 20px */
+}
+
+.sz-text-body {
+    font-size: var(--fs-body) !important;
+    /* 16px */
+}
+
 .fw-text-extra-bold {
     font-weight: var(--fw-extra-bold);
 }
