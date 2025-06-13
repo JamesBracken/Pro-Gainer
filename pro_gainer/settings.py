@@ -58,6 +58,7 @@ INSTALLED_APPS = [
     'crispy_bootstrap5',
     # Project apps
     'exercise',
+    'membership',
 ]
 
 SITE_ID = 1

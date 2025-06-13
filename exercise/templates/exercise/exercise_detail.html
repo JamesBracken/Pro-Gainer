@@ -1,41 +1,31 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    {% comment %}Cards list section{% endcomment %}
-    <section class="container p-0">
-      <div class="row">
-        <div class="col-12">
-          <div class="d-flex justify-content-center">
-            <h1>{{ exercise.exercise_title }}</h1>
-          </div>
-          {% comment %}Image and key information section{% endcomment %}
-          <div>
-            <div class="row primary-clr-bg h-100">
-              <div class="col-6 p-0 h-100">
-                <img class="h-100" src="{{ exercise.image.url }}" alt="{{ exercise.exercise_title }}" />
-              </div>
-              <div class="col-6">
-                <h3 class="my-4 fw-light">Difficulty:{{ exercise.difficulty }}</h4>
-                <h3 class="my-4 fw-light">Intensity:{{ exercise.intensity }}</h4>
-                <h3 class="my-4 fw-light">Equipment:{{ exercise.equipment }}</h4>
-              </div>
+  {% comment %}Cards list section{% endcomment %}
+  <section class="container p-0">
+    <div class="row">
+      <div class="col-12">
+        <div class="d-flex justify-content-center">
+          <h1>{{ exercise.exercise_title }}</h1>
+        </div>
+        {% comment %}Image and key information section{% endcomment %}
+        <div>
+          <div class="row primary-clr-bg h-100">
+            <div class="col-6 p-0 h-100">
+              <img class="h-100" src="{{ exercise.image.url }}" alt="{{ exercise.exercise_title }}" />
+            </div>
+            <div class="col-6">
+              <h3 class="my-4 fw-light">Difficulty:{{ exercise.difficulty }}</h3>
+              <h3 class="my-4 fw-light">Intensity:{{ exercise.intensity }}</h3>
+              <h3 class="my-4 fw-light">Equipment:{{ exercise.equipment }}</h3>
             </div>
           </div>
-          {% comment %} <div class="d-flex justify-content-center">
-            <h1>{{ exercise.exercise_title }}</h1>
-          </div> {% endcomment %}
-          {% comment %} <img src="{{ exercise.image.url }}" alt="{{ exercise.exercise_title }}" /> {% endcomment %}
-          <h2>Instructions</h2>
-          <p>{{ exercise.instruction }}</p>
-          {% comment %} <p>
-            <strong>Difficulty:</strong>{{ exercise.difficulty }}
-          </p>
-          <p>
-            <strong>Intensity:</strong>{{ exercise.intensity }}
-          </p>
-          <p>
-            <strong>Equipment:</strong>{{ exercise.equipment }}
-          </p> {% endcomment %}
+        </div>
+        <h2>Instructions</h2>
+        <p>{{ exercise.instruction }}</p>
+
+        <section>
+          <h2>Additional information</h2>
           <p>
             <strong>Targeted muscles:</strong>{{ exercise.targeted_muscles }}
           </p>
@@ -45,9 +35,10 @@
           <p>
             <strong>Recommended sets and reps:</strong>{{ exercise.recommended_sets }} X {{ exercise.recommended_reps }} (sets X reps)
           </p>
-        </div>
+        </section>
       </div>
-    </section>
+    </div>
+  </section>
 
   {% comment %} {{ exercises }} {% endcomment %}
 {% endblock %}

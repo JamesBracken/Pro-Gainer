@@ -2,14 +2,22 @@ from django.shortcuts import render, get_object_or_404, redirect
 from .models import Exercise
 from .forms import ExerciseForm
 from django.contrib.admin.views.decorators import staff_member_required
-
+from django.core.paginator import Paginator
 
 def exercise_list(request):
     """
     Renders the exercise list page
     """
-    exercises = Exercise.objects.all()
-    return render(request, "exercise/exercise.html", {"exercises": exercises})
+    exercise_list = Exercise.objects.all()
+    # The pagination here was made with assistance from the django pagination docs
+    # https://docs.djangoproject.com/en/5.2/topics/pagination/
+
+    # Paginator controls will display 30 exercises from the list per page
+    paginator = Paginator(exercise_list, 30)
+
+    page_number = request.GET.get("page")
+    page_obj = paginator.get_page(page_number)
+    return render(request, "exercise/exercise_list.html", {"page_obj": page_obj})
 
 
 def exercise_detail(request, exercise_slug):

@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  {% comment %}Cards list section{% endcomment %}
+  <section class="container p-0 mt-5">
+    <div class="row d-flex justify-content-center">
+      <div class="col-12 col-md-10">
+        <div class="p-4">
+          <div class="row d-flex">
+            <div class="col-12 col-sm-6 black-bg d-flex justify-content-center">
+              <h1 class="white-text align-self-center text-center">Exercises List</h1>
+            </div>
+            <div class="col-12 col-sm-6 light-grey-bg d-flex justify-content-center">
+              <p class="sz-text-heading-2 align-self-center text-center">Select any card to get more details</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% comment %}This button is displayed to admins for them to add exercises to the list{% endcomment %}
+      {% if user.is_staff %}
+        <div class="col-12 mt-5 d-flex justify-content-center">
+          <a class="text-center button mt-5" href="{% url 'add_exercise_item' %}">Add Exercise</a>
+        </div>
+      {% endif %}
+      {% comment %}Loops through each exercise and creates a card to display each one{% endcomment %}
+      {% for exercise in page_obj %}
+        <div class="col-12 col-md-6 col-xl-4 p-0">
+          <div class="p-5 h-100">
+            <div class="row exercise-item-content-container h-100">
+              <a href="{% url 'exercise_detail' exercise.slug %}" class="p-0">
+                <div class="col-12 h-100">
+                  <img class="exercise-item-image w-100" src="{{ exercise.image.url }}" alt="{{ exercise.exercise_title }}" />
+                  <div class="px-3 py-1">
+                    <h3 class="my-3 exercise-item-header w-100 pb-3">{{ exercise.exercise_title }}</h3>
+                    <p class="mt-2">Muscles targeted: {{ exercise.targeted_muscles }}</p>
+                    <p class="mt-2">Equipment: {{ exercise.equipment }}</p>
+                    <p class="mt-2">Difficulty: {{ exercise.difficulty }}</p>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+      {% comment %} The pagination controls was made with assistance from the django pagination docs
+      https://docs.djangoproject.com/en/5.2/topics/pagination/ {% endcomment %}
+      <div class="col-12">
+        <div class="pagination justify-content-center">
+          <span class="step-links">
+            {% if page_obj.has_previous %}
+              <a class="mx-1 mx-sm-2 underline" href="?page=1">&laquo; first</a>
+              <a class="mx-1 mx-sm-2 underline" href="?page={{ page_obj.previous_page_number }}">previous</a>
+            {% endif %}
+
+            <span class="current mx-1 mx-sm-3">Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</span>
+
+            {% if page_obj.has_next %}
+              <a class="mx-1 mx-sm-2 underline" href="?page={{ page_obj.next_page_number }}">next</a>
+              <a class="mx-1 mx-sm-2 underline" href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+            {% endif %}
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {% comment %} {{ exercises }} {% endcomment %}
+{% endblock %}
+
+{% comment %}
+{{ exercise.exercise_title }}
+{{ exercise.image.url }}
+{{ exercise.difficulty }}
+{{ exercise.intensity }}
+{{ exercise.instruction }}
+{{ exercise.equipment }}
+{{ exercise.targeted_muscles }}
+{{ exercise.indirectly_targeted_muscles }}
+{{ exercise.slug }}
+{{ exercise.recommended_sets }}
+{{ exercise.recommended_reps }}
+{% endcomment %}

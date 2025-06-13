@@ -34,6 +34,7 @@ https://github.com/JamesBracken/Ember-Ash
     --fw-extra-bold: 800;
     --fw-bold: 700;
     --fw-semi-bold: 550;
+    --fw-medium: 425
     --fw-regular: 300;
 
     --border-radius: 10px;
@@ -41,7 +42,7 @@ https://github.com/JamesBracken/Ember-Ash
     --transition-duration: 0.3s;
 }
 
-/* GLOBAL STYLES */
+/* GLOBAL STYLES----------------------------- */
 /* setting all styles across the website here to increase uniformity
 across the code and reduce unexpected behaviours and styles */
 
@@ -55,7 +56,6 @@ html {
 body {
     padding-top: 100px;
     max-width: 2500px !important;
-    /* height: 100vh; */
     display: flex;
     flex-direction: column;
 }
@@ -67,21 +67,25 @@ footer {
 h1 {
     font-size: var(--fs-heading-1) !important;
     font-family: var(--text-primary);
+    font-weight: var(--fw-semi-bold);
 }
 
 h2 {
     font-size: var(--fs-heading-2) !important;
     font-family: var(--text-primary);
+    font-weight: var(--fw-medium);
 }
 
 h3 {
     font-size: var(--fs-heading-3) !important;
     font-family: var(--text-primary);
+    font-weight: var(--fw-medium);
 }
 
 h4 {
     font-size: var(--fs-heading-4) !important;
     font-family: var(--text-primary);
+    font-weight: var(--fw-medium);
 }
 
 .subheading {
@@ -141,12 +145,78 @@ i {
     display: inline-block;
 }
 
-.bg-light-grey {
+/* REUSABLE STYLES----------------------------------- */
+/* Background styles */
+.light-grey-bg {
     background-color: #EFF0F0;
 }
 
 .primary-clr-bg {
     background-color: var(--clr-primary);
+}
+
+.black-bg {
+    background-color: var(--clr-black);
+}
+
+/* Text size styles */
+.sz-text-heading-1 {
+    font-size: var(--fs-heading-1) !important;
+    /* 50px */
+}
+
+.sz-text-heading-2 {
+    font-size: var(--fs-heading-2) !important;
+    /* 40px */
+}
+
+.sz-text-heading-3 {
+    font-size: var(--fs-heading-3) !important;
+    /* 35px */
+}
+
+.sz-text-heading-4 {
+    font-size: var(--fs-heading-4) !important;
+    /* 30px */
+}
+
+.sz-text-subheading {
+    font-size: var(--fs-subheading) !important;
+    /* 20px */
+}
+
+.sz-text-body {
+    font-size: var(--fs-body) !important;
+    /* 16px */
+}
+
+/* Font weight styles */
+.fw-text-extra-bold {
+    font-weight: var(--fw-extra-bold);
+}
+
+.fw-text-bold {
+    font-weight: var(--fw-bold);
+}
+
+.fw-text-semi-bold {
+    font-weight: var(--fw-semi-bold);
+}
+
+.fw-text-medium {
+    font-weight: var(--fw-medium);
+}
+
+.fw-text-regular {
+    font-weight: var(--fw-regular);
+}
+
+.underline {
+    border-bottom: var(--clr-black) 1px solid;
+}
+
+.white-text {
+    color: var(--clr-white);
 }
 
 /* General button styles */
@@ -174,11 +244,8 @@ input {
     border-bottom: #454545 1px solid;
 }
 
-.underline {
-    border-bottom: var(--clr-black) 1px solid;
-}
 
-/* HEADER STYLES */
+/* HEADER STYLES--------------------- */
 
 header {
     box-shadow: var(--box-shadow);
@@ -219,7 +286,7 @@ header {
 }
 
 .dropdown-menu {
-    border-radius: 0!important;
+    border-radius: 0 !important;
 }
 
 /* Adding separate styles for the CTA to attract attention */
