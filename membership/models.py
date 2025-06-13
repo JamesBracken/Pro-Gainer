@@ -2,8 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 
 
-class Customer(models.Model):
-
+class Membership(models.Model):
     # General user details models is heavily based off of the Code Institute
     # Boutique Ado project. Obviously this information is used across
     # majority of sites so not much if any tweaking involved
