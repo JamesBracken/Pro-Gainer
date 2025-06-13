@@ -13,7 +13,7 @@ def exercise_list(request):
     # https://docs.djangoproject.com/en/5.2/topics/pagination/
 
     # Paginator controls will display 30 exercises from the list per page
-    paginator = Paginator(exercise_list, 30)
+    paginator = Paginator(exercise_list, 3)
 
     page_number = request.GET.get("page")
     page_obj = paginator.get_page(page_number)

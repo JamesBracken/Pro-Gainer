@@ -22,7 +22,7 @@
           <a class="text-center button mt-5" href="{% url 'add_exercise_item' %}">Add Exercise</a>
         </div>
       {% endif %}
-      {% comment %} Loops through each exercise and creates a card to display each one {% endcomment %}
+      {% comment %}Loops through each exercise and creates a card to display each one{% endcomment %}
       {% for exercise in page_obj %}
         <div class="col-12 col-md-6 col-xl-4 p-0">
           <div class="p-5 h-100">
@@ -42,6 +42,25 @@
           </div>
         </div>
       {% endfor %}
+      {% comment %} The pagination controls was made with assistance from the django pagination docs
+      https://docs.djangoproject.com/en/5.2/topics/pagination/ {% endcomment %}
+      <div class="col-12">
+        <div class="pagination justify-content-center">
+          <span class="step-links">
+            {% if page_obj.has_previous %}
+              <a href="?page=1">&laquo; first</a>
+              <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+            {% endif %}
+
+            <span class="current">Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.</span>
+
+            {% if page_obj.has_next %}
+              <a href="?page={{ page_obj.next_page_number }}">next</a>
+              <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+            {% endif %}
+          </span>
+        </div>
+      </div>
     </div>
   </section>
 
