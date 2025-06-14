@@ -65,3 +65,10 @@ def edit_exercise_item(request, exercise_slug):
             "exercise_form": exercise_form,
         }
         return render(request, template, context)
+
+
+@staff_member_required
+def delete_exercise_item(request, exercise_slug):
+    exercise = get_object_or_404(Exercise, slug=exercise_slug)
+    exercise.delete()
+    return redirect("exercise_list")
