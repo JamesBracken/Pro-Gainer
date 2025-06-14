@@ -139,6 +139,17 @@ def delete_exercise_item(request, exercise_slug):
 
 
 @login_required
+def favourite_exercise_list(request):
+    # Change to queryset and limit the passed data to the logged in user
+    favourite_exercises = FavouriteExercises.objects.all()
+    context = {
+        "exercises": favourite_exercises,
+    }
+    # template = 
+    return render(request, "exercise/favourite_exercises_list.html", context)
+
+
+@login_required
 def add_favourite_exercise(request, exercise_id):
     if request.method == "POST":
         add_exercise_form = AddFavouriteExerciseForm(request.POST)
