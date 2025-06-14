@@ -32,3 +32,9 @@ class ExerciseForm(forms.ModelForm):
             "indirectly_targeted_muscles",
             "equipment",
         )
+
+class AddFavouriteExerciseForm(forms.ModelForm):
+    fields = (
+        "exercise_id",
+        "user_id",
+    )
