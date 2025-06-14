@@ -81,6 +81,20 @@ def add_exercise_item(request):
 
 @staff_member_required
 def edit_exercise_item(request, exercise_slug):
+    """
+    Displays a form for admins to edit an existing instance of :model:`exercise.Exercise`
+
+    **Context**
+
+    ``exercise``
+        The selected instance of :model:`exercise.Exercise`
+    ``exercise_form``
+        An instance of :form:`exercise.ExerciseForm`
+
+    **Template**
+
+    `exercise/exercise_form.html
+    """
     exercise = get_object_or_404(Exercise, slug=exercise_slug)
     if request.method == "POST":
         exercise_form = ExerciseForm(request.POST, request.FILES, instance=exercise)
