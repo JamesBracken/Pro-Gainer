@@ -221,8 +221,9 @@ i {
 
 /* General button styles */
 
-body button,
-.button {
+.container button,
+.button,
+.red-btn {
     margin: 0 !important;
     color: var(--clr-white);
     padding: 9px 24px;
@@ -233,8 +234,9 @@ body button,
     margin: 10px 0 !important;
 }
 
-body button:hover,
-.button:hover {
+.container button:hover,
+.button:hover,
+.red-btn:hover {
     background-color: #c80a0a;
     transition: 500ms ease-in-out;
 }
@@ -244,6 +246,28 @@ input {
     border-bottom: #454545 1px solid;
 }
 
+.blue-btn {
+    margin: 0 !important;
+    color: var(--clr-white);
+    padding: 9px 24px;
+    font-weight: var(--fw-semi-bold);
+    background-color: rgb(41, 41, 155);
+    border-radius: 0;
+    border: 0;
+    margin: 10px 0 !important;
+}
+
+/* Messages styles */
+
+.error {
+    background-color: #ffb6b9;
+    border: #ff2b32;
+}
+
+.success {
+    background-color: #d1e7dd;
+    border: #badbcc;
+}
 
 /* HEADER STYLES--------------------- */
 
@@ -362,6 +386,18 @@ header {
     background-color: var(--clr-primary);
 }
 
+
+/* Bootstrap modal styles */
+
+.modal {
+    z-index: 999;
+    margin-top: 30px;
+    padding-top: 40px;
+}
+
+.modal-backdrop {
+    z-index: 998;
+}
 @media screen and (min-width: 576px) {
     .home-descriptions-card {
         height: 280px;

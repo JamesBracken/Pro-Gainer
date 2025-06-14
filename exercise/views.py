@@ -3,10 +3,21 @@ from .models import Exercise
 from .forms import ExerciseForm
 from django.contrib.admin.views.decorators import staff_member_required
 from django.core.paginator import Paginator
+from django.contrib import messages
+
 
 def exercise_list(request):
     """
     Renders the exercise list page
+
+    **Context**
+
+    ``page_obj``
+        List of up to 30 instances of :model:`exercise.Exercise`
+
+    **Template**
+
+    ``exercise/exercise_list.html``
     """
     exercise_list = Exercise.objects.all()
     # The pagination here was made with assistance from the django pagination docs
@@ -22,7 +33,17 @@ def exercise_list(request):
 
 def exercise_detail(request, exercise_slug):
     """
-    Renders the exercise list page
+    Renders the exercise detail page
+
+    **Context**
+
+    ``exercise``
+        Instance of :model:`exercise.Exercise`
+
+    **Template**
+
+    ``exercise/exercise_detail.html``
+
     """
     exercise = get_object_or_404(Exercise, slug=exercise_slug)
 
@@ -31,12 +52,93 @@ def exercise_detail(request, exercise_slug):
 
 @staff_member_required
 def add_exercise_item(request):
+    """
+    Displays a form for admins to create a new instance of :model:`exercise.Exercise`
 
+    **Context**
+
+    ``exercise_form``
+        An instance of :form:`exercise.ExerciseForm`
+
+    **Template**
+
+    `exercise/exercise_form.html
+    """
     if request.method == "POST":
         exercise_form = ExerciseForm(request.POST, request.FILES)
         if exercise_form.is_valid():
             exercise_form.save()
+            messages.add_message(
+                request, messages.SUCCESS, "Exercise has been added"
+            )
+        else:
+            messages.add_message(
+                request, messages.ERROR, "Error adding exercise"
+            )
         return redirect("exercise_list")
     else:
         exercise_form = ExerciseForm()
-        return render(request, "exercise/exercise_form.html", {"exercise_form": exercise_form,})
+        return render(
+            request,
+            "exercise/exercise_form.html",
+            {
+                "exercise_form": exercise_form,
+            },
+        )
+
+
+@staff_member_required
+def edit_exercise_item(request, exercise_slug):
+    """
+    Displays a form for admins to edit an existing instance of :model:`exercise.Exercise`
+
+    **Context**
+
+    ``exercise``
+        The selected instance of :model:`exercise.Exercise`
+    ``exercise_form``
+        An instance of :form:`exercise.ExerciseForm`
+
+    **Template**
+
+    `exercise/exercise_form.html
+    """
+    exercise = get_object_or_404(Exercise, slug=exercise_slug)
+    if request.method == "POST":
+        exercise_form = ExerciseForm(request.POST, request.FILES, instance=exercise)
+        if exercise_form.is_valid():
+            exercise_form.save()
+            messages.add_message(
+                    request, messages.SUCCESS, "Exercise has been edited"
+                )
+        else:
+            messages.add_message(
+                    request, messages.ERROR, "Error editing exercise"
+                )
+        return redirect("exercise_detail", exercise_slug=exercise.slug)
+    else:
+        exercise_form = ExerciseForm(instance=exercise)
+        template = "exercise/exercise_form.html"
+        context = {
+            "exercise_form": exercise_form,
+        }
+        return render(request, template, context)
+
+
+@staff_member_required
+def delete_exercise_item(request, exercise_slug):
+    """
+    Deletes an instance of :model:`exercise.Exercise`
+
+    **Context**
+
+    ``exercise``
+        An instance of :model:`exercise.Exercise
+    """
+
+    exercise = get_object_or_404(Exercise, slug=exercise_slug)
+    exercise.delete()
+    messages.add_message(
+                    request, messages.SUCCESS, "Exercise has been deleted"
+                )
+    return redirect("exercise_list")
