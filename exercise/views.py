@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Exercise
+from .models import Exercise, FavouriteExercises
 from .forms import ExerciseForm, AddFavouriteExerciseForm
 from django.contrib.admin.views.decorators import staff_member_required
 from django.contrib.auth.decorators import login_required
@@ -47,8 +47,11 @@ def exercise_detail(request, exercise_slug):
 
     """
     exercise = get_object_or_404(Exercise, slug=exercise_slug)
-
-    return render(request, "exercise/exercise_detail.html", {"exercise": exercise})
+    add_exercise_form = AddFavouriteExerciseForm
+    context = {
+        "exercise": exercise,
+        "add_exercise_form": add_exercise_form,}
+    return render(request, "exercise/exercise_detail.html", context)
 
 
 @staff_member_required
@@ -69,13 +72,9 @@ def add_exercise_item(request):
         exercise_form = ExerciseForm(request.POST, request.FILES)
         if exercise_form.is_valid():
             exercise_form.save()
-            messages.add_message(
-                request, messages.SUCCESS, "Exercise has been added"
-            )
+            messages.add_message(request, messages.SUCCESS, "Exercise has been added")
         else:
-            messages.add_message(
-                request, messages.ERROR, "Error adding exercise"
-            )
+            messages.add_message(request, messages.ERROR, "Error adding exercise")
         return redirect("exercise_list")
     else:
         exercise_form = ExerciseForm()
@@ -109,13 +108,9 @@ def edit_exercise_item(request, exercise_slug):
         exercise_form = ExerciseForm(request.POST, request.FILES, instance=exercise)
         if exercise_form.is_valid():
             exercise_form.save()
-            messages.add_message(
-                    request, messages.SUCCESS, "Exercise has been edited"
-                )
+            messages.add_message(request, messages.SUCCESS, "Exercise has been edited")
         else:
-            messages.add_message(
-                    request, messages.ERROR, "Error editing exercise"
-                )
+            messages.add_message(request, messages.ERROR, "Error editing exercise")
         return redirect("exercise_detail", exercise_slug=exercise.slug)
     else:
         exercise_form = ExerciseForm(instance=exercise)
@@ -139,9 +134,7 @@ def delete_exercise_item(request, exercise_slug):
 
     exercise = get_object_or_404(Exercise, slug=exercise_slug)
     exercise.delete()
-    messages.add_message(
-                    request, messages.SUCCESS, "Exercise has been deleted"
-                )
+    messages.add_message(request, messages.SUCCESS, "Exercise has been deleted")
     return redirect("exercise_list")
 
 
