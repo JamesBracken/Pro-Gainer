@@ -7,8 +7,8 @@
       <div class="container my-4 mx-3">
         <div class="row">
           <div class="col-12 d-flex justify-content-center">
-            <a href="{% url 'edit_exercise_item' exercise.slug %}" class="blue-btn text-center">Edit exercise</a>
-            <button type="button" data-bs-toggle="modal" data-bs-target="#deleteConfirmationModal">Delete Exercise</button>
+            <a href="{% url 'edit_exercise_item' exercise.slug %}" class="blue-btn text-center mx-3">Edit exercise</a>
+            <button type="button" data-bs-toggle="modal" data-bs-target="#deleteConfirmationModal" class="mx-3">Delete Exercise</button>
           </div>
         </div>
       </div>
@@ -16,7 +16,7 @@
   {% endif %}
 
   {% comment %}Cards list section{% endcomment %}
-  <section class="container p-0">
+  <section class="container p-4">
     <div class="row">
       <div class="col-12">
         <div class="d-flex justify-content-center">
@@ -25,10 +25,10 @@
         {% comment %}Image and key information section{% endcomment %}
         <div>
           <div class="row primary-clr-bg h-100">
-            <div class="col-6 p-0 h-100">
+            <div class="col-12 col-sm-6 p-0 h-100">
               <img class="h-100" src="{{ exercise.image.url }}" alt="{{ exercise.exercise_title }}" />
             </div>
-            <div class="col-6">
+            <div class="col-12 col-sm-6">
               <h3 class="my-4 fw-light">Difficulty:{{ exercise.difficulty }}</h3>
               <h3 class="my-4 fw-light">Intensity:{{ exercise.intensity }}</h3>
               <h3 class="my-4 fw-light">Equipment:{{ exercise.equipment }}</h3>
