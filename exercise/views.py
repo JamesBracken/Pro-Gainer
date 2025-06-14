@@ -4,6 +4,7 @@ from .forms import ExerciseForm
 from django.contrib.admin.views.decorators import staff_member_required
 from django.core.paginator import Paginator
 
+
 def exercise_list(request):
     """
     Renders the exercise list page
@@ -39,25 +40,29 @@ def add_exercise_item(request):
         return redirect("exercise_list")
     else:
         exercise_form = ExerciseForm()
-        return render(request, "exercise/exercise_form.html", {"exercise_form": exercise_form,})
+        return render(
+            request,
+            "exercise/exercise_form.html",
+            {
+                "exercise_form": exercise_form,
+            },
+        )
 
 
 @staff_member_required
 def edit_exercise_item(request, exercise_slug):
-
+    exercise = get_object_or_404(Exercise, slug=exercise_slug)
     if request.method == "POST":
-        exercise = get_object_or_404(Exercise, slug=exercise_slug)
-        exercise_form = ExerciseForm(request.POST, request.FILES)
+        exercise_form = ExerciseForm(request.POST, request.FILES, instance=exercise)
         if exercise_form.is_valid():
             exercise_form.save()
-        # Later this will be adjusted to return the user to 
+        # Later this will be adjusted to return the user to
         # The same page of the exercise which has been edited
         return redirect("exercise_list")
     else:
-        exercise_form = ExerciseForm()
-        selected_exercise_data = get_object_or_404(Exercise, slug=exercise_slug)
+        exercise_form = ExerciseForm(instance=exercise)
         template = "exercise/exercise_form.html"
         context = {
-            "exercise": selected_exercise_data,
+            "exercise_form": exercise_form,
         }
         return render(request, template, context)
