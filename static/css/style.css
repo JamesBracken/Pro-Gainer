@@ -257,6 +257,17 @@ input {
     margin: 10px 0 !important;
 }
 
+/* Messages styles */
+
+.error {
+    background-color: #ffb6b9;
+    border: #ff2b32;
+}
+
+.success {
+    background-color: #d1e7dd;
+    border: #badbcc;
+}
 
 /* HEADER STYLES--------------------- */
 
