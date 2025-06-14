@@ -114,6 +114,15 @@ def edit_exercise_item(request, exercise_slug):
 
 @staff_member_required
 def delete_exercise_item(request, exercise_slug):
+    """
+    Deletes an instance of :model:`exercise.Exercise`
+
+    **Context**
+
+    ``exercise``
+        An instance of :model:`exercise.Exercise
+    """
+
     exercise = get_object_or_404(Exercise, slug=exercise_slug)
     exercise.delete()
     return redirect("exercise_list")
