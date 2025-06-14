@@ -40,3 +40,24 @@ def add_exercise_item(request):
     else:
         exercise_form = ExerciseForm()
         return render(request, "exercise/exercise_form.html", {"exercise_form": exercise_form,})
+
+
+@staff_member_required
+def edit_exercise_item(request, exercise_slug):
+
+    if request.method == "POST":
+        exercise = get_object_or_404(Exercise, slug=exercise_slug)
+        exercise_form = ExerciseForm(request.POST, request.FILES)
+        if exercise_form.is_valid():
+            exercise_form.save()
+        # Later this will be adjusted to return the user to 
+        # The same page of the exercise which has been edited
+        return redirect("exercise_list")
+    else:
+        exercise_form = ExerciseForm()
+        selected_exercise_data = get_object_or_404(Exercise, slug=exercise_slug)
+        template = "exercise/exercise_form.html"
+        context = {
+            "exercise": selected_exercise_data,
+        }
+        return render(request, template, context)
