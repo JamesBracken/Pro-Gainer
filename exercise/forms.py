@@ -1,5 +1,5 @@
 from django import forms
-from .models import Exercise
+from .models import Exercise, FavouriteExercises
 
 
 class ExerciseForm(forms.ModelForm):
@@ -31,4 +31,11 @@ class ExerciseForm(forms.ModelForm):
             "targeted_muscles",
             "indirectly_targeted_muscles",
             "equipment",
+        )
+
+class AddFavouriteExerciseForm(forms.ModelForm):
+    class Meta:
+        model = FavouriteExercises
+        fields = (
+            "exercise_id",
         )

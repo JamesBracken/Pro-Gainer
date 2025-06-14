@@ -1,7 +1,7 @@
 from django.db import models
 from cloudinary.models import CloudinaryField
 from django.utils.text import slugify
-
+from django.contrib.auth.models import User
 
 class Exercise(models.Model):
     """
@@ -37,3 +37,9 @@ class Exercise(models.Model):
             self.slug = slugify(str(self.exercise_title))
             return super().save(*args, **kwargs)
         super().save(*args, **kwargs)
+
+
+class FavouriteExercises(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    exercise_id = models.ForeignKey(Exercise, on_delete=models.CASCADE)
+    added_at = models.DateTimeField(auto_now_add=True)

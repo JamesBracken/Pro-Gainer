@@ -1,7 +1,8 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Exercise
-from .forms import ExerciseForm
+from .models import Exercise, FavouriteExercises
+from .forms import ExerciseForm, AddFavouriteExerciseForm
 from django.contrib.admin.views.decorators import staff_member_required
+from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
 from django.contrib import messages
 
@@ -46,8 +47,11 @@ def exercise_detail(request, exercise_slug):
 
     """
     exercise = get_object_or_404(Exercise, slug=exercise_slug)
-
-    return render(request, "exercise/exercise_detail.html", {"exercise": exercise})
+    add_exercise_form = AddFavouriteExerciseForm
+    context = {
+        "exercise": exercise,
+        "add_exercise_form": add_exercise_form,}
+    return render(request, "exercise/exercise_detail.html", context)
 
 
 @staff_member_required
@@ -68,13 +72,9 @@ def add_exercise_item(request):
         exercise_form = ExerciseForm(request.POST, request.FILES)
         if exercise_form.is_valid():
             exercise_form.save()
-            messages.add_message(
-                request, messages.SUCCESS, "Exercise has been added"
-            )
+            messages.add_message(request, messages.SUCCESS, "Exercise has been added")
         else:
-            messages.add_message(
-                request, messages.ERROR, "Error adding exercise"
-            )
+            messages.add_message(request, messages.ERROR, "Error adding exercise")
         return redirect("exercise_list")
     else:
         exercise_form = ExerciseForm()
@@ -108,13 +108,9 @@ def edit_exercise_item(request, exercise_slug):
         exercise_form = ExerciseForm(request.POST, request.FILES, instance=exercise)
         if exercise_form.is_valid():
             exercise_form.save()
-            messages.add_message(
-                    request, messages.SUCCESS, "Exercise has been edited"
-                )
+            messages.add_message(request, messages.SUCCESS, "Exercise has been edited")
         else:
-            messages.add_message(
-                    request, messages.ERROR, "Error editing exercise"
-                )
+            messages.add_message(request, messages.ERROR, "Error editing exercise")
         return redirect("exercise_detail", exercise_slug=exercise.slug)
     else:
         exercise_form = ExerciseForm(instance=exercise)
@@ -138,7 +134,31 @@ def delete_exercise_item(request, exercise_slug):
 
     exercise = get_object_or_404(Exercise, slug=exercise_slug)
     exercise.delete()
-    messages.add_message(
-                    request, messages.SUCCESS, "Exercise has been deleted"
-                )
+    messages.add_message(request, messages.SUCCESS, "Exercise has been deleted")
     return redirect("exercise_list")
+
+
+@login_required
+def favourite_exercise_list(request):
+    # Change to queryset and limit the passed data to the logged in user
+    favourite_exercises = FavouriteExercises.objects.all()
+    context = {
+        "exercises": favourite_exercises,
+    }
+    # template = 
+    return render(request, "exercise/favourite_exercises_list.html", context)
+
+
+@login_required
+def add_favourite_exercise(request, exercise_id):
+    exercise = get_object_or_404(Exercise, id=exercise_id)
+    exercise_slug = exercise.slug
+    if request.method == "POST":
+        add_exercise_form = AddFavouriteExerciseForm(request.POST)
+        if add_exercise_form.is_valid():
+            favourite_exercise = add_exercise_form.save(commit=False)
+            favourite_exercise.user = request.user
+            add_exercise_form.save()
+            
+            return redirect("exercise_detail", exercise_slug)
+    return redirect("exercise_detail", exercise_slug)
