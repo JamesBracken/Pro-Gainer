@@ -1,5 +1,5 @@
 from django import forms
-from .models import Exercise
+from .models import Exercise, FavouriteExercises
 
 
 class ExerciseForm(forms.ModelForm):
@@ -34,7 +34,8 @@ class ExerciseForm(forms.ModelForm):
         )
 
 class AddFavouriteExerciseForm(forms.ModelForm):
-    fields = (
-        "exercise_id",
-        "user_id",
-    )
+    class Meta:
+        model = FavouriteExercises
+        fields = (
+            "exercise_id",
+        )
