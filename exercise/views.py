@@ -3,6 +3,7 @@ from .models import Exercise
 from .forms import ExerciseForm
 from django.contrib.admin.views.decorators import staff_member_required
 from django.core.paginator import Paginator
+from django.contrib import messages
 
 
 def exercise_list(request):
@@ -42,7 +43,7 @@ def exercise_detail(request, exercise_slug):
     **Template**
 
     ``exercise/exercise_detail.html``
-    
+
     """
     exercise = get_object_or_404(Exercise, slug=exercise_slug)
 
@@ -67,6 +68,13 @@ def add_exercise_item(request):
         exercise_form = ExerciseForm(request.POST, request.FILES)
         if exercise_form.is_valid():
             exercise_form.save()
+            messages.add_message(
+                request, messages.SUCCESS, "Exercise has been added"
+            )
+        else:
+            messages.add_message(
+                request, messages.ERROR, "Error adding exercise"
+            )
         return redirect("exercise_list")
     else:
         exercise_form = ExerciseForm()
@@ -100,8 +108,13 @@ def edit_exercise_item(request, exercise_slug):
         exercise_form = ExerciseForm(request.POST, request.FILES, instance=exercise)
         if exercise_form.is_valid():
             exercise_form.save()
-        # Later this will be adjusted to return the user to
-        # The same page of the exercise which has been edited
+            messages.add_message(
+                    request, messages.SUCCESS, "Exercise has been edited"
+                )
+        else:
+            messages.add_message(
+                    request, messages.ERROR, "Error editing exercise"
+                )
         return redirect("exercise_detail", exercise_slug=exercise.slug)
     else:
         exercise_form = ExerciseForm(instance=exercise)
@@ -125,4 +138,7 @@ def delete_exercise_item(request, exercise_slug):
 
     exercise = get_object_or_404(Exercise, slug=exercise_slug)
     exercise.delete()
+    messages.add_message(
+                    request, messages.SUCCESS, "Exercise has been deleted"
+                )
     return redirect("exercise_list")
