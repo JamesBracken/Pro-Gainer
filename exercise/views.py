@@ -51,6 +51,18 @@ def exercise_detail(request, exercise_slug):
 
 @staff_member_required
 def add_exercise_item(request):
+    """
+    Displays a form for admins to create a new instance of :model:`exercise.Exercise`
+
+    **Context**
+
+    ``exercise_form``
+        An instance of :form:`exercise.ExerciseForm`
+
+    **Template**
+
+    `exercise/exercise_form.html
+    """
     if request.method == "POST":
         exercise_form = ExerciseForm(request.POST, request.FILES)
         if exercise_form.is_valid():
