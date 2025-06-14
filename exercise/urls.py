@@ -6,4 +6,5 @@ urlpatterns = [
     path('<exercise_slug>', views.exercise_detail, name='exercise_detail'),
     path('add_exercise_item/', views.add_exercise_item, name='add_exercise_item'),
     path('edit_exercise_item/<exercise_slug>', views.edit_exercise_item, name='edit_exercise_item'),
+    path('delete_exercise_item/<exercise_slug>', views.delete_exercise_item, name='delete_exercise_item'),
 ]
