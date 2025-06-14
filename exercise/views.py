@@ -32,7 +32,17 @@ def exercise_list(request):
 
 def exercise_detail(request, exercise_slug):
     """
-    Renders the exercise list page
+    Renders the exercise detail page
+
+    **Context**
+
+    ``exercise``
+        Instance of :model:`exercise.Exercise`
+
+    **Template**
+
+    ``exercise/exercise_detail.html``
+    
     """
     exercise = get_object_or_404(Exercise, slug=exercise_slug)
 
