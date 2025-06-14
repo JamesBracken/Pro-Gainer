@@ -8,6 +8,15 @@ from django.core.paginator import Paginator
 def exercise_list(request):
     """
     Renders the exercise list page
+
+    **Context**
+
+    ``page_obj``
+        List of up to 30 instances of :model:`exercise.Exercise`
+
+    **Template**
+
+    ``exercise/exercise_list.html``
     """
     exercise_list = Exercise.objects.all()
     # The pagination here was made with assistance from the django pagination docs
