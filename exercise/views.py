@@ -1,7 +1,8 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Exercise
-from .forms import ExerciseForm
+from .forms import ExerciseForm, AddFavouriteExerciseForm
 from django.contrib.admin.views.decorators import staff_member_required
+from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
 from django.contrib import messages
 
@@ -142,3 +143,14 @@ def delete_exercise_item(request, exercise_slug):
                     request, messages.SUCCESS, "Exercise has been deleted"
                 )
     return redirect("exercise_list")
+
+
+@login_required
+def add_favourite_exercise(request, exercise_id):
+    if request.method == "POST":
+        add_exercise_form = AddFavouriteExerciseForm(request.POST)
+        if add_exercise_form.is_valid():
+            favourite_exercise = add_exercise_form.save(commit=False)
+            favourite_exercise.user = request.user
+            add_exercise_form.save()
+            return render()
