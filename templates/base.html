@@ -101,7 +101,9 @@
 
     <main class="h-100">
       {% comment %}Message code taken from Code institute Codestar practice project which was done in the course{% endcomment %}
-      <div class="container">
+      {% comment %} Purposefully not using .container here to 
+      prevent button style effects {% endcomment %}
+      <div>
         <div class="row">
           <div class="col-md-8 offset-md-2">
             {% for message in messages %}
