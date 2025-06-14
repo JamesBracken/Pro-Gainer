@@ -32,7 +32,6 @@ def exercise_detail(request, exercise_slug):
 
 @staff_member_required
 def add_exercise_item(request):
-
     if request.method == "POST":
         exercise_form = ExerciseForm(request.POST, request.FILES)
         if exercise_form.is_valid():
@@ -58,7 +57,7 @@ def edit_exercise_item(request, exercise_slug):
             exercise_form.save()
         # Later this will be adjusted to return the user to
         # The same page of the exercise which has been edited
-        return redirect("exercise_list")
+        return redirect("exercise_detail", exercise_slug=exercise.slug)
     else:
         exercise_form = ExerciseForm(instance=exercise)
         template = "exercise/exercise_form.html"
