@@ -151,10 +151,14 @@ def favourite_exercise_list(request):
 
 @login_required
 def add_favourite_exercise(request, exercise_id):
+    exercise = get_object_or_404(Exercise, id=exercise_id)
+    exercise_slug = exercise.slug
     if request.method == "POST":
         add_exercise_form = AddFavouriteExerciseForm(request.POST)
         if add_exercise_form.is_valid():
             favourite_exercise = add_exercise_form.save(commit=False)
             favourite_exercise.user = request.user
             add_exercise_form.save()
-            return render()
+            
+            return redirect("exercise_detail", exercise_slug)
+    return redirect("exercise_detail", exercise_slug)
