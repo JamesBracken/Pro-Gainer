@@ -2,7 +2,7 @@
 
 {% block content %}
   {% comment %}Admin section{% endcomment %}
-  {% if request.user == is_staff %}
+  {% if user.is_staff %}
     <section>
       <div class="container">
         <div class="row">
