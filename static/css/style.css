@@ -244,6 +244,16 @@ input {
     border-bottom: #454545 1px solid;
 }
 
+.blue-btn {
+    margin: 0 !important;
+    color: var(--clr-white);
+    padding: 9px 24px;
+    font-weight: var(--fw-semi-bold);
+    background-color: rgb(41, 41, 155);
+    border-radius: 0;
+    border: 0;
+    margin: 10px 0 !important;
+}
 
 /* HEADER STYLES--------------------- */
 
