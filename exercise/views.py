@@ -47,10 +47,15 @@ def exercise_detail(request, exercise_slug):
 
     """
     exercise = get_object_or_404(Exercise, slug=exercise_slug)
-    add_exercise_form = AddFavouriteExerciseForm(initial={"exercise_id": exercise,})
+    add_exercise_form = AddFavouriteExerciseForm(
+        initial={
+            "exercise_id": exercise,
+        }
+    )
     context = {
         "exercise": exercise,
-        "add_exercise_form": add_exercise_form,}
+        "add_exercise_form": add_exercise_form,
+    }
     return render(request, "exercise/exercise_detail.html", context)
 
 
@@ -145,7 +150,6 @@ def favourite_exercise_list(request):
     context = {
         "exercises": favourite_exercises,
     }
-    # template = 
     return render(request, "exercise/favourite_exercises_list.html", context)
 
 
@@ -153,12 +157,14 @@ def favourite_exercise_list(request):
 def add_favourite_exercise(request, exercise_id):
     exercise = get_object_or_404(Exercise, id=exercise_id)
     exercise_slug = exercise.slug
-    if request.method == "POST":
-        add_exercise_form = AddFavouriteExerciseForm(request.POST)
-        if add_exercise_form.is_valid():
-            favourite_exercise = add_exercise_form.save(commit=False)
-            favourite_exercise.user = request.user
-            add_exercise_form.save()
-            
+    is_exercise_favourite = FavouriteExercises.objects.filter(user=request.user, exercise_id=exercise_id).exists()
+    if(is_exercise_favourite):
+        favourite_exercise = FavouriteExercises.objects.filter(user=request.user, exercise_id=exercise_id)
+        if request.method == "POST":
+            add_exercise_form = AddFavouriteExerciseForm(request.POST)
+            if add_exercise_form.is_valid():
+                favourite_exercise = add_exercise_form.save(commit=False)
+                favourite_exercise.user = request.user
+                add_exercise_form.save()
+                return redirect("exercise_detail", exercise_slug)
             return redirect("exercise_detail", exercise_slug)
-    return redirect("exercise_detail", exercise_slug)
