@@ -382,6 +382,11 @@ header {
     background-color: var(--clr-primary);
 }
 
+/* Styles for the red heart image for favourite exercises */
+.red-heart {
+    width: 43px;
+    height: 43px;
+}
 
 /* Bootstrap modal styles */
 
