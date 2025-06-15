@@ -1,5 +1,27 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
 
 {% block content %}
-{{ exercises }}
-{% endblock  %}
+  <div class="container">
+    <div class="row">
+      {% for exercise in exercises %}
+        <div class="col-12 col-md-6 col-xl-4 p-0">
+          <div class="p-5 h-100">
+            <div class="row exercise-item-content-container h-100">
+              <a href="{% url 'exercise_detail' exercise.exercise_id.slug %}" class="p-0">
+                <div class="col-12 h-100">
+                  <img class="exercise-item-image w-100" src="{{ exercise.exercise_id.image.url }}" alt="{{ exercise.exercise_title }}" />
+                  <div class="px-3 py-1">
+                    <h3 class="my-3 exercise-item-header w-100 pb-3">{{ exercise.exercise_id.exercise_title }}</h3>
+                    <p class="mt-2">Muscles targeted: {{ exercise.exercise_id.targeted_muscles }}</p>
+                    <p class="mt-2">Equipment: {{ exercise.exercise_id.equipment }}</p>
+                    <p class="mt-2">Difficulty: {{ exercise.exercise_id.difficulty }}</p>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+{% endblock %}
