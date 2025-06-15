@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block content %}
   {% comment %}Admin section{% endcomment %}
   {% if user.is_staff %}
@@ -89,6 +89,9 @@
       </div>
     </div>
   </section>
+
+  {% comment %} Loading javascript {% endcomment %}
+  <script src="{% static 'js/favourite.js' %}"></script>
 {% endblock %}
 
 {% comment %}
