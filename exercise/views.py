@@ -47,7 +47,7 @@ def exercise_detail(request, exercise_slug):
 
     """
     exercise = get_object_or_404(Exercise, slug=exercise_slug)
-    add_exercise_form = AddFavouriteExerciseForm
+    add_exercise_form = AddFavouriteExerciseForm(initial={"exercise_id": exercise,})
     context = {
         "exercise": exercise,
         "add_exercise_form": add_exercise_form,}
