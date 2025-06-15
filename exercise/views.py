@@ -47,6 +47,11 @@ def exercise_detail(request, exercise_slug):
 
     """
     exercise = get_object_or_404(Exercise, slug=exercise_slug)
+    # Passing in this boolean for javascript to conditionally add styles
+    is_exercise_favourite = FavouriteExercises.objects.filter(
+        user=request.user, exercise_id=exercise.id
+    ).exists()
+
     add_exercise_form = AddFavouriteExerciseForm(
         initial={
             "exercise_id": exercise,
@@ -55,6 +60,7 @@ def exercise_detail(request, exercise_slug):
     context = {
         "exercise": exercise,
         "add_exercise_form": add_exercise_form,
+        "is_exercise_favourite": is_exercise_favourite,
     }
     return render(request, "exercise/exercise_detail.html", context)
 
@@ -159,7 +165,7 @@ def toggle_is_favourite_exercise(request, exercise_id):
     is_exercise_favourite = FavouriteExercises.objects.filter(
         user=request.user, exercise_id=exercise_id
     ).exists()
-    
+
     if request.method == "POST":
         add_exercise_form = AddFavouriteExerciseForm(request.POST)
         if is_exercise_favourite:
@@ -167,7 +173,7 @@ def toggle_is_favourite_exercise(request, exercise_id):
                 user=request.user, exercise_id=exercise_id
             )
             favourite_exercise.delete()
-            
+
             return redirect("exercise_detail", exercise_slug)
         if add_exercise_form.is_valid():
             favourite_exercise = add_exercise_form.save(commit=False)
