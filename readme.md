@@ -1,5 +1,5 @@
 
-# Ember & ash
+# Pro Gainer
 
 ## [ --> View the live deployed project here <-- ADDD A LINKKKKKKKKKKKKKKK]()
 
@@ -11,9 +11,11 @@
 
 #### Project goals
 
-#### Completed project goals
+#### User stories
 
-#### Uncompleted/Undone project goals
+#### Completed User stories
+
+#### Uncompleted/Undone User stories
 
 ### Scope
 
