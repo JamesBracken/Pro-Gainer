@@ -28,7 +28,7 @@
         {% if is_exercise_favourite %}
           <button type="submit">
             {% comment %} <i class="fa-regular fa-heart red-icon"></i> {% endcomment %}
-            <img class="red-heart" src="{% static '/images/exercise_detail/red_heart.png' %}" alt="">
+            <img class="red-heart" src="{% static '/images/exercise_detail/red_heart.png' %}" alt="" />
           </button>
         {% else %}
           <button type="submit"><i class="fa-regular fa-heart"></i></button>
@@ -98,21 +98,4 @@
       </div>
     </div>
   </section>
-
-  {% comment %}Loading javascript{% endcomment %}
-  <script src="{% static 'js/favourite.js' %}"></script>
 {% endblock %}
-
-{% comment %}
-{{ exercise.exercise_title }}
-{{ exercise.image.url }}
-{{ exercise.difficulty }}
-{{ exercise.intensity }}
-{{ exercise.instruction }}
-{{ exercise.equipment }}
-{{ exercise.targeted_muscles }}
-{{ exercise.indirectly_targeted_muscles }}
-{{ exercise.slug }}
-{{ exercise.recommended_sets }}
-{{ exercise.recommended_reps }}
-{% endcomment %}
