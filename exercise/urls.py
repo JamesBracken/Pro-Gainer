@@ -8,5 +8,5 @@ urlpatterns = [
     path('edit_exercise_item/<exercise_slug>', views.edit_exercise_item, name='edit_exercise_item'),
     path('delete_exercise_item/<exercise_slug>', views.delete_exercise_item, name='delete_exercise_item'),
     path('favourite_exercise_list/', views.favourite_exercise_list, name='favourite_exercise_list'),
-    path('add_favourite_exercise/<exercise_id>', views.add_favourite_exercise, name='add_favourite_exercise'),
+    path('toggle_is_favourite_exercise/<exercise_id>', views.toggle_is_favourite_exercise, name='toggle_is_favourite_exercise'),
 ]

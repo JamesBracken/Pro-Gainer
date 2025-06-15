@@ -20,13 +20,13 @@
 {% if user.is_authenticated %}
 {% comment %} Add a favourite exercise button section {% endcomment %}
 <section>
-  <form method="POST" action="{% url 'add_favourite_exercise' exercise.id %}">
+  <form method="POST" action="{% url 'toggle_is_favourite_exercise' exercise.id %}">
     {% csrf_token %}
     {{add_exercise_form}}
     {% comment %} add_exercise_form {% endcomment %}
     <button type="submit"><i class="fa-regular fa-heart"></i></button>
   </form>
-  <a href="{% url 'add_favourite_exercise' exercise.id %}"></a>
+  <a href="{% url 'toggle_is_favourite_exercise' exercise.id %}"></a>
 </section>{% endif %}
   {% comment %}Cards list section{% endcomment %}
   <section class="container p-4">

@@ -154,7 +154,7 @@ def favourite_exercise_list(request):
 
 
 @login_required
-def add_favourite_exercise(request, exercise_id):
+def toggle_is_favourite_exercise(request, exercise_id):
     exercise = get_object_or_404(Exercise, id=exercise_id)
     exercise_slug = exercise.slug
     is_exercise_favourite = FavouriteExercises.objects.filter(user=request.user, exercise_id=exercise_id).exists()
