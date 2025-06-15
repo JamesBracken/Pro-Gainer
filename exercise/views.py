@@ -156,13 +156,13 @@ def favourite_exercise_list(request):
 def toggle_is_favourite_exercise(request, exercise_id):
     exercise = get_object_or_404(Exercise, id=exercise_id)
     exercise_slug = exercise.slug
-    is_exercise_favourite = FavouriteExercises.objects.filter(user=request.user, exercise_id=exercise_id).exists()
-    if(is_exercise_favourite):
-        favourite_exercise = FavouriteExercises.objects.filter(user=request.user, exercise_id=exercise_id)
-        favourite_exercise.delete()
         return redirect("exercise_detail", exercise_slug)
-    else:
-        if request.method == "POST":
+    if request.method == "POST":
+        if is_exercise_favourite:
+            favourite_exercise = FavouriteExercises.objects.filter(
+                user=request.user, exercise_id=exercise_id
+            )
+            favourite_exercise.delete()
             add_exercise_form = AddFavouriteExerciseForm(request.POST)
             if add_exercise_form.is_valid():
                 favourite_exercise = add_exercise_form.save(commit=False)
@@ -170,3 +170,5 @@ def toggle_is_favourite_exercise(request, exercise_id):
                 add_exercise_form.save()
                 return redirect("exercise_detail", exercise_slug)
             return redirect("exercise_detail", exercise_slug)
+    else:
+        return None
