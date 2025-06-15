@@ -160,6 +160,9 @@ def add_favourite_exercise(request, exercise_id):
     is_exercise_favourite = FavouriteExercises.objects.filter(user=request.user, exercise_id=exercise_id).exists()
     if(is_exercise_favourite):
         favourite_exercise = FavouriteExercises.objects.filter(user=request.user, exercise_id=exercise_id)
+        favourite_exercise.delete()
+        return redirect("exercise_detail", exercise_slug)
+    else:
         if request.method == "POST":
             add_exercise_form = AddFavouriteExerciseForm(request.POST)
             if add_exercise_form.is_valid():
