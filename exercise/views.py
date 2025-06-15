@@ -145,7 +145,6 @@ def delete_exercise_item(request, exercise_slug):
 
 @login_required
 def favourite_exercise_list(request):
-    # Change to queryset and limit the passed data to the logged in user
     favourite_exercises = FavouriteExercises.objects.filter(user=request.user)
     context = {
         "exercises": favourite_exercises,
