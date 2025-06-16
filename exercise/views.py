@@ -118,9 +118,9 @@ def edit_exercise_item(request, exercise_slug):
         exercise_form = ExerciseForm(request.POST, request.FILES, instance=exercise)
         if exercise_form.is_valid():
             exercise_form.save()
-            messages.add_message(request, messages.SUCCESS, "Exercise has been edited")
+            messages.add_message(request, messages.SUCCESS, f"{ exercise.exercise_title } has been edited")
         else:
-            messages.add_message(request, messages.ERROR, "Error editing exercise")
+            messages.add_message(request, messages.ERROR, f"Error editing { exercise.exercise_title }")
         return redirect("exercise_detail", exercise_slug=exercise.slug)
     else:
         exercise_form = ExerciseForm(instance=exercise)
@@ -141,8 +141,9 @@ def delete_exercise_item(request, exercise_slug):
     ``exercise.Exercise``
         An instance of :model:`exercise.Exercise
     """
-    get_object_or_404(Exercise, slug=exercise_slug).delete()
-    messages.add_message(request, messages.SUCCESS, "Exercise has been deleted")
+    exercise = get_object_or_404(Exercise, slug=exercise_slug)
+    exercise.delete()
+    messages.add_message(request, messages.SUCCESS, f"{ exercise.exercise_title } has been deleted")
     return redirect("exercise_list")
 
 
