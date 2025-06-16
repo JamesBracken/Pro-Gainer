@@ -20,7 +20,7 @@ def exercise_list(request):
 
     ``exercise/exercise_list.html``
     """
-    exercise_list = Exercise.objects.all()
+    exercise_list = Exercise.objects.all().order_by("-created_at")
     # The pagination here was made with assistance from the django pagination docs
     # https://docs.djangoproject.com/en/5.2/topics/pagination/
 
