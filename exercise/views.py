@@ -84,9 +84,7 @@ def add_exercise_item(request):
         if exercise_form.is_valid():
             exercise_form.save()
             messages.add_message(request, messages.SUCCESS, "Exercise has been added")
-        else:
-            messages.add_message(request, messages.ERROR, "Error adding exercise")
-        return redirect("exercise_list")
+            return redirect("exercise_list")
     else:
         exercise_form = ExerciseForm()
         return render(
