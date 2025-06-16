@@ -151,6 +151,14 @@ def delete_exercise_item(request, exercise_slug):
 
 @login_required
 def favourite_exercise_list(request):
+    """
+    Displays a list of instances of :model:`exercise.Exercise`
+
+    **Context**
+
+    ``favourite_exercises``
+        An instance of :model:`exercise.FavouriteExercises
+    """
     favourite_exercises = FavouriteExercises.objects.filter(user=request.user)
     context = {
         "exercises": favourite_exercises,
