@@ -52,14 +52,14 @@ def exercise_detail(request, exercise_slug):
         user=request.user, exercise_id=exercise.id
     ).exists()
 
-    add_exercise_form = AddFavouriteExerciseForm(
+    toggle_exercise_form = AddFavouriteExerciseForm(
         initial={
             "exercise_id": exercise,
         }
     )
     context = {
         "exercise": exercise,
-        "add_exercise_form": add_exercise_form,
+        "toggle_exercise_form": toggle_exercise_form,
         "is_exercise_favourite": is_exercise_favourite,
     }
     return render(request, "exercise/exercise_detail.html", context)
@@ -167,7 +167,7 @@ def toggle_is_favourite_exercise(request, exercise_id):
     ).exists()
 
     if request.method == "POST":
-        add_exercise_form = AddFavouriteExerciseForm(request.POST)
+        toggle_exercise_form = AddFavouriteExerciseForm(request.POST)
         if is_exercise_favourite:
             favourite_exercise = FavouriteExercises.objects.filter(
                 user=request.user, exercise_id=exercise_id
@@ -175,8 +175,8 @@ def toggle_is_favourite_exercise(request, exercise_id):
             favourite_exercise.delete()
 
             return redirect("exercise_detail", exercise_slug)
-        if add_exercise_form.is_valid():
-            favourite_exercise = add_exercise_form.save(commit=False)
+        if toggle_exercise_form.is_valid():
+            favourite_exercise = toggle_exercise_form.save(commit=False)
             favourite_exercise.user = request.user
-            add_exercise_form.save()
+            toggle_exercise_form.save()
             return redirect("exercise_detail", exercise_slug)

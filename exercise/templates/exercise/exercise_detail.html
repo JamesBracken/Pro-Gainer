@@ -22,7 +22,7 @@
     <section>
       <form method="POST" action="{% url 'toggle_is_favourite_exercise' exercise.id %}">
         {% csrf_token %}
-        {{ add_exercise_form }}
+        {{ toggle_exercise_form }}
 
         {% comment %}Conditionally setting styles depending on if the item is already a favourite of the user{% endcomment %}
         {% if is_exercise_favourite %}
