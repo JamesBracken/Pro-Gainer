@@ -160,6 +160,17 @@ def favourite_exercise_list(request):
 
 @login_required
 def toggle_is_favourite_exercise(request, exercise_id):
+    """
+    Toggles exercises to be added or deleted as an instance of :model:`FavouriteExercises`
+
+    **Context**
+    
+    ``toggle_exercise_form``
+        An instance of :form:`exercise.AddFavouriteExerciseForm`
+    
+    ``favourite_exercise``
+        An instance of :model:`exercise.FavouriteExercises`
+    """
     exercise = get_object_or_404(Exercise, id=exercise_id)
     exercise_slug = exercise.slug
     is_exercise_favourite = FavouriteExercises.objects.filter(
