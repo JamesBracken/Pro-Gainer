@@ -192,10 +192,11 @@ def toggle_is_favourite_exercise(request, exercise_id):
                 user=request.user, exercise_id=exercise_id
             )
             favourite_exercise.delete()
-
+            messages.add_message(request, messages.SUCCESS, f"{ exercise.exercise_title } has been removed to your favourites list")
             return redirect("exercise_detail", exercise_slug)
         if toggle_exercise_form.is_valid():
             favourite_exercise = toggle_exercise_form.save(commit=False)
             favourite_exercise.user = request.user
             toggle_exercise_form.save()
+            messages.add_message(request, messages.SUCCESS, f"{ exercise.exercise_title } has been added to your favourites list")
             return redirect("exercise_detail", exercise_slug)
