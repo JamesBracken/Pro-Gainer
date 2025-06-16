@@ -1,9 +1,9 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block content %}
   {% comment %}Admin section{% endcomment %}
   {% if user.is_staff %}
-  {% comment %} Edit and delete buttons section {% endcomment %}
+    {% comment %}Edit and delete buttons section{% endcomment %}
     <section>
       <div class="container my-4 mx-3">
         <div class="row">
@@ -15,19 +15,28 @@
       </div>
     </section>
   {% endif %}
-  
-  {% comment %} If users are paying members gain access to this section {% endcomment %}
-{% if user.is_authenticated %}
-{% comment %} Add a favourite exercise button section {% endcomment %}
-<section>
-  <form method="POST" action="{% url 'add_favourite_exercise' exercise.id %}">
-    {% csrf_token %}
-    {{add_exercise_form}}
-    {% comment %} add_exercise_form {% endcomment %}
-    <button type="submit"><i class="fa-regular fa-heart"></i></button>
-  </form>
-  <a href="{% url 'add_favourite_exercise' exercise.id %}"></a>
-</section>{% endif %}
+
+  {% comment %}If users are paying members gain access to this section{% endcomment %}
+  {% if user.is_authenticated %}
+    {% comment %}Add a favourite exercise button section{% endcomment %}
+    <section>
+      <form method="POST" action="{% url 'toggle_is_favourite_exercise' exercise.id %}">
+        {% csrf_token %}
+        {{ toggle_exercise_form }}
+
+        {% comment %}Conditionally setting styles depending on if the item is already a favourite of the user{% endcomment %}
+        {% if is_exercise_favourite %}
+          <button type="submit">
+            {% comment %} <i class="fa-regular fa-heart red-icon"></i> {% endcomment %}
+            <img class="red-heart" src="{% static '/images/exercise_detail/red_heart.png' %}" alt="" />
+          </button>
+        {% else %}
+          <button type="submit"><i class="fa-regular fa-heart"></i></button>
+        {% endif %}
+      </form>
+      <a href="{% url 'toggle_is_favourite_exercise' exercise.id %}"></a>
+    </section>
+  {% endif %}
   {% comment %}Cards list section{% endcomment %}
   <section class="container p-4">
     <div class="row">
@@ -52,7 +61,7 @@
         <p>{{ exercise.instruction }}</p>
 
         <div>
-          <h2>Additional information</h2>
+          <h3>Additional information</h3>
           <p>
             <strong>Targeted muscles:</strong>{{ exercise.targeted_muscles }}
           </p>
@@ -90,17 +99,3 @@
     </div>
   </section>
 {% endblock %}
-
-{% comment %}
-{{ exercise.exercise_title }}
-{{ exercise.image.url }}
-{{ exercise.difficulty }}
-{{ exercise.intensity }}
-{{ exercise.instruction }}
-{{ exercise.equipment }}
-{{ exercise.targeted_muscles }}
-{{ exercise.indirectly_targeted_muscles }}
-{{ exercise.slug }}
-{{ exercise.recommended_sets }}
-{{ exercise.recommended_reps }}
-{% endcomment %}
