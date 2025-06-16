@@ -59,12 +59,14 @@
               <li class="nav-item mx-2 mt-md-3">
                 <a class="nav-link active" aria-current="page" href="{% url 'exercise_list' %}">Exercise List</a>
               </li>
-              <li class="nav-item mx-2 mt-md-3">
-                <a class="nav-link active" aria-current="page" href="{% url 'membership_form' %}">Membership</a>
-              </li>
+              {% if user.is_authenticated %}
               <li class="nav-item mx-2 mt-md-3">
                 <a class="nav-link active" aria-current="page" href="{% url 'favourite_exercise_list' %}">My Favourites</a>
               </li>
+              <li class="nav-item cta-li-container mx-2 mt-md-3">
+                <a class="active cta-btn" aria-current="page" href="{% url 'membership_form' %}">Membership</a>
+              </li>
+              {% endif %}
             </ul>
             <div class="d-flex">
               {% comment %}If check to change what authenticated vs non authenticated users see{% endcomment %}
