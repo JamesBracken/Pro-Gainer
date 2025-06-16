@@ -39,3 +39,6 @@ class AddFavouriteExerciseForm(forms.ModelForm):
         fields = (
             "exercise_id",
         )
+        widgets = {
+            "exercise_id": forms.HiddenInput()
+        }

@@ -44,7 +44,7 @@
     <header class="container-fluid fixed-top">
       {% comment %}Navbar{% endcomment %}
       {% comment %}Navbar code sample taken from bootstrap docs https://getbootstrap.com/docs/5.3/components/navbar/{% endcomment %}
-      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <nav class="navbar navbar-expand-md bg-body-tertiary">
         <div class="container-fluid">
           <a class="navbar-brand logo" href="{% url 'home' %}">
             <i class="fa-solid fa-hand-fist"></i>
@@ -53,14 +53,17 @@
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
+              <li class="nav-item mx-2 mt-md-3">
                 <a class="nav-link active" aria-current="page" href="#">Home</a>
               </li>
-              <li class="nav-item">
+              <li class="nav-item mx-2 mt-md-3">
                 <a class="nav-link active" aria-current="page" href="{% url 'exercise_list' %}">Exercise List</a>
               </li>
-              <li class="nav-item">
+              <li class="nav-item mx-2 mt-md-3">
                 <a class="nav-link active" aria-current="page" href="{% url 'membership_form' %}">Membership</a>
+              </li>
+              <li class="nav-item mx-2 mt-md-3">
+                <a class="nav-link active" aria-current="page" href="{% url 'favourite_exercise_list' %}">My Favourites</a>
               </li>
             </ul>
             <div class="d-flex">
