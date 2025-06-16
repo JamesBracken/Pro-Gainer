@@ -105,12 +105,13 @@ def edit_exercise_item(request, exercise_slug):
 
     ``exercise``
         The selected instance of :model:`exercise.Exercise`
+
     ``exercise_form``
         An instance of :form:`exercise.ExerciseForm`
 
     **Template**
 
-    `exercise/exercise_form.html
+    `exercise/exercise_form.html`
     """
     exercise = get_object_or_404(Exercise, slug=exercise_slug)
     if request.method == "POST":
@@ -137,12 +138,10 @@ def delete_exercise_item(request, exercise_slug):
 
     **Context**
 
-    ``exercise``
+    ``exercise.Exercise``
         An instance of :model:`exercise.Exercise
     """
-
-    exercise = get_object_or_404(Exercise, slug=exercise_slug)
-    exercise.delete()
+    get_object_or_404(Exercise, slug=exercise_slug).delete()
     messages.add_message(request, messages.SUCCESS, "Exercise has been deleted")
     return redirect("exercise_list")
 
