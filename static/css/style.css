@@ -234,6 +234,7 @@ i {
 
 .container button:hover,
 .button:hover,
+.signup-button:hover,
 .red-btn:hover {
     background-color: #c80a0a;
     transition: 500ms ease-in-out;
@@ -301,16 +302,13 @@ header {
     width: 100%;
 }
 
-.signup-button {
-    padding: 8px 0;
-}
-
 .dropdown-menu {
     border-radius: 0 !important;
 }
 
 /* Adding separate styles for the CTA to attract attention */
-.cta-btn {
+.cta-btn,
+.signup-button {
     margin: 0 !important;
     color: var(--clr-white);
     padding: 9px 24px;
@@ -323,6 +321,10 @@ header {
 .cta-btn:hover {
     background-color: #595352;
     transition: 500ms ease-out;
+}
+
+.signup-button {
+    background-color: var(--clr-secondary);
 }
 
 .cta-li-container {
