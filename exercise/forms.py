@@ -21,7 +21,6 @@ class ExerciseForm(forms.ModelForm):
         model = Exercise
         fields = (
             "exercise_title",
-            "slug",
             "instruction",
             "difficulty",
             "recommended_sets",

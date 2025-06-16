@@ -20,7 +20,7 @@ def exercise_list(request):
 
     ``exercise/exercise_list.html``
     """
-    exercise_list = Exercise.objects.all()
+    exercise_list = Exercise.objects.all().order_by("-created_at")
     # The pagination here was made with assistance from the django pagination docs
     # https://docs.djangoproject.com/en/5.2/topics/pagination/
 
@@ -84,9 +84,7 @@ def add_exercise_item(request):
         if exercise_form.is_valid():
             exercise_form.save()
             messages.add_message(request, messages.SUCCESS, "Exercise has been added")
-        else:
-            messages.add_message(request, messages.ERROR, "Error adding exercise")
-        return redirect("exercise_list")
+            return redirect("exercise_list")
     else:
         exercise_form = ExerciseForm()
         return render(
@@ -107,21 +105,22 @@ def edit_exercise_item(request, exercise_slug):
 
     ``exercise``
         The selected instance of :model:`exercise.Exercise`
+
     ``exercise_form``
         An instance of :form:`exercise.ExerciseForm`
 
     **Template**
 
-    `exercise/exercise_form.html
+    `exercise/exercise_form.html`
     """
     exercise = get_object_or_404(Exercise, slug=exercise_slug)
     if request.method == "POST":
         exercise_form = ExerciseForm(request.POST, request.FILES, instance=exercise)
         if exercise_form.is_valid():
             exercise_form.save()
-            messages.add_message(request, messages.SUCCESS, "Exercise has been edited")
+            messages.add_message(request, messages.SUCCESS, f"{ exercise.exercise_title } has been edited")
         else:
-            messages.add_message(request, messages.ERROR, "Error editing exercise")
+            messages.add_message(request, messages.ERROR, f"Error editing { exercise.exercise_title }")
         return redirect("exercise_detail", exercise_slug=exercise.slug)
     else:
         exercise_form = ExerciseForm(instance=exercise)
@@ -139,13 +138,12 @@ def delete_exercise_item(request, exercise_slug):
 
     **Context**
 
-    ``exercise``
+    ``exercise.Exercise``
         An instance of :model:`exercise.Exercise
     """
-
     exercise = get_object_or_404(Exercise, slug=exercise_slug)
     exercise.delete()
-    messages.add_message(request, messages.SUCCESS, "Exercise has been deleted")
+    messages.add_message(request, messages.SUCCESS, f"{ exercise.exercise_title } has been deleted")
     return redirect("exercise_list")
 
 

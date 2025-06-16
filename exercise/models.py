@@ -30,6 +30,7 @@ class Exercise(models.Model):
     slug = models.SlugField(unique=True, blank=True)
     recommended_sets = models.CharField()
     recommended_reps = models.CharField()
+    created_at = models.DateTimeField(auto_now_add=True)
 
     # This function populates the slug with the slugified title 
     def save(self, *args, **kwargs):

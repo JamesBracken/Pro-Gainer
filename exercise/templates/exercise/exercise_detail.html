@@ -47,13 +47,13 @@
         {% comment %}Image and key information section{% endcomment %}
         <div>
           <div class="row primary-clr-bg h-100">
-            <div class="col-12 col-sm-6 p-0 h-100">
+            <div class="col-12 col-sm-6 p-0">
               <img class="h-100" src="{{ exercise.image.url }}" alt="{{ exercise.exercise_title }}" />
             </div>
             <div class="col-12 col-sm-6">
-              <h3 class="my-4 fw-light">Difficulty:{{ exercise.difficulty }}</h3>
-              <h3 class="my-4 fw-light">Intensity:{{ exercise.intensity }}</h3>
-              <h3 class="my-4 fw-light">Equipment:{{ exercise.equipment }}</h3>
+              <h5 class="my-4 fw-light">Difficulty:{{ exercise.difficulty }}</h5>
+              <h5 class="my-4 fw-light">Intensity:{{ exercise.intensity }}</h5>
+              <h5 class="my-4 fw-light">Equipment:{{ exercise.equipment }}</h5>
             </div>
           </div>
         </div>
