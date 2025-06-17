@@ -140,7 +140,7 @@ hr {
     color: rgba(0, 0, 0, 0.4)
 }
 
-i {
+.large-icon {
     font-size: 40px;
     display: inline-block;
 }
