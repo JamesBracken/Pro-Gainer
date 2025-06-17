@@ -19,7 +19,7 @@ class SubscribeForm(forms.ModelForm):
             "town_or_city",
             "street_address_1",
             "street_address_2",
-            "country",
+            "county",
             "gym_location",
             "membership_type",
         )
