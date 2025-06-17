@@ -32,8 +32,11 @@ def checkout(request):
             subscription_form = SubscribeForm(request.POST, instance=membership_instance)
         else:
             subscription_form = SubscribeForm(request.POST)
-
+        print("--------------------------------")
+        # print(membership_instance.id_membership_length)
         if subscription_form.is_valid():
+            input_membership_length = subscription_form.cleaned_data["membership_length"]
+
             subscription = subscription_form.save(commit=False)
             subscription.user = request.user
             subscription.membership_start = None

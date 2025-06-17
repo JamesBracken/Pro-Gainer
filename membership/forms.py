@@ -6,6 +6,14 @@ class SubscribeForm(forms.ModelForm):
     """
     Creates a form for :model:`membership.Membership`
     """
+    
+    # Choices for membership length in months
+    MEMBERSHIP_LENGTH = [
+            (None, "--------"),
+            ("3", "3 Months"),
+            ("12", "12 Months"),
+    ]
+    membership_length = forms.ChoiceField(choices=MEMBERSHIP_LENGTH, required=True, label="Desired Membership Length")
     class Meta:
         model = Membership
         fields = (
