@@ -407,6 +407,19 @@ header {
 /* The styles were taken from stripe.com/docs/stripe-js 
 but this page no longer seems to have that content */
 
+
+.fieldset-label {
+    position: relative;
+    right: .5rem;
+}
+
+#payment-form .form-control,
+#card-element,
+select {
+    color: #000 !important;
+    border: 1px solid #000 !important;
+}
+
 .StripeElement,
 .stripe-style-input {
   box-sizing: border-box;
