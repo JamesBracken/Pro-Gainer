@@ -31,7 +31,7 @@ class Membership(models.Model):
     street_address_2 = models.CharField(max_length=200, null=True, blank=True)
     county = models.CharField(max_length=70, null=False, blank=False)
     
-    # Some of the below models are for use in the functionality of the website
+    # The below models are for use in the functionality of the website
     # and potential future upgrades
     # Membership details
     membership_start_date = models.DateTimeField(null=True)
@@ -39,5 +39,3 @@ class Membership(models.Model):
     membership_type = models.CharField(choices=MEMBERSHIP_TYPES)
     is_member_active = models.BooleanField(default=False)
     membership_end_date = models.DateTimeField(null=True)
-
-
