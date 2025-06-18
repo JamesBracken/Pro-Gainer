@@ -39,7 +39,11 @@ def checkout(request):
             input_membership_length = int(subscription_form.cleaned_data["membership_length"])
             if is_membership_instance:
                 if membership_instance.membership_end_date is not None:
-                    subscription.membership_end_date = membership_instance.membership_end_date + relativedelta(months=input_membership_length)
+                    date_today = timezone.now()
+                    if membership_instance.membership_end_date < date_today:
+                        subscription.membership_end_date = timezone.now() + relativedelta(months=input_membership_length)
+                    elif membership_instance.membership_end_date > date_today:
+                        subscription.membership_end_date = membership_instance.membership_end_date + relativedelta(months=input_membership_length)
             else:
                 subscription.membership_end_date = timezone.now() + relativedelta(months=input_membership_length)
                 subscription.membership_start = timezone.now()
