@@ -27,11 +27,10 @@
         {% comment %}Conditionally setting styles depending on if the item is already a favourite of the user{% endcomment %}
         {% if is_exercise_favourite %}
           <button type="submit">
-            {% comment %} <i class="fa-regular fa-heart red-icon"></i> {% endcomment %}
             <img class="red-heart" src="{% static '/images/exercise_detail/red_heart.png' %}" alt="" />
           </button>
         {% else %}
-          <button type="submit"><i class="fa-regular fa-heart"></i></button>
+          <button type="submit"><i class="fa-regular fa-heart large-icon"></i></button>
         {% endif %}
       </form>
       <a href="{% url 'toggle_is_favourite_exercise' exercise.id %}"></a>

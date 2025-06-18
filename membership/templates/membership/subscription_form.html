@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 {% load crispy_forms_tags %}
 {% block content %}
   <section>
@@ -6,7 +7,7 @@
       <div>
         <div class="row">
           <div class="col-12">
-            {% comment %} Page introduction section {% endcomment %}
+            {% comment %}Page introduction section{% endcomment %}
             <section>
               <div class="row d-flex justify-content-center my-4">
                 <div class="col-10">
@@ -15,15 +16,52 @@
               </div>
             </section>
           </div>
-          {% comment %} Signup form section {% endcomment %}
+          {% comment %}Signup form section{% endcomment %}
           <section>
             <div class="col-12">
-              <form method="POST" action="">
+              {% comment %} Add in when checkout has been created {% endcomment %}
+              {% comment %} action="{% url 'checkout' %}" {% endcomment %}
+              <form method="POST" 
+               id="payment-form">
                 {% csrf_token %}
-                {{ subscription_form|crispy }}
+                {% comment %} {{ subscription_form|crispy }} {% endcomment %}
+
+                <fieldset class="rounded px-3 mb-5">
+                  <legend class="fieldset-label small text-black px-2 w-auto">Details</legend>
+                  {{ subscription_form.full_name|as_crispy_field }}
+                  {{ subscription_form.email_address|as_crispy_field }}
+                </fieldset>
+                <fieldset class="rounded px-3 mb-5">
+                  <legend class="fieldset-label small text-black px-2 w-auto">Delivery</legend>
+                  {{ subscription_form.phone_number|as_crispy_field }}
+                  {{ subscription_form.country|as_crispy_field }}
+                  {{ subscription_form.post_code|as_crispy_field }}
+                  {{ subscription_form.town_or_city|as_crispy_field }}
+                  {{ subscription_form.street_address_1|as_crispy_field }}
+                  {{ subscription_form.street_address_2|as_crispy_field }}
+                  {{ subscription_form.county|as_crispy_field }}
+                  {% comment %}Save information logic{% endcomment %}
+                  <div class="form-check form-check-inline float-right mr-0">
+                    <label class="form-check-label" for="id-save-info">Save this delivery information to my profile</label>
+                    <input class="form-check-input ml-2 mr-0" type="checkbox" id="id-save-info" name="save-info" checked />
+                  </div>
+                </fieldset>
+                <fieldset class="rounded px-3 mb-5">
+                  <legend class="fieldset-label small text-black px-2 w-auto">Membership selection</legend>
+                  {{ subscription_form.gym_location|as_crispy_field }}
+                  {{ subscription_form.membership_type|as_crispy_field }}
+                  {{ subscription_form.membership_length|as_crispy_field }}
+                </fieldset>
+
+                <fieldset class="rounded px-3 mb-5">
+                  {% comment %} Stripe card element container {% endcomment %}
+                  <div class="mb-3" id="card-element"></div>
+                  {% comment %} Displays form errors {% endcomment %}
+                  <div class="mb-3 text-danger" id="card-errors"></div>
+                </fieldset>
                 <div class="row">
                   <div class="col-12 d-flex justify-content-center">
-                    <button type="submit">Submit</button>
+                    <button id="submit-button" type="submit">Submit</button>
                   </div>
                 </div>
               </form>
@@ -33,4 +71,11 @@
       </div>
     </div>
   </section>
+{% endblock %}
+
+{% block postloadjs %}
+  {{ block.super }}
+  {{ stripe_public_key|json_script:'id_stripe_public_key' }}
+  {{ client_secret|json_script:'id_client_secret' }}
+  <script src="{% static 'js/stripe_elements.js' defer %}"></script>
 {% endblock %}
