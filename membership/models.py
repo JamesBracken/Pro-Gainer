@@ -34,10 +34,10 @@ class Membership(models.Model):
     # Some of the below models are for use in the functionality of the website
     # and potential future upgrades
     # Membership details
-    membership_start = models.DateTimeField(null=True)
+    membership_start_date = models.DateTimeField(null=True)
     gym_location = models.CharField(choices=GYM_LOCATIONS)
     membership_type = models.CharField(choices=MEMBERSHIP_TYPES)
     is_member_active = models.BooleanField(default=False)
-    next_payment_date = models.DateTimeField(null=True)
+    membership_end_date = models.DateTimeField(null=True)
 
 
