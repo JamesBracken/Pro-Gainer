@@ -54,6 +54,8 @@ INSTALLED_APPS = [
     # Allauth apps
     'allauth',
     'allauth.account',
+    'django_apscheduler',
+    # Crispy forms
     'crispy_forms',
     'crispy_bootstrap5',
     # Project apps
