@@ -1,11 +1,13 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect
 from .forms import SubscribeForm
 from .models import Membership
 from django.conf import settings
 from django.contrib import messages
+from django.utils import timezone
+from dateutil.relativedelta import relativedelta
 
 import stripe
-# Create your views here.
+
 
 def checkout(request):
     """
@@ -27,20 +29,21 @@ def checkout(request):
     is_membership_instance = Membership.objects.filter(user=request.user).exists()
 
     if request.method == "POST":
-        if (is_membership_instance):
+        if is_membership_instance:
             membership_instance = Membership.objects.filter(user=request.user).first()
             subscription_form = SubscribeForm(request.POST, instance=membership_instance)
         else:
             subscription_form = SubscribeForm(request.POST)
-        print("--------------------------------")
-        # print(membership_instance.id_membership_length)
         if subscription_form.is_valid():
-            input_membership_length = subscription_form.cleaned_data["membership_length"]
-
             subscription = subscription_form.save(commit=False)
+            input_membership_length = int(subscription_form.cleaned_data["membership_length"])
+            if is_membership_instance:
+                if membership_instance.membership_end_date is not None:
+                    subscription.membership_end_date = membership_instance.membership_end_date + relativedelta(months=input_membership_length)
+            else:
+                subscription.membership_end_date = timezone.now() + relativedelta(months=input_membership_length)
+                subscription.membership_start = timezone.now()
             subscription.user = request.user
-            subscription.membership_start = None
-            subscription.next_payment_date = None
             subscription_form.save()
             return redirect("home")
     else:
@@ -58,3 +61,4 @@ def checkout(request):
         }
 
         return render(request, template, context)
+    
