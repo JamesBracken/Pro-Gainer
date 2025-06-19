@@ -59,6 +59,24 @@
 
 ### Website functionality testing
 
+Nav bar & Footer
+| Feature | Expected Outcome | Testing Performed | Pass/Fail/Potential improvements |
+|---------|-------------------|-------------------|-----------|
+|||||
+
+Home page
+| Feature | Expected Outcome | Testing Performed | Pass/Fail/Potential improvements |
+|---------|-------------------|-------------------|-----------|
+|||||
+|||||
+|||||
+|||||
+|||||
+|||||
+|||||
+|||||
+|||||
+|||||
 |||||
 |||||
 |||||
@@ -66,3 +84,80 @@
 |||||
 
 
+
+Exercise List page
+| Feature | Expected Outcome | Testing Performed | Pass/Fail/Potential improvements |
+|---------|-------------------|-------------------|-----------|
+|||||
+
+
+Exercise Details page 
+| Feature | Expected Outcome | Testing Performed | Pass/Fail/Potential improvements |
+|---------|-------------------|-------------------|-----------|
+|||||
+
+Favourite Exercises list page
+| Feature | Expected Outcome | Testing Performed | Pass/Fail/Potential improvements |
+|---------|-------------------|-------------------|-----------|
+|||||
+
+Edit & Delete exercise page
+| Feature | Expected Outcome | Testing Performed | Pass/Fail/Potential improvements |
+|---------|-------------------|-------------------|-----------|
+|||||
+
+My profile
+| Feature | Expected Outcome | Testing Performed | Pass/Fail/Potential improvements |
+|---------|-------------------|-------------------|-----------|
+|||||
+
+Membership signup page
+| Feature | Expected Outcome | Testing Performed | Pass/Fail/Potential improvements |
+|---------|-------------------|-------------------|-----------|
+|||||
+
+Membership success page
+| Feature | Expected Outcome | Testing Performed | Pass/Fail/Potential improvements |
+|---------|-------------------|-------------------|-----------|
+|||||
+
+Signup page
+| Feature | Expected Outcome | Testing Performed | Pass/Fail/Potential improvements |
+|---------|-------------------|-------------------|-----------|
+|||||
+
+Login page
+| Feature | Expected Outcome | Testing Performed | Pass/Fail/Potential improvements |
+|---------|-------------------|-------------------|-----------|
+|||||
+
+Password reset page
+| Feature | Expected Outcome | Testing Performed | Pass/Fail/Potential improvements |
+|---------|-------------------|-------------------|-----------|
+|||||
+
+Footer
+| Feature | Expected Outcome | Testing Performed | Pass/Fail/Potential improvements |
+|---------|-------------------|-------------------|-----------|
+|||||
+
+
+403 page
+| Feature | Expected Outcome | Testing Performed | Pass/Fail/Potential improvements |
+|---------|-------------------|-------------------|-----------|
+|||||
+
+404 page
+| Feature | Expected Outcome | Testing Performed | Pass/Fail/Potential improvements |
+|---------|-------------------|-------------------|-----------|
+|||||
+
+405 page
+| Feature | Expected Outcome | Testing Performed | Pass/Fail/Potential improvements |
+|---------|-------------------|-------------------|-----------|
+|||||
+
+500 page
+| Feature | Expected Outcome | Testing Performed | Pass/Fail/Potential improvements |
+|---------|-------------------|-------------------|-----------|
+|||||
