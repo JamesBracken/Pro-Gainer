@@ -1,3 +1,5 @@
+# Testing
+
 ## Bugs and issues during development
 
 | Feature | Outcome | Fix Performed | Result | Fixed/Unfixed |
@@ -29,130 +31,38 @@
 
 ![]()
 
-| Feature | Expected Outcome | Fix Performed | Result |
-|---------|-------------------|-------------------|--------|
+
+## Validator testing
+
+
+### HTML validation
+
+### CSS validation
+
+### JSHint validation
+
+### Python validation
+
+
+## Lighthouse testing
+
+
+## User story testing
+
+
+## Manual testing
+
+
+### Responsiveness
+
+### Browser testing
+
+### Website functionality testing
+
+|||||
+|||||
+|||||
+|||||
 |||||
 
-**IMAGE OF PROBLEM**
 
-![]()
-
-**IMAGE AFTER FIX**
-
-![]()
-
-**IMAGE OF CODE FIX**
-
-![]()
-
-| Feature | Expected Outcome | Fix Performed | Result |
-|---------|-------------------|-------------------|--------|
-|||||
-
-**IMAGE OF PROBLEM**
-
-![]()
-
-**IMAGE AFTER FIX**
-
-![]()
-
-**IMAGE OF CODE FIX**
-
-![]()
-
-| Feature | Expected Outcome | Fix Performed | Result |
-|---------|-------------------|-------------------|--------|
-|||||
-
-**IMAGE OF PROBLEM**
-
-![]()
-
-**IMAGE AFTER FIX**
-
-![]()
-
-**IMAGE OF CODE FIX**
-
-![]()
-
-| Feature | Expected Outcome | Fix Performed | Result |
-|---------|-------------------|-------------------|--------|
-|||||
-
-**IMAGE OF PROBLEM**
-
-![]()
-
-**IMAGE AFTER FIX**
-
-![]()
-
-**IMAGE OF CODE FIX**
-
-![]()
-
-| Feature | Expected Outcome | Fix Performed | Result |
-|---------|-------------------|-------------------|--------|
-|||||
-
-**IMAGE OF PROBLEM**
-
-![]()
-
-**IMAGE AFTER FIX**
-
-![]()
-
-**IMAGE OF CODE FIX**
-
-![]()
-
-| Feature | Expected Outcome | Fix Performed | Result |
-|---------|-------------------|-------------------|--------|
-|||||
-
-**IMAGE OF PROBLEM**
-
-![]()
-
-**IMAGE AFTER FIX**
-
-![]()
-
-**IMAGE OF CODE FIX**
-
-![]()
-
-| Feature | Expected Outcome | Fix Performed | Result |
-|---------|-------------------|-------------------|--------|
-|||||
-
-**IMAGE OF PROBLEM**
-
-![]()
-
-**IMAGE AFTER FIX**
-
-![]()
-
-**IMAGE OF CODE FIX**
-
-![]()
-
-| Feature | Expected Outcome | Fix Performed | Result |
-|---------|-------------------|-------------------|--------|
-|||||
-
-**IMAGE OF PROBLEM**
-
-![]()
-
-**IMAGE AFTER FIX**
-
-![]()
-
-**IMAGE OF CODE FIX**
-
-![]()
