@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, reverse, get_object_or_404
 from .forms import SubscribeForm
 from .models import Membership
 from django.conf import settings
@@ -29,6 +29,7 @@ def checkout(request):
     is_membership_instance = Membership.objects.filter(user=request.user).exists()
 
     if request.method == "POST":
+
         if is_membership_instance:
             membership_instance = Membership.objects.filter(user=request.user).first()
             subscription_form = SubscribeForm(request.POST, instance=membership_instance)
@@ -48,7 +49,10 @@ def checkout(request):
                 subscription.membership_start = timezone.now()
             subscription.user = request.user
             subscription_form.save()
-            return redirect("home")
+            return redirect(reverse("checkout_success"))
+        else:
+            messages.add_message(request, messages.ERROR, "There is an error in your form.\
+                                 Please double check all of your information.")
     else:
         if (is_membership_instance):
             membership_instance = Membership.objects.filter(user=request.user).first()
@@ -64,4 +68,18 @@ def checkout(request):
         }
 
         return render(request, template, context)
+
+def checkout_success(request):
+    """
+    Handle successful user checkout
+    """
+    user_membership = get_object_or_404(Membership, user=request.user)
+    messages.add_message(request, messages.SUCCESS, f"You have successfully processed! \
+                         Your membership will last until {user_membership.membership_end_date}")
     
+    template = "membership/checkout_success.html"
+
+    context= {
+        "membership": user_membership
+    }
+    return render(request, template, context)
