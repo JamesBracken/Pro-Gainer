@@ -7,6 +7,7 @@ const grandTotalParagraph = document.getElementById("grand-total")
 
 // EVENT LISTENERS
 membershipLengthFormField.addEventListener("change", updateMembershipCosts)
+membershipLengthFormField.addEventListener("change", updateMembershipsCostsSession)
 // FUNCTIONS
 
 // As we currently only have one membership type the function does not currently need to
@@ -38,4 +39,25 @@ function updateMembershipCosts(){
         joiningFeeParagraph.innerHTML = `<strong>£${joiningFee}</strong>`;
         grandTotalParagraph.innerHTML = `£${grandTotal}`;
     }
+};
+
+/* This function creates a session each time the membership length field changes.
+   The session will contain the value of the input field and will be handled in
+   the backend with django for security purposes.
+
+*@param {Click} e - This is information of the event that triggers the
+ function
+
+*/
+function updateMembershipsCostsSession(e) {
+    fetch("/store-membership-length", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "X-CSRFToken": csrfToken,
+        },
+        body:JSON.stringify({
+            selected_membership_length: e.target.value
+        })
+    });
 };

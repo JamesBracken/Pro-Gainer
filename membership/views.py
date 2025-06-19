@@ -94,3 +94,7 @@ def checkout_success(request):
         "membership": user_membership
     }
     return render(request, template, context)
+
+
+
+
