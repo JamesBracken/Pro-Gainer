@@ -5,11 +5,11 @@ from django.contrib.auth.models import User
 class Membership(models.Model):
     # Choices for gym locations
     GYM_LOCATIONS = [
-        ("hounslow", "Hounslow"),
+        ("Hounslow", "Hounslow"),
     ]
     # Choices for membership types
     MEMBERSHIP_TYPES = [
-            ("regular", "Regular"),
+            ("Regular", "Regular"),
         ]
 
     # General user details models is based off of the Code Institute

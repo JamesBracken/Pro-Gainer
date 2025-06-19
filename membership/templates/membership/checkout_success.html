@@ -19,6 +19,8 @@
             </section>
           </div>
           {% comment %}Membership info summary section{% endcomment %}
+          {% comment %} Inspiration for this success page summary taken
+          from code institute boutique ado project {% endcomment %}
           <div class="col-12 col-lg-7">
             <section>
               <div class="subscription-confirmation-wrapper p-2 border">
@@ -30,30 +32,33 @@
 
                 <div class="row">
                   <div class="col-12 col-md-4">
-                    <p class="mb-0 fw-text-semi-bold">Subscription Details</p>
+                    <p class="mb-0 fw-text-semi-bold">Gym location</p>
                   </div>
                   <div class="col-12 col-md-4 text-md-right">
-                    <p class="mb-0">{{ membership.id }}</p>
-                  </div>
-                </div>
-
-                <div class="row">
-                  <div class="col">
-                    <small class="text-muted">Subscription Details:</small>
+                    <p class="mb-0">{{ membership.gym_location }}</p>
                   </div>
                 </div>
 
                 <div class="row">
                   <div class="col-12 col-md-4">
-                    <p class="mb-0 fw-text-semi-bold">Subscription Details:</p>
+                    <p class="mb-0 fw-text-semi-bold">membership_type</p>
                   </div>
                   <div class="col-12 col-md-4 text-md-right">
-                    <p class="mb-0">{{ membership.id }}</p>
+                    <p class="mb-0">{{ membership.membership_type }}</p>
                   </div>
                 </div>
 
                 <div class="row">
-                  <div class="col">
+                  <div class="col-12 col-md-4">
+                    <p class="mb-0 fw-text-semi-bold">Membership is active until</p>
+                  </div>
+                  <div class="col-12 col-md-4 text-md-right">
+                    <p class="mb-0">{{ membership.membership_end_date|date:"m-d-Y" }}</p>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col mt-3">
                     <small class="text-muted">Address Details:</small>
                   </div>
                 </div>
@@ -131,7 +136,7 @@
                 </div>
 
                 <div class="row">
-                  <div class="col">
+                  <div class="col mt-3">
                     <small class="text-muted">Billing Info:</small>
                   </div>
                 </div>
