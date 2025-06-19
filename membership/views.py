@@ -15,9 +15,13 @@ def checkout(request):
     """
     # Checkout code was done alongside the code institute
     # Boutique ado project and tweaked for the needs of this project
+    ADD_TOTAL_AMOUNT_HERE_FOR_PAYMENT = 420
+
+
+    # Stripe variables
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
-    ADD_TOTAL_AMOUNT_HERE_FOR_PAYMENT = 420
+    # Create the stripe intent
     stripe.api_key =  stripe_secret_key
     intent = stripe.PaymentIntent.create(
         amount=ADD_TOTAL_AMOUNT_HERE_FOR_PAYMENT,
@@ -48,6 +52,12 @@ def checkout(request):
                 subscription.membership_end_date = timezone.now() + relativedelta(months=input_membership_length)
                 subscription.membership_start = timezone.now()
             subscription.user = request.user
+            # Setting the membership payment amount
+            # selected_subscription_length = int(subscription)
+            if input_membership_length == 3:
+                membership_instance.last_payment = settings.THREE_MONTH_SUBSCRIPTION_FEE
+            if input_membership_length == 12:
+                membership_instance.last_payment = settings.TWELVE_MONTH_SUBSCRIPTION_FEE
             subscription_form.save()
             return redirect(reverse("checkout_success"))
         else:

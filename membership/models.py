@@ -39,3 +39,4 @@ class Membership(models.Model):
     membership_type = models.CharField(choices=MEMBERSHIP_TYPES)
     is_member_active = models.BooleanField(default=False)
     membership_end_date = models.DateTimeField(null=True)
+    last_payment = models.IntegerField(null=True)
