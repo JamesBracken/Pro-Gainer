@@ -19,10 +19,9 @@
           {% comment %}Signup form section{% endcomment %}
           <section>
             <div class="col-12">
-              {% comment %} Add in when checkout has been created {% endcomment %}
-              {% comment %} action="{% url 'checkout' %}" {% endcomment %}
-              <form method="POST" 
-               id="payment-form">
+              {% comment %}Add in when checkout has been created{% endcomment %}
+              {% comment %}action="{% url 'checkout' %}"{% endcomment %}
+              <form method="POST" id="payment-form">
                 {% csrf_token %}
                 {% comment %} {{ subscription_form|crispy }} {% endcomment %}
 
@@ -52,11 +51,39 @@
                   {{ subscription_form.membership_type|as_crispy_field }}
                   {{ subscription_form.membership_length|as_crispy_field }}
                 </fieldset>
+                {% comment %}Payment summary{% endcomment %}
+                <fieldset class="border p-2">
+                  <legend class="fieldset-label-small text-black px-2 w-auto">Payment summary</legend>
+                  <div class="row">
+                    <div class="col-12 col-md-4">
+                      <p class="mb-0 fw-text-semi-bold px-3 mt-2">Membership costs</p>
+                    </div>
+                    <div class="col-12 col-md-4 text-md-right">
+                      <p class="mb-3 px-3 mt-2" id="membership-costs">Please fill out the form</p>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12 col-md-4">
+                      <p class="mb-0 fw-text-semi-bold px-3 mt-2">Joining fee</p>
+                    </div>
+                    <div class="col-12 col-md-4 text-md-right">
+                      <p class="mb-3 fw-text-bold px-3 mt-2" id="joining-fee">Nothing here yet..</p>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12 col-md-4">
+                      <p class="mb-0 fw-text-semi-bold px-3 mt-2">Total payment</p>
+                    </div>
+                    <div class="col-12 col-md-4 text-md-right">
+                      <p class="mb-3 px-3 mt-2" id="grand-total">Nothing here yet..</p>
+                    </div>
+                  </div>
+                </fieldset>
 
-                <fieldset class="rounded px-3 mb-5">
-                  {% comment %} Stripe card element container {% endcomment %}
+                <fieldset class="rounded px-3 mb-5 mt-5">
+                  {% comment %}Stripe card element container{% endcomment %}
                   <div class="mb-3" id="card-element"></div>
-                  {% comment %} Displays form errors {% endcomment %}
+                  {% comment %}Displays form errors{% endcomment %}
                   <div class="mb-3 text-danger" id="card-errors"></div>
                 </fieldset>
                 <div class="row">
@@ -78,4 +105,5 @@
   {{ stripe_public_key|json_script:'id_stripe_public_key' }}
   {{ client_secret|json_script:'id_client_secret' }}
   <script src="{% static 'js/stripe_elements.js' defer %}"></script>
+  <script src="{% static 'js/calculate_membership_fees.js' %}"></script>
 {% endblock %}
