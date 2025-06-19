@@ -74,8 +74,9 @@ def checkout_success(request):
     Handle successful user checkout
     """
     user_membership = get_object_or_404(Membership, user=request.user)
-    messages.add_message(request, messages.SUCCESS, f"You have successfully processed! \
-                         Your membership will last until {user_membership.membership_end_date}")
+    user_membership_end_date = user_membership.membership_end_date.strftime("%Y-%m-%d")
+    messages.add_message(request, messages.SUCCESS, f"Your payment has been successfully processed! \
+                         Your membership will last until {user_membership_end_date}")
     
     template = "membership/checkout_success.html"
 
