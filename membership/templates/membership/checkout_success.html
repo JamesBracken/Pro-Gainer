@@ -19,8 +19,7 @@
             </section>
           </div>
           {% comment %}Membership info summary section{% endcomment %}
-          {% comment %} Inspiration for this success page summary taken
-          from code institute boutique ado project {% endcomment %}
+          {% comment %}Inspiration for this success page summary taken from code institute boutique ado project{% endcomment %}
           <div class="col-12 col-lg-7">
             <section>
               <div class="subscription-confirmation-wrapper p-2 border">
@@ -28,7 +27,7 @@
                   <div class="col">
                     <small class="text-muted">Subscription Information:</small>
                   </div>
-                </div> 
+                </div>
 
                 <div class="row">
                   <div class="col-12 col-md-4">
@@ -53,7 +52,7 @@
                     <p class="mb-0 fw-text-semi-bold">Membership is active until</p>
                   </div>
                   <div class="col-12 col-md-4 text-md-right">
-                    <p class="mb-0">{{ membership.membership_end_date|date:"m-d-Y" }}</p>
+                    <p class="mb-0">{{ membership.membership_end_date|date:'m-d-Y' }}</p>
                   </div>
                 </div>
 
@@ -71,7 +70,7 @@
                     <p class="mb-0">{{ membership.full_name }}</p>
                   </div>
                 </div>
-                
+
                 <div class="row">
                   <div class="col-12 col-md-4">
                     <p class="mb-0 fw-text-semi-bold">Street address 1</p>
@@ -80,7 +79,7 @@
                     <p class="mb-0">{{ membership.street_address_1 }}</p>
                   </div>
                 </div>
-                
+
                 <div class="row">
                   <div class="col-12 col-md-4">
                     <p class="mb-0 fw-text-semi-bold">Street address 2</p>
@@ -89,7 +88,7 @@
                     <p class="mb-0">{{ membership.Street_address_2 }}</p>
                   </div>
                 </div>
-                
+
                 <div class="row">
                   <div class="col-12 col-md-4">
                     <p class="mb-0 fw-text-semi-bold">County</p>
@@ -98,7 +97,7 @@
                     <p class="mb-0">{{ membership.county }}</p>
                   </div>
                 </div>
-                
+
                 <div class="row">
                   <div class="col-12 col-md-4">
                     <p class="mb-0 fw-text-semi-bold">Town or City</p>
@@ -107,7 +106,7 @@
                     <p class="mb-0">{{ membership.town_or_city }}</p>
                   </div>
                 </div>
-                
+
                 <div class="row">
                   <div class="col-12 col-md-4">
                     <p class="mb-0 fw-text-semi-bold">Postal code</p>
@@ -116,7 +115,7 @@
                     <p class="mb-0">{{ membership.post_code }}</p>
                   </div>
                 </div>
-                
+
                 <div class="row">
                   <div class="col-12 col-md-4">
                     <p class="mb-0 fw-text-semi-bold">Country</p>
@@ -125,7 +124,7 @@
                     <p class="mb-0">{{ membership.country }}</p>
                   </div>
                 </div>
-                
+
                 <div class="row">
                   <div class="col-12 col-md-4">
                     <p class="mb-0 fw-text-semi-bold">Phone number</p>
@@ -140,7 +139,7 @@
                     <small class="text-muted">Billing Info:</small>
                   </div>
                 </div>
-                
+
                 <div class="row">
                   <div class="col-12 col-md-4">
                     <p class="mb-0 fw-text-semi-bold">Membership fee</p>
@@ -149,7 +148,7 @@
                     <p class="mb-0">{{ last_payment }}</p>
                   </div>
                 </div>
-                
+
                 <div class="row">
                   <div class="col-12 col-md-4">
                     <p class="mb-0 fw-text-semi-bold">Joining fee</p>
@@ -158,7 +157,7 @@
                     <p class="mb-0">{{ joining_fee }}</p>
                   </div>
                 </div>
-                
+
                 <div class="row">
                   <div class="col-12 col-md-4">
                     <p class="mb-0 fw-text-semi-bold">Grand total</p>
@@ -167,7 +166,10 @@
                     <p class="mb-0">{{ joining_fee|add:last_payment }}</p>
                   </div>
                 </div>
+              </div>
 
+              <div class="col-12 mt-4 d-flex justify-content-center">
+                <a class="red-btn" href="{% url 'home' %}">Home</a>
               </div>
             </section>
           </div>
