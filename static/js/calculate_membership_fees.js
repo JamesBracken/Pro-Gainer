@@ -50,7 +50,6 @@ function updateMembershipCosts(){
 
 */
 function updateMembershipsCostsSession(e) {
-    console.log("Function invoked")
     fetch("/membership/store_membership_length/", {
         method: "POST",
         headers: {

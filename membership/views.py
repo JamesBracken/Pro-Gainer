@@ -13,7 +13,31 @@ import json
 
 def checkout(request):
     """
-    Render the subscription form for user checkout
+    Takes session information to update stripe payment amount.
+    
+    Render the subscription form for user checkout.
+    
+    If the user does not have an instance of :model:`membership.Membership`
+    this view will create one 
+    
+    If the user has an existing instance of :model:`membership.Membership`
+    this view will update it
+
+    **Context**
+
+    ``subscription_form``
+        An instance of :forms:`membership.SubscribeForm`
+
+    ``stripe_public_key``
+        This is the public key used for stripe payments
+
+    ``client_secret``
+        This is the client secret used for stripe payments
+    
+    **Template**
+
+    ``subscription_form.html``
+    
     """
     # Checkout code was done alongside the code institute
     # Boutique ado project and tweaked for the needs of this project
