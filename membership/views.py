@@ -180,6 +180,9 @@ def store_membership_length(request):
     )
 
 def my_profile(request):
+    """
+    """
+    membership = get_object_or_404(Membership, user=request.user)
     template = "membership/my_profile.html"
-    context = {}
+    context = {"membership": membership}
     return render(request, template, context)
