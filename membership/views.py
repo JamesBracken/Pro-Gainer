@@ -133,6 +133,12 @@ def checkout_success(request):
     ``membership``
         An instance of :model:`membership.Membership`
     
+    ``last_payment``
+        An instance of :model:`membership.Membership.last_payment`
+
+    ``joining_fee``
+        A variable set in `settings.JOINING_FEE`
+
     **Template**
 
     ``checkout_success.html``
@@ -147,12 +153,12 @@ def checkout_success(request):
         f"Your payment has been successfully processed! \
                          Your membership will last until {user_membership_end_date}",
     )
-
     template = "membership/checkout_success.html"
 
     context = {"membership": user_membership,
                "last_payment": user_membership_last_payment,
                "joining_fee": JOINING_FEE}
+    
     return render(request, template, context)
 
 
