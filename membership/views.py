@@ -41,15 +41,16 @@ def checkout(request):
     """
     # Checkout code was done alongside the code institute
     # Boutique ado project and tweaked for the needs of this project
-    selected_membership_length = int(request.session.get("selected_membership_length"))
+    selected_membership_length = request.session.get("selected_membership_length")
+    if isinstance(selected_membership_length, str):
+        numified_membership_length = int(selected_membership_length)
+        if numified_membership_length == 3:
+            membership_fee = settings.THREE_MONTH_SUBSCRIPTION_FEE
+            print("First if block invoking")
+        elif numified_membership_length == 12:
+            membership_fee = settings.TWELVE_MONTH_SUBSCRIPTION_FEE
     membership_fee = 30
     joining_fee = settings.JOINING_FEE
-    if selected_membership_length == 3:
-        membership_fee = settings.THREE_MONTH_SUBSCRIPTION_FEE
-        print("First if block invoking")
-    elif selected_membership_length == 12:
-        membership_fee = settings.TWELVE_MONTH_SUBSCRIPTION_FEE
-        print("Second if block invoking")
     # Stripe variables
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
