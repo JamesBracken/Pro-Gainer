@@ -160,8 +160,11 @@ def favourite_exercise_list(request):
         An instance of :model:`exercise.FavouriteExercises
     """
     favourite_exercises = FavouriteExercises.objects.filter(user=request.user)
+    paginator = Paginator(favourite_exercises, 30)
+    page_number = request.GET.get("page")
+    page_object = paginator.get_page(page_number)
     context = {
-        "exercises": favourite_exercises,
+        "page_object": page_object,
     }
     return render(request, "exercise/favourite_exercises_list.html", context)
 

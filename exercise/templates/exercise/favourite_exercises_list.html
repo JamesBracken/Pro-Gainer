@@ -3,8 +3,8 @@
 {% block content %}
   <div class="container">
     <div class="row">
-      {% if exercises %}
-        {% for exercise in exercises %}
+      {% if page_object %}
+        {% for exercise in page_object %}
           <div class="col-12 col-md-6 col-xl-4 p-0">
             <div class="p-5 h-100">
               <div class="row exercise-item-content-container h-100">
@@ -23,6 +23,25 @@
             </div>
           </div>
         {% endfor %}
+        {% comment %}Paginator controller{% endcomment %}
+        {% comment %}Copied pasted from exercise_list.html{% endcomment %}
+        <div class="col-12">
+          <div class="pagination justify-content-center">
+            <span class="step-links">
+              {% if page_object.has_previous %}
+                <a class="mx-1 mx-sm-2 underline" href="?page=1">&laquo; first</a>
+                <a class="mx-1 mx-sm-2 underline" href="?page={{ page_object.previous_page_number }}">previous</a>
+              {% endif %}
+
+              <span class="current mx-1 mx-sm-3">Page {{ page_object.number }} of {{ page_object.paginator.num_pages }}</span>
+
+              {% if page_object.has_next %}
+                <a class="mx-1 mx-sm-2 underline" href="?page={{ page_object.next_page_number }}">next</a>
+                <a class="mx-1 mx-sm-2 underline" href="?page={{ page_object.paginator.num_pages }}">last &raquo;</a>
+              {% endif %}
+            </span>
+          </div>
+        </div>
       {% else %}
         <div class="col-12 col-md-6 col-xl-4 p-0">
           <div class="p-5 h-100">
