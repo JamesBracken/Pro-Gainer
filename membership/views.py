@@ -6,6 +6,7 @@ from django.contrib import messages
 from django.utils import timezone
 from dateutil.relativedelta import relativedelta
 from django.http import JsonResponse
+from django.core.paginator import Paginator
 
 import stripe
 import json
@@ -184,6 +185,16 @@ def store_membership_length(request):
 
 def my_profile(request):
     """
+    Display an instance of :model:`membership.Membership`
+
+    **Context**
+
+    ``membership``
+        An instance of :model:`membership.Membership`
+
+    **Template**
+    
+    ``my_profile.html``
     """
     membership = get_object_or_404(Membership, user=request.user)
     template = "membership/my_profile.html"
