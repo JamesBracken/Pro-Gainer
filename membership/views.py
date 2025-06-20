@@ -139,6 +139,8 @@ def checkout_success(request):
     """
     user_membership = get_object_or_404(Membership, user=request.user)
     user_membership_end_date = user_membership.membership_end_date.strftime("%Y-%m-%d")
+    user_membership_last_payment = user_membership.last_payment
+    JOINING_FEE = settings.JOINING_FEE
     messages.add_message(
         request,
         messages.SUCCESS,
@@ -148,7 +150,9 @@ def checkout_success(request):
 
     template = "membership/checkout_success.html"
 
-    context = {"membership": user_membership}
+    context = {"membership": user_membership,
+               "last_payment": user_membership_last_payment,
+               "joining_fee": JOINING_FEE}
     return render(request, template, context)
 
 

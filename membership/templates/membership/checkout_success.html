@@ -143,10 +143,10 @@
                 
                 <div class="row">
                   <div class="col-12 col-md-4">
-                    <p class="mb-0 fw-text-semi-bold">Order total</p>
+                    <p class="mb-0 fw-text-semi-bold">Membership fee</p>
                   </div>
                   <div class="col-12 col-md-4 text-md-right">
-                    {% comment %} <p class="mb-0">{{ membership.FILL THIS UP }}</p> {% endcomment %}
+                    <p class="mb-0">{{ last_payment }}</p>
                   </div>
                 </div>
                 
@@ -155,7 +155,7 @@
                     <p class="mb-0 fw-text-semi-bold">Joining fee</p>
                   </div>
                   <div class="col-12 col-md-4 text-md-right">
-                    <p class="mb-0">{{ membership.id }}</p>
+                    <p class="mb-0">{{ joining_fee }}</p>
                   </div>
                 </div>
                 
@@ -164,10 +164,9 @@
                     <p class="mb-0 fw-text-semi-bold">Grand total</p>
                   </div>
                   <div class="col-12 col-md-4 text-md-right">
-                    <p class="mb-0">{{ membership.id }}</p>
+                    <p class="mb-0">{{ joining_fee|add:last_payment }}</p>
                   </div>
                 </div>
-
 
               </div>
             </section>
