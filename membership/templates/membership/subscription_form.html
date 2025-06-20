@@ -104,6 +104,11 @@
   {{ block.super }}
   {{ stripe_public_key|json_script:'id_stripe_public_key' }}
   {{ client_secret|json_script:'id_client_secret' }}
+
+  {% comment %}Passing the csrf token to javascript{% endcomment %}
+  <script>
+    const csrfToken = '{{ csrf_token }}'
+  </script>
   <script src="{% static 'js/stripe_elements.js' defer %}"></script>
   <script src="{% static 'js/calculate_membership_fees.js' %}"></script>
 {% endblock %}
