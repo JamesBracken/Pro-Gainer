@@ -96,5 +96,19 @@ def checkout_success(request):
     return render(request, template, context)
 
 
+def store_membership_length(request):
+    """
+    Stores the membership length in a session
+    """
+    data = json.loads(request.body)
+    request.session["selected_membership_length"] = data.get(
+        "selected_membership_length"
+    )
+    # Setting the session status to modified to ensure django commits this session
+    request.session.modified = True
 
-
+    return JsonResponse(
+        {
+            "status": "ok",
+        }
+    )
