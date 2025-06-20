@@ -43,6 +43,7 @@ def checkout(request):
     # Boutique ado project and tweaked for the needs of this project
     selected_membership_length = int(request.session.get("selected_membership_length"))
     membership_fee = 30
+    joining_fee = settings.JOINING_FEE
     if selected_membership_length == 3:
         membership_fee = settings.THREE_MONTH_SUBSCRIPTION_FEE
         print("First if block invoking")
@@ -55,7 +56,7 @@ def checkout(request):
     # Create the stripe intent
     stripe.api_key = stripe_secret_key
     intent = stripe.PaymentIntent.create(
-            amount=(membership_fee * 100),
+            amount=(membership_fee * 100 + joining_fee * 100),
             currency=settings.STRIPE_CURRENCY,
         )
     if not stripe_public_key:
