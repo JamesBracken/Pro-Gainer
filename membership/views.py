@@ -126,7 +126,16 @@ def checkout(request):
 
 def checkout_success(request):
     """
-    Handle successful user checkout
+    Handle successful user checkout and displays the checkout success page
+
+    **Context**
+
+    ``membership``
+        An instance of :model:`membership.Membership`
+    
+    **Template**
+
+    ``checkout_success.html``
     """
     user_membership = get_object_or_404(Membership, user=request.user)
     user_membership_end_date = user_membership.membership_end_date.strftime("%Y-%m-%d")
@@ -145,7 +154,7 @@ def checkout_success(request):
 
 def store_membership_length(request):
     """
-    Stores the membership length in a session
+    Stores the user selected membership length in a session
     """
     data = json.loads(request.body)
     request.session["selected_membership_length"] = data.get(
