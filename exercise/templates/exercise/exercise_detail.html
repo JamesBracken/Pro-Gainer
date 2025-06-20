@@ -23,15 +23,15 @@
       <form method="POST" action="{% url 'toggle_is_favourite_exercise' exercise.id %}">
         {% csrf_token %}
         {{ toggle_exercise_form }}
-
-        {% comment %}Conditionally setting styles depending on if the item is already a favourite of the user{% endcomment %}
-        {% if is_exercise_favourite %}
-          <button type="submit">
-            <img class="red-heart" src="{% static '/images/exercise_detail/red_heart.png' %}" alt="" />
-          </button>
-        {% else %}
-          <button type="submit"><i class="fa-regular fa-heart large-icon"></i></button>
+        {% comment %} Only displaying this to active members {% endcomment %}
+        {% if is_member_active %}
+          {% if is_exercise_favourite %}
+            <button type="submit"><img class="red-heart" src="{% static '/images/exercise_detail/red_heart.png' %}" alt="" /></button>
+          {% else %}
+            <button type="submit"><i class="fa-regular fa-heart large-icon"></i></button>
+          {% endif %}
         {% endif %}
+        {% comment %}Conditionally setting styles depending on if the item is already a favourite of the user{% endcomment %}
       </form>
       <a href="{% url 'toggle_is_favourite_exercise' exercise.id %}"></a>
     </section>
