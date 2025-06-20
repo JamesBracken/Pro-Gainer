@@ -5,7 +5,7 @@
   <section>
     <div class="container">
       <div>
-        <div class="row">
+        <div class="row justify-content-center">
           <div class="col-12">
             {% comment %}Page introduction section{% endcomment %}
             <section>
@@ -20,7 +20,7 @@
           </div>
           {% comment %}Membership info summary section{% endcomment %}
           {% comment %}Inspiration for this success page summary taken from code institute boutique ado project{% endcomment %}
-          <div class="col-12 col-lg-7">
+          <div class="col-12 col-lg-9">
             <section>
               <div class="subscription-confirmation-wrapper p-2 border">
                 <div class="row">
@@ -169,7 +169,8 @@
               </div>
 
               <div class="col-12 mt-4 d-flex justify-content-center">
-                <a class="red-btn" href="{% url 'home' %}">Home</a>
+                <a class="red-btn m-3" href="{% url 'home' %}">Home</a>
+                <a class="grey-btn m-3" href="{% url 'my_profile' %}">My Profile</a>
               </div>
             </section>
           </div>
