@@ -178,3 +178,8 @@ def store_membership_length(request):
             "status": "ok",
         }
     )
+
+def my_profile(request):
+    template = "membership/my_profile.html"
+    context = {}
+    return render(request, template, context)
