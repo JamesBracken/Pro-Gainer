@@ -100,6 +100,8 @@ def checkout(request):
                 subscription.membership_start = timezone.now()
             subscription.user = request.user
             subscription_form.save()
+            # Clear stale sessions used to store the user input membership
+            request.session.clear()
             return redirect(reverse("checkout_success"))
         else:
             messages.add_message(
