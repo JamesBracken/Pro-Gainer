@@ -48,9 +48,11 @@ def exercise_detail(request, exercise_slug):
     """
     exercise = get_object_or_404(Exercise, slug=exercise_slug)
     # Passing in this boolean for javascript to conditionally add styles
-    is_exercise_favourite = FavouriteExercises.objects.filter(
-        user=request.user, exercise_id=exercise.id
-    ).exists()
+    is_exercise_favourite = False
+    if request.user.is_authenticated:
+        is_exercise_favourite = FavouriteExercises.objects.filter(
+            user=request.user, exercise_id=exercise.id
+        ).exists()
 
     toggle_exercise_form = AddFavouriteExerciseForm(
         initial={
