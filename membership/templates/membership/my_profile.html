@@ -9,13 +9,7 @@
 {% endblock %}
 
 {% block content %}
-  {% comment %} <section class="light-grey-bg">
-    <div class="container p-0">
-      <div class="row justify-content-center">
-        <div class="col-12 text-center my-5"></div>
-      </div>
-    </div>
-  </section> {% endcomment %}
+
   {% comment %}My profile introduction{% endcomment %}
   <section>
     <div class="row">
@@ -24,6 +18,8 @@
       </div>
     </div>
   </section>
+
+{% if is_member_active %}
   {% comment %}Display user information{% endcomment %}
   <section>
     <div class="subscription-confirmation-wrapper p-2 border">
@@ -139,6 +135,21 @@
       </div>
     </div>
   </section>
+{% else  %}
+
+  <section class="light-grey-bg">
+    <div class="container p-0">
+      <div class="row justify-content-center">
+        <div class="col-12 text-center my-5"><h1>
+          You dont have an active membership. <br>
+          Go to our membership section to see the content here
+        </h1></div>
+      </div>
+    </div>
+  </section>
+  
+{% endif %}
+
 {% endblock %}
 
 {% comment %}We want to display User information Membership information{% endcomment %}
