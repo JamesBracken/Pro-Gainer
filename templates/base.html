@@ -59,13 +59,15 @@
               <li class="nav-item mx-2 mt-md-2">
                 <a class="nav-link active" aria-current="page" href="{% url 'exercise_list' %}">Exercise List</a>
               </li>
+              {% if is_member_active %}
+                <li class="nav-item mx-2 mt-md-2">
+                  <a class="nav-link active" aria-current="page" href="{% url 'favourite_exercise_list' %}">My Favourites</a>
+                </li>
+              {% endif %}
               {% if user.is_authenticated %}
-              <li class="nav-item mx-2 mt-md-2">
-                <a class="nav-link active" aria-current="page" href="{% url 'favourite_exercise_list' %}">My Favourites</a>
-              </li>
-              <li class="nav-item cta-li-container mx-2 mt-md-2">
-                <a class="active cta-btn" aria-current="page" href="{% url 'membership_form' %}">Membership</a>
-              </li>
+                <li class="nav-item cta-li-container mx-2 mt-md-2">
+                  <a class="active cta-btn" aria-current="page" href="{% url 'membership_form' %}">Membership</a>
+                </li>
               {% endif %}
             </ul>
             <div class="d-flex">
@@ -78,9 +80,11 @@
                     <li>
                       <a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a>
                     </li>
-                    <li>
-                      <a class="dropdown-item" href="{% url 'my_profile' %}">My Profile</a>
-                    </li>
+                    {% if is_member_active %}
+                      <li>
+                        <a class="dropdown-item" href="{% url 'my_profile' %}">My Profile</a>
+                      </li>
+                    {% endif %}
                   </ul>
                 </li>
               {% else %}
@@ -103,8 +107,7 @@
 
     <main class="h-100">
       {% comment %}Message code taken from Code institute Codestar practice project which was done in the course{% endcomment %}
-      {% comment %} Purposefully not using .container here to 
-      prevent button style effects {% endcomment %}
+      {% comment %}Purposefully not using .container here to prevent button style effects{% endcomment %}
       <div>
         <div class="row">
           <div class="col-md-8 offset-md-2">
@@ -157,10 +160,8 @@
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
       {% comment %}Bootstrap popper{% endcomment %}
       <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-      {% comment %} Stripe javascript {% endcomment %}
-      {% comment %} This script is only used on the checkout page however
-      Stripe recommends implementing this on the base for improved fraud
-      detection features {% endcomment %}
+      {% comment %}Stripe javascript{% endcomment %}
+      {% comment %}This script is only used on the checkout page however Stripe recommends implementing this on the base for improved fraud detection features{% endcomment %}
       <script src="https://js.stripe.com/v3/"></script>
     {% endblock %}
   </body>
