@@ -1,6 +1,12 @@
 {% extends 'base.html' %}
 {% load static %}
+{% block meta %}
+ <meta name="description" content="You have successfully checked out" />
+{% endblock %}
 
+{% block extra_title %}
+Checkout success
+{% endblock %}
 {% block content %}
 <section>
     <div class="container">

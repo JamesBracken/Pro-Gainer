@@ -1,5 +1,13 @@
 {% extends 'base.html' %}
 {% load static %}
+{% block meta %}
+ <meta name="description" content="Displays details of the exercise {{exercise.exercise_title}}" />
+{% endblock %}
+
+
+{% block extra_title %}
+{{exercise.exercise_title}}
+{% endblock %}
 {% block content %}
   {% comment %}Admin section{% endcomment %}
   {% if user.is_staff %}

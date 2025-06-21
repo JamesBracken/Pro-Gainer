@@ -1,5 +1,14 @@
 {% extends 'base.html' %}
 {% load allauth i18n %}
+
+{% block meta %}
+ <meta name="description" content="Sign out of your account" />
+{% endblock %}
+
+{% block extra_title %}
+Sign out
+{% endblock %}
+
 {% block head_title %}
   {% trans 'Sign Out' %}
 {% endblock %}
