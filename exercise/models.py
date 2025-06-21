@@ -28,8 +28,8 @@ class Exercise(models.Model):
     targeted_muscles = models.CharField(max_length=300)
     indirectly_targeted_muscles = models.CharField(max_length=300)
     slug = models.SlugField(unique=True, blank=True)
-    recommended_sets = models.CharField()
-    recommended_reps = models.CharField()
+    recommended_sets = models.IntegerField()
+    recommended_reps = models.IntegerField()
     created_at = models.DateTimeField(auto_now_add=True)
 
     # This function populates the slug with the slugified title 
