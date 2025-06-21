@@ -1,3 +1,5 @@
+# Testing
+
 ## Bugs and issues during development
 
 | Feature | Outcome | Fix Performed | Result | Fixed/Unfixed |
@@ -29,130 +31,133 @@
 
 ![]()
 
-| Feature | Expected Outcome | Fix Performed | Result |
-|---------|-------------------|-------------------|--------|
+
+## Validator testing
+
+
+### HTML validation
+
+### CSS validation
+
+### JSHint validation
+
+### Python validation
+
+
+## Lighthouse testing
+
+
+## User story testing
+
+
+## Manual testing
+
+
+### Responsiveness
+
+### Browser testing
+
+### Website functionality testing
+
+Nav bar & Footer
+| Feature | Expected Outcome | Testing Performed | Pass/Fail/Potential improvements |
+|---------|-------------------|-------------------|-----------|
 |||||
 
-**IMAGE OF PROBLEM**
-
-![]()
-
-**IMAGE AFTER FIX**
-
-![]()
-
-**IMAGE OF CODE FIX**
-
-![]()
-
-| Feature | Expected Outcome | Fix Performed | Result |
-|---------|-------------------|-------------------|--------|
+Home page
+| Feature | Expected Outcome | Testing Performed | Pass/Fail/Potential improvements |
+|---------|-------------------|-------------------|-----------|
+|||||
+|||||
+|||||
+|||||
+|||||
+|||||
+|||||
+|||||
+|||||
+|||||
+|||||
+|||||
+|||||
+|||||
 |||||
 
-**IMAGE OF PROBLEM**
 
-![]()
 
-**IMAGE AFTER FIX**
-
-![]()
-
-**IMAGE OF CODE FIX**
-
-![]()
-
-| Feature | Expected Outcome | Fix Performed | Result |
-|---------|-------------------|-------------------|--------|
+Exercise List page
+| Feature | Expected Outcome | Testing Performed | Pass/Fail/Potential improvements |
+|---------|-------------------|-------------------|-----------|
 |||||
 
-**IMAGE OF PROBLEM**
 
-![]()
-
-**IMAGE AFTER FIX**
-
-![]()
-
-**IMAGE OF CODE FIX**
-
-![]()
-
-| Feature | Expected Outcome | Fix Performed | Result |
-|---------|-------------------|-------------------|--------|
+Exercise Details page 
+| Feature | Expected Outcome | Testing Performed | Pass/Fail/Potential improvements |
+|---------|-------------------|-------------------|-----------|
 |||||
 
-**IMAGE OF PROBLEM**
-
-![]()
-
-**IMAGE AFTER FIX**
-
-![]()
-
-**IMAGE OF CODE FIX**
-
-![]()
-
-| Feature | Expected Outcome | Fix Performed | Result |
-|---------|-------------------|-------------------|--------|
+Favourite Exercises list page
+| Feature | Expected Outcome | Testing Performed | Pass/Fail/Potential improvements |
+|---------|-------------------|-------------------|-----------|
 |||||
 
-**IMAGE OF PROBLEM**
-
-![]()
-
-**IMAGE AFTER FIX**
-
-![]()
-
-**IMAGE OF CODE FIX**
-
-![]()
-
-| Feature | Expected Outcome | Fix Performed | Result |
-|---------|-------------------|-------------------|--------|
+Edit & Delete exercise page
+| Feature | Expected Outcome | Testing Performed | Pass/Fail/Potential improvements |
+|---------|-------------------|-------------------|-----------|
 |||||
 
-**IMAGE OF PROBLEM**
-
-![]()
-
-**IMAGE AFTER FIX**
-
-![]()
-
-**IMAGE OF CODE FIX**
-
-![]()
-
-| Feature | Expected Outcome | Fix Performed | Result |
-|---------|-------------------|-------------------|--------|
+My profile
+| Feature | Expected Outcome | Testing Performed | Pass/Fail/Potential improvements |
+|---------|-------------------|-------------------|-----------|
 |||||
 
-**IMAGE OF PROBLEM**
-
-![]()
-
-**IMAGE AFTER FIX**
-
-![]()
-
-**IMAGE OF CODE FIX**
-
-![]()
-
-| Feature | Expected Outcome | Fix Performed | Result |
-|---------|-------------------|-------------------|--------|
+Membership signup page
+| Feature | Expected Outcome | Testing Performed | Pass/Fail/Potential improvements |
+|---------|-------------------|-------------------|-----------|
 |||||
 
-**IMAGE OF PROBLEM**
+Membership success page
+| Feature | Expected Outcome | Testing Performed | Pass/Fail/Potential improvements |
+|---------|-------------------|-------------------|-----------|
+|||||
 
-![]()
+Signup page
+| Feature | Expected Outcome | Testing Performed | Pass/Fail/Potential improvements |
+|---------|-------------------|-------------------|-----------|
+|||||
 
-**IMAGE AFTER FIX**
+Login page
+| Feature | Expected Outcome | Testing Performed | Pass/Fail/Potential improvements |
+|---------|-------------------|-------------------|-----------|
+|||||
 
-![]()
+Password reset page
+| Feature | Expected Outcome | Testing Performed | Pass/Fail/Potential improvements |
+|---------|-------------------|-------------------|-----------|
+|||||
 
-**IMAGE OF CODE FIX**
+Footer
+| Feature | Expected Outcome | Testing Performed | Pass/Fail/Potential improvements |
+|---------|-------------------|-------------------|-----------|
+|||||
 
-![]()
+
+403 page
+| Feature | Expected Outcome | Testing Performed | Pass/Fail/Potential improvements |
+|---------|-------------------|-------------------|-----------|
+|||||
+
+404 page
+| Feature | Expected Outcome | Testing Performed | Pass/Fail/Potential improvements |
+|---------|-------------------|-------------------|-----------|
+|||||
+
+405 page
+| Feature | Expected Outcome | Testing Performed | Pass/Fail/Potential improvements |
+|---------|-------------------|-------------------|-----------|
+|||||
+
+500 page
+| Feature | Expected Outcome | Testing Performed | Pass/Fail/Potential improvements |
+|---------|-------------------|-------------------|-----------|
+|||||
