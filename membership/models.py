@@ -5,11 +5,11 @@ from django.contrib.auth.models import User
 class Membership(models.Model):
     # Choices for gym locations
     GYM_LOCATIONS = [
-        ("hounslow", "Hounslow"),
+        ("Hounslow", "Hounslow"),
     ]
     # Choices for membership types
     MEMBERSHIP_TYPES = [
-            ("regular", "Regular"),
+            ("Regular", "Regular"),
         ]
 
     # General user details models is based off of the Code Institute
@@ -39,3 +39,4 @@ class Membership(models.Model):
     membership_type = models.CharField(choices=MEMBERSHIP_TYPES)
     is_member_active = models.BooleanField(default=False)
     membership_end_date = models.DateTimeField(null=True)
+    last_payment = models.IntegerField(null=True)

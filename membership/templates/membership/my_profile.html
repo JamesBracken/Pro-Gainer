@@ -1,0 +1,155 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block meta %}
+  <meta name="description" content="Home page, welcome to Pro Gainer the site for big gains. Signup for a membership and access the best gyms we have and online assistance." />
+{% endblock %}
+
+{% block extra_title %}
+  Home
+{% endblock %}
+
+{% block content %}
+
+  {% comment %}My profile introduction{% endcomment %}
+  <section>
+    <div class="row">
+      <div class="col-12 d-flex justify-content-center my-3">
+        <h1>My profile</h1>
+      </div>
+    </div>
+  </section>
+
+{% if is_member_active %}
+  {% comment %}Display user information{% endcomment %}
+  <section>
+    <div class="subscription-confirmation-wrapper p-2 border">
+      <div class="row">
+        <div class="col">
+          <small class="text-muted">Subscription Information:</small>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12 col-md-4">
+          <p class="mb-0 fw-text-semi-bold">Gym location</p>
+        </div>
+        <div class="col-12 col-md-4 text-md-right">
+          <p class="mb-0">{{ membership.gym_location }}</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12 col-md-4">
+          <p class="mb-0 fw-text-semi-bold">Membership type</p>
+        </div>
+        <div class="col-12 col-md-4 text-md-right">
+          <p class="mb-0">{{ membership.membership_type }}</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12 col-md-4">
+          <p class="mb-0 fw-text-semi-bold">Membership is active until</p>
+        </div>
+        <div class="col-12 col-md-4 text-md-right">
+          <p class="mb-0">{{ membership.membership_end_date|date:'m-d-Y' }}</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col mt-3">
+          <small class="text-muted">Address Details:</small>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12 col-md-4">
+          <p class="mb-0 fw-text-semi-bold">Full name:</p>
+        </div>
+        <div class="col-12 col-md-4 text-md-right">
+          <p class="mb-0">{{ membership.full_name }}</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12 col-md-4">
+          <p class="mb-0 fw-text-semi-bold">Street address 1</p>
+        </div>
+        <div class="col-12 col-md-4 text-md-right">
+          <p class="mb-0">{{ membership.street_address_1 }}</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12 col-md-4">
+          <p class="mb-0 fw-text-semi-bold">Street address 2</p>
+        </div>
+        <div class="col-12 col-md-4 text-md-right">
+          <p class="mb-0">{{ membership.Street_address_2 }}</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12 col-md-4">
+          <p class="mb-0 fw-text-semi-bold">County</p>
+        </div>
+        <div class="col-12 col-md-4 text-md-right">
+          <p class="mb-0">{{ membership.county }}</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12 col-md-4">
+          <p class="mb-0 fw-text-semi-bold">Town or City</p>
+        </div>
+        <div class="col-12 col-md-4 text-md-right">
+          <p class="mb-0">{{ membership.town_or_city }}</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12 col-md-4">
+          <p class="mb-0 fw-text-semi-bold">Postal code</p>
+        </div>
+        <div class="col-12 col-md-4 text-md-right">
+          <p class="mb-0">{{ membership.post_code }}</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12 col-md-4">
+          <p class="mb-0 fw-text-semi-bold">Country</p>
+        </div>
+        <div class="col-12 col-md-4 text-md-right">
+          <p class="mb-0">{{ membership.country }}</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12 col-md-4">
+          <p class="mb-0 fw-text-semi-bold">Phone number</p>
+        </div>
+        <div class="col-12 col-md-4 text-md-right">
+          <p class="mb-0">{{ membership.phone_number }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+{% else  %}
+
+  <section class="light-grey-bg">
+    <div class="container p-0">
+      <div class="row justify-content-center">
+        <div class="col-12 text-center my-5"><h1>
+          You dont have an active membership. <br>
+          Go to our membership section to see the content here
+        </h1></div>
+      </div>
+    </div>
+  </section>
+  
+{% endif %}
+
+{% endblock %}
+
+{% comment %}We want to display User information Membership information{% endcomment %}

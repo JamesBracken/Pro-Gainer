@@ -308,8 +308,8 @@ header {
 
 /* Adding separate styles for the CTA to attract attention */
 .cta-btn,
+.grey-btn,
 .signup-button {
-    margin: 0 !important;
     color: var(--clr-white);
     padding: 9px 24px;
     font-weight: var(--fw-semi-bold);
@@ -318,7 +318,8 @@ header {
     border: 0;
 }
 
-.cta-btn:hover {
+.cta-btn:hover,
+.grey-btn:hover {
     background-color: #595352;
     transition: 500ms ease-out;
 }

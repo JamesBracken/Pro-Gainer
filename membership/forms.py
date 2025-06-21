@@ -6,7 +6,6 @@ class SubscribeForm(forms.ModelForm):
     """
     Creates a form for :model:`membership.Membership`
     """
-    
     # Choices for membership length in months
     MEMBERSHIP_LENGTH = [
             (None, "--------"),
@@ -29,11 +28,11 @@ class SubscribeForm(forms.ModelForm):
             "gym_location",
             "membership_type",
         )
-# for loop to add a class to each field
     def __init__(self, *args, **kwargs):
         """
         Add classes to each field
         """
         super().__init__(*args, **kwargs)
+        # for loop to add a class to each field
         for field in self.fields:
             self.fields[field].widget.attrs["class"] = "stripe-style-input"
