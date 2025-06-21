@@ -40,7 +40,7 @@ class Exercise(models.Model):
         super().save(*args, **kwargs)
 
 
-class FavouriteExercises(models.Model):
+class FavouriteExercise(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     exercise_id = models.ForeignKey(Exercise, on_delete=models.CASCADE)
     added_at = models.DateTimeField(auto_now_add=True)

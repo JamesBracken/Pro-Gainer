@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Exercise, FavouriteExercises
+from .models import Exercise, FavouriteExercise
 from .forms import ExerciseForm, AddFavouriteExerciseForm
 from django.contrib.admin.views.decorators import staff_member_required
 from django.contrib.auth.decorators import login_required
@@ -50,7 +50,7 @@ def exercise_detail(request, exercise_slug):
     # Passing in this boolean for javascript to conditionally add styles
     is_exercise_favourite = False
     if request.user.is_authenticated:
-        is_exercise_favourite = FavouriteExercises.objects.filter(
+        is_exercise_favourite = FavouriteExercise.objects.filter(
             user=request.user, exercise_id=exercise.id
         ).exists()
 
@@ -157,9 +157,9 @@ def favourite_exercise_list(request):
     **Context**
 
     ``favourite_exercises``
-        An instance of :model:`exercise.FavouriteExercises
+        An instance of :model:`exercise.FavouriteExercise
     """
-    favourite_exercises = FavouriteExercises.objects.filter(user=request.user)
+    favourite_exercises = FavouriteExercise.objects.filter(user=request.user)
     paginator = Paginator(favourite_exercises, 30)
     page_number = request.GET.get("page")
     page_object = paginator.get_page(page_number)
@@ -172,7 +172,7 @@ def favourite_exercise_list(request):
 @login_required
 def toggle_is_favourite_exercise(request, exercise_id):
     """
-    Toggles exercises to be added or deleted as an instance of :model:`FavouriteExercises`
+    Toggles exercises to be added or deleted as an instance of :model:`FavouriteExercise`
 
     **Context**
     
@@ -180,18 +180,18 @@ def toggle_is_favourite_exercise(request, exercise_id):
         An instance of :form:`exercise.AddFavouriteExerciseForm`
     
     ``favourite_exercise``
-        An instance of :model:`exercise.FavouriteExercises`
+        An instance of :model:`exercise.FavouriteExercise`
     """
     exercise = get_object_or_404(Exercise, id=exercise_id)
     exercise_slug = exercise.slug
-    is_exercise_favourite = FavouriteExercises.objects.filter(
+    is_exercise_favourite = FavouriteExercise.objects.filter(
         user=request.user, exercise_id=exercise_id
     ).exists()
 
     if request.method == "POST":
         toggle_exercise_form = AddFavouriteExerciseForm(request.POST)
         if is_exercise_favourite:
-            favourite_exercise = FavouriteExercises.objects.filter(
+            favourite_exercise = FavouriteExercise.objects.filter(
                 user=request.user, exercise_id=exercise_id
             )
             favourite_exercise.delete()
