@@ -36,8 +36,8 @@ class AddFavouriteExerciseForm(forms.ModelForm):
     class Meta:
         model = FavouriteExercise
         fields = (
-            "exercise_id",
+            "exercise",
         )
         widgets = {
-            "exercise_id": forms.HiddenInput()
+            "exercise": forms.HiddenInput()
         }

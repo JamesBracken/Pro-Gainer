@@ -42,5 +42,5 @@ class Exercise(models.Model):
 
 class FavouriteExercise(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    exercise_id = models.ForeignKey(Exercise, on_delete=models.CASCADE)
+    exercise = models.ForeignKey(Exercise, on_delete=models.CASCADE)
     added_at = models.DateTimeField(auto_now_add=True)

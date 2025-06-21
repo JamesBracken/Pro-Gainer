@@ -51,12 +51,12 @@ def exercise_detail(request, exercise_slug):
     is_exercise_favourite = False
     if request.user.is_authenticated:
         is_exercise_favourite = FavouriteExercise.objects.filter(
-            user=request.user, exercise_id=exercise.id
+            user=request.user, exercise=exercise.id
         ).exists()
 
     toggle_exercise_form = AddFavouriteExerciseForm(
         initial={
-            "exercise_id": exercise,
+            "exercise": exercise,
         }
     )
     context = {
@@ -185,14 +185,14 @@ def toggle_is_favourite_exercise(request, exercise_id):
     exercise = get_object_or_404(Exercise, id=exercise_id)
     exercise_slug = exercise.slug
     is_exercise_favourite = FavouriteExercise.objects.filter(
-        user=request.user, exercise_id=exercise_id
+        user=request.user, exercise=exercise_id
     ).exists()
 
     if request.method == "POST":
         toggle_exercise_form = AddFavouriteExerciseForm(request.POST)
         if is_exercise_favourite:
             favourite_exercise = FavouriteExercise.objects.filter(
-                user=request.user, exercise_id=exercise_id
+                user=request.user, exercise=exercise_id
             )
             favourite_exercise.delete()
             messages.add_message(request, messages.SUCCESS, f"{ exercise.exercise_title } has been removed to your favourites list")
