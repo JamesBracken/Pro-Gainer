@@ -5,7 +5,7 @@ from django.contrib.admin.views.decorators import staff_member_required
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
 from django.contrib import messages
-
+from django.views.decorators.http import require_POST
 
 def exercise_list(request):
     """
@@ -87,6 +87,14 @@ def add_exercise_item(request):
             exercise_form.save()
             messages.add_message(request, messages.SUCCESS, "Exercise has been added")
             return redirect("exercise_list")
+        else:
+            return render(
+            request,
+            "exercise/exercise_form.html",
+            {
+                "exercise_form": exercise_form,
+            },
+    )
     else:
         exercise_form = ExerciseForm()
         return render(
@@ -120,9 +128,15 @@ def edit_exercise_item(request, exercise_slug):
         exercise_form = ExerciseForm(request.POST, request.FILES, instance=exercise)
         if exercise_form.is_valid():
             exercise_form.save()
-            messages.add_message(request, messages.SUCCESS, f"{ exercise.exercise_title } has been edited")
+            messages.add_message(
+                request,
+                messages.SUCCESS,
+                f"{ exercise.exercise_title } has been edited",
+            )
         else:
-            messages.add_message(request, messages.ERROR, f"Error editing { exercise.exercise_title }")
+            messages.add_message(
+                request, messages.ERROR, f"Error editing { exercise.exercise_title }"
+            )
         return redirect("exercise_detail", exercise_slug=exercise.slug)
     else:
         exercise_form = ExerciseForm(instance=exercise)
@@ -145,7 +159,9 @@ def delete_exercise_item(request, exercise_slug):
     """
     exercise = get_object_or_404(Exercise, slug=exercise_slug)
     exercise.delete()
-    messages.add_message(request, messages.SUCCESS, f"{ exercise.exercise_title } has been deleted")
+    messages.add_message(
+        request, messages.SUCCESS, f"{ exercise.exercise_title } has been deleted"
+    )
     return redirect("exercise_list")
 
 

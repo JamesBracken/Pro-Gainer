@@ -21,8 +21,8 @@ class Exercise(models.Model):
 
     exercise_title = models.CharField(unique=True)
     image = CloudinaryField('image')
-    difficulty = models.CharField(choices=DIFFICULTY_SELECTION) # select
-    intensity = models.CharField(choices=INTENSITY_SELECTION) # select
+    difficulty = models.CharField(choices=DIFFICULTY_SELECTION)
+    intensity = models.CharField(choices=INTENSITY_SELECTION)
     instruction = models.TextField(max_length=1000)
     equipment = models.CharField(max_length=300)
     targeted_muscles = models.CharField(max_length=300)
