@@ -184,17 +184,17 @@ def favourite_exercise_list(request):
     }
     return render(request, "exercise/favourite_exercises_list.html", context)
 
-
+@require_POST
 @login_required
 def toggle_is_favourite_exercise(request, exercise_id):
     """
     Toggles exercises to be added or deleted as an instance of :model:`FavouriteExercise`
 
     **Context**
-    
+
     ``toggle_exercise_form``
         An instance of :form:`exercise.AddFavouriteExerciseForm`
-    
+
     ``favourite_exercise``
         An instance of :model:`exercise.FavouriteExercise`
     """
@@ -204,18 +204,25 @@ def toggle_is_favourite_exercise(request, exercise_id):
         user=request.user, exercise=exercise_id
     ).exists()
 
-    if request.method == "POST":
-        toggle_exercise_form = AddFavouriteExerciseForm(request.POST)
-        if is_exercise_favourite:
-            favourite_exercise = FavouriteExercise.objects.filter(
-                user=request.user, exercise=exercise_id
-            )
-            favourite_exercise.delete()
-            messages.add_message(request, messages.SUCCESS, f"{ exercise.exercise_title } has been removed to your favourites list")
-            return redirect("exercise_detail", exercise_slug)
-        if toggle_exercise_form.is_valid():
-            favourite_exercise = toggle_exercise_form.save(commit=False)
-            favourite_exercise.user = request.user
-            toggle_exercise_form.save()
-            messages.add_message(request, messages.SUCCESS, f"{ exercise.exercise_title } has been added to your favourites list")
-            return redirect("exercise_detail", exercise_slug)
+    toggle_exercise_form = AddFavouriteExerciseForm(request.POST)
+    if is_exercise_favourite:
+        favourite_exercise = FavouriteExercise.objects.filter(
+            user=request.user, exercise=exercise_id
+        )
+        favourite_exercise.delete()
+        messages.add_message(
+            request,
+            messages.SUCCESS,
+            f"{ exercise.exercise_title } has been removed to your favourites list",
+        )
+        return redirect("exercise_detail", exercise_slug)
+    if toggle_exercise_form.is_valid():
+        favourite_exercise = toggle_exercise_form.save(commit=False)
+        favourite_exercise.user = request.user
+        toggle_exercise_form.save()
+        messages.add_message(
+            request,
+            messages.SUCCESS,
+            f"{ exercise.exercise_title } has been added to your favourites list",
+        )
+        return redirect("exercise_detail", exercise_slug)
