@@ -95,6 +95,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'membership.context_processors.check_member_status',
             ],
         },
     },
@@ -187,8 +188,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Stripe 
 
-
 STRIPE_CURRENCY = "gbp"
 STRIPE_SECRET_KEY = os.getenv("STRIPE_SECRET_KEY")
 STRIPE_PUBLIC_KEY = os.getenv("STRIPE_PUBLIC_KEY")
 
+#  Global membership fees
+JOINING_FEE = 0
+THREE_MONTH_SUBSCRIPTION_FEE = 120
+TWELVE_MONTH_SUBSCRIPTION_FEE = 399

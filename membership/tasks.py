@@ -3,8 +3,8 @@ from django.utils import timezone
 
 def update_membership_status():
     """
-    Updates is_member_active to inactive if the date now is greater
-    than their membership end date.
+    Automatically updates is_member_active to inactive if the server is running
+    and the date now is greater than their membership end date.
 
     This function updates an instance of :model:`membership.Membership`
     """
