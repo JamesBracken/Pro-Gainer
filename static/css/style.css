@@ -333,7 +333,9 @@ header {
     align-items: center;
 }
 
-
+.active {
+    font-weight: var(--fw-bold);
+}
 /* MAIN CONTENT STYLES */
 
 .home-hero-img-container {

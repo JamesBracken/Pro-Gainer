@@ -54,19 +54,19 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item mx-2 mt-md-2">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                <a class="nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}" href="{% url 'home' %}">Home</a>
               </li>
               <li class="nav-item mx-2 mt-md-2">
-                <a class="nav-link active" aria-current="page" href="{% url 'exercise_list' %}">Exercise List</a>
+                <a class="nav-link {% if request.resolver_match.url_name == 'exercise_list' %}active{% endif %}" href="{% url 'exercise_list' %}">Exercise List</a>
               </li>
               {% if is_member_active %}
                 <li class="nav-item mx-2 mt-md-2">
-                  <a class="nav-link active" aria-current="page" href="{% url 'favourite_exercise_list' %}">My Favourites</a>
+                  <a class="nav-link {% if request.resolver_match.url_name == 'favourite_exercise_list' %}active{% endif %}" href="{% url 'favourite_exercise_list' %}">My Favourites</a>
                 </li>
               {% endif %}
               {% if user.is_authenticated %}
                 <li class="nav-item cta-li-container mx-2 mt-md-2">
-                  <a class="active cta-btn" aria-current="page" href="{% url 'membership_form' %}">Membership</a>
+                  <a class="cta-btn {% if request.resolver_match.url_name == 'membership_form' %}active{% endif %}" href="{% url 'membership_form' %}">Membership</a>
                 </li>
               {% endif %}
             </ul>
