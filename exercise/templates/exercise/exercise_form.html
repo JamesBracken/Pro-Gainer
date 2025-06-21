@@ -1,5 +1,12 @@
 {% extends 'base.html' %}
 {% load crispy_forms_tags %}
+{% block meta %}
+ <meta name="description" content="Fill out the form to add or edit an exercise" />
+{% endblock %}
+
+{% block extra_title %}
+Exercise form
+{% endblock %}
 {% block content %}
   {% if user.is_staff %}
     <section>

@@ -98,7 +98,6 @@ p {
     font-weight: var(--fw-regular) !important;
 }
 
-input,
 button,
 select,
 textarea {
@@ -333,7 +332,9 @@ header {
     align-items: center;
 }
 
-
+.active {
+    font-weight: var(--fw-bold);
+}
 /* MAIN CONTENT STYLES */
 
 .home-hero-img-container {
@@ -416,9 +417,11 @@ but this page no longer seems to have that content */
 
 #payment-form .form-control,
 #card-element,
-select {
+select,
+input {
     color: #000 !important;
     border: 1px solid #000 !important;
+    border-radius: 0!important;
 }
 
 .StripeElement,

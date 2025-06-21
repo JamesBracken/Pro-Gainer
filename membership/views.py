@@ -7,6 +7,7 @@ from django.utils import timezone
 from dateutil.relativedelta import relativedelta
 from django.http import JsonResponse
 from django.core.paginator import Paginator
+from django.views.decorators.http import require_POST
 
 import stripe
 import json
@@ -101,6 +102,7 @@ def checkout(request):
                 subscription.membership_start = timezone.now()
             subscription.last_payment = membership_fee
             subscription.user = request.user
+            subscription.is_member_active = True
             subscription_form.save()
             # Clear stale sessions used to store the user input membership
             del request.session["selected_membership_length"]

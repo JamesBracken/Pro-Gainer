@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% load i18n %}
-{% load allauth account %}
+{% load allauth account crispy_forms_tags %}
+
 {% block extra_title %}
   Sign in
 {% endblock %}
@@ -10,59 +11,63 @@
 {% endblock %}
 
 {% block content %}
-    {% comment %} Sign in section {% endcomment %}
-    <section>
-      <div class="container">
-        {% element h1 %}
+  {% comment %} Sign in section {% endcomment %}
+  <section>
+    <div class="container my-5">
+      {% element h1 %}
         {% trans 'Sign In' %}
-        {% endelement %}
-        {% if not SOCIALACCOUNT_ONLY %}
-          {% setvar link %}
+      {% endelement %}
+
+      {% if not SOCIALACCOUNT_ONLY %}
+        {% setvar link %}
           <a href="{{ signup_url }}">
-            {% endsetvar %}
-            {% setvar end_link %}
+        {% endsetvar %}
+        {% setvar end_link %}
           </a>
-          {% endsetvar %}
-          {% element p %}
+        {% endsetvar %}
+
+        {% element p %}
           {% blocktranslate %}If you have not created an account yet, then please {{ link }}<span class="underline">sign up</span>{{ end_link }} first.{% endblocktranslate %}
-          {% endelement %}
-          {% url 'account_login' as login_url %}
-          {% element form form=form method='post' action=login_url tags='entrance,login' %}
+        {% endelement %}
+
+        {% url 'account_login' as login_url %}
+        {% element form method='post' action=login_url tags='entrance,login' %}
           {% slot body %}
-          {% csrf_token %}
-          {% element fields form=form unlabeled=True %}
-          {% endelement %}
-          {{ redirect_field }}
+            {% csrf_token %}
+            {{ form|crispy }}
+            {{ redirect_field }}
           {% endslot %}
           {% slot actions %}
-          {% element button type='submit' tags='prominent,login' class='button'  %}
-          {% trans 'Sign In' %}
-          {% endelement %}
+            <button type="submit" class="btn btn-primary">
+              {% trans 'Sign In' %}
+            </button>
           {% endslot %}
-          {% endelement %}
-        {% endif %}
-        {% if LOGIN_BY_CODE_ENABLED or PASSKEY_LOGIN_ENABLED %}
-          {% element hr %}
-          {% endelement %}
-          {% element button_group vertical=True %}
+        {% endelement %}
+      {% endif %}
+
+      {% if LOGIN_BY_CODE_ENABLED or PASSKEY_LOGIN_ENABLED %}
+        {% element hr %}{% endelement %}
+        {% element button_group vertical=True %}
           {% if PASSKEY_LOGIN_ENABLED %}
-            {% element button type='submit' form='mfa_login' class='button'  id='passkey_login' tags='prominent,login,outline,primary' %}
-            {% trans 'Sign in with a passkey' %}
+            {% element button type='submit' form='mfa_login' id='passkey_login' tags='prominent,login,outline,primary' %}
+              {% trans 'Sign in with a passkey' %}
             {% endelement %}
           {% endif %}
           {% if LOGIN_BY_CODE_ENABLED %}
-            {% element button href=request_login_code_url tags='prominent,login,outline,primary' class='button'  %}
-            {% trans 'Send me a sign-in code' %}
+            {% element button href=request_login_code_url tags='prominent,login,outline,primary' %}
+              {% trans 'Send me a sign-in code' %}
             {% endelement %}
           {% endif %}
-          {% endelement %}
-        {% endif %}
-        {% if SOCIALACCOUNT_ENABLED %}
-          {% include 'socialaccount/snippets/login.html' with page_layout='entrance' %}
-        {% endif %}
-      </div>
-    </section>
+        {% endelement %}
+      {% endif %}
+
+      {% if SOCIALACCOUNT_ENABLED %}
+        {% include 'socialaccount/snippets/login.html' with page_layout='entrance' %}
+      {% endif %}
+    </div>
+  </section>
 {% endblock %}
+
 {% block extra_body %}
   {{ block.super }}
   {% if PASSKEY_LOGIN_ENABLED %}

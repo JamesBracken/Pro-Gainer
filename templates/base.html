@@ -44,7 +44,7 @@
     <header class="container-fluid fixed-top">
       {% comment %}Navbar{% endcomment %}
       {% comment %}Navbar code sample taken from bootstrap docs https://getbootstrap.com/docs/5.3/components/navbar/{% endcomment %}
-      <nav class="navbar navbar-expand-md bg-body-tertiary">
+      <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
           <a class="navbar-brand logo" href="{% url 'home' %}">
             <i class="fa-solid fa-hand-fist"></i>
@@ -54,19 +54,19 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item mx-2 mt-md-2">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                <a class="nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}" href="{% url 'home' %}">Home</a>
               </li>
               <li class="nav-item mx-2 mt-md-2">
-                <a class="nav-link active" aria-current="page" href="{% url 'exercise_list' %}">Exercise List</a>
+                <a class="nav-link {% if request.resolver_match.url_name == 'exercise_list' %}active{% endif %}" href="{% url 'exercise_list' %}">Exercise List</a>
               </li>
               {% if is_member_active %}
                 <li class="nav-item mx-2 mt-md-2">
-                  <a class="nav-link active" aria-current="page" href="{% url 'favourite_exercise_list' %}">My Favourites</a>
+                  <a class="nav-link {% if request.resolver_match.url_name == 'favourite_exercise_list' %}active{% endif %}" href="{% url 'favourite_exercise_list' %}">My Favourites</a>
                 </li>
               {% endif %}
               {% if user.is_authenticated %}
                 <li class="nav-item cta-li-container mx-2 mt-md-2">
-                  <a class="active cta-btn" aria-current="page" href="{% url 'membership_form' %}">Membership</a>
+                  <a class="cta-btn {% if request.resolver_match.url_name == 'membership_form' %}active{% endif %}" href="{% url 'membership_form' %}">Membership</a>
                 </li>
               {% endif %}
             </ul>
@@ -76,7 +76,7 @@
               {% if user.is_authenticated %}
                 <li class="nav-item dropdown">
                   <a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-circle-user large-icon"></i></a>
-                  <ul class="dropdown-menu dropdown-menu-start dropdown-menu-md-end">
+                  <ul class="dropdown-menu dropdown-menu-start dropdown-menu-lg-end">
                     <li>
                       <a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a>
                     </li>
@@ -93,7 +93,7 @@
                     <li class="cta-li-container mx-2">
                       <a href="{% url 'account_signup' %}" class="m-2 signup-button mt-2">Signup</a>
                     </li>
-                    <li class="cta-li-container mx-2">
+                    <li class="cta-li-container mb-2 mx-2">
                       <a href="{% url 'account_login' %}" class="cta-btn mt-2">Login</a>
                     </li>
                   </ul>

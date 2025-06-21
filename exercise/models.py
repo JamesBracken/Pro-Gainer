@@ -21,15 +21,15 @@ class Exercise(models.Model):
 
     exercise_title = models.CharField(unique=True)
     image = CloudinaryField('image')
-    difficulty = models.CharField(choices=DIFFICULTY_SELECTION) # select
-    intensity = models.CharField(choices=INTENSITY_SELECTION) # select
+    difficulty = models.CharField(choices=DIFFICULTY_SELECTION)
+    intensity = models.CharField(choices=INTENSITY_SELECTION)
     instruction = models.TextField(max_length=1000)
     equipment = models.CharField(max_length=300)
     targeted_muscles = models.CharField(max_length=300)
     indirectly_targeted_muscles = models.CharField(max_length=300)
     slug = models.SlugField(unique=True, blank=True)
-    recommended_sets = models.CharField()
-    recommended_reps = models.CharField()
+    recommended_sets = models.IntegerField()
+    recommended_reps = models.IntegerField()
     created_at = models.DateTimeField(auto_now_add=True)
 
     # This function populates the slug with the slugified title 
@@ -40,7 +40,7 @@ class Exercise(models.Model):
         super().save(*args, **kwargs)
 
 
-class FavouriteExercises(models.Model):
+class FavouriteExercise(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    exercise_id = models.ForeignKey(Exercise, on_delete=models.CASCADE)
+    exercise = models.ForeignKey(Exercise, on_delete=models.CASCADE)
     added_at = models.DateTimeField(auto_now_add=True)
