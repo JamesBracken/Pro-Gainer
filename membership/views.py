@@ -15,13 +15,37 @@ import json
 @require_POST
 def cache_checkout_data(request):
     membership_instance = Membership.objects.filter(user=request.user).first()
+
     membership_end_date = calculate_membership_end_date(request, membership_instance)
+    # Set the membership start date
+    membership_start_date = None
+    membership_start_date_str = None
+    # membership_start_date is being passed as not timezone aware
+    # making this timezone aware here
+    if membership_instance:
+        # if membership_instance.membership_start_date:
+        membership_start_date = membership_instance.membership_start_date
+        if timezone.is_naive(membership_start_date):
+            membership_start_date = timezone.make_aware(membership_start_date)
+        membership_start_date_str = membership_start_date.isoformat()
+
+        print("If block invoking membership_start_date")
+    else:
+        membership_start_date_str = timezone.now().isoformat()
+        print("Else block invoking membership_start_date")
+    print("membership_start_date:", membership_start_date)
     try:
         pid = request.POST.get("client_secret").split("_secret")[0]
         stripe.api_key = settings.STRIPE_SECRET_KEY
+        gym_location = request.POST.get("gym_location", "")
+        membership_type = request.POST.get("membership_type", "")
         stripe.PaymentIntent.modify(pid, metadata={
-            "username": request.user,
-            "membership_end_date": membership_end_date,
+            "user_id": str(request.user.id),
+            "username": str(request.user.username),
+            "membership_end_date": str(membership_end_date),
+            "gym_location": str(gym_location),
+            "membership_type": str(membership_type),
+            "membership_start_date": membership_start_date_str,
         })
         return HttpResponse(status=200)
     except Exception as e:
@@ -66,7 +90,6 @@ def checkout(request):
         numified_membership_length = int(selected_membership_length)
         if numified_membership_length == 3:
             membership_fee = settings.THREE_MONTH_SUBSCRIPTION_FEE
-            print("First if block invoking")
         elif numified_membership_length == 12:
             membership_fee = settings.TWELVE_MONTH_SUBSCRIPTION_FEE
     joining_fee = settings.JOINING_FEE
