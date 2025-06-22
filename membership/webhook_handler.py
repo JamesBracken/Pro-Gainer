@@ -60,6 +60,11 @@ class StripeWH_Handler:
                     street_address_1__iexact=shipping_details.address.line1,
                     street_address_2__iexact=shipping_details.address.line2,
                     county__iexact=shipping_details.address.state,
+                    membership_end_date=metadata.membership_end_date,
+                    membership_start_date=metadata.membership_start_date,
+                    gym_location=metadata.gym_location,
+                    membership_type=metadata.membership_type,
+                    last_payment= intent.amount,
                 )
                 order_exists = True
                 break
@@ -102,6 +107,11 @@ class StripeWH_Handler:
                     street_address_1=shipping_details.address.line1,
                     street_address_2=shipping_details.address.line2,
                     county=shipping_details.address.state,
+                    membership_end_date=metadata.membership_end_date,
+                    membership_start_date=metadata.membership_start_date,
+                    gym_location=metadata.gym_location,
+                    membership_type=metadata.membership_type,
+                    last_payment= intent.amount,
                 )
             except Exception as e:
                 if membership:
