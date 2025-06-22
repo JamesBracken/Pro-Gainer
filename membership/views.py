@@ -19,6 +19,8 @@ def cache_checkout_data(request):
         stripe.api_key = settings.STRIPE_SECRET_KEY
         stripe.PaymentIntent.modify(pid, metadata={
             "username": request.user,
+            "membership_length_selected": input_membership_length,
+            "membership_end_date": membership_end_date,
         })
         return HttpResponse(status=200)
     except Exception as e:
@@ -93,26 +95,14 @@ def checkout(request):
             )
         else:
             subscription_form = SubscribeForm(request.POST)
+            # Setting this to none for calculate_membership_end_date calculation
+            # parameter, if this is none this parameter would also not be needed
+            membership_instance = None
         if subscription_form.is_valid():
-            input_membership_length = int(
-                subscription_form.cleaned_data["membership_length"]
-            )
+            membership_end_date = calculate_membership_end_date(subscription_form, is_membership_instance, membership_instance)
+
             subscription = subscription_form.save(commit=False)
             if is_membership_instance:
-                date_today = timezone.now()
-                if membership_instance.membership_end_date < date_today:
-                    subscription.membership_end_date = timezone.now() + relativedelta(
-                        months=input_membership_length
-                    )
-                elif membership_instance.membership_end_date > date_today:
-                    subscription.membership_end_date = (
-                        membership_instance.membership_end_date
-                        + relativedelta(months=input_membership_length)
-                    )
-            else:
-                subscription.membership_end_date = timezone.now() + relativedelta(
-                    months=input_membership_length
-                )
                 subscription.membership_start = timezone.now()
             subscription.last_payment = membership_fee
             subscription.user = request.user
@@ -217,3 +207,19 @@ def my_profile(request):
     template = "membership/my_profile.html"
     context = {"membership": membership}
     return render(request, template, context)
+
+def calculate_membership_end_date(request, subscription_form, is_membership_instance, membership_instance):
+    input_membership_length = int(subscription_form.cleaned_data["membership_length"])
+    if is_membership_instance:
+        # membership_instance = Membership.objects.filter(user=request.user).first()
+        date_today = timezone.now()
+        membership_end_date
+        if membership_instance.membership_end_date < date_today:
+            membership_end_date = timezone.now() + relativedelta(months=input_membership_length)
+        elif membership_instance.membership_end_date > date_today:
+            membership_end_date = (membership_instance.membership_end_date + relativedelta(months=input_membership_length))
+        return membership_end_date 
+    else:
+        membership_end_date = timezone.now() + relativedelta(months=input_membership_length)
+        return membership_end_date
+    
