@@ -14,12 +14,13 @@ import json
 
 @require_POST
 def cache_checkout_data(request):
+    membership_instance = Membership.objects.filter(user=request.user).first()
+    membership_end_date = calculate_membership_end_date(request, membership_instance)
     try:
         pid = request.POST.get("client_secret").split("_secret")[0]
         stripe.api_key = settings.STRIPE_SECRET_KEY
         stripe.PaymentIntent.modify(pid, metadata={
             "username": request.user,
-            "membership_length_selected": input_membership_length,
             "membership_end_date": membership_end_date,
         })
         return HttpResponse(status=200)
@@ -99,14 +100,16 @@ def checkout(request):
             # parameter, if this is none this parameter would also not be needed
             membership_instance = None
         if subscription_form.is_valid():
-            membership_end_date = calculate_membership_end_date(subscription_form, is_membership_instance, membership_instance)
+            membership_end_date = calculate_membership_end_date(request, membership_instance)
 
             subscription = subscription_form.save(commit=False)
+            subscription.membership_end_date = membership_end_date
             if is_membership_instance:
                 subscription.membership_start = timezone.now()
             subscription.last_payment = membership_fee
             subscription.user = request.user
             subscription.is_member_active = True
+            # Temporarily removed setting membership end date
             subscription_form.save()
             # Clear stale sessions used to store the user input membership
             del request.session["selected_membership_length"]
@@ -208,18 +211,18 @@ def my_profile(request):
     context = {"membership": membership}
     return render(request, template, context)
 
-def calculate_membership_end_date(request, subscription_form, is_membership_instance, membership_instance):
-    input_membership_length = int(subscription_form.cleaned_data["membership_length"])
+def calculate_membership_end_date(request, membership_instance):
+    is_membership_instance = membership_instance == True
+    print(is_membership_instance)
+    selected_membership_length = int(request.session.get("selected_membership_length"))
     if is_membership_instance:
-        # membership_instance = Membership.objects.filter(user=request.user).first()
         date_today = timezone.now()
         membership_end_date
         if membership_instance.membership_end_date < date_today:
-            membership_end_date = timezone.now() + relativedelta(months=input_membership_length)
+            membership_end_date = timezone.now() + relativedelta(months=selected_membership_length)
         elif membership_instance.membership_end_date > date_today:
-            membership_end_date = (membership_instance.membership_end_date + relativedelta(months=input_membership_length))
+            membership_end_date = (membership_instance.membership_end_date + relativedelta(months=selected_membership_length))
         return membership_end_date 
     else:
-        membership_end_date = timezone.now() + relativedelta(months=input_membership_length)
+        membership_end_date = timezone.now() + relativedelta(months=selected_membership_length)
         return membership_end_date
-    
