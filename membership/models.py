@@ -25,7 +25,7 @@ class Membership(models.Model):
     phone_number = models.CharField(max_length=20, null=False, blank=False)
     # User Address details
     country = models.CharField(max_length=100, null=False, blank=False)
-    post_code = models.CharField(max_length=20, null=True, blank=True)
+    post_code = models.CharField(max_length=20, null=True, blank=False)
     town_or_city = models.CharField(max_length=100, null=False, blank=False)
     street_address_1 = models.CharField(max_length=200, null=False, blank=False)
     street_address_2 = models.CharField(max_length=200, null=True, blank=True)
@@ -40,3 +40,5 @@ class Membership(models.Model):
     is_member_active = models.BooleanField(default=False)
     membership_end_date = models.DateTimeField(null=True)
     last_payment = models.IntegerField(null=True)
+
+

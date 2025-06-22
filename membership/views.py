@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, reverse, get_object_or_404
+from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpResponse
 from .forms import SubscribeForm
 from .models import Membership
 from django.conf import settings
@@ -11,6 +11,47 @@ from django.views.decorators.http import require_POST
 
 import stripe
 import json
+
+@require_POST
+def cache_checkout_data(request):
+    membership_instance = Membership.objects.filter(user=request.user).first()
+
+    membership_end_date = calculate_membership_end_date(request, membership_instance)
+    # Set the membership start date
+    membership_start_date = None
+    membership_start_date_str = None
+    # membership_start_date is being passed as not timezone aware
+    # making this timezone aware here
+    if membership_instance:
+        # if membership_instance.membership_start_date:
+        membership_start_date = membership_instance.membership_start_date
+        if timezone.is_naive(membership_start_date):
+            membership_start_date = timezone.make_aware(membership_start_date)
+        membership_start_date_str = membership_start_date.isoformat()
+
+        print("If block invoking membership_start_date")
+    else:
+        membership_start_date_str = timezone.now().isoformat()
+        print("Else block invoking membership_start_date")
+    print("membership_start_date:", membership_start_date)
+    try:
+        pid = request.POST.get("client_secret").split("_secret")[0]
+        stripe.api_key = settings.STRIPE_SECRET_KEY
+        gym_location = request.POST.get("gym_location", "")
+        membership_type = request.POST.get("membership_type", "")
+        stripe.PaymentIntent.modify(pid, metadata={
+            "user_id": str(request.user.id),
+            "username": str(request.user.username),
+            "membership_end_date": str(membership_end_date),
+            "gym_location": str(gym_location),
+            "membership_type": str(membership_type),
+            "membership_start_date": membership_start_date_str,
+        })
+        return HttpResponse(status=200)
+    except Exception as e:
+        messages.error(request, "Sorry, your payment cannot \
+                       be processed right now. Please try again later")
+    return HttpResponse(content=0, status=400)
 
 
 def checkout(request):
@@ -49,7 +90,6 @@ def checkout(request):
         numified_membership_length = int(selected_membership_length)
         if numified_membership_length == 3:
             membership_fee = settings.THREE_MONTH_SUBSCRIPTION_FEE
-            print("First if block invoking")
         elif numified_membership_length == 12:
             membership_fee = settings.TWELVE_MONTH_SUBSCRIPTION_FEE
     joining_fee = settings.JOINING_FEE
@@ -79,30 +119,20 @@ def checkout(request):
             )
         else:
             subscription_form = SubscribeForm(request.POST)
+            # Setting this to none for calculate_membership_end_date calculation
+            # parameter, if this is none this parameter would also not be needed
+            membership_instance = None
         if subscription_form.is_valid():
-            input_membership_length = int(
-                subscription_form.cleaned_data["membership_length"]
-            )
+            membership_end_date = calculate_membership_end_date(request, membership_instance)
+
             subscription = subscription_form.save(commit=False)
+            subscription.membership_end_date = membership_end_date
             if is_membership_instance:
-                date_today = timezone.now()
-                if membership_instance.membership_end_date < date_today:
-                    subscription.membership_end_date = timezone.now() + relativedelta(
-                        months=input_membership_length
-                    )
-                elif membership_instance.membership_end_date > date_today:
-                    subscription.membership_end_date = (
-                        membership_instance.membership_end_date
-                        + relativedelta(months=input_membership_length)
-                    )
-            else:
-                subscription.membership_end_date = timezone.now() + relativedelta(
-                    months=input_membership_length
-                )
                 subscription.membership_start = timezone.now()
             subscription.last_payment = membership_fee
             subscription.user = request.user
             subscription.is_member_active = True
+            # Temporarily removed setting membership end date
             subscription_form.save()
             # Clear stale sessions used to store the user input membership
             del request.session["selected_membership_length"]
@@ -203,3 +233,19 @@ def my_profile(request):
     template = "membership/my_profile.html"
     context = {"membership": membership}
     return render(request, template, context)
+
+def calculate_membership_end_date(request, membership_instance):
+    is_membership_instance = membership_instance == True
+    print(is_membership_instance)
+    selected_membership_length = int(request.session.get("selected_membership_length"))
+    if is_membership_instance:
+        date_today = timezone.now()
+        membership_end_date
+        if membership_instance.membership_end_date < date_today:
+            membership_end_date = timezone.now() + relativedelta(months=selected_membership_length)
+        elif membership_instance.membership_end_date > date_today:
+            membership_end_date = (membership_instance.membership_end_date + relativedelta(months=selected_membership_length))
+        return membership_end_date 
+    else:
+        membership_end_date = timezone.now() + relativedelta(months=selected_membership_length)
+        return membership_end_date
