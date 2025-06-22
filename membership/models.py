@@ -40,3 +40,5 @@ class Membership(models.Model):
     is_member_active = models.BooleanField(default=False)
     membership_end_date = models.DateTimeField(null=True)
     last_payment = models.IntegerField(null=True)
+
+

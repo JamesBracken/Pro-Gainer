@@ -49,17 +49,20 @@ form.addEventListener("submit", function (event) {
   event.preventDefault();
   card.update({ "disabled": true });
   $("#submit-button").attr("disabled", true);
-
+  let gymLocation = form.gym_location ? form.gym_location.value : "";
+  let membershipType = form.membership_type ? form.membership_type.value : "";
   let saveInfo = true
   let csrfToken = $("input[name='csrfmiddlewaretoken']").val();
   let postData = {
     "csrfmiddlewaretoken": csrfToken,
     "client_secret": clientSecret,
     "save_info": saveInfo,
+    "gym_location": gymLocation,
+    "membership_type": membershipType,
   }
   let url = "/membership/cache_checkout_data/";
 
-  $.post(url, postData).done(function() {
+  $.post(url, postData).done(function () {
     // Send code to stripe
     stripe.confirmCardPayment(clientSecret, {
       payment_method: {
@@ -103,11 +106,11 @@ form.addEventListener("submit", function (event) {
         $("#submit-button").attr("disabled", false);
       } else {
         if (result.paymentIntent.status === "succeeded") {
-          form.submit();
+          // form.submit();
         }
       }
     })
-  }).fail(function() {
+  }).fail(function () {
     //  just reloading the page, the error will be in django messages
     location.reload();
   })
