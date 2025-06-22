@@ -42,6 +42,8 @@ class StripeWH_Handler:
         membership_end_date = intent.metadata.membership_end_date
         membership_start_date_raw = metadata.get("membership_start_date")
         membership_end_date_raw = metadata.get("membership_end_date")
+        last_payment= intent.amount / 100
+        print(last_payment)
 
         membership_start_date = isoparse(membership_start_date_raw)
         membership_end_date = isoparse(membership_end_date_raw)
@@ -64,7 +66,7 @@ class StripeWH_Handler:
                     membership_start_date=metadata.membership_start_date,
                     gym_location=metadata.gym_location,
                     membership_type=metadata.membership_type,
-                    last_payment= intent.amount,
+                    last_payment= last_payment,
                 )
                 order_exists = True
                 break
@@ -111,7 +113,7 @@ class StripeWH_Handler:
                     membership_start_date=metadata.membership_start_date,
                     gym_location=metadata.gym_location,
                     membership_type=metadata.membership_type,
-                    last_payment= intent.amount,
+                    last_payment= last_payment,
                 )
             except Exception as e:
                 if membership:
