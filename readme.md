@@ -107,6 +107,39 @@ The website is focused on providing a gym subscription service for the physical 
 
 #### Incomplete/Undone User stories
 
+**User content**
+ 
+ - As a user, I would like to be informed of any discounts the gym may be doing so I can save money(Should have)
+ 
+ - As a user, I would like to have access to a gallery so I can view pictures of the gym and understand if it is right for me(Could have)
+ 
+ - As a user, I would like to be able to book a visit so I can decide if the gym is right for me(Could have)
+
+**Membership and authentication**
+ 
+ - As a signed-in user, I would like to be able to cancel my membership so I can stop my gym payments(Originally Must have, now Wont do as recurring payments
+ will no longer be applied in the project there is no further need for a cancel membership functionality)
+
+**Members only content**
+ 
+ - As a signed-in user, I would like to be able to filter the exercises in my favourites list so I can easily access specific exercises (Should 
+ have)
+ 
+ - As a signed-in user, I would like to be able to add my fitness goals 
+ so I can have them on my profile(Should have)
+ 
+ - As a signed-in user, I would like to be able to update my fitness goals so I can keep it updated(Should have)
+ 
+ - As a signed-in user, I would like to receive personalised workouts which are based on my goals so I can get better results faster(Could 
+ have)
+ 
+ - As a signed-in user, I would like to be able to search for exercise content on the exercise list so I can find exercises faster(Could have)
+ 
+ - As a signed-in user, I would like to be able to filter exercise search results on the exercise list so I can find exercises faster(Could have)
+
+**Admin content**
+ 
+All admin user goals created
 
 ### Scope
 
