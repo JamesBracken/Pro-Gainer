@@ -74,7 +74,39 @@ The website is focused on providing a gym subscription service for the physical 
 
 #### Completed User stories
 
-#### Uncompleted/Undone User stories
+**User content**
+ 
+ - As a user, I would like access to a navigation bar and footer so I can easily navigate the website(Must have)
+ 
+ - As a user, I would like the site to be responsive so I can access it on multiple devices(Must have)
+ 
+ - As a user, I would like to have access to a list of exercises so that I can gather inspiration for my next workout(Must have)
+ 
+ - As a user, I would like to have access to details of each exercise so I can get a better grasp of each individual exercise(Must have)
+
+**Membership and authentication**
+
+ - As an interested customer, I would like to be able to register, sign in and sign out so I can access my membership benefits(Must have)
+ 
+ - As an interested customer, I would like to be able to subscribe for a membership so I can access premium website functionality(Must have, 
+ this user story was originally --As an interested customer, I would like to be able to pay for my membership with a recurring fee so I dont need to worry about paying.
+ This user story was altered after initially setting this due to being out of scope of the project. More about this on user story testing)
+
+**Members only content**
+ 
+ - As a signed-in user, I would like to be able to save exercises as favourites so I can easily come back to them(Must have)
+ 
+**Admin content**
+ 
+ - As an admin, I would like to be able to Create new exercises for the website(Must have)
+ 
+ - As an admin, I would like to be able to Edit exercises within the website(Must have)
+ 
+ - As an admin, I would like to be able to Delete exercises within the website(Must have)
+
+
+#### Incomplete/Undone User stories
+
 
 ### Scope
 
