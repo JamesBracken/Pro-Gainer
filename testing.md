@@ -46,6 +46,64 @@
 
 ## Lighthouse testing
 
+Using the chrome developer tools we did the lighthouse testing to give a general overview of the site quality, more about this [Here](https://developer.chrome.com/docs/lighthouse/overview).
+
+Home page
+
+![Home page]()
+
+Signup page
+
+![Signup page]()
+
+Sign in page
+
+![Sign in page]()
+
+Sign out page
+
+![Sign out page]()
+
+Exercise list page
+
+![Exercise list page]()
+
+Exercise detail page
+
+![Exercise detail page]()
+
+Membership checkout page
+
+![Membership checkout page]()
+
+Checkout success page
+
+![Checkout success page]()
+
+Favourite list page
+
+![Favourite list page]()
+
+My profile page
+
+![My profile page]()
+
+403 error page
+
+![403 error page]()
+
+404 error page
+
+![404 error page]()
+
+405 error page
+
+![405 error page]()
+
+500 error page
+
+![500 error page]()
+
 
 ## User story testing
 
