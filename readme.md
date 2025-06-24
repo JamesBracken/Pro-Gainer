@@ -259,6 +259,8 @@ A page title pertaining to the page the user is currently on is displayed on eve
 
 **Authentication**
 
+Using Django Allauth for our authentication gave us the base templates and functionality. Using the already created templates we tweaked them to our website styles and needs.
+
 ![Login page]()
 
 ![Signup page]()
@@ -269,29 +271,51 @@ A page title pertaining to the page the user is currently on is displayed on eve
 
 **Exercise List**
 
+All the exercises within the page which has been created by the admins will appear here and be available to all users. Each item will display a bit of information and users can select these to open a details page about the specified item.
+
 ![Exercise List]()
 
+**Add & Edit exercise page**
+
+When new exercises are to be added or existing ones edited admins can do that here. All edited and newly added items will be added to the database.
+
+![Add and edit exercise page]()
+
 **Exercise Detail**
+
+Each exercise has a detail page which will give detailed information about the exercise. The exercise detail page will also contain the opportunity for members to save the exercise.
 
 ![Exercise Detail]()
 
 **Favourite exercises list**
 
+When members add in new favourite exercises those reflect here in the favourite exercises list. Like the exercise list we are also able to select each exercise to redirect us to another page to get more detailed information about the specified exercise.
+
 ![Favourite exercises list]()
 
 **Favourite exercise icon**
 
-![Favourite exercise icon]()
+Using this icon member users are able to save and unsave each exercise to add it to their favourites list.
 
-**Membership signup page**
+![Favourite exercise icon not saved]()
+
+![Favourite exercise icon saved]()
+
+**Membership subscription page**
+
+After user sign in the membership page becomes available to them and they can apply. The user inputs their data and test card information and after successful form validation they become active members and receive perks.
 
 ![Membership signup page]()
 
 **Checkout success page**
 
+On successful membership checkout the user is redirect to the checkout success page. Here we give the user feedback that their transaction was a success and give them further details about their membership and checkout.
+
 ![Checkout success page]()
 
 **My profile page**
+
+After a user becomes a member they will gain access to the my profile page which displays details about their account and membership.
 
 ![My profile page]()
 
