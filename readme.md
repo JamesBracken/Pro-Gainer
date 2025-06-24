@@ -223,6 +223,38 @@ Within the website we have used  2 different consistent colors across the websit
 
 The cards has been used consistently accross multiple pages where the exercises are available. They are used in a horizontal/vertical manner in the exercise details page and vertical in the favourites and regular exercises list.
 
+**Form inputs**
+
+![Form inputs]()
+
+Across the site we have implemented the same style for our form inputs, a sharp edged theme. We have maintained this in each input from authentication to all others to keep unfiromity and consistency for the entire website.
+
+**Django messages**
+
+![Django message success]()
+
+![Django message error]()
+
+To ensure a greate user experience we display user feedback for every user interaction,Django messages is one of the ways we do this. After a user interaction, they are redirected to the next corresponding page if necessary and given an appropriate message where necessary. We deliver the message based on the user interactions, we deliver these messages in a different style for errors and success messages.
+
+**Profile icon**
+
+![Profile icon]()
+
+To further assist users in ease of navigation we ahve implemented a profile user icon dropdown menu. Here you can find profile related content like having a look at your user profile and being able to logout of your account.
+
+**Pagination**
+
+![Pagination controls]()
+
+Used on both the exercise list and favourite list page the pagination controls help with user experience, website performance and improves page load times. Dividing up content for large amounts of data is important and is prevalent in modern day programming. This is especially important when considering that for each item in the exercise list this would load an image. Considering an image loading for each item if no pagination controls were implemented the wait times could potentially be very long.
+
+**Page title**
+
+![Page title]()
+
+A page title pertaining to the page the user is currently on is displayed on every page across the website.
+
 #### Unique features implemented 
 
 #### Development life cycle
