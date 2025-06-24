@@ -98,6 +98,11 @@ My profile page
 
 ### CSS validation
 
+To validate our CSS stylesheet we used the [W3C Jigsaw validator](https://jigsaw.w3.org/css-validator/)
+
+CSS Stylesheet
+![CSS Stylesheet]()
+
 ### JSHint validation
 
 ### Python validation
