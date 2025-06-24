@@ -41,7 +41,7 @@ To be able to better prioritise, organise and communicate the intended project f
  
  - As a user, I would like to be able to book a visit so I can decide if the gym is right for me(Could have)
 
-**Membership and authentication**
+**Membership and authentication(Epic)**
  
  - As an interested customer, I would like to be able to register, sign in and sign out so I can access my membership benefits(Must have)
  
@@ -52,7 +52,7 @@ To be able to better prioritise, organise and communicate the intended project f
  - As a signed-in user, I would like to be able to cancel my membership so I can stop my gym payments(Originally Must have, now Wont do as recurring payments
  will no longer be applied in the project there is no further need for a cancel membership functionality)
 
-**Members only content**
+**Members only content(Epic)**
  
  - As a signed-in user, I would like to be able to save exercises as favourites so I can easily come back to them(Must have)
  
@@ -71,7 +71,7 @@ To be able to better prioritise, organise and communicate the intended project f
  
  - As a signed-in user, I would like to be able to filter exercise search results on the exercise list so I can find exercises faster(Could have)
 
-**Admin content**
+**Admin content(Epic)**
  
  - As an admin, I would like to be able to Create new exercises for the website(Must have)
  
@@ -81,7 +81,7 @@ To be able to better prioritise, organise and communicate the intended project f
 
 #### Completed User stories
 
-**User content**
+**User content(Epic)**
  
  - As a user, I would like access to a navigation bar and footer so I can easily navigate the website(Must have)
  
@@ -91,7 +91,7 @@ To be able to better prioritise, organise and communicate the intended project f
  
  - As a user, I would like to have access to details of each exercise so I can get a better grasp of each individual exercise(Must have)
 
-**Membership and authentication**
+**Membership and authentication(Epic)**
 
  - As an interested customer, I would like to be able to register, sign in and sign out so I can access my membership benefits(Must have)
  
@@ -99,11 +99,11 @@ To be able to better prioritise, organise and communicate the intended project f
  this user story was originally --As an interested customer, I would like to be able to pay for my membership with a recurring fee so I dont need to worry about paying.
  This user story was altered after initially setting this due to being out of scope of the project. More about this on user story testing)
 
-**Members only content**
+**Members only content(Epic)**
  
  - As a signed-in user, I would like to be able to save exercises as favourites so I can easily come back to them(Must have)
  
-**Admin content**
+**Admin content(Epic)**
  
  - As an admin, I would like to be able to Create new exercises for the website(Must have)
  
@@ -114,7 +114,9 @@ To be able to better prioritise, organise and communicate the intended project f
 
 #### Incomplete/Undone User stories
 
-**User content**
+Due to the agile methodology approach taken in this project we have focused on delivering the most important components first. Rather than increasing resources and ofcourse having a deadline which cannot move we instead moved on the scope. Items which were not within project scope due to the limited time factor are found here.
+
+**User content(Epic)**
  
  - As a user, I would like to be informed of any discounts the gym may be doing so I can save money(Should have)
  
@@ -122,12 +124,12 @@ To be able to better prioritise, organise and communicate the intended project f
  
  - As a user, I would like to be able to book a visit so I can decide if the gym is right for me(Could have)
 
-**Membership and authentication**
+**Membership and authentication(Epic)**
  
  - As a signed-in user, I would like to be able to cancel my membership so I can stop my gym payments(Originally Must have, now Wont do as recurring payments
  will no longer be applied in the project there is no further need for a cancel membership functionality)
 
-**Members only content**
+**Members only content(Epic)**
  
  - As a signed-in user, I would like to be able to filter the exercises in my favourites list so I can easily access specific exercises (Should 
  have)
