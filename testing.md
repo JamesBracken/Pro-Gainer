@@ -38,6 +38,64 @@ To validate all of our pages we went through all the validators and validated ev
 
 ### HTML validation
 
+To validate our HTML we used the [W3C Validator](https://validator.w3.org/) and placed each individual page 
+
+Home page
+
+![Home page]()
+
+Signup page
+
+![Signup page]()
+
+Sign in page
+
+![Sign in page]()
+
+Sign out page
+
+![Sign out page]()
+
+Exercise list page
+
+![Exercise list page]()
+
+Exercise detail page
+
+![Exercise detail page]()
+
+Membership checkout page
+
+![Membership checkout page]()
+
+Checkout success page
+
+![Checkout success page]()
+
+Favourite list page
+
+![Favourite list page]()
+
+My profile page
+
+![My profile page]()
+
+403 error page
+
+![403 error page]()
+
+404 error page
+
+![404 error page]()
+
+405 error page
+
+![405 error page]()
+
+500 error page
+
+![500 error page]()
+
 ### CSS validation
 
 ### JSHint validation
