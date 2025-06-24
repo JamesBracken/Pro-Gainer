@@ -154,6 +154,8 @@ All admin user goals created
 
 #### Consistent features implemented
 
+To improve overall user experience and increase uniformity across the whole website we have implemented consistent features which persist on each page where these features are found. 
+
 **Navbar not authenticated**
 
 ![Navbar not authenticated]()
