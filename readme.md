@@ -257,11 +257,51 @@ A page title pertaining to the page the user is currently on is displayed on eve
 
 #### Unique features implemented 
 
+**Authentication**
+
+![Login page]()
+
+![Signup page]()
+
+![Reset password page]()
+
+![Logout page]()
+
+**Exercise List**
+
+![Exercise List]()
+
+**Exercise Detail**
+
+![Exercise Detail]()
+
+**Favourite exercises list**
+
+![Favourite exercises list]()
+
+**Favourite exercise icon**
+
+![Favourite exercise icon]()
+
+**Membership signup page**
+
+![Membership signup page]()
+
+**Checkout success page**
+
+![Checkout success page]()
+
+**My profile page**
+
+![My profile page]()
+
 #### Development life cycle
 
 ### Structure
 
 #### Database model
+
+
 
 #### Security
 
