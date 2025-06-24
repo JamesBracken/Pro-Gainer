@@ -235,8 +235,7 @@ def my_profile(request):
     return render(request, template, context)
 
 def calculate_membership_end_date(request, membership_instance):
-    is_membership_instance = membership_instance == True
-    print(is_membership_instance)
+    is_membership_instance = bool(membership_instance)
     selected_membership_length = int(request.session.get("selected_membership_length"))
     if is_membership_instance:
         date_today = timezone.now()
