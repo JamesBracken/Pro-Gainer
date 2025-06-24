@@ -8,6 +8,7 @@
 ## UX
 ### Strategy
 #### Project overview
+
 Welcome to Pro Gainer, a website for individuals to subscribe to a gym membership to have access to the Pro Gainer gym. Members have access to our fantastic premium content of being able to save and access a wide array of different exercises, instructional material on each of these exercises and the ability to keep them in your favourites list. 
 
 The website is focused on providing a gym subscription service for the physical gym which our members can attend, it is located in the heart of hounslow in greater london. Alongside the access for our amazing gym users will be able to access our publicly available exercise list and save any item within this list. 
@@ -16,9 +17,15 @@ The website is focused on providing a gym subscription service for the physical 
 
 #### Project goals
 
+
 #### User stories
 
-**User content**
+At the highest level we have used Epics to categorize our user stories into separate blocks based on the needs of the end user. Each Epic will contain multiple user stories 
+and each user stories will themselves contain multiple *acceptance criteria* to dictate the expectations of our clients and *tasks* for the developers to be able to further breakdown the work into smaller more manageable pieces.
+
+To be able to better prioritise, organise and communicate the intended project features we have come up with our set of User Stories. These will be our guide from project inception to create the features within our website until project delivery. These user stories plays a crucial role into the needs and necessary features that an end user would want in the website. The user stories were organised and prioritised using a project view board in github projects which can be found [Here](https://github.com/users/JamesBracken/projects/15/views/5).
+
+**User content(Epic)**
  
  - As a user, I would like access to a navigation bar and footer so I can easily navigate the website(Must have)
 
