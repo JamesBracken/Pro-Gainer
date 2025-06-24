@@ -337,6 +337,13 @@ To display how we have distributed the time used and development cycle of the pr
 
 ### Skeleton
 
+**Wireframes**
+
+The tool I decided to go with for my wireframes is [Figma](https://www.figma.com/).
+I created the wireframes early on in the project creation as a low fidelity outline for the project layout. The layout of the website in general has stayed the same as intended on project inception. With some changes involved the larger differences will be tweaked in the wireframes. There will be some minor differences in the wireframes compared to the live website and these will be left as is considering these dont affect the purpose of the wireframes which was to create a plan for the general layout. 
+
+- [All pages of my wireframes can be found here](https://www.figma.com/design/tnBvzkh8foONfZI9U8Cm8h/Milestone-projects?node-id=3527-2&p=f)
+
 ### Surface
 
 #### Colour scheme
