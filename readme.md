@@ -352,6 +352,15 @@ I created the wireframes early on in the project creation as a low fidelity outl
 
 #### Imagery
 
+For the imagery of the site I decided to go with inspiring images of weightlifting to attract people into the site. When talking about instructional material I wanted a good looking but not complicated imagery considering the likely user paying attention to these images in particular would be at more of a beginner level.
+I used the sites listed below to access open source non copyrighted images for my website.
+
+- [Pixabay](https://pixabay.com/)
+
+- [Unsplah](https://unsplash.com/)
+
+I also improved the performance of the website where possible using using [Tiny png](https://tinypng.com/) and [Tiny jpg](https://tinyjpg.com/).
+
 ## Testing
 
 ## Deployment
