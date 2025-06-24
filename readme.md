@@ -363,6 +363,8 @@ I also improved the performance of the website where possible using using [Tiny 
 
 ## Testing
 
+Comprehensive testing has been performed for this project, you can find all of the testing in the [testing.md file](./testing.md)
+
 ## Deployment
 
 ### Github guide
