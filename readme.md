@@ -380,3 +380,6 @@ Comprehensive testing has been performed for this project, you can find all of t
 
 ### Acknowledgements
 
+A big thank you to my mentor **Brian Macharia** who gave me high level guidance for the project and to my teacher **Andre Beckley** who guided me through the website build.
+
+A thanks as well to all the help and support from stackoverflow and the coding community. The helpfulness and support we all provide eachother was instrumental to making this project possible.
