@@ -34,6 +34,7 @@
 
 ## Validator testing
 
+To validate all of our pages we went through all the validators and validated every available page of the website. CSS stylesheets is the only exception here considering I only have 1 CSS stylesheet and you only need to validate the stylesheets available.
 
 ### HTML validation
 
