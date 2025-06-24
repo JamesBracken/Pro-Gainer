@@ -321,6 +321,10 @@ After a user becomes a member they will gain access to the my profile page which
 
 #### Development life cycle
 
+To display how we have distributed the time used and development cycle of the project as a whole we have created a gantt chart to have a general outlook. The green colored blocks indicate work being performed in that category on that date.
+
+![Gantt chart]()
+
 ### Structure
 
 #### Database model
