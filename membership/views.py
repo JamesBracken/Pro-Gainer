@@ -12,6 +12,7 @@ from django.views.decorators.http import require_POST
 import stripe
 import json
 
+
 @require_POST
 def cache_checkout_data(request):
     membership_instance = Membership.objects.filter(user=request.user).first()
@@ -29,40 +30,44 @@ def cache_checkout_data(request):
             membership_start_date = timezone.make_aware(membership_start_date)
         membership_start_date_str = membership_start_date.isoformat()
 
-        print("If block invoking membership_start_date")
     else:
         membership_start_date_str = timezone.now().isoformat()
-        print("Else block invoking membership_start_date")
-    print("membership_start_date:", membership_start_date)
     try:
         pid = request.POST.get("client_secret").split("_secret")[0]
         stripe.api_key = settings.STRIPE_SECRET_KEY
         gym_location = request.POST.get("gym_location", "")
         membership_type = request.POST.get("membership_type", "")
-        stripe.PaymentIntent.modify(pid, metadata={
-            "user_id": str(request.user.id),
-            "username": str(request.user.username),
-            "membership_end_date": str(membership_end_date),
-            "gym_location": str(gym_location),
-            "membership_type": str(membership_type),
-            "membership_start_date": membership_start_date_str,
-        })
+        intent = stripe.PaymentIntent.modify(
+            pid,
+            metadata={
+                "user_id": str(request.user.id),
+                "username": str(request.user.username),
+                "membership_end_date": str(membership_end_date),
+                "gym_location": str(gym_location),
+                "membership_type": str(membership_type),
+                "membership_start_date": membership_start_date_str,
+            },
+        )
+        print("cache_checkout_data invoked PID:", intent.id)
         return HttpResponse(status=200)
     except Exception as e:
-        messages.error(request, "Sorry, your payment cannot \
-                       be processed right now. Please try again later")
+        messages.error(
+            request,
+            "Sorry, your payment cannot \
+                       be processed right now. Please try again later",
+        )
     return HttpResponse(content=0, status=400)
 
 
 def checkout(request):
     """
     Takes session information to update stripe payment amount.
-    
+
     Render the subscription form for user checkout.
-    
+
     If the user does not have an instance of :model:`membership.Membership`
-    this view will create one 
-    
+    this view will create one
+
     If the user has an existing instance of :model:`membership.Membership`
     this view will update it
 
@@ -76,12 +81,16 @@ def checkout(request):
 
     ``client_secret``
         This is the client secret used for stripe payments
-    
+
     **Template**
 
     ``subscription_form.html``
-    
+
     """
+
+    print("Session keys:", list(request.session.keys()))
+    print("payment_intent_id in session:", "payment_intent_id" in request.session)
+
     # Checkout code was done alongside the code institute
     # Boutique ado project and tweaked for the needs of this project
     selected_membership_length = request.session.get("selected_membership_length")
@@ -102,6 +111,7 @@ def checkout(request):
             amount=(membership_fee * 100 + joining_fee * 100),
             currency=settings.STRIPE_CURRENCY,
         )
+    print("Checkout function invoked, paymentIntentId: ", intent.id)
     if not stripe_public_key:
         messages.warning(
             request,
@@ -234,17 +244,25 @@ def my_profile(request):
     context = {"membership": membership}
     return render(request, template, context)
 
+
 def calculate_membership_end_date(request, membership_instance):
     is_membership_instance = bool(membership_instance)
     selected_membership_length = int(request.session.get("selected_membership_length"))
     if is_membership_instance:
         date_today = timezone.now()
-        membership_end_date
+        membership_end_date = None
         if membership_instance.membership_end_date < date_today:
-            membership_end_date = timezone.now() + relativedelta(months=selected_membership_length)
+            membership_end_date = timezone.now() + relativedelta(
+                months=selected_membership_length
+            )
         elif membership_instance.membership_end_date > date_today:
-            membership_end_date = (membership_instance.membership_end_date + relativedelta(months=selected_membership_length))
-        return membership_end_date 
+            membership_end_date = (
+                membership_instance.membership_end_date
+                + relativedelta(months=selected_membership_length)
+            )
+        return membership_end_date
     else:
-        membership_end_date = timezone.now() + relativedelta(months=selected_membership_length)
+        membership_end_date = timezone.now() + relativedelta(
+            months=selected_membership_length
+        )
         return membership_end_date
