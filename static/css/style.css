@@ -340,9 +340,8 @@ header {
 
 /* MAIN CONTENT STYLES */
 
-.home-hero-img-container {
-    background: url("../images/home_page/hero_image.jpg");
-    background-position: center;
+.home-hero-img {
+    /* background-position: center; */
     height: 400px;
 }
 
@@ -454,24 +453,18 @@ input {
     background-color: #fefde5 !important;
 }
 
-/* Footer section */
-
-/* .social-icon {
-    font-size: 40px;
-} */
-
 @media screen and (min-width: 576px) {
     .home-descriptions-card {
         height: 280px;
     }
 
-    .home-hero-img-container {
+    .home-hero-img {
         height: 450px;
     }
 }
 
 @media screen and (min-width:768px) {
-    .home-hero-img-container {
+    .home-hero-img {
         height: 700px;
     }
 }
