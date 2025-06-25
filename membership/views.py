@@ -152,6 +152,15 @@ def checkout(request):
     if request.method == "POST":
         print("Checkout function invoked POST block top, paymentIntentId: ", intent.id)
         try:
+            updated_amount = membership_fee * 100 + joining_fee * 100
+            intent = stripe.PaymentIntent.modify(intent.id, amount=updated_amount)
+            print("Modified PI amount:", updated_amount)
+        except stripe.error.InvalidRequestError as e:
+            print("Stripe error PI.modify at checkout POST block > try:", e)
+            messages.error(
+                request, "There was an error updating your payment. Please try again."
+            )
+            return redirect("checkout")
         if is_membership_instance:
             membership_instance = Membership.objects.filter(user=request.user).first()
             subscription_form = SubscribeForm(
