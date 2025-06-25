@@ -23,13 +23,11 @@ def cache_checkout_data(request):
     membership_start_date_str = None
     # membership_start_date is being passed as not timezone aware
     # making this timezone aware here
-    if membership_instance:
-        # if membership_instance.membership_start_date:
+    if membership_instance and membership_instance.membership_start_date:
         membership_start_date = membership_instance.membership_start_date
         if timezone.is_naive(membership_start_date):
             membership_start_date = timezone.make_aware(membership_start_date)
         membership_start_date_str = membership_start_date.isoformat()
-
     else:
         membership_start_date_str = timezone.now().isoformat()
     try:
@@ -118,10 +116,14 @@ def checkout(request):
     if "payment_intent_id" in request.session:
         try:
             intent = stripe.PaymentIntent.retrieve(request.session["payment_intent_id"])
-            print(
-                "Reusing existing PID from session if payment_intent_id block > try:",
-                intent.id,
-            )
+            # Incase of any used/old id's left in the session check if this
+            # intent has already succeeded or has been cancelled
+            if intent.status in ["succeeded", "canceled"]:
+                del request.session["payment_intent_id"]
+                raise stripe.error.InvalidRequestError(
+                    "Old PaymentIntent not reusable", None
+                )
+        # print("Reusing existing PID from session:", intent.id)
         except stripe.error.InvalidRequestError:
             # If session contains invalid PaymentIntent, create a new one
             intent = stripe.PaymentIntent.create(
