@@ -55,19 +55,20 @@ class StripeWH_Handler:
                 membership = Membership.objects.get(
                     full_name__iexact=shipping_details.name,
                     email_address__iexact=billing_details.email,
-                    phone_number__iexact=shipping_details.phone,
+                    # phone_number__iexact=shipping_details.phone,
                     country__iexact=shipping_details.address.country,
                     post_code__iexact=shipping_details.address.postal_code,
                     town_or_city__iexact=shipping_details.address.city,
                     street_address_1__iexact=shipping_details.address.line1,
-                    street_address_2__iexact=shipping_details.address.line2,
+                    # street_address_2__iexact=shipping_details.address.line2,
                     county__iexact=shipping_details.address.state,
-                    membership_end_date=metadata.membership_end_date,
-                    membership_start_date=metadata.membership_start_date,
-                    gym_location=metadata.gym_location,
-                    membership_type=metadata.membership_type,
-                    last_payment= last_payment,
+                    # membership_end_date__iexact=metadata.membership_end_date,
+                    # membership_start_date__iexact=metadata.membership_start_date,
+                    gym_location__iexact=metadata.gym_location,
+                    membership_type__iexact=metadata.membership_type,
+                    # last_payment= last_payment,
                 )
+                print("handle_payment_intent_succeeded while block membership(model):", membership.id)
                 order_exists = True
                 break
             except Membership.DoesNotExist:
@@ -99,6 +100,7 @@ class StripeWH_Handler:
                 print("User ID from metadata:", user_id)
                 print("Metadata:", intent.metadata)
                 membership = Membership.objects.create(
+
                     user=user,
                     full_name=shipping_details.name,
                     email_address=billing_details.email,
@@ -113,8 +115,9 @@ class StripeWH_Handler:
                     membership_start_date=metadata.membership_start_date,
                     gym_location=metadata.gym_location,
                     membership_type=metadata.membership_type,
-                    last_payment= last_payment,
+                    last_payment=last_payment,
                 )
+                print("handle_payment_intent_succeeded try block membership(model):", membership.id)
             except Exception as e:
                 if membership:
                     membership.delete()
