@@ -34,8 +34,7 @@ https://github.com/JamesBracken/Ember-Ash
     --fw-extra-bold: 800;
     --fw-bold: 700;
     --fw-semi-bold: 550;
-    --fw-medium: 425
-    --fw-regular: 300;
+    --fw-medium: 425 --fw-regular: 300;
 
     --border-radius: 10px;
     --box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
@@ -139,10 +138,13 @@ hr {
     color: rgba(0, 0, 0, 0.4)
 }
 
-.large-icon {
+.large-icon,
+.social-icon {
     font-size: 40px;
     display: inline-block;
 }
+
+
 
 /* REUSABLE STYLES----------------------------------- */
 /* Background styles */
@@ -278,14 +280,12 @@ header {
     font-style: italic;
 }
 
-.nav-link,
-.footer-link {
+.nav-link {
     position: relative;
     display: inline-block;
 }
 
-.nav-link:after,
-.footer-link:after {
+.nav-link:after {
     content: '';
     position: absolute;
     left: 0;
@@ -296,8 +296,7 @@ header {
     transition: width 300ms;
 }
 
-.nav-link:hover:after,
-.footer-link:hover:after {
+.nav-link:hover:after {
     width: 100%;
 }
 
@@ -335,11 +334,11 @@ header {
 .active {
     font-weight: var(--fw-bold);
 }
+
 /* MAIN CONTENT STYLES */
 
-.home-hero-img-container {
-    background: url("../images/home_page/hero_image.jpg");
-    background-position: center;
+.home-hero-img {
+    /* background-position: center; */
     height: 400px;
 }
 
@@ -421,26 +420,26 @@ select,
 input {
     color: #000 !important;
     border: 1px solid #000 !important;
-    border-radius: 0!important;
+    border-radius: 0 !important;
 }
 
 .StripeElement,
 .stripe-style-input {
-  box-sizing: border-box;
-  height: 40px;
-  padding: 10px 12px;
-  border: 1px solid transparent;
-  border-radius: 0px;
-  background-color: white;
-  box-shadow: 0 1px 3px 0 #e6ebf1;
-  -webkit-transition: box-shadow 150ms ease;
-  transition: box-shadow 150ms ease;
+    box-sizing: border-box;
+    height: 40px;
+    padding: 10px 12px;
+    border: 1px solid transparent;
+    border-radius: 0px;
+    background-color: white;
+    box-shadow: 0 1px 3px 0 #e6ebf1;
+    -webkit-transition: box-shadow 150ms ease;
+    transition: box-shadow 150ms ease;
 }
 
 .StripeElement--focus,
 .stripe-style-input:focus,
 .stripe-style-input:active {
-  box-shadow: 0 1px 3px 0 #cfd7df;
+    box-shadow: 0 1px 3px 0 #cfd7df;
 }
 
 .stripe-style-input::placeholder {
@@ -448,20 +447,45 @@ input {
 }
 
 .StripeElement--webkit-autofill {
-  background-color: #fefde5 !important;
+    background-color: #fefde5 !important;
 }
+
+/* Footer styles */
+
+
+.footer-link {
+    position: relative;
+    display: inline-block;
+}
+
+.footer-link:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    background-color: var(--clr-black);
+    height: 1px;
+    width: 100%;
+    transition: width 300ms;
+}
+
+.footer-link:hover:after {
+    width: 0;
+}
+
+
 @media screen and (min-width: 576px) {
     .home-descriptions-card {
         height: 280px;
     }
 
-    .home-hero-img-container {
+    .home-hero-img {
         height: 450px;
     }
 }
 
 @media screen and (min-width:768px) {
-    .home-hero-img-container {
+    .home-hero-img {
         height: 700px;
     }
 }
