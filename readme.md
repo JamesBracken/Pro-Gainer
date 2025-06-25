@@ -259,6 +259,8 @@ A page title pertaining to the page the user is currently on is displayed on eve
 
 **Authentication**
 
+Using Django Allauth for our authentication gave us the base templates and functionality. Using the already created templates we tweaked them to our website styles and needs.
+
 ![Login page]()
 
 ![Signup page]()
@@ -269,33 +271,59 @@ A page title pertaining to the page the user is currently on is displayed on eve
 
 **Exercise List**
 
+All the exercises within the page which has been created by the admins will appear here and be available to all users. Each item will display a bit of information and users can select these to open a details page about the specified item.
+
 ![Exercise List]()
 
+**Add & Edit exercise page**
+
+When new exercises are to be added or existing ones edited admins can do that here. All edited and newly added items will be added to the database.
+
+![Add and edit exercise page]()
+
 **Exercise Detail**
+
+Each exercise has a detail page which will give detailed information about the exercise. The exercise detail page will also contain the opportunity for members to save the exercise.
 
 ![Exercise Detail]()
 
 **Favourite exercises list**
 
+When members add in new favourite exercises those reflect here in the favourite exercises list. Like the exercise list we are also able to select each exercise to redirect us to another page to get more detailed information about the specified exercise.
+
 ![Favourite exercises list]()
 
 **Favourite exercise icon**
 
-![Favourite exercise icon]()
+Using this icon member users are able to save and unsave each exercise to add it to their favourites list.
 
-**Membership signup page**
+![Favourite exercise icon not saved]()
+
+![Favourite exercise icon saved]()
+
+**Membership subscription page**
+
+After user sign in the membership page becomes available to them and they can apply. The user inputs their data and test card information and after successful form validation they become active members and receive perks.
 
 ![Membership signup page]()
 
 **Checkout success page**
 
+On successful membership checkout the user is redirect to the checkout success page. Here we give the user feedback that their transaction was a success and give them further details about their membership and checkout.
+
 ![Checkout success page]()
 
 **My profile page**
 
+After a user becomes a member they will gain access to the my profile page which displays details about their account and membership.
+
 ![My profile page]()
 
 #### Development life cycle
+
+To display how we have distributed the time used and development cycle of the project as a whole we have created a gantt chart to have a general outlook. The green colored blocks indicate work being performed in that category on that date.
+
+![Gantt chart]()
 
 ### Structure
 
@@ -309,6 +337,13 @@ A page title pertaining to the page the user is currently on is displayed on eve
 
 ### Skeleton
 
+**Wireframes**
+
+The tool I decided to go with for my wireframes is [Figma](https://www.figma.com/).
+I created the wireframes early on in the project creation as a low fidelity outline for the project layout. The layout of the website in general has stayed the same as intended on project inception. With some changes involved the larger differences will be tweaked in the wireframes. There will be some minor differences in the wireframes compared to the live website and these will be left as is considering these dont affect the purpose of the wireframes which was to create a plan for the general layout. 
+
+- [All pages of my wireframes can be found here](https://www.figma.com/design/tnBvzkh8foONfZI9U8Cm8h/Milestone-projects?node-id=3527-2&p=f)
+
 ### Surface
 
 #### Colour scheme
@@ -317,7 +352,18 @@ A page title pertaining to the page the user is currently on is displayed on eve
 
 #### Imagery
 
+For the imagery of the site I decided to go with inspiring images of weightlifting to attract people into the site. When talking about instructional material I wanted a good looking but not complicated imagery considering the likely user paying attention to these images in particular would be at more of a beginner level.
+I used the sites listed below to access open source non copyrighted images for my website.
+
+- [Pixabay](https://pixabay.com/)
+
+- [Unsplah](https://unsplash.com/)
+
+I also improved the performance of the website where possible using using [Tiny png](https://tinypng.com/) and [Tiny jpg](https://tinyjpg.com/).
+
 ## Testing
+
+Comprehensive testing has been performed for this project, you can find all of the testing in the [testing.md file](./testing.md)
 
 ## Deployment
 
@@ -334,3 +380,6 @@ A page title pertaining to the page the user is currently on is displayed on eve
 
 ### Acknowledgements
 
+A big thank you to my mentor **Brian Macharia** who gave me high level guidance for the project and to my teacher **Andre Beckley** who guided me through the website build.
+
+A thanks as well to all the help and support from stackoverflow and the coding community. The helpfulness and support we all provide eachother was instrumental to making this project possible.

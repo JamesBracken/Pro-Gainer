@@ -34,12 +34,133 @@
 
 ## Validator testing
 
+To validate all of our pages we went through all the validators and validated every available page of the website. CSS stylesheets is the only exception here considering I only have 1 CSS stylesheet and you only need to validate the stylesheets available.
 
 ### HTML validation
 
+To validate our HTML we used the [W3C Validator](https://validator.w3.org/) and placed each individual page 
+
+Home page
+
+![Home page]()
+
+Signup page
+
+![Signup page]()
+
+Sign in page
+
+![Sign in page]()
+
+Sign out page
+
+![Sign out page]()
+
+Exercise list page
+
+![Exercise list page]()
+
+Exercise detail page
+
+![Exercise detail page]()
+
+Membership checkout page
+
+![Membership checkout page]()
+
+Checkout success page
+
+![Checkout success page]()
+
+Favourite list page
+
+![Favourite list page]()
+
+My profile page
+
+![My profile page]()
+
+403 error page
+
+![403 error page]()
+
+404 error page
+
+![404 error page]()
+
+405 error page
+
+![405 error page]()
+
+500 error page
+
+![500 error page]()
+
 ### CSS validation
 
+To validate our CSS stylesheet we used the [W3C Jigsaw validator](https://jigsaw.w3.org/css-validator/)
+
+CSS Stylesheet
+![CSS Stylesheet]()
+
 ### JSHint validation
+
+To validate our Javascript we are using the [JSHint validator](https://jshint.com/)
+Home page
+
+![Home page]()
+
+Signup page
+
+![Signup page]()
+
+Sign in page
+
+![Sign in page]()
+
+Sign out page
+
+![Sign out page]()
+
+Exercise list page
+
+![Exercise list page]()
+
+Exercise detail page
+
+![Exercise detail page]()
+
+Membership checkout page
+
+![Membership checkout page]()
+
+Checkout success page
+
+![Checkout success page]()
+
+Favourite list page
+
+![Favourite list page]()
+
+My profile page
+
+![My profile page]()
+
+403 error page
+
+![403 error page]()
+
+404 error page
+
+![404 error page]()
+
+405 error page
+
+![405 error page]()
+
+500 error page
+
+![500 error page]()
 
 ### Python validation
 

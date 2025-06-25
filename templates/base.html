@@ -65,7 +65,7 @@
                 </li>
               {% endif %}
               {% if user.is_authenticated %}
-                <li class="nav-item cta-li-container mx-2 mt-md-2">
+                <li class="nav-item cta-li-container mx-2 my-2">
                   <a class="cta-btn {% if request.resolver_match.url_name == 'membership_form' %}active{% endif %}" href="{% url 'membership_form' %}">Membership</a>
                 </li>
               {% endif %}
@@ -126,6 +126,19 @@
       {% endblock %}
     </main>
     <footer>
+      <div class="container">
+        {% comment %} Reused this social media links code from my previous Ember and Ash project
+        https://github.com/JamesBracken/Ember-Ash
+        {% endcomment %}
+        <div class="row mt-3">
+          <hr>
+          <div class="col-12 d-flex justify-content-evenly">
+            <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Open facebook in a new tab" ><i class="fa-brands fa-facebook social-icon"></i></a>
+            <a href="https://x.com/" target="_blank" rel="noopener noreferrer" aria-label="Open twitter in a new tab"><i class="fa-brands fa-twitter social-icon"></i></a>
+            <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Open instagram in a new tab"><i class="fa-brands fa-instagram social-icon"></i></a>
+          </div>
+        </div>
+      </div>
       <hr />
       <div class="container">
         <div class="row justify-content-center mt-2 text-center">

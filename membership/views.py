@@ -12,6 +12,7 @@ from django.views.decorators.http import require_POST
 import stripe
 import json
 
+
 @require_POST
 def cache_checkout_data(request):
     membership_instance = Membership.objects.filter(user=request.user).first()
@@ -22,47 +23,49 @@ def cache_checkout_data(request):
     membership_start_date_str = None
     # membership_start_date is being passed as not timezone aware
     # making this timezone aware here
-    if membership_instance:
-        # if membership_instance.membership_start_date:
+    if membership_instance and membership_instance.membership_start_date:
         membership_start_date = membership_instance.membership_start_date
         if timezone.is_naive(membership_start_date):
             membership_start_date = timezone.make_aware(membership_start_date)
         membership_start_date_str = membership_start_date.isoformat()
-
-        print("If block invoking membership_start_date")
     else:
         membership_start_date_str = timezone.now().isoformat()
-        print("Else block invoking membership_start_date")
-    print("membership_start_date:", membership_start_date)
     try:
         pid = request.POST.get("client_secret").split("_secret")[0]
         stripe.api_key = settings.STRIPE_SECRET_KEY
         gym_location = request.POST.get("gym_location", "")
         membership_type = request.POST.get("membership_type", "")
-        stripe.PaymentIntent.modify(pid, metadata={
-            "user_id": str(request.user.id),
-            "username": str(request.user.username),
-            "membership_end_date": str(membership_end_date),
-            "gym_location": str(gym_location),
-            "membership_type": str(membership_type),
-            "membership_start_date": membership_start_date_str,
-        })
+        intent = stripe.PaymentIntent.modify(
+            pid,
+            metadata={
+                "user_id": str(request.user.id),
+                "username": str(request.user.username),
+                "membership_end_date": str(membership_end_date),
+                "gym_location": str(gym_location),
+                "membership_type": str(membership_type),
+                "membership_start_date": membership_start_date_str,
+            },
+        )
+        print("cache_checkout_data invoked PID:", intent.id)
         return HttpResponse(status=200)
     except Exception as e:
-        messages.error(request, "Sorry, your payment cannot \
-                       be processed right now. Please try again later")
+        messages.error(
+            request,
+            "Sorry, your payment cannot \
+                       be processed right now. Please try again later",
+        )
     return HttpResponse(content=0, status=400)
 
 
 def checkout(request):
     """
     Takes session information to update stripe payment amount.
-    
+
     Render the subscription form for user checkout.
-    
+
     If the user does not have an instance of :model:`membership.Membership`
-    this view will create one 
-    
+    this view will create one
+
     If the user has an existing instance of :model:`membership.Membership`
     this view will update it
 
@@ -76,12 +79,16 @@ def checkout(request):
 
     ``client_secret``
         This is the client secret used for stripe payments
-    
+
     **Template**
 
     ``subscription_form.html``
-    
+
     """
+
+    print("Session keys:", list(request.session.keys()))
+    print("payment_intent_id in session:", "payment_intent_id" in request.session)
+
     # Checkout code was done alongside the code institute
     # Boutique ado project and tweaked for the needs of this project
     selected_membership_length = request.session.get("selected_membership_length")
@@ -96,12 +103,46 @@ def checkout(request):
     # Stripe variables
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
-    # Create the stripe intent
+    # # Create the stripe intent
     stripe.api_key = stripe_secret_key
-    intent = stripe.PaymentIntent.create(
+    # intent = stripe.PaymentIntent.create(
+    #         amount=(membership_fee * 100 + joining_fee * 100),
+    #         currency=settings.STRIPE_CURRENCY,
+    #     )
+
+    # TEST CODE
+
+    # Retrieve or create a PaymentIntent only if necessary
+    if "payment_intent_id" in request.session:
+        try:
+            intent = stripe.PaymentIntent.retrieve(request.session["payment_intent_id"])
+            # Incase of any used/old id's left in the session check if this
+            # intent has already succeeded or has been cancelled
+            if intent.status in ["succeeded", "canceled"]:
+                del request.session["payment_intent_id"]
+                raise stripe.error.InvalidRequestError(
+                    "Old PaymentIntent not reusable", None
+                )
+        # print("Reusing existing PID from session:", intent.id)
+        except stripe.error.InvalidRequestError:
+            # If session contains invalid PaymentIntent, create a new one
+            intent = stripe.PaymentIntent.create(
+                amount=(membership_fee * 100 + joining_fee * 100),
+                currency=settings.STRIPE_CURRENCY,
+            )
+            request.session["payment_intent_id"] = intent.id
+            print("Created new PID if payment_intent_id block > except:", intent.id)
+    else:
+        intent = stripe.PaymentIntent.create(
             amount=(membership_fee * 100 + joining_fee * 100),
             currency=settings.STRIPE_CURRENCY,
         )
+        request.session["payment_intent_id"] = intent.id
+        print("Created new PID else payment_intent_id block:", intent.id)
+
+    # END OF TEST CODE
+
+    print("Checkout function invoked, paymentIntentId: ", intent.id)
     if not stripe_public_key:
         messages.warning(
             request,
@@ -111,19 +152,36 @@ def checkout(request):
     is_membership_instance = Membership.objects.filter(user=request.user).exists()
 
     if request.method == "POST":
-
+        print("Checkout function invoked POST block top, paymentIntentId: ", intent.id)
+        try:
+            updated_amount = membership_fee * 100 + joining_fee * 100
+            intent = stripe.PaymentIntent.modify(intent.id, amount=updated_amount)
+            print("Modified PI amount:", updated_amount)
+        except stripe.error.InvalidRequestError as e:
+            print("Stripe error PI.modify at checkout POST block > try:", e)
+            messages.error(
+                request, "There was an error updating your payment. Please try again."
+            )
+            return redirect("checkout")
         if is_membership_instance:
             membership_instance = Membership.objects.filter(user=request.user).first()
             subscription_form = SubscribeForm(
                 request.POST, instance=membership_instance
             )
+            print(
+                "Checkout function invoked POST block > if is_membership_instance block, paymentIntentId: ",
+                intent.id,
+            )
+
         else:
             subscription_form = SubscribeForm(request.POST)
             # Setting this to none for calculate_membership_end_date calculation
             # parameter, if this is none this parameter would also not be needed
             membership_instance = None
         if subscription_form.is_valid():
-            membership_end_date = calculate_membership_end_date(request, membership_instance)
+            membership_end_date = calculate_membership_end_date(
+                request, membership_instance
+            )
 
             subscription = subscription_form.save(commit=False)
             subscription.membership_end_date = membership_end_date
@@ -133,6 +191,10 @@ def checkout(request):
             subscription.user = request.user
             subscription.is_member_active = True
             # Temporarily removed setting membership end date
+            print(
+                "Checkout function invoked POST block > if form.is_valid, paymentIntentId: ",
+                intent.id,
+            )
             subscription_form.save()
             # Clear stale sessions used to store the user input membership
             del request.session["selected_membership_length"]
@@ -145,6 +207,13 @@ def checkout(request):
                                  Please double check all of your information.",
             )
     else:
+
+        # Create the stripe intent
+        # stripe.api_key = stripe_secret_key
+        # intent = stripe.PaymentIntent.create(
+        #         amount=(membership_fee * 100 + joining_fee * 100),
+        #         currency=settings.STRIPE_CURRENCY,
+        #     )
         if is_membership_instance:
             membership_instance = Membership.objects.filter(user=request.user).first()
             subscription_form = SubscribeForm(instance=membership_instance)
@@ -169,7 +238,7 @@ def checkout_success(request):
 
     ``membership``
         An instance of :model:`membership.Membership`
-    
+
     ``last_payment``
         An instance of :model:`membership.Membership.last_payment`
 
@@ -180,6 +249,8 @@ def checkout_success(request):
 
     ``checkout_success.html``
     """
+    if "payment_intent_id" in request.session:
+        del request.session["payment_intent_id"]
     user_membership = get_object_or_404(Membership, user=request.user)
     user_membership_end_date = user_membership.membership_end_date.strftime("%Y-%m-%d")
     user_membership_last_payment = user_membership.last_payment
@@ -192,10 +263,12 @@ def checkout_success(request):
     )
     template = "membership/checkout_success.html"
 
-    context = {"membership": user_membership,
-               "last_payment": user_membership_last_payment,
-               "joining_fee": JOINING_FEE}
-    
+    context = {
+        "membership": user_membership,
+        "last_payment": user_membership_last_payment,
+        "joining_fee": JOINING_FEE,
+    }
+
     return render(request, template, context)
 
 
@@ -216,6 +289,7 @@ def store_membership_length(request):
         }
     )
 
+
 def my_profile(request):
     """
     Display an instance of :model:`membership.Membership`
@@ -226,7 +300,7 @@ def my_profile(request):
         An instance of :model:`membership.Membership`
 
     **Template**
-    
+
     ``my_profile.html``
     """
     membership = get_object_or_404(Membership, user=request.user)
@@ -234,18 +308,25 @@ def my_profile(request):
     context = {"membership": membership}
     return render(request, template, context)
 
+
 def calculate_membership_end_date(request, membership_instance):
-    is_membership_instance = membership_instance == True
-    print(is_membership_instance)
+    is_membership_instance = bool(membership_instance)
     selected_membership_length = int(request.session.get("selected_membership_length"))
     if is_membership_instance:
         date_today = timezone.now()
-        membership_end_date
+        membership_end_date = None
         if membership_instance.membership_end_date < date_today:
-            membership_end_date = timezone.now() + relativedelta(months=selected_membership_length)
+            membership_end_date = timezone.now() + relativedelta(
+                months=selected_membership_length
+            )
         elif membership_instance.membership_end_date > date_today:
-            membership_end_date = (membership_instance.membership_end_date + relativedelta(months=selected_membership_length))
-        return membership_end_date 
+            membership_end_date = (
+                membership_instance.membership_end_date
+                + relativedelta(months=selected_membership_length)
+            )
+        return membership_end_date
     else:
-        membership_end_date = timezone.now() + relativedelta(months=selected_membership_length)
+        membership_end_date = timezone.now() + relativedelta(
+            months=selected_membership_length
+        )
         return membership_end_date
