@@ -8,15 +8,13 @@ Exercise List
 {% endblock %}
 {% block content %}
   {% comment %}Cards list section{% endcomment %}
-  <section class="container p-0 mt-5">
+  <section class="container p-0">
     <div class="row d-flex justify-content-center">
       <div class="col-12 col-md-10">
         <div class="p-4">
           <div class="row d-flex">
-            <div class="col-12 col-sm-6 black-bg d-flex justify-content-center">
-              <h1 class="white-text align-self-center text-center">Exercises List</h1>
-            </div>
-            <div class="col-12 col-sm-6 light-grey-bg d-flex justify-content-center">
+            <div class="col-12 light-grey-bg">
+              <h1 class="align-self-center text-center">Exercises</h1>
               <p class="sz-text-heading-2 align-self-center text-center">Select any card to get more details</p>
             </div>
           </div>
@@ -24,7 +22,7 @@ Exercise List
       </div>
       {% comment %}This button is displayed to admins for them to add exercises to the list{% endcomment %}
       {% if user.is_staff %}
-        <div class="col-12 mt-5 d-flex justify-content-center">
+        <div class="col-12 mt-4 d-flex justify-content-center">
           <a class="text-center button mt-5" href="{% url 'add_exercise_item' %}">Add Exercise</a>
         </div>
       {% endif %}
@@ -38,9 +36,9 @@ Exercise List
                   <img class="exercise-item-image w-100" src="{{ exercise.image.url }}" alt="{{ exercise.exercise_title }}" />
                   <div class="px-3 py-1">
                     <h3 class="my-3 exercise-item-header w-100 pb-3">{{ exercise.exercise_title }}</h3>
+                    <p class="mt-2"><strong>Difficulty: {{ exercise.difficulty }}</strong></p>
                     <p class="mt-2">Muscles targeted: {{ exercise.targeted_muscles }}</p>
                     <p class="mt-2">Equipment: {{ exercise.equipment }}</p>
-                    <p class="mt-2">Difficulty: {{ exercise.difficulty }}</p>
                   </div>
                 </div>
               </a>

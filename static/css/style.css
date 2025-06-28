@@ -68,6 +68,7 @@ h1 {
     font-size: var(--fs-heading-1);
     font-family: var(--text-primary);
     font-weight: var(--fw-semi-bold);
+    font-style: italic;
 }
 
 h2 {
@@ -364,7 +365,6 @@ header {
     left: 20%;
     /* left: 30px; */
     color: var(--clr-white);
-    font-style: italic;
 }
 
 .home-hero-img {

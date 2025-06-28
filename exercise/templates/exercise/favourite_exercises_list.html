@@ -9,6 +9,16 @@ Favourite Exercises
 {% block content %}
   <div class="container">
     <div class="row">
+      <div class="col-12 col-md-10">
+        <div class="p-4">
+          <div class="row d-flex">
+            <div class="col-12 light-grey-bg">
+              <h1 class="align-self-center text-center">Favourite Exercises</h1>
+              <p class="sz-text-heading-2 align-self-center text-center">Select any card to get more details</p>
+            </div>
+          </div>
+        </div>
+      </div>
       {% if page_object %}
         {% for exercise in page_object %}
           <div class="col-12 col-md-6 col-xl-4 p-0">
@@ -19,9 +29,10 @@ Favourite Exercises
                     <img class="exercise-item-image w-100" src="{{ exercise.exercise.image.url }}" alt="{{ exercise.exercise_title }}" />
                     <div class="px-3 py-1">
                       <h3 class="my-3 exercise-item-header w-100 pb-3">{{ exercise.exercise.exercise_title }}</h3>
+                      <p class="mt-2"><strong>Difficulty: {{ exercise.exercise.difficulty }}</strong></p>
                       <p class="mt-2">Muscles targeted: {{ exercise.exercise.targeted_muscles }}</p>
                       <p class="mt-2">Equipment: {{ exercise.exercise.equipment }}</p>
-                      <p class="mt-2">Difficulty: {{ exercise.exercise.difficulty }}</p>
+
                     </div>
                   </div>
                 </a>
