@@ -23,33 +23,37 @@
       </div>
     </section>
   {% endif %}
-
-  {% comment %}If users are paying members gain access to this section{% endcomment %}
-  {% if user.is_authenticated %}
-    {% comment %}Add a favourite exercise button section{% endcomment %}
-    <section>
-      <form method="POST" action="{% url 'toggle_is_favourite_exercise' exercise.id %}">
-        {% csrf_token %}
-        {{ toggle_exercise_form }}
-        {% comment %} Only displaying this to active members {% endcomment %}
-        {% if is_member_active %}
-          {% if is_exercise_favourite %}
-            <button type="submit"><img class="red-heart" src="{% static '/images/exercise_detail/red_heart.png' %}" alt="" /></button>
-          {% else %}
-            <button type="submit"><i class="fa-regular fa-heart large-icon"></i></button>
-          {% endif %}
-        {% endif %}
-        {% comment %}Conditionally setting styles depending on if the item is already a favourite of the user{% endcomment %}
-      </form>
-      <a href="{% url 'toggle_is_favourite_exercise' exercise.id %}"></a>
-    </section>
-  {% endif %}
   {% comment %}Cards list section{% endcomment %}
   <section class="container p-4">
     <div class="row">
+      {% comment %}If users are paying members gain access to this section{% endcomment %}
+          {% if user.is_authenticated %}
+            {% comment %}Add a favourite exercise button section{% endcomment %}
+            <section id="fav-icon-container">
+              <form method="POST" action="{% url 'toggle_is_favourite_exercise' exercise.id %}">
+                {% csrf_token %}
+                {{ toggle_exercise_form }}
+                {% comment %} Only displaying this to active members {% endcomment %}
+                <div class="d-flex justify-content-center">
+                {% if is_member_active %}
+                  {% if is_exercise_favourite %}
+                  <button type="submit" class="bg-white inline-block favourite-btn black-text"><i class="fa-solid fa-heart secondary-clr-text large-icon"></i> Click me! </button>
+                  {% comment %} <p>Click me</p> {% endcomment %}
+                  {% else %}
+                  <button type="submit" class="bg-white inline-block favourite-btn black-text"><i class="fa-solid fa-heart large-icon black-text"></i> Click me! </button>
+                  {% comment %} <p>Click me</p> {% endcomment %}
+                  {% endif %}
+                {% endif %}
+                </div>
+                {% comment %}Conditionally setting styles depending on if the item is already a favourite of the user{% endcomment %}
+              </form>
+              <a href="{% url 'toggle_is_favourite_exercise' exercise.id %}"></a>
+            </section>
+          {% endif %}
       <div class="col-12">
         <div class="d-flex justify-content-center">
           <h1>{{ exercise.exercise_title }}</h1>
+          
         </div>
         {% comment %}Image and key information section{% endcomment %}
         <div>

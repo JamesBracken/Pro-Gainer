@@ -129,6 +129,10 @@ button:hover {
     box-sizing: border-box;
 }
 
+a i:hover {
+    color: #373D43;
+}
+
 img {
     object-fit: cover !important;
     width: 100% !important;
@@ -225,8 +229,16 @@ hr {
     color: var(--clr-white);
 }
 
+.black-text {
+    color: var(--clr-black);
+}
+
 .secondary-clr-text {
     color: var(--clr-secondary)
+}
+
+.inline-block {
+    display: inline-block;
 }
 
 /* General button styles */
@@ -395,9 +407,8 @@ header {
 }
 
 /* Styles for the red heart image for favourite exercises */
-.red-heart {
-    width: 43px;
-    height: 43px;
+#fav-icon-container .favourite-btn {
+    color: var(--clr-black);
 }
 
 /* Bootstrap modal styles */
