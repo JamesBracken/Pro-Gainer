@@ -65,7 +65,7 @@ footer {
 }
 
 h1 {
-    font-size: var(--fs-heading-1) !important;
+    font-size: var(--fs-heading-1);
     font-family: var(--text-primary);
     font-weight: var(--fw-semi-bold);
 }
@@ -358,6 +358,15 @@ header {
 
 /* MAIN CONTENT STYLES */
 
+#home-brand-heading {
+    position: absolute;
+    top: 130px;
+    left: 20%;
+    /* left: 30px; */
+    color: var(--clr-white);
+    font-style: italic;
+}
+
 .home-hero-img {
     /* background-position: center; */
     height: 400px;
@@ -496,6 +505,12 @@ input {
 
 
 @media screen and (min-width: 576px) {
+
+    #home-brand-heading {
+        font-size: 70px;
+        top: 110px;
+    }
+
     .home-descriptions-card {
         height: 280px;
     }
@@ -518,7 +533,24 @@ input {
 }
 
 @media screen and (min-width:1200px) {
+
+    #home-brand-heading {
+        font-size: 70px;
+        /* left: 20%; */
+    }
+
     .home-descriptions-card {
         height: 200px;
+    }
+}
+
+@media screen and (min-width:2000px) {
+
+    #home-brand-heading {
+        font-size: 100px;
+        position: relative;
+        top: auto;
+        left: auto;
+        color: var(--clr-black);
     }
 }
