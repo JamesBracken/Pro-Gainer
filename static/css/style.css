@@ -46,7 +46,6 @@ https://github.com/JamesBracken/Ember-Ash
 across the code and reduce unexpected behaviours and styles */
 
 html {
-    display: flex;
     justify-content: center;
     overflow-x: hidden;
 }
@@ -54,9 +53,11 @@ html {
 /* Push the body below the header to make it visible */
 body {
     padding-top: 100px;
-    max-width: 2500px !important;
+    max-width: 1400px !important;
     display: flex;
     flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 footer {
