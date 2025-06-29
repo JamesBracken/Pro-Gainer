@@ -781,9 +781,6 @@ No code was copied from external resources, I did take some components of code f
 
 15. Error handling - I used [BetterStack](https://betterstack.com/community/guides/scaling-python/error-handling-django/) to get an understanding of how to render the error pages for the project. 
 
-
-
-
 ### Acknowledgements
 
 A big thank you to my mentor **Brian Macharia** who gave me high level guidance for the project and to my teacher **Andre Beckley** who guided me through the website build.
