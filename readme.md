@@ -696,7 +696,11 @@ To setup the config var
 ## Credits
 ### Content
 
+No code was copied from external resources, I did take some components of code for the Readme and the social media section from [my Ember and Ash project](https://github.com/JamesBracken/Ember-Ash). Official documentation supplied the base for some of the code within the website. All code which was taken from documentation has been commented and the url added to the code.
+
 ### Technologies used
+
+
 
 ### Code and Resources used
 
