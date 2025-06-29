@@ -700,7 +700,53 @@ No code was copied from external resources, I did take some components of code f
 
 ### Technologies used
 
+1. [Django](https://www.djangoproject.com/) - Django is a high level framework used to rapidly take python projects from start to finish. Using django a developer can use existing codebases and shortcuts to ease and speed up the development process.
 
+2. [PostgreSQL](https://www.postgresql.org/) - PosgreSQL is a powerful, open source object-relational database system.
+
+3. [Code institute provided database generator](https://dbs.ci-dbs.net/) - A database generator provided by Code Institute to store data across projects.
+
+4. [VS code](https://code.visualstudio.com/) - The most widely used IDE across the planet, we use vs code as our integrated development environment.
+
+5. [Cloudinary](https://cloudinary.com/) - An fast scalable online media management platform
+
+6. [Git](https://git-scm.com/) - A version control system designed to handle everything from small to large projects  
+
+7. [GitHub](https://github.com/) - A platform for displaying code project version, deployments and developer profiles
+
+8. [Github desktop](https://desktop.github.com/download/) - An app used to ease version control. 
+
+9. [Figma](https://www.figma.com/) - An application used to make wireframe drawings
+
+10. [TinyPNG](https://tinyjpg.com/) - Converts images into JPG format and compresses files to improve performance
+
+11. [TinyJPG](https://tinypng.com/) - Converts images into PNG format and compresses files to improve performance
+
+12. [Pixabay](https://pixabay.com/) - A media website including free and open source images
+
+13. [Pexels](https://www.pexels.com/) - A media website including free and open source images
+
+14. [Django widget tweaks](https://pypi.org/project/django-widget-tweaks/) - Used to tweak form fields within the project
+
+15. [Gunicorn](https://gunicorn.org/) - A python WSGI HTTP server 
+
+16. [Whitenoise](https://whitenoise.readthedocs.io/en/latest/) - Serves static files for projects in production
+
+17. [Dj Database URL](https://pypi.org/project/dj-database-url/) - Connects our website with the database
+
+18. [Psycopg2](https://www.psycopg.org/docs/) - PostgreSQL database adapter for python
+
+19. [Chatgpt](https://chatgpt.com/) - Used to populate data in the project such as add menu items
+
+20. [Favicon](https://favicon.io/favicon-generator/) - Generates a favicon for websites
+
+21. [Bootstrap](https://getbootstrap.com/) - Used to create the Navigation bar, page structure, styles and responsiveness
+
+22. [Google fonts](https://fonts.google.com/) - Generates fonts for the project
+
+23. [Heroku](https://www.heroku.com/) - Used to deploy and manage a production ready version of the website
+
+24. [Lucidchart](https://www.lucidchart.com/pages/examples/er-diagram-tool) - Used to create entity relationship diagrams 
 
 ### Code and Resources used
 
