@@ -1,0 +1,21 @@
+{% extends 'base.html' %} {% load static %} {% block meta %}
+<meta name="description" content="403 Error Forbidden" />
+{% endblock %} {% block extra_title %} Error 403 Forbidden{% endblock %} {%
+block content %}
+<section>
+  <div class="container p-0">
+    <div class="row justify-content-center mt-5">
+      <div class="col-12 col-md-6 light-grey-bg">
+        <h1 class="text-center">403 Error - Forbidden</h1>
+        <h2 class="text-center">
+          You don't have permission to access this resource from this server
+        </h2>
+        <p class="text-center">The content exists, but access is blocked</p>
+        <div class="d-flex justify-content-center">
+          <a class="button" href="{% url 'home' %}">Take me back home</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
