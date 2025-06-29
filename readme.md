@@ -376,6 +376,11 @@ We have implemented and automatic scheduler using APScheduler to run a *job/task
 
 #### Applications
 
+2 Applications have been made within the project
+
+- membership - The membership app is composed of the membership signup, checkout success and my profile. This contains the model for memberships.
+- exercise - The exercise model contains all exercise lists, details and favourites. Full CRUD is contained within the exercise model component for admins to tweak the available exercises. Active members are able to add and delete exercises from their favourites list. This application contains both the exercise and favourite exercise models. `
+
 ### Skeleton
 
 **Wireframes**
