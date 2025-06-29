@@ -16,7 +16,9 @@ block content %}
         </div>
       </div>
     </div>
-    {% if page_object %} {% for exercise in page_object %}
+    {% if page_object %} {% for exercise in page_object %} {% comment %}
+    Exercises are displayed in a manner of exercise.exercise.element because of
+    the nature of the one to one relationship {% endcomment %}
     <div class="col-12 col-md-6 col-xl-4 p-0">
       <div class="p-5 h-100">
         <div class="row exercise-item-content-container h-100">
@@ -28,7 +30,7 @@ block content %}
               <img
                 class="exercise-item-image w-100"
                 src="{{ exercise.exercise.image.url }}"
-                alt="{{ exercise.exercise_title }}"
+                alt="{{ exercise.exercise.exercise_title }}"
               />
               <div class="px-3 py-1">
                 <h3 class="my-3 exercise-item-header w-100 pb-3">
