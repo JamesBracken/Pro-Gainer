@@ -676,7 +676,6 @@ STRIPE_PUBLIC_KEY: Your stripe public key, this can be found in the stripe dashb
 
 STRIPE_WEBHOOK_SECRET: In the developers section in webhooks you can find the webhook secret. Use this to test stripe webhooks.
 
-
 Note: The following CLOUDINARY_CLOUD_NAME, CLOUDINARY_API_SECRET and CLOUDINARY_API_KEY can be placed in 1 config var in heroku and need to also be added to the settings.py file in this format: 
 
 Local example:
@@ -686,7 +685,13 @@ Heroku example:
 Key: CLOUDINARY_URL
 Value: cloudinary://<CLOUDINARY_API_KEY>:<CLOUDINARY_API_SECRET>@<CLOUDINARY_CLOUD_NAME>
 
+**Stripe setup**
 
+To setup the config var
+- Log in to your Stripe account - create one if necessary
+- Add STRIPE_PUBLIC_KEY and STRIPE_SECRET_KEY to the Heroku config vars, assign these variables values from your Stripe account dashboard
+- Create a webhook endpoint for use with your applications. On the stripe dashboard go to the Developers -> Webhooks area, click add endpoint, use the url of your Heroku application with '/checkout/wh/' tagged onto the end of the url string. When configuring the endpoint, the events to register to listen to are payment_intent_succeeded and payment_intent_failed
+- Once the endpoint is set up get the signing secret for the webhooks and save this value as a Heroku config var called STRIPE_WEBHOOK_SECRET.
 
 ## Credits
 ### Content
