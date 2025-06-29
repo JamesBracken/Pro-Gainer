@@ -647,6 +647,47 @@ Further assistance can be found [HERE](https://docs.github.com/en/pull-requests/
 
 8. Once the app has been deployed, click the "Open App" button to view the app.
 
+**Environmental variables**
+
+Environment Variables
+For local deployment, you will need to create a .env file in the root directory of the project and set the environment variables in this file. This is to make sure sensitive information is separated from other code.
+
+Ensure the .env file is included in the .gitignore file to exclude it from your GitHub repo to prevent the file and its contents from being publicly exposed.
+
+For Heroku deployment, you will need to set the environment variables through the Heroku CLI or through the Heroku dashboard under 'Config Vars'.
+
+You need to define the following environment variables:
+
+SECRET_KEY(In both Heroku and env.py): The secret key for your Django project. This is a critical setting that's used for cryptographic signing, and should be kept secret at all times. It's used to provide cryptographic signing, and should be a long, random string of bytes.
+
+DEBUG(In both Heroku and env.py): A boolean that turns on/off debug mode. Set to True for development to enable detailed error pages and logging for debugging. Set to False in production to improve performance and security.
+
+DATABASE_URL(In both Heroku and env.py): The URL for your database. This should include the database engine, username, password, host, port, and database name. For a Postgres database, it typically looks like postgres://USER:PASSWORD@HOST:PORT/DB_NAME.
+
+CLOUDINARY_API_KEY: Your Cloudinary account's API key. This key is used to authenticate requests to Cloudinary's services for uploading and managing images and other media assets.
+
+CLOUDINARY_API_SECRET: Your Cloudinary account's API secret. This secret is used alongside the API key to securely sign requests to Cloudinary.
+
+CLOUDINARY_CLOUD_NAME: Your Cloudinary account's cloud name. This is the unique name that identifies your cloud within Cloudinary. It's used in the URL structure for accessing uploaded resources.
+
+STRIPE_SECRET_KEY: Your stripe secret key, this can be found in the stripe dashboard on the right under API keys.
+
+STRIPE_PUBLIC_KEY: Your stripe public key, this can be found in the stripe dashboard on the right under API keys.
+
+STRIPE_WEBHOOK_SECRET: In the developers section in webhooks you can find the webhook secret. Use this to test stripe webhooks.
+
+
+Note: The following CLOUDINARY_CLOUD_NAME, CLOUDINARY_API_SECRET and CLOUDINARY_API_KEY can be placed in 1 config var in heroku and need to also be added to the settings.py file in this format: 
+
+Local example:
+CLOUDINARY_URL=cloudinary://<CLOUDINARY_API_KEY>:<CLOUDINARY_API_SECRET>@<CLOUDINARY_CLOUD_NAME>
+
+Heroku example:
+Key: CLOUDINARY_URL
+Value: cloudinary://<CLOUDINARY_API_KEY>:<CLOUDINARY_API_SECRET>@<CLOUDINARY_CLOUD_NAME>
+
+
+
 ## Credits
 ### Content
 
