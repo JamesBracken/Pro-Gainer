@@ -541,10 +541,67 @@ Further assistance can be found [HERE](https://docs.github.com/en/pull-requests/
 
 - python manage.py runserver
 
-11. If you want to open a deployed version of your app see the steps below in 
-
+11. If you want to open a deployed version of your app see the steps below in **Heroku deployment**
 
 ### Additional setup DB, CLoudinary, Heroku, env.py
+
+**Adding your database**
+
+1. Navigate to [PostgreSQL from code institute](https://dbs.ci-dbs.net/)
+
+2. Enter your student email address and then submit
+
+3. You will be sent an email with a link, copy the link
+
+4. Back in your workspace, ensure Debug is set to True
+
+5. Create you env.py file if you dont have one already and add this to .gitignore
+
+6. Inside your env.py add the below code and replace "your-database-URL" with the link you copied from the email in step 3
+
+- import os
+
+- os.environ.setdefault(
+    "DATABASE_URL", "your-database-URL")
+
+7. If you haven't already do 
+- pip3 install dj-database-url~=0.5 psycopg2~=2.9
+
+- pip3 freeze --local > requirements.txt
+
+8. In your settings.py import the packages like below
+
+- import os
+- import dj_databse_url
+- if os.path.isfile('env.py'):
+    import env
+
+9. Still in your settings.py comment out the default django sqlite3 database
+
+10. Add in you own database with the below syntax
+
+- DATABASES = {
+    'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
+}
+
+11. Migrate your changes with python manage.py migrate
+
+12. You have now successfully connected your database withthe project and can now add data in your local development. To connect your deployed version on heroku with the database continue with the next steps.
+
+13. If you haven't already, deploy your project to heroku(steps for this are found after database guide)
+
+14. Navigate to the settings tab of your project and press reveal config vars
+
+15. If there is a database added by default by heroku delete this as we will replace it with our own(If heroku has not added one skip to step 18)
+
+16. To remove the heroku database navigate to Resources, go to the drop-down on the top right of the Postgres add-on and click Delete Add-on. Confirm this by typing your app's name into the popuo
+
+17. Navigate back to the settings tab and to config vars
+
+18. Add a new config var with a key of DATABASE_URL and a value of the PostgreSQL link that we copied from the email in step 3
+
+19. You have successfully added your database to the deployed version of your website
+
 
 ## Credits
 ### Content
