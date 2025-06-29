@@ -1,76 +1,102 @@
-{% extends 'base.html' %}
-{% block meta %}
- <meta name="description" content="A list of your favourite exercises" />
-{% endblock %}
-
-{% block extra_title %}
-Favourite Exercises
-{% endblock %}
-{% block content %}
-  <div class="container">
-    <div class="row">
-      <div class="col-12 col-md-10">
-        <div class="p-4">
-          <div class="row d-flex">
-            <div class="col-12 light-grey-bg">
-              <h1 class="align-self-center text-center">Favourite Exercises</h1>
-              <p class="sz-text-heading-2 align-self-center text-center">Select any card to get more details</p>
-            </div>
+{% extends 'base.html' %} {% block meta %}
+<meta name="description" content="A list of your favourite exercises" />
+{% endblock %} {% block extra_title %} Favourite Exercises {% endblock %} {%
+block content %}
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-10">
+      <div class="p-4">
+        <div class="row d-flex">
+          <div class="col-12 light-grey-bg">
+            <h1 class="align-self-center text-center">Favourite Exercises</h1>
+            <p class="sz-text-heading-2 align-self-center text-center">
+              Select any card to get more details
+            </p>
           </div>
         </div>
       </div>
-      {% if page_object %}
-        {% for exercise in page_object %}
-          <div class="col-12 col-md-6 col-xl-4 p-0">
-            <div class="p-5 h-100">
-              <div class="row exercise-item-content-container h-100">
-                <a href="{% url 'exercise_detail' exercise.exercise.slug %}" class="p-0">
-                  <div class="col-12 h-100">
-                    <img class="exercise-item-image w-100" src="{{ exercise.exercise.image.url }}" alt="{{ exercise.exercise_title }}" />
-                    <div class="px-3 py-1">
-                      <h3 class="my-3 exercise-item-header w-100 pb-3">{{ exercise.exercise.exercise_title }}</h3>
-                      <p class="mt-2"><strong>Difficulty: {{ exercise.exercise.difficulty }}</strong></p>
-                      <p class="mt-2">Muscles targeted: {{ exercise.exercise.targeted_muscles }}</p>
-                      <p class="mt-2">Equipment: {{ exercise.exercise.equipment }}</p>
-
-                    </div>
-                  </div>
-                </a>
-              </div>
-            </div>
-          </div>
-        {% endfor %}
-        {% comment %}Paginator controller{% endcomment %}
-        {% comment %}Copied pasted from exercise_list.html{% endcomment %}
-        <div class="col-12">
-          <div class="pagination justify-content-center">
-            <span class="step-links">
-              {% if page_object.has_previous %}
-                <a class="mx-1 mx-sm-2 underline" href="?page=1">&laquo; first</a>
-                <a class="mx-1 mx-sm-2 underline" href="?page={{ page_object.previous_page_number }}">previous</a>
-              {% endif %}
-
-              <span class="current mx-1 mx-sm-3">Page {{ page_object.number }} of {{ page_object.paginator.num_pages }}</span>
-
-              {% if page_object.has_next %}
-                <a class="mx-1 mx-sm-2 underline" href="?page={{ page_object.next_page_number }}">next</a>
-                <a class="mx-1 mx-sm-2 underline" href="?page={{ page_object.paginator.num_pages }}">last &raquo;</a>
-              {% endif %}
-            </span>
-          </div>
-        </div>
-      {% else %}
-        <div class="col-12 col-md-6 col-xl-4 p-0">
-          <div class="p-5 h-100">
-            <div class="row exercise-item-content-container h-100">
-              <div class="col-12 h-100">
-                <h1>Nothing here yet...</h1>
-                <h2>Add favourites by selecting exercises and clicking the heart icon</h2>
-              </div>
-            </div>
-          </div>
-        </div>
-      {% endif %}
     </div>
+    {% if page_object %} {% for exercise in page_object %}
+    <div class="col-12 col-md-6 col-xl-4 p-0">
+      <div class="p-5 h-100">
+        <div class="row exercise-item-content-container h-100">
+          <a
+            href="{% url 'exercise_detail' exercise.exercise.slug %}"
+            class="p-0"
+          >
+            <div class="col-12 h-100">
+              <img
+                class="exercise-item-image w-100"
+                src="{{ exercise.exercise.image.url }}"
+                alt="{{ exercise.exercise_title }}"
+              />
+              <div class="px-3 py-1">
+                <h3 class="my-3 exercise-item-header w-100 pb-3">
+                  {{ exercise.exercise.exercise_title }}
+                </h3>
+                <p class="mt-2">
+                  <strong
+                    >Difficulty: {{ exercise.exercise.difficulty }}</strong
+                  >
+                </p>
+                <p class="mt-2">
+                  Muscles targeted: {{ exercise.exercise.targeted_muscles }}
+                </p>
+                <p class="mt-2">Equipment: {{ exercise.exercise.equipment }}</p>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+    {% endfor %} {% comment %}Paginator controller{% endcomment %} {% comment
+    %}Copied pasted from exercise_list.html{% endcomment %}
+    <div class="col-12">
+      <div class="pagination justify-content-center">
+        <span class="step-links">
+          {% if page_object.has_previous %}
+          <a class="mx-1 mx-sm-2 underline" href="?page=1">&laquo; first</a>
+          <a
+            class="mx-1 mx-sm-2 underline"
+            href="?page={{ page_object.previous_page_number }}"
+            >previous</a
+          >
+          {% endif %}
+
+          <span class="current mx-1 mx-sm-3"
+            >Page {{ page_object.number }} of {{ page_object.paginator.num_pages
+            }}</span
+          >
+
+          {% if page_object.has_next %}
+          <a
+            class="mx-1 mx-sm-2 underline"
+            href="?page={{ page_object.next_page_number }}"
+            >next</a
+          >
+          <a
+            class="mx-1 mx-sm-2 underline"
+            href="?page={{ page_object.paginator.num_pages }}"
+            >last &raquo;</a
+          >
+          {% endif %}
+        </span>
+      </div>
+    </div>
+    {% else %}
+    <div class="col-12 col-md-6 col-xl-4 p-0">
+      <div class="p-5 h-100">
+        <div class="row exercise-item-content-container h-100">
+          <div class="col-12 h-100">
+            <h1>Nothing here yet...</h1>
+            <h2>
+              Add favourites by selecting exercises and clicking the heart icon
+            </h2>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endif %}
   </div>
+</div>
 {% endblock %}

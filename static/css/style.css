@@ -263,11 +263,6 @@ hr {
     transition: 500ms ease-in-out;
 }
 
-body input,
-input {
-    border-bottom: #454545 1px solid;
-}
-
 .blue-btn {
     color: var(--clr-white);
     padding: 9px 24px;
@@ -450,7 +445,6 @@ input {
     color: #000 !important;
     border: 1px solid #000 !important;
     border-radius: 0 !important;
-    max-width: 500px;
 }
 
 .StripeElement,
