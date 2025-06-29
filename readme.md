@@ -394,6 +394,22 @@ I created the wireframes early on in the project creation as a low fidelity outl
 
 #### Colour scheme
 
+![Colour palette](./static/images/readme/color_palette.PNG)
+
+Considering the customer demographic and consistency across different similar websites I went with a simplistic design. I built the website with a black and white color palette and added colors on gradually. 
+
+The below colour scheme was used in the website:
+
+primary: #f2eee8;
+
+secondary: #e10a0a;
+
+tertiary: #6F6866;
+
+black: #454545;
+
+white: #ffffff;
+
 #### Typography
 
 #### Imagery
