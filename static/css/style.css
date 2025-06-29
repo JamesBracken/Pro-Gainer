@@ -46,17 +46,18 @@ https://github.com/JamesBracken/Ember-Ash
 across the code and reduce unexpected behaviours and styles */
 
 html {
-    display: flex;
     justify-content: center;
     overflow-x: hidden;
 }
 
 /* Push the body below the header to make it visible */
 body {
-    padding-top: 100px;
-    max-width: 2500px !important;
+    padding-top: 120px;
+    max-width: 1400px !important;
     display: flex;
     flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 footer {
@@ -64,9 +65,10 @@ footer {
 }
 
 h1 {
-    font-size: var(--fs-heading-1) !important;
+    font-size: var(--fs-heading-1);
     font-family: var(--text-primary);
     font-weight: var(--fw-semi-bold);
+    font-style: italic;
 }
 
 h2 {
@@ -128,6 +130,10 @@ button:hover {
     box-sizing: border-box;
 }
 
+a i:hover {
+    color: #373D43;
+}
+
 img {
     object-fit: cover !important;
     width: 100% !important;
@@ -140,7 +146,7 @@ hr {
 
 .large-icon,
 .social-icon {
-    font-size: 40px;
+    font-size: 50px;
     display: inline-block;
 }
 
@@ -154,6 +160,10 @@ hr {
 
 .primary-clr-bg {
     background-color: var(--clr-primary);
+}
+
+.secondary-clr-bg {
+    background-color: var(--clr-secondary);
 }
 
 .black-bg {
@@ -218,6 +228,18 @@ hr {
 
 .white-text {
     color: var(--clr-white);
+}
+
+.black-text {
+    color: var(--clr-black);
+}
+
+.secondary-clr-text {
+    color: var(--clr-secondary)
+}
+
+.inline-block {
+    display: inline-block;
 }
 
 /* General button styles */
@@ -337,6 +359,14 @@ header {
 
 /* MAIN CONTENT STYLES */
 
+#home-brand-heading {
+    position: absolute;
+    top: 130px;
+    left: 20%;
+    /* left: 30px; */
+    color: var(--clr-white);
+}
+
 .home-hero-img {
     /* background-position: center; */
     height: 400px;
@@ -344,7 +374,7 @@ header {
 
 /* Home description cards  */
 .home-descriptions-card {
-    height: 200px;
+    /* height: 250px; */
     border: 0;
 }
 
@@ -386,9 +416,8 @@ header {
 }
 
 /* Styles for the red heart image for favourite exercises */
-.red-heart {
-    width: 43px;
-    height: 43px;
+#fav-icon-container .favourite-btn {
+    color: var(--clr-black);
 }
 
 /* Bootstrap modal styles */
@@ -421,6 +450,7 @@ input {
     color: #000 !important;
     border: 1px solid #000 !important;
     border-radius: 0 !important;
+    max-width: 500px;
 }
 
 .StripeElement,
@@ -474,7 +504,20 @@ input {
 }
 
 
+
+@media screen and (min-width: 323px) {
+    body {
+        padding-top: 100px;
+    }
+}
+
 @media screen and (min-width: 576px) {
+
+    #home-brand-heading {
+        font-size: 70px;
+        top: 110px;
+    }
+
     .home-descriptions-card {
         height: 280px;
     }
@@ -497,7 +540,24 @@ input {
 }
 
 @media screen and (min-width:1200px) {
+
+    #home-brand-heading {
+        font-size: 70px;
+        /* left: 20%; */
+    }
+
     .home-descriptions-card {
         height: 200px;
+    }
+}
+
+@media screen and (min-width:2000px) {
+
+    #home-brand-heading {
+        font-size: 100px;
+        position: relative;
+        top: auto;
+        left: auto;
+        color: var(--clr-black);
     }
 }

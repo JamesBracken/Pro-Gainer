@@ -1,0 +1,18 @@
+{% extends 'base.html' %} {% load static %} {% block meta %}
+<meta name="description" content="404 Error, Page not found" />
+{% endblock %} {% block extra_title %} Error 404 Page not found{% endblock %} {%
+block content %}
+<section>
+  <div class="container p-0">
+    <div class="row justify-content-center mt-5">
+      <div class="col-12 col-md-6 light-grey-bg">
+        <h1 class="text-center">404 Error</h1>
+        <h2 class="text-center">Error page not found</h2>
+        <div class="d-flex justify-content-center">
+          <a class="button" href="{% url 'home' %}">Take me back home</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
