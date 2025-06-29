@@ -630,6 +630,23 @@ Further assistance can be found [HERE](https://docs.github.com/en/pull-requests/
 
 7. You can now use Cloudinary in any app in your project
 
+**Heroku Deployment**
+1. Ensure the project repository has been uploaded to Github.
+
+2. Login to the Heroku dashboard and create a new app.
+
+3. Connect your GitHub repository to your Heroku app.
+
+4. In the Settings tab, ensure that the Python Buildpack is added.
+
+5. Set environment variables in the Config Vars section of the Settings tab.
+
+6. In the Deploy tab, enable automatic deploys from your GitHub repository.
+
+7. Click the "Deploy Branch" button to deploy the app.
+
+8. Once the app has been deployed, click the "Open App" button to view the app.
+
 ## Credits
 ### Content
 
