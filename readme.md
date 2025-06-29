@@ -367,6 +367,13 @@ Within this project I have implemented multiple layers of security. User authent
 The implementation of security within this project has been done at a model and a form level to ensure no spoofing is possible. Even if a malicious user attempted to change data within the console(**Spoofing**) they would not be able to submit and propagate this data to the back-end as the model and form requirements would stop it. Additionally to the security on the back-end we also display the errors at the front-end to ensure that users are made aware of any requirements, errors and mistakes. Additional to security measure put in place at the model and forms, we have also placed measures at the view level. Placing security measures at the view level adds another level of security, we can do this with class and function *mixins* and *decorators*.
 I opted to use the decorators for this project. The appropriate decorators were added to each view which requires *login* or *admin* permissions. In this way only *logged in* users could access certain functionality and the same goes for *admins* 
 
+**Memberships**
+
+To ensure only users who have an paid for a membership(which is active) has access, we created several measures for security. We have implemented a utils.py method which can be used across the website for both templates and views which ensures reusability and DRY. The method checks both the membership end date and membership activity. With the APScheduler tasks put in place we are able to ensure that if a user's membership end date has passed they no longer have access to the service. As an extra measure even if the APScheduler fails to set the user's membership to inactive the utility checks for membership end so this would not not have an impact.
+
+We have implemented and automatic scheduler using APScheduler to run a *job/task* at specific times of the day, specifically midnight. This task will run through all users which are currently set to active and if the membership end date is in the past set it to inactive. The APScheduler will only work while the server is running, there are better options which were considered like celery and redis however these fell out of scope of the project and APScheduler was used instead.
+
+
 #### Applications
 
 ### Skeleton
