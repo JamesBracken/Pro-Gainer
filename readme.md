@@ -412,6 +412,22 @@ white: #ffffff;
 
 #### Typography
 
+The typography was also a simplistic choice. Not much variance between headings and general text across the website, the differentiating factor would be the font weight and size.
+
+All details about fonts across the website are found below
+
+
+H1: 3.125rem - 50px
+H2: 2.5rem - 40px
+H3: 2.188rem - 35px
+H4: 1.875rem - 30px
+Subheading: 1.25rem - 20px
+Body: 1rem - 16px
+
+
+Headings: "Roboto", serif;
+Body: "Lato", serif;
+
 #### Imagery
 
 For the imagery of the site I decided to go with inspiring images of weightlifting to attract people into the site. When talking about instructional material I wanted a good looking but not complicated imagery considering the likely user paying attention to these images in particular would be at more of a beginner level.
