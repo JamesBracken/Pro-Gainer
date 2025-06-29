@@ -602,6 +602,33 @@ Further assistance can be found [HERE](https://docs.github.com/en/pull-requests/
 
 19. You have successfully added your database to the deployed version of your website
 
+**Adding Cloudinary to your project**
+
+1. Install the nevessary packages with the commands below and add them to your requirements.txt file
+
+- pip3 install cloudinary~=1.36.0 dj3-cloudinary-storage~=0.0.6 urllib3~=1.26.15
+
+- pip3 freeze --local > requirements.txt
+
+2. Go to [this link](https://cloudinary.com/users/register_free) to create a cloudinary account
+
+3. In the Cloudinary dashboard, copy the CLOUDINARY_URL
+
+4. In your env.py file add the code below and paste in the copied url from step 3 
+
+- os.environ.setdefault(
+    "CLOUDINARY_URL", "URL copied from Cloudinary in last step")
+
+5. Delete the CLOUDINARY_URL= from the start of the URL string as we are using the setdefault() method rather than assigin the value.
+
+6. Navigate to your settings.py and inside the INSTALLED_APPS add the below items
+
+**Important!** cloudinary_storage must be added immediately after django.contrib.staticfiles
+- 'cloudinary_storage',
+
+- 'cloudinary',
+
+7. You can now use Cloudinary in any app in your project
 
 ## Credits
 ### Content
