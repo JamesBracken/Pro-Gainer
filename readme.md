@@ -359,6 +359,14 @@ Each exercise can only have a relationship with one favourite exercise as this w
 
 #### Security
 
+
+Django has a lot to offer in terms of its security features, it has a lot built in which is accessible to the developer. In the current information age securing your information is crucial. 
+
+Within this project I have implemented multiple layers of security. User authentication and checks ensures that each individual user can see only their own information. Each user should only be able to read and manipulate their own data.
+
+The implementation of security within this project has been done at a model and a form level to ensure no spoofing is possible. Even if a malicious user attempted to change data within the console(**Spoofing**) they would not be able to submit and propagate this data to the back-end as the model and form requirements would stop it. Additionally to the security on the back-end we also display the errors at the front-end to ensure that users are made aware of any requirements, errors and mistakes. Additional to security measure put in place at the model and forms, we have also placed measures at the view level. Placing security measures at the view level adds another level of security, we can do this with class and function *mixins* and *decorators*.
+I opted to use the decorators for this project. The appropriate decorators were added to each view which requires *login* or *admin* permissions. In this way only *logged in* users could access certain functionality and the same goes for *admins* 
+
 #### Applications
 
 ### Skeleton
