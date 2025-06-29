@@ -1,7 +1,7 @@
 
 # Pro Gainer
 
-## [ --> View the live deployed project here <-- ADDD A LINKKKKKKKKKKKKKKK]()
+## [ --> View the live deployed project here <-- ](https://pro-gainer-85d1fcf0b9b4.herokuapp.com/)
 
 ## Table of contents
 
@@ -11,12 +11,23 @@
 
 Welcome to Pro Gainer, a website for individuals to subscribe to a gym membership to have access to the Pro Gainer gym. Members have access to our fantastic premium content of being able to save and access a wide array of different exercises, instructional material on each of these exercises and the ability to keep them in your favourites list. 
 
-The website is focused on providing a gym subscription service for the physical gym which our members can attend, it is located in the heart of hounslow in greater london. Alongside the access for our amazing gym users will be able to access our publicly available exercise list and save any item within this list. 
+The website is focused on providing a gym subscription service for the physical gym which our members can attend, it is located in the heart of hounslow in greater london. Alongside the access for our amazing gym users will be able to access our publicly available exercise list and save any item within this list. Our target clients for the website are a mix of amateur gym enthusiasts, younger individuals  looking to get fit and older individuals looking to stay fit.  
 
 <!-- The website is made using the django framework, each different component is going to be categorized into their own apps. The apps we have in this project consists of the  membership and exercise app. The membership app will -->
 
 #### Project goals
 
+The primary goals of this project are listed below.
+
+- Increase gym revenue through online membership applications
+
+- Translate website visitors into paying customers
+
+- Assist our current members with our online exercise resources to increase customer retention and satisfaction
+
+- Easily add and edit exercises on the website 
+
+Through the easy navigation of the website and smooth UX, the website is an inviting experience for any user. Our clients attending our gym can now use our website as a guide for exercises they may perform in the gym improving each customer's results and satisfaction. 
 
 #### User stories
 
