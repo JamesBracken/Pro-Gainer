@@ -274,37 +274,37 @@ A page title pertaining to the page the user is currently on is displayed on eve
 
 Using Django Allauth for our authentication gave us the base templates and functionality. Using the already created templates we tweaked them to our website styles and needs.
 
-![Login page]()
+![Login page](./static/images/readme/login_page.PNG)
 
-![Signup page]()
+![Signup page](./static/images/readme/signup_page.PNG)
 
-![Reset password page]()
+![Reset password page](./static/images/readme/password_reset_page.PNG)
 
-![Logout page]()
+![Logout page](./static/images/readme/logout_page.PNG)
 
 **Exercise List**
 
 All the exercises within the page which has been created by the admins will appear here and be available to all users. Each item will display a bit of information and users can select these to open a details page about the specified item.
 
-![Exercise List]()
+![Exercise List](./static/images/readme/exercise_list.PNG)
 
 **Add & Edit exercise page**
 
 When new exercises are to be added or existing ones edited admins can do that here. All edited and newly added items will be added to the database.
 
-![Add and edit exercise page]()
+![Add and edit exercise page](./static/images/readme/add_and_edit_exercise_page.PNG)
 
 **Exercise Detail**
 
 Each exercise has a detail page which will give detailed information about the exercise. The exercise detail page will also contain the opportunity for members to save the exercise.
 
-![Exercise Detail]()
+![Exercise Detail](./static/images/readme/exercise_detail.PNG)
 
 **Favourite exercises list**
 
 When members add in new favourite exercises those reflect here in the favourite exercises list. Like the exercise list we are also able to select each exercise to redirect us to another page to get more detailed information about the specified exercise.
 
-![Favourite exercises list]()
+![Favourite exercises list](./static/images/readme/favourite_exercises_list.PNG)
 
 **Favourite exercise icon**
 
@@ -312,25 +312,31 @@ Using this icon member users are able to save and unsave each exercise to add it
 
 ![Favourite exercise icon not saved]()
 
-![Favourite exercise icon saved]()
+Exercise favourited
+
+![Favourite exercise icon saved](./static/images/readme/favourite_icon_red.PNG)
+
+Exercise not favourited
+
+![Not favourite exercise icon](./static/images/readme/favourite_icon_black.PNG)
 
 **Membership subscription page**
 
 After user sign in the membership page becomes available to them and they can apply. The user inputs their data and test card information and after successful form validation they become active members and receive perks.
 
-![Membership signup page]()
+![Membership signup page](./static/images/readme/signup_page.PNG)
 
 **Checkout success page**
 
 On successful membership checkout the user is redirect to the checkout success page. Here we give the user feedback that their transaction was a success and give them further details about their membership and checkout.
 
-![Checkout success page]()
+![Checkout success page](./static/images/readme/checkout_success_page.PNG)
 
 **My profile page**
 
 After a user becomes a member they will gain access to the my profile page which displays details about their account and membership.
 
-![My profile page]()
+![My profile page](./static/images/readme/my_profile.PNG)
 
 #### Development life cycle
 
