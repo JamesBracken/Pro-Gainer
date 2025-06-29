@@ -8,6 +8,7 @@ from django.contrib import messages
 from django.views.decorators.http import require_POST
 from membership.utils import is_user_membership_active
 
+
 def exercise_list(request):
     """
     Renders the exercise list page
@@ -69,7 +70,7 @@ def exercise_detail(request, exercise_slug):
             "exercise": exercise,
             "toggle_exercise_form": toggle_exercise_form,
         }
-    
+
     return render(request, "exercise/exercise_detail.html", context)
 
 
@@ -95,12 +96,12 @@ def add_exercise_item(request):
             return redirect("exercise_list")
         else:
             return render(
-            request,
-            "exercise/exercise_form.html",
-            {
-                "exercise_form": exercise_form,
-            },
-    )
+                request,
+                "exercise/exercise_form.html",
+                {
+                    "exercise_form": exercise_form,
+                },
+            )
     else:
         exercise_form = ExerciseForm()
         return render(
@@ -191,10 +192,10 @@ def favourite_exercise_list(request):
         }
         return render(request, "exercise/favourite_exercises_list.html", context)
     messages.add_message(
-            request,
-            messages.ERROR,
-            "You must have an active membership to access favourites",
-        )
+        request,
+        messages.ERROR,
+        "You must have an active membership to access favourites",
+    )
     return redirect(reverse("home"))
 
 

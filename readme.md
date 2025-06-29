@@ -169,100 +169,102 @@ To improve overall user experience and increase uniformity across the whole webs
 
 **Navbar not authenticated**
 
-![Navbar not authenticated]()
+![Navbar not authenticated](./static/images/readme/navbar_not_authenticated.PNG)
 
 For users to be able to navigate around the website we have implemented a main navigation bar which is available across all pages of the website. On every single page the navbar will be the same.
 
 **Navbar authenticated**
 
-![Navbar authenticated]()
+![Navbar authenticated](./static/images/readme/navba_authenticated.PNG)
 
 The same as the previous navbar except with the additional option to sign up for a membership
 
 **Navbar with membership**
 
-![Navbar not authenticated]()
+![Navbar authenticated and member](./static/images/readme/navba_authenticated_member.PNG)
 
 The same as the previous navbar except with additional functionality of having an additional favourite list where users can find their favourite exercises which they have saved
 
 **Navbar consolidated**
 
-![Navbar consolidated]()
+![Navbar consolidated](./static/images/readme/navbar_consolidated.PNG)
 
 To account for multiple devices the navbar is also available in a consolidated format where the nav links will be removed and an icon will appear instead. The icon can be clicked for the navbar to then have a dropdown appear with all the nav links.
 
 **Social media icons**
 
-![Social media icons section]()
+![Social media icons section](./static/images/readme/social_media_section.PNG)
 
 Nowadays your social media exposure tends to play a big role in driving sales and increasing footfall for your website. Each individual icons opens a new tab leading the users to the social media site of their choosing.
 
 **Footer**
  
-![Footer]()
+![Footer](./static/images/readme/footer.PNG)
 
 The footer contains crucial information users need like contact details, gym details and we have also included some extra useful resources which users can use.
 
 
 **Nav and Footer links**
 
-![Nav links]()
+![Nav links](./static/images/readme/navbar_link.PNG)
 
-Each navigation link is styled in the same way to have a consistent feel across the website for the navigation and footer.
+![Footer links](./static/images/readme/footer_link.PNG)
 
-![Nav links hovered]()
+Each navigation link is styled in the same way to have a consistent feel across the website for the navigation. The footer has the same styles just reversed for hover effects to make it obvious it is a link.
 
-As an extra style and effect an underline appears under the navigation links.
+![Nav links hovered](./static/images/readme/navbar_link_hovered.PNG)
+
+![Footer links hovered](./static/images/readme/footer_link_hovered.PNG)
+
+As an extra style and effect an underline appears under the navigation links and the reverse for the footer.
 
 **Company logo**
 
-![Company logo]()
+![Company logo](./static/images/readme/company_logo.PNG)
 
 The company logo, generally a logo would require a certain wow factor and something which makes it stand out from the competition or even just some specific colors which the company would be known for. In my research of gyms and similar websites you do not see this trend, company logo's are simple and straight to the point which is also what I have chosen to incorporate into my website's logo.
 
 **Buttons and CTA buttons**
 
-![Grey button]()
+![Grey button](./static/images/readme/grey-btn.PNG)
 
-![Red button]()
+![Red button](./static/images/readme/red_btn.PNG)
 
 Within the website we have used  2 different consistent colors across the website for our buttons, these go along with our general color scheme. In addition to using these styles on the buttons across the site we have also implemented these on all the CTA buttons across the website. As they are quite different to our regular nav links they attract the attention of customers making them very accessible and easy to find, ensuring an easy user becoming customer process. 
 
 **Cards**
 
-![Exercise card]()
+![Exercise card](./static/images/readme/exercise_card.PNG)
 
 The cards has been used consistently accross multiple pages where the exercises are available. They are used in a horizontal/vertical manner in the exercise details page and vertical in the favourites and regular exercises list.
 
 **Form inputs**
 
-![Form inputs]()
+![Form inputs](./static/images/readme/form_input.PNG)
 
 Across the site we have implemented the same style for our form inputs, a sharp edged theme. We have maintained this in each input from authentication to all others to keep unfiromity and consistency for the entire website.
 
 **Django messages**
 
-![Django message success]()
-
-![Django message error]()
+![Django message success](./static/images/readme/django_message.PNG)
 
 To ensure a greate user experience we display user feedback for every user interaction,Django messages is one of the ways we do this. After a user interaction, they are redirected to the next corresponding page if necessary and given an appropriate message where necessary. We deliver the message based on the user interactions, we deliver these messages in a different style for errors and success messages.
 
 **Profile icon**
 
-![Profile icon]()
+![Profile icon](./static/images/readme/profile_icon.PNG)
 
 To further assist users in ease of navigation we ahve implemented a profile user icon dropdown menu. Here you can find profile related content like having a look at your user profile and being able to logout of your account.
 
 **Pagination**
 
-![Pagination controls]()
+![Pagination controls](./static/images/readme/page_controls.PNG)
 
 Used on both the exercise list and favourite list page the pagination controls help with user experience, website performance and improves page load times. Dividing up content for large amounts of data is important and is prevalent in modern day programming. This is especially important when considering that for each item in the exercise list this would load an image. Considering an image loading for each item if no pagination controls were implemented the wait times could potentially be very long.
 
 **Page title**
 
-![Page title]()
+![Page title](./static/images/readme/page_title.PNG)
 
 A page title pertaining to the page the user is currently on is displayed on every page across the website.
 
