@@ -469,6 +469,14 @@ Password successfully reset page
 |Home button|There is a home button on the page|Visual check||
 |Home button|The home button redirects the user to the home page|Click button||
 
+Sign out page
+| Feature | Expected Outcome | Testing Performed | Pass/Fail/Potential improvements |
+|---------|-------------------|-------------------|-----------|
+|Header|A header is present to display the purpose of the page|Visual check||
+|Sign out button|There is a button to sign out|Visual check||
+|Sign out button|The sign out button redirects the user to the home page|Click btn||
+|Sign out button|The sign out button signs the user out|Click button||
+|Sign out button|If the user is signed in on another page and signs out, the other page is also signed out|Click button and refresh other page||
 
 403 page
 | Feature | Expected Outcome | Testing Performed | Pass/Fail/Potential improvements |
