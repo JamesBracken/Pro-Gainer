@@ -40,61 +40,48 @@ To validate all of our pages we went through all the validators and validated ev
 
 To validate our HTML we used the [W3C Validator](https://validator.w3.org/) and placed each individual page 
 
+A couple of problems found within the validations cause by how allauth created the forms, these can be safely ignored. 
 Home page
 
-![Home page]()
+[Home page](https://validator.w3.org/nu/?doc=https%3A%2F%2Fpro-gainer-85d1fcf0b9b4.herokuapp.com%2F)
 
 Signup page
 
-![Signup page]()
+[Signup page](https://validator.w3.org/nu/?showsource=yes&doc=https%3A%2F%2Fpro-gainer-85d1fcf0b9b4.herokuapp.com%2Faccounts%2Fsignup%2F)
 
 Sign in page
 
-![Sign in page]()
+[Sign in page](https://validator.w3.org/nu/?showsource=yes&doc=https%3A%2F%2Fpro-gainer-85d1fcf0b9b4.herokuapp.com%2Faccounts%2Flogin%2F)
 
 Sign out page
 
-![Sign out page]()
+[Sign out page](https://validator.w3.org/nu/?showsource=yes&doc=https%3A%2F%2Fpro-gainer-85d1fcf0b9b4.herokuapp.com%2Faccounts%2Flogout%2F)
 
 Exercise list page
 
-![Exercise list page]()
+[Exercise list page](https://validator.w3.org/nu/?showsource=yes&doc=https%3A%2F%2Fpro-gainer-85d1fcf0b9b4.herokuapp.com%2Fexercise%2Fexercise_list%2F)
 
 Exercise detail page
 
-![Exercise detail page]()
+[Exercise detail page](https://validator.w3.org/nu/?showsource=yes&doc=https%3A%2F%2Fpro-gainer-85d1fcf0b9b4.herokuapp.com%2Fexercise%2Fsit-up)
 
 Membership checkout page
 
-![Membership checkout page]()
+Unable to HTML validate membership page on deployed version, stripe integration cause this to not be possible. We instead used the page source for the deployed version.
+
+![Membership checkout page](./static/images/testing/html_validator_membership_checkout_page.PNG)
 
 Checkout success page
 
-![Checkout success page]()
+[Checkout success page](./static/images/testing/html_validator_checkout_success_page.PNG)
 
 Favourite list page
 
-![Favourite list page]()
+[Favourite list page](./static/images/testing/html_validator_favourite_exercises_page.PNG)
 
 My profile page
 
-![My profile page]()
-
-403 error page
-
-![403 error page]()
-
-404 error page
-
-![404 error page]()
-
-405 error page
-
-![405 error page]()
-
-500 error page
-
-![500 error page]()
+[My profile page](./static/images/testing/html_validator_my_profile_page.PNG)
 
 ### CSS validation
 
