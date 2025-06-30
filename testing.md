@@ -456,7 +456,11 @@ Login page
 Password reset page
 | Feature | Expected Outcome | Testing Performed | Pass/Fail/Potential improvements |
 |---------|-------------------|-------------------|-----------|
-|||||
+|Form|The form displays well on multiple device sizes|Window resize||
+|Email input|The email input is present|Visual check||
+|Reset my password button|There is a reset my password button|Visual check||
+|Reset my password button|If the input is not an email HTML validation stops the form submission|Incorrectly input an email and submit||
+|Reset my password button|If the email is input correctly and submitted the user is redirected to a password successfully set page|||
 
 Footer
 | Feature | Expected Outcome | Testing Performed | Pass/Fail/Potential improvements |
