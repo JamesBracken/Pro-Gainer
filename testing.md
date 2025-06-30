@@ -95,18 +95,16 @@ CSS Stylesheet
 ### JSHint validation
 
 To validate our Javascript we are using the [JSHint validator](https://jshint.com/)
-Home page
+Our JS validation went well, a few missing colons and warnings about variables. The warnings about variables can be safely ignored, these are variables like Stripe which is available however not declared so JShint acts up a bit.
 
+calculate_membership_fees.js
 
-![404 error page]()
+![calculate_membership_fees.js validation](./static/images/testing/javascript_validator_calculate_membership_fees.PNG)
 
-405 error page
+stripe_elements.js
 
-![405 error page]()
+![stripe_elements.js validation](./static/images/testing/javascript_validator_stripe_elements.PNG)
 
-500 error page
-
-![500 error page]()
 
 ### Python validation
 
