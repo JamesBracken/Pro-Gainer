@@ -207,6 +207,12 @@ Initially I had a problem with the my profile page on mobile but that was an eas
 
 ### Browser testing
 
+|Browser|Not Functioning|Partial Functioning|Full Functioning|
+|-------|---------------|-------------------|----------------|
+|<i class="fab fa-chrome"></i>Google Chrome| | ||
+|<i class="fab fa-firefox-browser"></i>Mozilla Firefox| | ||
+|<i class="fab fa-edge"></i>Microsoft Edge| | ||
+
 ### Website functionality testing
 
 Nav bar & Footer
