@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django_countries.fields import CountryField
 
 
 class Membership(models.Model):
@@ -9,8 +10,8 @@ class Membership(models.Model):
     ]
     # Choices for membership types
     MEMBERSHIP_TYPES = [
-            ("Regular", "Regular"),
-        ]
+        ("Regular", "Regular"),
+    ]
 
     # General user details models is based off of the Code Institute
     # Boutique Ado project. Obviously this information is used across
@@ -24,13 +25,13 @@ class Membership(models.Model):
     email_address = models.EmailField(max_length=250, null=False, blank=False)
     phone_number = models.CharField(max_length=20, null=False, blank=False)
     # User Address details
-    country = models.CharField(max_length=100, null=False, blank=False)
+    country = CountryField(max_length=100, null=False, blank=False)
     post_code = models.CharField(max_length=20, null=False, blank=False)
     town_or_city = models.CharField(max_length=100, null=False, blank=False)
     street_address_1 = models.CharField(max_length=200, null=False, blank=False)
     street_address_2 = models.CharField(max_length=200, null=True, blank=True)
     county = models.CharField(max_length=70, null=False, blank=False)
-    
+
     # The below models are for use in the functionality of the website
     # and potential future upgrades
     # Membership details
@@ -40,5 +41,3 @@ class Membership(models.Model):
     is_member_active = models.BooleanField(default=False)
     membership_end_date = models.DateTimeField(null=True)
     last_payment = models.IntegerField(null=True)
-
-
