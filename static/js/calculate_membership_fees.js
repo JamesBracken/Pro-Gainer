@@ -1,13 +1,13 @@
 // GLOBAL VARIABLES PLACED HERE AT THE TOP OF THE CODE
 // CONSTANT VARIABLES
-const membershipLengthFormField = document.getElementById("id_membership_length")
-const membershipCostsParagraph = document.getElementById("membership-costs")
-const joiningFeeParagraph = document.getElementById("joining-fee")
-const grandTotalParagraph = document.getElementById("grand-total")
+const membershipLengthFormField = document.getElementById("id_membership_length");
+const membershipCostsParagraph = document.getElementById("membership-costs");
+const joiningFeeParagraph = document.getElementById("joining-fee");
+const grandTotalParagraph = document.getElementById("grand-total");
 
 // EVENT LISTENERS
-membershipLengthFormField.addEventListener("change", updateMembershipCosts)
-membershipLengthFormField.addEventListener("change", updateMembershipsCostsSession)
+membershipLengthFormField.addEventListener("change", updateMembershipCosts);
+membershipLengthFormField.addEventListener("change", updateMembershipsCostsSession);
 // FUNCTIONS
 
 // As we currently only have one membership type the function does not currently need to
@@ -19,27 +19,27 @@ membershipLengthFormField.addEventListener("change", updateMembershipsCostsSessi
 
    No parameters are in user for this function
 */
-function updateMembershipCosts(){
+function updateMembershipCosts() {
     // Setting the value from the field to number
-    membershipPeriodValue = Number(membershipLengthFormField.value);
+    let membershipPeriodValue = Number(membershipLengthFormField.value);
     // These may be better on const but the prices can change 
     // so I used let instead
     let threeMonthsMembershipFee = 120;
     let twelveMonthsMembershipFee = 399;
-    let joiningFee = 0
+    let joiningFee = 0;
     // Display all the Membership costs
     if (membershipPeriodValue === 3) {
-        grandTotal = threeMonthsMembershipFee + joiningFee
+        let grandTotal = threeMonthsMembershipFee + joiningFee;
         membershipCostsParagraph.innerHTML = `£${threeMonthsMembershipFee}`;
         joiningFeeParagraph.innerHTML = `<strong>£${joiningFee}</strong>`;
         grandTotalParagraph.innerHTML = `£${grandTotal}`;
     } else if (membershipPeriodValue === 12){
-        grandTotal = twelveMonthsMembershipFee + joiningFee
+        let grandTotal = twelveMonthsMembershipFee + joiningFee;
         membershipCostsParagraph.innerHTML = `£${twelveMonthsMembershipFee}`;
         joiningFeeParagraph.innerHTML = `<strong>£${joiningFee}</strong>`;
         grandTotalParagraph.innerHTML = `£${grandTotal}`;
     }
-};
+}
 
 /* This function creates a session each time the membership length field changes.
    The session will contain the value of the input field and will be handled in
@@ -60,4 +60,4 @@ function updateMembershipsCostsSession(e) {
             selected_membership_length: e.target.value
         })
     });
-};
+}
