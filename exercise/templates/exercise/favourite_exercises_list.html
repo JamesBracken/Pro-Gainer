@@ -1,14 +1,10 @@
-{% extends 'base.html' %}
-{% block meta %}
- <meta name="description" content="A list of your favourite exercises" />
-{% endblock %}
-
-{% block extra_title %}
-Favourite Exercises
-{% endblock %}
-{% block content %}
+{% extends 'base.html' %} {% block meta %}
+  <meta name="description" content="A list of your favourite exercises" />
+{% endblock %} {% block extra_title %}
+  Favourite Exercises
+{% endblock %} {% block content %}
   <div class="container">
-    <div class="row">
+    <div class="row justify-content-center">
       <div class="col-12 col-md-10">
         <div class="p-4">
           <div class="row d-flex">
@@ -21,26 +17,27 @@ Favourite Exercises
       </div>
       {% if page_object %}
         {% for exercise in page_object %}
+          {% comment %}Exercises are displayed in a manner of exercise.exercise.element because of the nature of the one to one relationship{% endcomment %}
           <div class="col-12 col-md-6 col-xl-4 p-0">
             <div class="p-5 h-100">
               <div class="row exercise-item-content-container h-100">
                 <a href="{% url 'exercise_detail' exercise.exercise.slug %}" class="p-0">
                   <div class="col-12 h-100">
-                    <img class="exercise-item-image w-100" src="{{ exercise.exercise.image.url }}" alt="{{ exercise.exercise_title }}" />
+                    <img class="exercise-item-image w-100" src="{{ exercise.exercise.image.url }}" alt="{{ exercise.exercise.exercise_title }}" />
                     <div class="px-3 py-1">
                       <h3 class="my-3 exercise-item-header w-100 pb-3">{{ exercise.exercise.exercise_title }}</h3>
-                      <p class="mt-2"><strong>Difficulty: {{ exercise.exercise.difficulty }}</strong></p>
+                      <p class="mt-2">
+                        <strong>Difficulty: {{ exercise.exercise.difficulty }}</strong>
+                      </p>
                       <p class="mt-2">Muscles targeted: {{ exercise.exercise.targeted_muscles }}</p>
                       <p class="mt-2">Equipment: {{ exercise.exercise.equipment }}</p>
-
                     </div>
                   </div>
                 </a>
               </div>
             </div>
           </div>
-        {% endfor %}
-        {% comment %}Paginator controller{% endcomment %}
+        {% endfor %} {% comment %}Paginator controller{% endcomment %}
         {% comment %}Copied pasted from exercise_list.html{% endcomment %}
         <div class="col-12">
           <div class="pagination justify-content-center">

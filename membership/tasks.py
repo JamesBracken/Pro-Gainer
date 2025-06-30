@@ -1,6 +1,7 @@
 from .models import Membership
 from django.utils import timezone
 
+
 def update_membership_status():
     """
     Automatically updates is_member_active to inactive if the server is running
@@ -8,7 +9,7 @@ def update_membership_status():
 
     This function updates an instance of :model:`membership.Membership`
     """
-    # Written in this manner to avoid data query at 
+    # Written in this manner to avoid data query at
     # import time prior to application configuration
     for membership in Membership.objects.filter(is_member_active=True):
         if membership.membership_end_date < timezone.now():
