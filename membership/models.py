@@ -4,6 +4,10 @@ from django_countries.fields import CountryField
 
 
 class Membership(models.Model):
+    """
+    Stores a membership entry related to :model:`auth.user`.
+    """
+
     # Choices for gym locations
     GYM_LOCATIONS = [
         ("Hounslow", "Hounslow"),
@@ -28,7 +32,8 @@ class Membership(models.Model):
     country = CountryField(max_length=100, null=False, blank=False)
     post_code = models.CharField(max_length=20, null=False, blank=False)
     town_or_city = models.CharField(max_length=100, null=False, blank=False)
-    street_address_1 = models.CharField(max_length=200, null=False, blank=False)
+    street_address_1 = models.CharField(max_length=200,
+                                        null=False, blank=False)
     street_address_2 = models.CharField(max_length=200, null=True, blank=True)
     county = models.CharField(max_length=70, null=False, blank=False)
 

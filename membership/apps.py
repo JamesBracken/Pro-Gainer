@@ -3,6 +3,8 @@ import logging
 
 
 logger = logging.getLogger(__name__)
+
+
 class MembershipConfig(AppConfig):
     """
     Creates the configuration for the memberhsip app
@@ -13,16 +15,16 @@ class MembershipConfig(AppConfig):
     # This function causes a warning in the console
     # Measures have been taken to stop the function querying
     # the database before app configuration however django
-    # will continue to prompt the warning as it does not know 
+    # will continue to prompt the warning as it does not know
     # that the querying is now done after app configuration
     # The warnings can be ignored
     def ready(self):
         """
         This runs on the initialization of the :membership: app
 
-        If the server is running, this function schedules a task 
+        If the server is running, this function schedules a task
         to be run at 00:00 each day
-        
+
         """
         from apscheduler.schedulers.background import BackgroundScheduler
         from apscheduler.triggers.cron import CronTrigger
@@ -38,7 +40,7 @@ class MembershipConfig(AppConfig):
         scheduler.add_job(
             update_membership_status,
             trigger=CronTrigger(hour=0, minute=0),
-            id="update_membership_status",  # unique id
+            id="update_membership_status",
             replace_existing=True,
         )
         scheduler.start()

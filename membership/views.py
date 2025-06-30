@@ -1,4 +1,3 @@
-from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpResponse
 from .forms import SubscribeForm
 from .models import Membership
 from django.conf import settings
@@ -8,16 +7,24 @@ from dateutil.relativedelta import relativedelta
 from django.http import JsonResponse
 from django.core.paginator import Paginator
 from django.views.decorators.http import require_POST
-
 import stripe
 import json
+from django.shortcuts import (
+    render, redirect, reverse, get_object_or_404, HttpResponse
+)
 
 
 @require_POST
 def cache_checkout_data(request):
+    """
+    Sets some extra data and metadata to post to stripe in the payment.intent
+    object
+    """
     membership_instance = Membership.objects.filter(user=request.user).first()
 
-    selected_membership_length = request.session.get("selected_membership_length")
+    selected_membership_length = request.session.get(
+        "selected_membership_length"
+    )
     membership_fee = 30
     if isinstance(selected_membership_length, str):
         numified_membership_length = int(selected_membership_length)
@@ -28,7 +35,9 @@ def cache_checkout_data(request):
     joining_fee = settings.JOINING_FEE
     total_fee = membership_fee * 100 + joining_fee * 100
 
-    membership_end_date = calculate_membership_end_date(request, membership_instance)
+    membership_end_date = calculate_membership_end_date(
+        request, membership_instance
+    )
     # Set the membership start date
     membership_start_date = None
     membership_start_date_str = None
@@ -62,15 +71,15 @@ def cache_checkout_data(request):
     except Exception as e:
         messages.error(
             request,
-            "Sorry, your payment cannot \
-                       be processed right now. Please try again later",
+            "Sorry, your payment cannot "
+            "be processed right now. Please try again later",
         )
     return HttpResponse(content=0, status=400)
 
 
 def checkout(request):
     """
-    Takes session information to update stripe payment amount.
+    Takes session information to update displayed payment amount.
 
     Render the subscription form for user checkout.
 
@@ -99,7 +108,9 @@ def checkout(request):
 
     # Checkout code was done alongside the code institute
     # Boutique ado project and tweaked for the needs of this project
-    selected_membership_length = request.session.get("selected_membership_length")
+    selected_membership_length = request.session.get(
+        "selected_membership_length"
+    )
     membership_fee = 30
     if isinstance(selected_membership_length, str):
         numified_membership_length = int(selected_membership_length)
@@ -120,35 +131,43 @@ def checkout(request):
     if not stripe_public_key:
         messages.warning(
             request,
-            "Stripe public key is missing. \
-                         Please make sure the public key is set.",
+            ("Stripe public key is missing. "
+             "Please make sure the public key is set."),
         )
-    is_membership_instance = Membership.objects.filter(user=request.user).exists()
+    is_membership_instance = Membership.objects.filter(
+        user=request.user
+    ).exists()
     if request.method == "POST":
         if is_membership_instance:
-            membership_instance = Membership.objects.filter(user=request.user).first()
+            membership_instance = Membership.objects.filter(
+                user=request.user
+            ).first()
             subscription_form = SubscribeForm(
-                request.POST, instance=membership_instance
+                request.POST,
+                instance=membership_instance,
             )
 
         else:
             subscription_form = SubscribeForm(request.POST)
-            # Setting this to none for calculate_membership_end_date calculation
-            # parameter, if this is none this parameter would also not be needed
+            # Setting this to none for calculate_membership_end_date
+            # calculation
+            # parameter, if this is none this parameter would also not be
+            # needed
             membership_instance = None
         if subscription_form.is_valid():
             membership_end_date = calculate_membership_end_date(
-                request, membership_instance
+                request,
+                membership_instance,
             )
 
             subscription = subscription_form.save(commit=False)
+            # If a user has not yet signed up set a start date
             subscription.membership_end_date = membership_end_date
             if is_membership_instance:
                 subscription.membership_start = timezone.now()
             subscription.last_payment = membership_fee
             subscription.user = request.user
             subscription.is_member_active = True
-            # Temporarily removed setting membership end date
             subscription_form.save()
             # Clear stale sessions used to store the user input membership
             del request.session["selected_membership_length"]
@@ -157,7 +176,8 @@ def checkout(request):
             messages.add_message(
                 request,
                 messages.ERROR,
-                "There is an error in your form. Please double check all of your information.",
+                ("There is an error in your form. Please double check all of "
+                 "your information."),
             )
             template = "membership/subscription_form.html"
             context = {
@@ -169,12 +189,13 @@ def checkout(request):
     else:
         if "payment_intent_id" in request.session:
             try:
-                # Incase of any used/old id's left in the session check if this
-                # intent has already succeeded or has been cancelled
+                # Incase of any used/old id's left in the session check if
+                # this intent has already succeeded or has been cancelled
                 if intent.status in ["succeeded", "canceled"]:
                     del request.session["payment_intent_id"]
                     raise stripe.error.InvalidRequestError(
-                        "Old PaymentIntent not reusable", None
+                        "Old PaymentIntent not reusable",
+                        None,
                     )
             except stripe.error.InvalidRequestError:
                 # If session contains invalid PaymentIntent, create a new one
@@ -191,7 +212,9 @@ def checkout(request):
             request.session["payment_intent_id"] = intent.id
 
         if is_membership_instance:
-            membership_instance = Membership.objects.filter(user=request.user).first()
+            membership_instance = Membership.objects.filter(
+                user=request.user
+            ).first()
             subscription_form = SubscribeForm(instance=membership_instance)
         else:
             subscription_form = SubscribeForm()
@@ -228,14 +251,16 @@ def checkout_success(request):
     if "payment_intent_id" in request.session:
         del request.session["payment_intent_id"]
     user_membership = get_object_or_404(Membership, user=request.user)
-    user_membership_end_date = user_membership.membership_end_date.strftime("%Y-%m-%d")
+    user_membership_end_date = user_membership.membership_end_date.strftime(
+        "%Y-%m-%d"
+    )
     user_membership_last_payment = user_membership.last_payment
     JOINING_FEE = settings.JOINING_FEE
     messages.add_message(
         request,
         messages.SUCCESS,
-        f"Your payment has been successfully processed! \
-                         Your membership will last until {user_membership_end_date}",
+        (f"Your payment has been successfully processed! "
+         f"Your membership will last until {user_membership_end_date}"),
     )
     template = "membership/checkout_success.html"
 
@@ -256,7 +281,8 @@ def store_membership_length(request):
     request.session["selected_membership_length"] = data.get(
         "selected_membership_length"
     )
-    # Setting the session status to modified to ensure django commits this session
+    # Setting the session status to modified to ensure django commits this
+    # session
     request.session.modified = True
 
     return JsonResponse(
@@ -286,8 +312,13 @@ def my_profile(request):
 
 
 def calculate_membership_end_date(request, membership_instance):
+    """
+    Calculates an end date for a membership
+    """
     is_membership_instance = bool(membership_instance)
-    selected_membership_length = int(request.session.get("selected_membership_length"))
+    selected_membership_length = int(
+        request.session.get("selected_membership_length")
+    )
     if is_membership_instance:
         date_today = timezone.now()
         membership_end_date = None
@@ -301,6 +332,7 @@ def calculate_membership_end_date(request, membership_instance):
                 + relativedelta(months=selected_membership_length)
             )
         return membership_end_date
+
     else:
         membership_end_date = timezone.now() + relativedelta(
             months=selected_membership_length

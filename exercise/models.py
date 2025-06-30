@@ -3,6 +3,7 @@ from cloudinary.models import CloudinaryField
 from django.utils.text import slugify
 from django.contrib.auth.models import User
 
+
 class Exercise(models.Model):
     """
     Stores an exercise item entry
@@ -12,7 +13,7 @@ class Exercise(models.Model):
         ('medium', 'Medium'),
         ('hard', 'Hard'),
     ]
-    
+
     INTENSITY_SELECTION = [
         ('light', 'Light'),
         ('moderate', 'Moderate'),
@@ -32,7 +33,7 @@ class Exercise(models.Model):
     recommended_reps = models.IntegerField()
     created_at = models.DateTimeField(auto_now_add=True)
 
-    # This function populates the slug with the slugified title 
+    # This function populates the slug with the slugified title
     def save(self, *args, **kwargs):
         if not self.slug:
             self.slug = slugify(str(self.exercise_title))
@@ -41,6 +42,9 @@ class Exercise(models.Model):
 
 
 class FavouriteExercise(models.Model):
+    """
+    Stores a favourite exercise item entry
+    """
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     exercise = models.ForeignKey(Exercise, on_delete=models.CASCADE)
     added_at = models.DateTimeField(auto_now_add=True)

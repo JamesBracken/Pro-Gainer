@@ -6,6 +6,7 @@ from membership.webhook_handler import StripeWH_Handler
 
 import stripe
 
+
 # Copied from code institute boutique ado, who also copied from stripe docs
 @require_POST
 @csrf_exempt
@@ -32,7 +33,7 @@ def webhook(request):
         return HttpResponse(status=400)
     except Exception as e:
         return HttpResponse(content=e, status=400)
-    
+
     # Set up a webhook handler
     handler = StripeWH_Handler(request)
 
@@ -43,7 +44,7 @@ def webhook(request):
     }
 
     # Get the webhook type from Stripe
-    event_type =  event["type"]
+    event_type = event["type"]
 
     # If there is a handler for it, get that from the event map
     # Use the generic one by default

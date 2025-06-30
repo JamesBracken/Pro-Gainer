@@ -26,7 +26,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-=ftlwy6symp!cy3ojpm84_b(&h_0i5#61^1!l3mf^zv$#m79kc"
+SECRET_KEY = ("django-insecure-=ftlwy6symp!cy3ojpm84_b(&h_0i5#61^1!l3mf^zv$"
+              "#m79kc")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -113,7 +114,9 @@ AUTHENTICATION_BACKENDS = [
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
 ACCOUNT_LOGIN_METHOD = {"username", "email"}
-ACCOUNT_SIGNUP_FIELDS = ["email*", "email2*", "username*", "password1*", "password2*"]
+ACCOUNT_SIGNUP_FIELDS = [
+    "email*", "email2*", "username*", "password1*", "password2*"
+]
 ACCOUNT_EMAIL_VERIFICATION = "optional"
 
 ACCOUNT_USERNAME_MIN_LENGTH = 4
@@ -143,16 +146,20 @@ CSRF_TRUSTED_ORIGINS = {
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
+        "NAME": ("django.contrib.auth.password_validation."
+                 "UserAttributeSimilarityValidator"),
     },
     {
-        "NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",
+        "NAME": ("django.contrib.auth.password_validation."
+                 "MinimumLengthValidator"),
     },
     {
-        "NAME": "django.contrib.auth.password_validation.CommonPasswordValidator",
+        "NAME": ("django.contrib.auth.password_validation."
+                 "CommonPasswordValidator"),
     },
     {
-        "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
+        "NAME": ("django.contrib.auth.password_validation."
+                 "NumericPasswordValidator"),
     },
 ]
 
@@ -191,7 +198,7 @@ STRIPE_SECRET_KEY = os.getenv("STRIPE_SECRET_KEY")
 STRIPE_PUBLIC_KEY = os.getenv("STRIPE_PUBLIC_KEY")
 STRIPE_WEBHOOK_SECRET = os.getenv("STRIPE_WEBHOOK_SECRET")
 
-#  Global membership fees
+# Global membership fees
 JOINING_FEE = 0
 THREE_MONTH_SUBSCRIPTION_FEE = 120
 TWELVE_MONTH_SUBSCRIPTION_FEE = 399
