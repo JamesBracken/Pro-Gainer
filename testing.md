@@ -112,61 +112,47 @@ stripe_elements.js
 
 Using the chrome developer tools we did the lighthouse testing to give a general overview of the site quality, more about this [Here](https://developer.chrome.com/docs/lighthouse/overview).
 
+Each lighthouse test was done on incognito mode with the deployed version. Very high points overall, some points lost on performance specifically across the board. Points of performance were lost primarily from heroku delays, code imports and image loads. I had a look at the code imports like our CDN's if we could save some there, however there is no room to save. All imports are required across the website, the one potential saving is on Stripe which in theory is only used in the checkout page. Stripe documentation recommends for us to keep the imports globally available for their more advanced security features however so this will be left alone, security must always be prioritised over performance improvements.
+
 Home page
 
-![Home page]()
+![Home page](./static/images/testing/lighthouse_home_page.PNG)
 
 Signup page
 
-![Signup page]()
+![Signup page](./static/images/testing/lighthouse_sign_up_page.PNG)
 
 Sign in page
 
-![Sign in page]()
+![Sign in page](./static/images/testing/lighthouse_sign_in_page.PNG)
 
 Sign out page
 
-![Sign out page]()
+![Sign out page](./static/images/testing/lighthouse_sign_in_page.PNG)
 
 Exercise list page
 
-![Exercise list page]()
+![Exercise list page](./static/images/testing/lighthouse_exercise_list_page.PNG)
 
 Exercise detail page
 
-![Exercise detail page]()
+![Exercise detail page](./static/images/testing/lighthouse_exercise_detail_page.PNG)
 
 Membership checkout page
 
-![Membership checkout page]()
+![Membership checkout page](./static/images/testing/lighthouse_membership_page.PNG)
 
 Checkout success page
 
-![Checkout success page]()
+![Checkout success page](./static/images/testing/lighthouse_checkout_success_page.PNG)
 
-Favourite list page
+Favourite exercise list page
 
-![Favourite list page]()
+![Favourite list page](./static/images/testing/lighthouse_favourite_exercises_page.PNG)
 
 My profile page
 
-![My profile page]()
-
-403 error page
-
-![403 error page]()
-
-404 error page
-
-![404 error page]()
-
-405 error page
-
-![405 error page]()
-
-500 error page
-
-![500 error page]()
+![My profile page](./static/images/testing/lighthouse_my_profile_page.PNG)./static/images/testing
 
 
 ## User story testing
