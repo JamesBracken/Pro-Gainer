@@ -409,7 +409,16 @@ Membership signup page
 Membership success page
 | Feature | Expected Outcome | Testing Performed | Pass/Fail/Potential improvements |
 |---------|-------------------|-------------------|-----------|
-|||||
+|Thank you message|Thank you message displayed with some page intro below|Visual check||
+|Information displayed|All information is displayed|Visual check||
+|Responsiveness|All information displays well |Visual check||
+|Responsiveness|Information collapses into 1 column on xs devices|Window resize||
+|Responsiveness|Information displays as label on the left and user information on the right|Window resize||
+|Information update|If information is updated this reflects on thsis page|Refill membership and check||
+|Home button|Home button is displayed|Visual check||
+|Home button|Home button redirects to the home page|Click btn||
+|My profile|My profile button is displayed|Visual check||
+|My profile|My profile button redirects to the my profile page|Click btn||
 
 Signup page
 | Feature | Expected Outcome | Testing Performed | Pass/Fail/Potential improvements |
