@@ -380,7 +380,31 @@ My profile
 Membership signup page
 | Feature | Expected Outcome | Testing Performed | Pass/Fail/Potential improvements |
 |---------|-------------------|-------------------|-----------|
-|||||
+|Membership into|Intro displays well on multiple devices|Window resize||
+|Form input label|Each input has a corresponding label|Visual check||
+|Form input label|Each required input label has an asterisk|Visual check||
+|Form input label|Unrequired inputs label does not have an asterisk|Visual check||
+|Fieldset legend|Each fieldset section has a legend label |Visual check||
+|Form|The form propagates data to the backend on submit |Add data, submit and check||
+|Form|The form has the POST method|Inspect element||
+|Payment summary|Initially set to nothing here text and fill out the form|Visual check||
+|Payment summary|On fill out of the desired membership length update the payment summary membership costs|Select and check||
+|Payment summary|On fill out of the desired membership length update the payment Joining fee|Select and check||
+|Payment summary|On fill out of the desired membership length update the payment summary total payment costs|Select and check||
+|Payment summary|If the joining fee is changed in settings this is reflected on the membership page|Update and check||
+|Payment summary|If the membership costs is changed in settings this reflects in the membership page|||
+|Payment summary|If there is a joining fee this is calculated properly and added to the membership costs for the total|||
+|Payment summary|This summary displays well on multiple devices|Window resize||
+|Stripe element|The stripe element displays well on multiple devices|Window resize||
+|Stripe element|The stripe element follows the input design across all pages of the site|Visual check||
+|Stripe element|The card number should work with 4242424242424242|Type and submit||
+|Stripe element|The card number needs to be 16 digits long|Type shorter and test||
+|Stripe element|The card expiry date must be placed to work|Submit without the expiry||
+|Stripe element|If the card expiry input is in the past display an error message |Input a past date and submit||
+|Stripe element error handling|Error messages display properly|Incorrectly fill out the element and check the error||
+|Stripe element|A CVC must be input or the form will not submit|Dont fill out CVC and submit||
+|Stripe element|If a CVC is not input display an error|Input incorrect CVC and submit||
+|Form|If anything is filled out incorrectly in the form it does not submit |||
 
 Membership success page
 | Feature | Expected Outcome | Testing Performed | Pass/Fail/Potential improvements |
