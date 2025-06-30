@@ -481,7 +481,6 @@ Sign out page
 Footer
 | Feature | Expected Outcome | Testing Performed | Pass/Fail/Potential improvements |
 |---------|-------------------|-------------------|-----------|
-|||||
 |Social media icons|Icons are present on the top of the footer and display well on multiple devices|Visual check and window resize||
 |Social media icons|Icons change color on hover|Hover mouse||
 |Social media icons|Icons open the corresponding social media page|Click icon||
@@ -512,4 +511,7 @@ Footer
 500 page
 | Feature | Expected Outcome | Testing Performed | Pass/Fail/Potential improvements |
 |---------|-------------------|-------------------|-----------|
-|||||
+|500 page|Nav and footer appears in the page|Invoke a 500 page error, check page||
+|500 page|500 error displays|Invoke a 500 page error, check page||
+|Home button|Home button appears in the page|Invoke a 500 page error, check page||
+|Home button redirection|On click the button redirects the user to the home page|Invoke a 500 page error, click the home button||
