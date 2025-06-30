@@ -423,7 +423,21 @@ Membership success page
 Signup page
 | Feature | Expected Outcome | Testing Performed | Pass/Fail/Potential improvements |
 |---------|-------------------|-------------------|-----------|
-|||||
+|Page header|Page header displays well on multiple devices|Window resize||
+|Email address|User emails must be input twice|Add once and submit||
+|Email address|Both emails input must be the same|Input different emails and submit||
+|Password|Password characters should be bullets|Type in characters||
+|Password|Passwords must meet certain criteria|Dont meet all criteria and submit||
+|Password|Password must be the same in both inputs|Input different ||
+|Input labels|Each input has a corresponding label|Visual check||
+|Input labels|Required input labels have an asterisk next to them|Visual check||
+|Input labels|Non required input labels dont have an asterisk next to them|Visual check||
+|Form submission|If the form is valid the form submits|Submit form with correct input data||
+|Form submission|If the form is not valid the form does not submit|Submit form with incorrect input data||
+|Form submission|If the form is valid the new account is created and added to the database|Submit and check DB||
+|Form submission|If the form is invalid the data is not propagated to the database| Submit incorrectly and check DB||
+|Form submission|If the form is correclty filled out and submitted the user is automatically logged in|Fill out form and submit||
+|Form submission|If the form is correctly filled out and submitted the user is logged in and displayed a feedback message|Fill out form and submit||
 
 Login page
 | Feature | Expected Outcome | Testing Performed | Pass/Fail/Potential improvements |
