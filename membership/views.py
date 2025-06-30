@@ -17,6 +17,17 @@ import json
 def cache_checkout_data(request):
     membership_instance = Membership.objects.filter(user=request.user).first()
 
+    selected_membership_length = request.session.get("selected_membership_length")
+    membership_fee = 30
+    if isinstance(selected_membership_length, str):
+        numified_membership_length = int(selected_membership_length)
+        if numified_membership_length == 3:
+            membership_fee = settings.THREE_MONTH_SUBSCRIPTION_FEE
+        elif numified_membership_length == 12:
+            membership_fee = settings.TWELVE_MONTH_SUBSCRIPTION_FEE
+    joining_fee = settings.JOINING_FEE
+    total_fee = membership_fee * 100 + joining_fee * 100
+
     membership_end_date = calculate_membership_end_date(request, membership_instance)
     # Set the membership start date
     membership_start_date = None
@@ -37,6 +48,7 @@ def cache_checkout_data(request):
         membership_type = request.POST.get("membership_type", "")
         intent = stripe.PaymentIntent.modify(
             pid,
+            amount=total_fee,
             metadata={
                 "user_id": str(request.user.id),
                 "username": str(request.user.username),
@@ -46,7 +58,6 @@ def cache_checkout_data(request):
                 "membership_start_date": membership_start_date_str,
             },
         )
-        print("cache_checkout_data invoked PID:", intent.id)
         return HttpResponse(status=200)
     except Exception as e:
         messages.error(
@@ -86,9 +97,6 @@ def checkout(request):
 
     """
 
-    print("Session keys:", list(request.session.keys()))
-    print("payment_intent_id in session:", "payment_intent_id" in request.session)
-
     # Checkout code was done alongside the code institute
     # Boutique ado project and tweaked for the needs of this project
     selected_membership_length = request.session.get("selected_membership_length")
@@ -103,46 +111,12 @@ def checkout(request):
     # Stripe variables
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
-    # # Create the stripe intent
+    # Create the stripe intent
     stripe.api_key = stripe_secret_key
-    # intent = stripe.PaymentIntent.create(
-    #         amount=(membership_fee * 100 + joining_fee * 100),
-    #         currency=settings.STRIPE_CURRENCY,
-    #     )
-
-    # TEST CODE
-
-    # Retrieve or create a PaymentIntent only if necessary
-    if "payment_intent_id" in request.session:
-        try:
-            intent = stripe.PaymentIntent.retrieve(request.session["payment_intent_id"])
-            # Incase of any used/old id's left in the session check if this
-            # intent has already succeeded or has been cancelled
-            if intent.status in ["succeeded", "canceled"]:
-                del request.session["payment_intent_id"]
-                raise stripe.error.InvalidRequestError(
-                    "Old PaymentIntent not reusable", None
-                )
-        # print("Reusing existing PID from session:", intent.id)
-        except stripe.error.InvalidRequestError:
-            # If session contains invalid PaymentIntent, create a new one
-            intent = stripe.PaymentIntent.create(
-                amount=(membership_fee * 100 + joining_fee * 100),
-                currency=settings.STRIPE_CURRENCY,
-            )
-            request.session["payment_intent_id"] = intent.id
-            print("Created new PID if payment_intent_id block > except:", intent.id)
-    else:
-        intent = stripe.PaymentIntent.create(
-            amount=(membership_fee * 100 + joining_fee * 100),
-            currency=settings.STRIPE_CURRENCY,
-        )
-        request.session["payment_intent_id"] = intent.id
-        print("Created new PID else payment_intent_id block:", intent.id)
-
-    # END OF TEST CODE
-
-    print("Checkout function invoked, paymentIntentId: ", intent.id)
+    intent = None
+    payment_intent_id = request.session.get("payment_intent_id")
+    if payment_intent_id:
+        intent = stripe.PaymentIntent.retrieve(payment_intent_id)
     if not stripe_public_key:
         messages.warning(
             request,
@@ -150,27 +124,11 @@ def checkout(request):
                          Please make sure the public key is set.",
         )
     is_membership_instance = Membership.objects.filter(user=request.user).exists()
-
     if request.method == "POST":
-        print("Checkout function invoked POST block top, paymentIntentId: ", intent.id)
-        try:
-            updated_amount = membership_fee * 100 + joining_fee * 100
-            intent = stripe.PaymentIntent.modify(intent.id, amount=updated_amount)
-            print("Modified PI amount:", updated_amount)
-        except stripe.error.InvalidRequestError as e:
-            print("Stripe error PI.modify at checkout POST block > try:", e)
-            messages.error(
-                request, "There was an error updating your payment. Please try again."
-            )
-            return redirect("checkout")
         if is_membership_instance:
             membership_instance = Membership.objects.filter(user=request.user).first()
             subscription_form = SubscribeForm(
                 request.POST, instance=membership_instance
-            )
-            print(
-                "Checkout function invoked POST block > if is_membership_instance block, paymentIntentId: ",
-                intent.id,
             )
 
         else:
@@ -191,10 +149,6 @@ def checkout(request):
             subscription.user = request.user
             subscription.is_member_active = True
             # Temporarily removed setting membership end date
-            print(
-                "Checkout function invoked POST block > if form.is_valid, paymentIntentId: ",
-                intent.id,
-            )
             subscription_form.save()
             # Clear stale sessions used to store the user input membership
             del request.session["selected_membership_length"]
@@ -203,17 +157,39 @@ def checkout(request):
             messages.add_message(
                 request,
                 messages.ERROR,
-                "There is an error in your form.\
-                                 Please double check all of your information.",
+                "There is an error in your form. Please double check all of your information.",
             )
+            template = "membership/subscription_form.html"
+            context = {
+                "subscription_form": subscription_form,
+                "stripe_public_key": stripe_public_key,
+                "client_secret": intent.client_secret,
+            }
+            return render(request, template, context)
     else:
+        if "payment_intent_id" in request.session:
+            try:
+                # Incase of any used/old id's left in the session check if this
+                # intent has already succeeded or has been cancelled
+                if intent.status in ["succeeded", "canceled"]:
+                    del request.session["payment_intent_id"]
+                    raise stripe.error.InvalidRequestError(
+                        "Old PaymentIntent not reusable", None
+                    )
+            except stripe.error.InvalidRequestError:
+                # If session contains invalid PaymentIntent, create a new one
+                intent = stripe.PaymentIntent.create(
+                    amount=(membership_fee * 100 + joining_fee * 100),
+                    currency=settings.STRIPE_CURRENCY,
+                )
+                request.session["payment_intent_id"] = intent.id
+        else:
+            intent = stripe.PaymentIntent.create(
+                amount=(membership_fee * 100 + joining_fee * 100),
+                currency=settings.STRIPE_CURRENCY,
+            )
+            request.session["payment_intent_id"] = intent.id
 
-        # Create the stripe intent
-        # stripe.api_key = stripe_secret_key
-        # intent = stripe.PaymentIntent.create(
-        #         amount=(membership_fee * 100 + joining_fee * 100),
-        #         currency=settings.STRIPE_CURRENCY,
-        #     )
         if is_membership_instance:
             membership_instance = Membership.objects.filter(user=request.user).first()
             subscription_form = SubscribeForm(instance=membership_instance)
