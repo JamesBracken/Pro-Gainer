@@ -87,57 +87,16 @@ My profile page
 
 To validate our CSS stylesheet we used the [W3C Jigsaw validator](https://jigsaw.w3.org/css-validator/)
 
+No problems found in our CSS validations
+
 CSS Stylesheet
-![CSS Stylesheet]()
+[CSS Stylesheet](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fpro-gainer-85d1fcf0b9b4.herokuapp.com%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
 
 ### JSHint validation
 
 To validate our Javascript we are using the [JSHint validator](https://jshint.com/)
 Home page
 
-![Home page]()
-
-Signup page
-
-![Signup page]()
-
-Sign in page
-
-![Sign in page]()
-
-Sign out page
-
-![Sign out page]()
-
-Exercise list page
-
-![Exercise list page]()
-
-Exercise detail page
-
-![Exercise detail page]()
-
-Membership checkout page
-
-![Membership checkout page]()
-
-Checkout success page
-
-![Checkout success page]()
-
-Favourite list page
-
-![Favourite list page]()
-
-My profile page
-
-![My profile page]()
-
-403 error page
-
-![403 error page]()
-
-404 error page
 
 ![404 error page]()
 
