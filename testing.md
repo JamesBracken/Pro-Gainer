@@ -493,6 +493,13 @@ Footer
 |Footer links|Footer links opens the corresponding website|Click link||
 |Footer links|Footer links open the link on a new tab|Click link||
 
+403 page
+| Feature | Expected Outcome | Testing Performed | Result | Pass/Fail/Potential improvements |
+|---------|-------------------|-------------------|--------|-----------|
+|403 page|Nav and footer appears in the page|Invoke a 403 page error, check page|||
+|403 page|403 error displays|Invoke a 403 page error, check page|||
+|Home button|Home button appears in the page|Invoke a 403 page error, check page|||
+|Home button redirection|On click the button redirects the user to the home page|Invoke a 403 page error, click the home button|||
 
 404 page
 | Feature | Expected Outcome | Testing Performed | Pass/Fail/Potential improvements |
