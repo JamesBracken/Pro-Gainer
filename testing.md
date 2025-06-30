@@ -478,10 +478,21 @@ Sign out page
 |Sign out button|The sign out button signs the user out|Click button||
 |Sign out button|If the user is signed in on another page and signs out, the other page is also signed out|Click button and refresh other page||
 
-403 page
+Footer
 | Feature | Expected Outcome | Testing Performed | Pass/Fail/Potential improvements |
 |---------|-------------------|-------------------|-----------|
 |||||
+|Social media icons|Icons are present on the top of the footer and display well on multiple devices|Visual check and window resize||
+|Social media icons|Icons change color on hover|Hover mouse||
+|Social media icons|Icons open the corresponding social media page|Click icon||
+|Social media icons|Icons open the social media page in a new tab|Click icon||
+|Footer information|Information displays well on multiple screen sizes|Window resize||
+|Footer links|Start with an underline|Visual check||
+|Footer links|On hover the underline is removed|Hover mouse||
+|Footer links|On remove of hover the underline reappears|Hover mouse then remove||
+|Footer links|Footer links opens the corresponding website|Click link||
+|Footer links|Footer links open the link on a new tab|Click link||
+
 
 404 page
 | Feature | Expected Outcome | Testing Performed | Pass/Fail/Potential improvements |
