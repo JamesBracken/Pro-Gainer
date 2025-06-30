@@ -32,12 +32,13 @@ class ExerciseForm(forms.ModelForm):
             "equipment",
         )
 
+
 class AddFavouriteExerciseForm(forms.ModelForm):
+    """
+    Creates a form for :model:`exercise.FavouriteExercise
+    """
+
     class Meta:
         model = FavouriteExercise
-        fields = (
-            "exercise",
-        )
-        widgets = {
-            "exercise": forms.HiddenInput()
-        }
+        fields = ("exercise",)
+        widgets = {"exercise": forms.HiddenInput()}

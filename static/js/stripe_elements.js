@@ -32,7 +32,7 @@ card.addEventListener("change", function (event) {
     <span class="icon: role="alert">
     <i class="fas fa-times"></i>
     </span>
-    <span>${event.error.message}</span>`
+    <span>${event.error.message}</span>`;
 
     $(errorDiv).html(html);
   } else {
@@ -42,7 +42,7 @@ card.addEventListener("change", function (event) {
 });
 
 // Handle form submission
-const form = document.getElementById("payment-form")
+const form = document.getElementById("payment-form");
 
 form.addEventListener("submit", function (event) {
   // Prevent form submission
@@ -52,14 +52,14 @@ form.addEventListener("submit", function (event) {
   let gymLocation = form.gym_location ? form.gym_location.value : "";
   let membershipType = form.membership_type ? form.membership_type.value : "";
   let saveInfo = true
-  let csrfToken = $("input[name='csrfmiddlewaretoken']").val();
+;
   let postData = {
     "csrfmiddlewaretoken": csrfToken,
     "client_secret": clientSecret,
     "save_info": saveInfo,
     "gym_location": gymLocation,
     "membership_type": membershipType,
-  }
+  };
   let url = "/membership/cache_checkout_data/";
 
   $.post(url, postData).done(function () {
@@ -109,9 +109,9 @@ form.addEventListener("submit", function (event) {
           form.submit();
         }
       }
-    })
+    });
   }).fail(function () {
     //  just reloading the page, the error will be in django messages
     location.reload();
-  })
+  });
 });

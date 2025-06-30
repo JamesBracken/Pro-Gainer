@@ -8,6 +8,7 @@ from django.contrib import messages
 from django.views.decorators.http import require_POST
 from membership.utils import is_user_membership_active
 
+
 def exercise_list(request):
     """
     Renders the exercise list page
@@ -22,7 +23,8 @@ def exercise_list(request):
     ``exercise/exercise_list.html``
     """
     exercise_list = Exercise.objects.all().order_by("-created_at")
-    # The pagination here was made with assistance from the django pagination docs
+    # The pagination here was made with assistance from the django pagination
+    # docs
     # https://docs.djangoproject.com/en/5.2/topics/pagination/
 
     # Paginator controls will display 30 exercises from the list per page
@@ -30,7 +32,9 @@ def exercise_list(request):
 
     page_number = request.GET.get("page")
     page_obj = paginator.get_page(page_number)
-    return render(request, "exercise/exercise_list.html", {"page_obj": page_obj})
+    return render(
+        request, "exercise/exercise_list.html", {"page_obj": page_obj}
+    )
 
 
 def exercise_detail(request, exercise_slug):
@@ -55,7 +59,8 @@ def exercise_detail(request, exercise_slug):
             "exercise": exercise,
         }
     )
-    if request.user.is_authenticated and is_user_membership_active(request.user):
+    if (request.user.is_authenticated and
+            is_user_membership_active(request.user)):
         is_exercise_favourite = FavouriteExercise.objects.filter(
             user=request.user, exercise=exercise.id
         ).exists()
@@ -69,14 +74,15 @@ def exercise_detail(request, exercise_slug):
             "exercise": exercise,
             "toggle_exercise_form": toggle_exercise_form,
         }
-    
+
     return render(request, "exercise/exercise_detail.html", context)
 
 
 @staff_member_required
 def add_exercise_item(request):
     """
-    Displays a form for admins to create a new instance of :model:`exercise.Exercise`
+    Displays a form for admins to create a new instance of
+    :model:`exercise.Exercise`
 
     **Context**
 
@@ -91,16 +97,18 @@ def add_exercise_item(request):
         exercise_form = ExerciseForm(request.POST, request.FILES)
         if exercise_form.is_valid():
             exercise_form.save()
-            messages.add_message(request, messages.SUCCESS, "Exercise has been added")
+            messages.add_message(
+                request, messages.SUCCESS, "Exercise has been added"
+            )
             return redirect("exercise_list")
         else:
             return render(
-            request,
-            "exercise/exercise_form.html",
-            {
-                "exercise_form": exercise_form,
-            },
-    )
+                request,
+                "exercise/exercise_form.html",
+                {
+                    "exercise_form": exercise_form,
+                },
+            )
     else:
         exercise_form = ExerciseForm()
         return render(
@@ -115,7 +123,8 @@ def add_exercise_item(request):
 @staff_member_required
 def edit_exercise_item(request, exercise_slug):
     """
-    Displays a form for admins to edit an existing instance of :model:`exercise.Exercise`
+    Displays a form for admins to edit an existing instance of
+    :model:`exercise.Exercise`
 
     **Context**
 
@@ -131,7 +140,9 @@ def edit_exercise_item(request, exercise_slug):
     """
     exercise = get_object_or_404(Exercise, slug=exercise_slug)
     if request.method == "POST":
-        exercise_form = ExerciseForm(request.POST, request.FILES, instance=exercise)
+        exercise_form = ExerciseForm(
+            request.POST, request.FILES, instance=exercise
+        )
         if exercise_form.is_valid():
             exercise_form.save()
             messages.add_message(
@@ -141,7 +152,9 @@ def edit_exercise_item(request, exercise_slug):
             )
         else:
             messages.add_message(
-                request, messages.ERROR, f"Error editing { exercise.exercise_title }"
+                request,
+                messages.ERROR,
+                f"Error editing { exercise.exercise_title }"
             )
         return redirect("exercise_detail", exercise_slug=exercise.slug)
     else:
@@ -166,7 +179,9 @@ def delete_exercise_item(request, exercise_slug):
     exercise = get_object_or_404(Exercise, slug=exercise_slug)
     exercise.delete()
     messages.add_message(
-        request, messages.SUCCESS, f"{ exercise.exercise_title } has been deleted"
+        request,
+        messages.SUCCESS,
+        f"{ exercise.exercise_title } has been deleted"
     )
     return redirect("exercise_list")
 
@@ -182,19 +197,23 @@ def favourite_exercise_list(request):
         An instance of :model:`exercise.FavouriteExercise
     """
     if is_user_membership_active(request.user):
-        favourite_exercises = FavouriteExercise.objects.filter(user=request.user)
+        favourite_exercises = FavouriteExercise.objects.filter(
+            user=request.user
+        )
         paginator = Paginator(favourite_exercises, 30)
         page_number = request.GET.get("page")
         page_object = paginator.get_page(page_number)
         context = {
             "page_object": page_object,
         }
-        return render(request, "exercise/favourite_exercises_list.html", context)
-    messages.add_message(
-            request,
-            messages.ERROR,
-            "You must have an active membership to access favourites",
+        return render(
+            request, "exercise/favourite_exercises_list.html", context
         )
+    messages.add_message(
+        request,
+        messages.ERROR,
+        "You must have an active membership to access favourites",
+    )
     return redirect(reverse("home"))
 
 
@@ -202,7 +221,8 @@ def favourite_exercise_list(request):
 @login_required
 def toggle_is_favourite_exercise(request, exercise_id):
     """
-    Toggles exercises to be added or deleted as an instance of :model:`FavouriteExercise`
+    Toggles exercises to be added or deleted as an instance of
+    :model:`FavouriteExercise`
 
     **Context**
 
@@ -228,7 +248,8 @@ def toggle_is_favourite_exercise(request, exercise_id):
             messages.add_message(
                 request,
                 messages.SUCCESS,
-                f"{ exercise.exercise_title } has been removed to your favourites list",
+                f"{ exercise.exercise_title } has been removed to your "
+                f"favourites list",
             )
             return redirect("exercise_detail", exercise_slug)
         if toggle_exercise_form.is_valid():
@@ -238,7 +259,8 @@ def toggle_is_favourite_exercise(request, exercise_id):
             messages.add_message(
                 request,
                 messages.SUCCESS,
-                f"{ exercise.exercise_title } has been added to your favourites list",
+                f"{ exercise.exercise_title } has been added to your "
+                f"favourites list",
             )
             return redirect("exercise_detail", exercise_slug)
     messages.add_message(

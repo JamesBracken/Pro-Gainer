@@ -12,7 +12,10 @@ class SubscribeForm(forms.ModelForm):
             ("3", "3 Months"),
             ("12", "12 Months"),
     ]
-    membership_length = forms.ChoiceField(choices=MEMBERSHIP_LENGTH, required=True, label="Desired Membership Length")
+    membership_length = forms.ChoiceField(choices=MEMBERSHIP_LENGTH,
+                                          required=True,
+                                          label="Desired Membership Length")
+
     class Meta:
         model = Membership
         fields = (
@@ -28,6 +31,7 @@ class SubscribeForm(forms.ModelForm):
             "gym_location",
             "membership_type",
         )
+
     def __init__(self, *args, **kwargs):
         """
         Add classes to each field

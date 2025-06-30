@@ -8,7 +8,7 @@ import stripe
 
 # Coded along with code institute boutique ado project for the below hanlder
 class StripeWH_Handler:
-    """Handles Stripe webhooks"""
+    """Webhook handler for the stripe payment system"""
 
     def __init__(self, request):
         self.request = request
@@ -18,7 +18,7 @@ class StripeWH_Handler:
         Handle a generic/unknown/unexpected webhook event
         """
         return HttpResponse(
-            content=f"Unhandled webhook received: {event["type"]}", status=200
+            content=f"Unhandled webhook received: {event['type']}", status=200
         )
 
     def handle_payment_intent_succeeded(self, event):
@@ -38,16 +38,14 @@ class StripeWH_Handler:
         membership = None
         order_exists = False
         attempt = 1
-        metadata = event['data']['object']['metadata']
+        metadata = event["data"]["object"]["metadata"]
         membership_end_date = intent.metadata.membership_end_date
         membership_start_date_raw = metadata.get("membership_start_date")
         membership_end_date_raw = metadata.get("membership_end_date")
-        last_payment= intent.amount / 100
-        print(last_payment)
+        last_payment = intent.amount / 100
 
         membership_start_date = isoparse(membership_start_date_raw)
         membership_end_date = isoparse(membership_end_date_raw)
-
 
         while attempt <= 5:
             # Searches for an object which matches the below data
@@ -55,20 +53,14 @@ class StripeWH_Handler:
                 membership = Membership.objects.get(
                     full_name__iexact=shipping_details.name,
                     email_address__iexact=billing_details.email,
-                    # phone_number__iexact=shipping_details.phone,
                     country__iexact=shipping_details.address.country,
                     post_code__iexact=shipping_details.address.postal_code,
                     town_or_city__iexact=shipping_details.address.city,
                     street_address_1__iexact=shipping_details.address.line1,
-                    # street_address_2__iexact=shipping_details.address.line2,
                     county__iexact=shipping_details.address.state,
-                    # membership_end_date__iexact=metadata.membership_end_date,
-                    # membership_start_date__iexact=metadata.membership_start_date,
                     gym_location__iexact=metadata.gym_location,
                     membership_type__iexact=metadata.membership_type,
-                    # last_payment= last_payment,
                 )
-                print("handle_payment_intent_succeeded while block membership(model):", membership.id)
                 order_exists = True
                 break
             except Membership.DoesNotExist:
@@ -76,7 +68,10 @@ class StripeWH_Handler:
                 time.sleep(1)
         if order_exists:
             return HttpResponse(
-                content=f"Webhook received: {event["type"]} | SUCCESS : Verified order already in database",
+                content=(
+                    f"Webhook received: {event['type']} | SUCCESS : "
+                    f"Verified order already in database"
+                ),
                 status=200,
             )
         else:
@@ -94,13 +89,13 @@ class StripeWH_Handler:
                         user = User.objects.get(id=user_id)
                     except User.DoesNotExist:
                         return HttpResponse(
-                            content=f"Webhook received: {event['type']} | ERROR: User with id {user_id} does not exist",
+                            content=(
+                                f"Webhook received: {event['type']} | ERROR: "
+                                f"User with id {user_id} does not exist"
+                            ),
                             status=400,
                         )
-                print("User ID from metadata:", user_id)
-                print("Metadata:", intent.metadata)
                 membership = Membership.objects.create(
-
                     user=user,
                     full_name=shipping_details.name,
                     email_address=billing_details.email,
@@ -117,16 +112,18 @@ class StripeWH_Handler:
                     membership_type=metadata.membership_type,
                     last_payment=last_payment,
                 )
-                print("handle_payment_intent_succeeded try block membership(model):", membership.id)
             except Exception as e:
                 if membership:
                     membership.delete()
                 return HttpResponse(
-                    content=f"Webhook received: {event["type"]} | ERROR: {e}",
+                    content=f"Webhook received: {event['type']} | ERROR: {e}",
                     status=500,
                 )
         return HttpResponse(
-            content=f"Webhook received: {event["type"]} | SUCCESS: Created order in webhook",
+            content=(
+                f"Webhook received: {event['type']} | SUCCESS: "
+                f"Created order in webhook"
+            ),
             status=200,
         )
 
@@ -134,4 +131,5 @@ class StripeWH_Handler:
         """
         Handle the payment_intent.failed webhook from Stripe
         """
-        return HttpResponse(content=f"Webhook received: {event["type"]}", status=200)
+        return HttpResponse(content=f"Webhook received: {event['type']}",
+                            status=200)

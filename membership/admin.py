@@ -1,5 +1,5 @@
 from django.contrib import admin
 from .models import Membership
-# Register your models here.
 
+# Registers the Membership model in the admin page
 admin.site.register(Membership)
