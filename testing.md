@@ -442,7 +442,16 @@ Signup page
 Login page
 | Feature | Expected Outcome | Testing Performed | Pass/Fail/Potential improvements |
 |---------|-------------------|-------------------|-----------|
-|||||
+|Page header|Page header displays well on multiple devices|Window resize||
+|Password|Password characters should be bullets|Type in characters||
+|Input labels|Each input has a corresponding label|Visual check||
+|Input labels|Required input labels have an asterisk next to them|Visual check||
+|Form submission|If the form is valid the form submits|Submit form with correct input data||
+|Form submission|If the form is not valid the form does not submit|Submit form with incorrect input data||
+|Feedback messages|If the user inputs correct data and submits a successful login message is displayed|Login||
+|Feedback messages|If the user inputs incorrect data and submits a error message is displayed|Input incorrect data and submit||
+|Sign up link|The sign up button redirects the user to the sign up page|Click the button||
+|Forgot your password|The forgot your password link redirects the user to the forgot your password page|||
 
 Password reset page
 | Feature | Expected Outcome | Testing Performed | Pass/Fail/Potential improvements |
