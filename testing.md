@@ -462,10 +462,12 @@ Password reset page
 |Reset my password button|If the input is not an email HTML validation stops the form submission|Incorrectly input an email and submit||
 |Reset my password button|If the email is input correctly and submitted the user is redirected to a password successfully set page|||
 
-Footer
+Password successfully reset page
 | Feature | Expected Outcome | Testing Performed | Pass/Fail/Potential improvements |
 |---------|-------------------|-------------------|-----------|
-|||||
+|Introduction|The page has a header and content letting the user know the password reset request has been made|||
+|Home button|There is a home button on the page|Visual check||
+|Home button|The home button redirects the user to the home page|Click button||
 
 
 403 page
