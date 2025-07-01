@@ -9,6 +9,7 @@ from django.views.decorators.http import require_POST
 from membership.utils import is_user_membership_active
 
 
+
 def exercise_list(request):
     """
     Renders the exercise list page
