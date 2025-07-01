@@ -1,20 +1,62 @@
+<!-- TOC start (generated with https://github.com/derlin/bitdowntoc) -->
 
+- [Pro Gainer](#pro-gainer)
+   * [ --> View the live deployed project here <-- ](#-view-the-live-deployed-project-here-)
+   * [Table of contents](#table-of-contents)
+   * [UX](#ux)
+      + [Strategy](#strategy)
+         - [Project overview](#project-overview)
+         - [Project goals](#project-goals)
+         - [User stories](#user-stories)
+         - [Completed User stories](#completed-user-stories)
+         - [Incomplete/Undone User stories](#incompleteundone-user-stories)
+      + [Scope](#scope)
+         - [Consistent features implemented](#consistent-features-implemented)
+         - [Unique features implemented ](#unique-features-implemented)
+         - [Development life cycle](#development-life-cycle)
+      + [Structure](#structure)
+         - [Database model](#database-model)
+         - [Security](#security)
+         - [Applications](#applications)
+      + [Skeleton](#skeleton)
+      + [Surface](#surface)
+         - [Colour scheme](#colour-scheme)
+         - [Typography](#typography)
+         - [Imagery](#imagery)
+   * [Testing](#testing)
+   * [Deployment](#deployment)
+      + [Github guide](#github-guide)
+      + [Additional setup DB, CLoudinary, Heroku, env.py](#additional-setup-db-cloudinary-heroku-envpy)
+   * [Credits](#credits)
+      + [Content](#content)
+      + [Technologies used](#technologies-used)
+      + [Code and Resources used](#code-and-resources-used)
+      + [Acknowledgements](#acknowledgements)
+
+<!-- TOC end -->
+
+
+<!-- TOC --><a name="pro-gainer"></a>
 # Pro Gainer
 
+<!-- TOC --><a name="-view-the-live-deployed-project-here-"></a>
 ## [ --> View the live deployed project here <-- ](https://pro-gainer-85d1fcf0b9b4.herokuapp.com/)
 
+<!-- TOC --><a name="table-of-contents"></a>
 ## Table of contents
 
+<!-- TOC --><a name="ux"></a>
 ## UX
+<!-- TOC --><a name="strategy"></a>
 ### Strategy
+<!-- TOC --><a name="project-overview"></a>
 #### Project overview
 
 Welcome to Pro Gainer, a website for individuals to subscribe to a gym membership to have access to the Pro Gainer gym. Members have access to our fantastic premium content of being able to save and access a wide array of different exercises, instructional material on each of these exercises and the ability to keep them in your favourites list. 
 
 The website is focused on providing a gym subscription service for the physical gym which our members can attend, it is located in the heart of hounslow in greater london. Alongside the access for our amazing gym users will be able to access our publicly available exercise list and save any item within this list. Our target clients for the website are a mix of amateur gym enthusiasts, younger individuals  looking to get fit and older individuals looking to stay fit.  
 
-<!-- The website is made using the django framework, each different component is going to be categorized into their own apps. The apps we have in this project consists of the  membership and exercise app. The membership app will -->
-
+<!-- TOC --><a name="project-goals"></a>
 #### Project goals
 
 The primary goals of this project are listed below.
@@ -29,6 +71,7 @@ The primary goals of this project are listed below.
 
 Through the easy navigation of the website and smooth UX, the website is an inviting experience for any user. Our clients attending our gym can now use our website as a guide for exercises they may perform in the gym improving each customer's results and satisfaction. 
 
+<!-- TOC --><a name="user-stories"></a>
 #### User stories
 
 At the highest level we have used Epics to categorize our user stories into separate blocks based on the needs of the end user. Each Epic will contain multiple user stories 
@@ -90,6 +133,7 @@ To be able to better prioritise, organise and communicate the intended project f
  
  - As an admin, I would like to be able to Delete exercises within the website(Must have)
 
+<!-- TOC --><a name="completed-user-stories"></a>
 #### Completed User stories
 
 **User content(Epic)**
@@ -123,6 +167,7 @@ To be able to better prioritise, organise and communicate the intended project f
  - As an admin, I would like to be able to Delete exercises within the website(Must have)
 
 
+<!-- TOC --><a name="incompleteundone-user-stories"></a>
 #### Incomplete/Undone User stories
 
 Due to the agile methodology approach taken in this project we have focused on delivering the most important components first. Rather than increasing resources and ofcourse having a deadline which cannot move we instead moved on the scope. Items which were not within project scope due to the limited time factor are found here.
@@ -161,8 +206,10 @@ Due to the agile methodology approach taken in this project we have focused on d
  
 All admin user goals created
 
+<!-- TOC --><a name="scope"></a>
 ### Scope
 
+<!-- TOC --><a name="consistent-features-implemented"></a>
 #### Consistent features implemented
 
 To improve overall user experience and increase uniformity across the whole website we have implemented consistent features which persist on each page where these features are found. 
@@ -268,6 +315,7 @@ Used on both the exercise list and favourite list page the pagination controls h
 
 A page title pertaining to the page the user is currently on is displayed on every page across the website.
 
+<!-- TOC --><a name="unique-features-implemented"></a>
 #### Unique features implemented 
 
 **Admin Full CRUD**
@@ -345,14 +393,17 @@ After a user becomes a member they will gain access to the my profile page which
 
 ![My profile page](./static/images/readme/my_profile.PNG)
 
+<!-- TOC --><a name="development-life-cycle"></a>
 #### Development life cycle
 
 To display how we have distributed the time used and development cycle of the project as a whole we have created a gantt chart to have a general outlook. The green colored blocks indicate work being performed in that category on that date.
 
 ![Gantt chart](./static/images/readme/gantt_chart.PNG)
 
+<!-- TOC --><a name="structure"></a>
 ### Structure
 
+<!-- TOC --><a name="database-model"></a>
 #### Database model
 
 During the planning and preparation stage of my project I created an [ERD(Entity relationship diagram)](https://lucid.app/lucidchart/e56c3df0-fa20-4f96-bbe5-c9a29715c6cb/edit?page=0_0&invitationId=inv_c3f434bb-e3a8-488f-8737-9a391ade7cab#). I used this as a guide for creating my models and made some minor tweaks as I developed the project.
@@ -364,6 +415,7 @@ User - Favourite Exercise | One - Many
 
 Each exercise can only have a relationship with one favourite exercise as this would basically be an imitation of itself in another model. Each User can have as many favourite exercises as they would like.
 
+<!-- TOC --><a name="security"></a>
 #### Security
 
 
@@ -381,6 +433,7 @@ To ensure only users who have an paid for a membership(which is active) has acce
 We have implemented and automatic scheduler using APScheduler to run a *job/task* at specific times of the day, specifically midnight. This task will run through all users which are currently set to active and if the membership end date is in the past set it to inactive. The APScheduler will only work while the server is running, there are better options which were considered like celery and redis however these fell out of scope of the project and APScheduler was used instead.
 
 
+<!-- TOC --><a name="applications"></a>
 #### Applications
 
 2 Applications have been made within the project
@@ -388,6 +441,7 @@ We have implemented and automatic scheduler using APScheduler to run a *job/task
 - membership - The membership app is composed of the membership signup, checkout success and my profile. This contains the model for memberships.
 - exercise - The exercise model contains all exercise lists, details and favourites. Full CRUD is contained within the exercise model component for admins to tweak the available exercises. Active members are able to add and delete exercises from their favourites list. This application contains both the exercise and favourite exercise models. `
 
+<!-- TOC --><a name="skeleton"></a>
 ### Skeleton
 
 **Wireframes**
@@ -397,8 +451,10 @@ I created the wireframes early on in the project creation as a low fidelity outl
 
 - [All pages of my wireframes can be found here](https://www.figma.com/design/tnBvzkh8foONfZI9U8Cm8h/Milestone-projects?node-id=3527-2&p=f)
 
+<!-- TOC --><a name="surface"></a>
 ### Surface
 
+<!-- TOC --><a name="colour-scheme"></a>
 #### Colour scheme
 
 ![Colour palette](./static/images/readme/color_palette.PNG)
@@ -417,6 +473,7 @@ black: #454545;
 
 white: #ffffff;
 
+<!-- TOC --><a name="typography"></a>
 #### Typography
 
 The typography was also a simplistic choice. Not much variance between headings and general text across the website, the differentiating factor would be the font weight and size.
@@ -435,6 +492,7 @@ Body: 1rem - 16px
 Headings: "Roboto", serif;
 Body: "Lato", serif;
 
+<!-- TOC --><a name="imagery"></a>
 #### Imagery
 
 For the imagery of the site I decided to go with inspiring images of weightlifting to attract people into the site. When talking about instructional material I wanted a good looking but not complicated imagery considering the likely user paying attention to these images in particular would be at more of a beginner level.
@@ -446,12 +504,15 @@ I used the sites listed below to access open source non copyrighted images for m
 
 I also improved the performance of the website where possible using using [Tiny png](https://tinypng.com/) and [Tiny jpg](https://tinyjpg.com/).
 
+<!-- TOC --><a name="testing"></a>
 ## Testing
 
 Comprehensive testing has been performed for this project, you can find all of the testing in the [testing.md file](./testing.md)
 
+<!-- TOC --><a name="deployment"></a>
 ## Deployment
 
+<!-- TOC --><a name="github-guide"></a>
 ### Github guide
 
 **Cloning**
@@ -550,6 +611,7 @@ Further assistance can be found [HERE](https://docs.github.com/en/pull-requests/
 
 11. If you want to open a deployed version of your app see the steps below in **Heroku deployment**
 
+<!-- TOC --><a name="additional-setup-db-cloudinary-heroku-envpy"></a>
 ### Additional setup DB, CLoudinary, Heroku, env.py
 
 **Adding your database**
@@ -700,11 +762,14 @@ To setup the config var
 - Create a webhook endpoint for use with your applications. On the stripe dashboard go to the Developers -> Webhooks area, click add endpoint, use the url of your Heroku application with '/checkout/wh/' tagged onto the end of the url string. When configuring the endpoint, the events to register to listen to are payment_intent_succeeded and payment_intent_failed
 - Once the endpoint is set up get the signing secret for the webhooks and save this value as a Heroku config var called STRIPE_WEBHOOK_SECRET.
 
+<!-- TOC --><a name="credits"></a>
 ## Credits
+<!-- TOC --><a name="content"></a>
 ### Content
 
 No code was copied from external resources, I did take some components of code for the Readme and the social media section from [my Ember and Ash project](https://github.com/JamesBracken/Ember-Ash). Official documentation supplied the base for some of the code within the website. All code which was taken from documentation has been commented and the url added to the code.
 
+<!-- TOC --><a name="technologies-used"></a>
 ### Technologies used
 
 1. [Django](https://www.djangoproject.com/) - Django is a high level framework used to rapidly take python projects from start to finish. Using django a developer can use existing codebases and shortcuts to ease and speed up the development process.
@@ -755,6 +820,7 @@ No code was copied from external resources, I did take some components of code f
 
 24. [Lucidchart](https://www.lucidchart.com/pages/examples/er-diagram-tool) - Used to create entity relationship diagrams 
 
+<!-- TOC --><a name="code-and-resources-used"></a>
 ### Code and Resources used
 
 
@@ -788,6 +854,7 @@ No code was copied from external resources, I did take some components of code f
 
 15. Error handling - I used [BetterStack](https://betterstack.com/community/guides/scaling-python/error-handling-django/) to get an understanding of how to render the error pages for the project. 
 
+<!-- TOC --><a name="acknowledgements"></a>
 ### Acknowledgements
 
 A big thank you to my mentor **Brian Macharia** who gave me high level guidance for the project and to my teacher **Andre Beckley** who guided me through the website build.
