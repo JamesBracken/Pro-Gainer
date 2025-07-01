@@ -199,7 +199,7 @@ def favourite_exercise_list(request):
     if is_user_membership_active(request.user):
         favourite_exercises = FavouriteExercise.objects.filter(
             user=request.user
-        )
+        ).order_by("-added_at")
         paginator = Paginator(favourite_exercises, 30)
         page_number = request.GET.get("page")
         page_object = paginator.get_page(page_number)
@@ -215,7 +215,6 @@ def favourite_exercise_list(request):
         "You must have an active membership to access favourites",
     )
     return redirect(reverse("home"))
-
 
 @require_POST
 @login_required
