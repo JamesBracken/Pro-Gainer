@@ -108,6 +108,105 @@ stripe_elements.js
 
 ### Python validation
 
+All python validation has been performed using the [CI pep8 python linter](https://pep8ci.herokuapp.com/). This application displays any mistakes and assists in making sure our code is python code is pep8 compliant. Every application has been listed below including exercise and membership apps as well as the pro_gainer project level folder. Every single .py file within each folder has been ran through validation to ensure the website conforms to the pep8 standards.
+
+**Exercise app**
+
+admin.py
+
+![admin.py](./static/images/testing/python_validator_exercise_admin.PNG)
+
+apps.py
+
+![apps.py](./static/images/testing/python_validator_exercise_apps.PNG)
+
+forms.py
+
+![forms.py](./static/images/testing/python_validator_exercise_forms.PNG)
+
+models.py
+
+![models.py](./static/images/testing/python_validator_exercise_models.PNG)
+
+tests.py
+
+![tests.py](./static/images/testing/python_validator_exercise_tests.PNG)
+
+urls.py
+
+![urls.py](./static/images/testing/python_validator_exercise_urls.PNG)
+
+views.py
+
+![views.py](./static/images/testing/python_validator_exercise_views.PNG)
+
+
+**Membership app**
+
+admin.py
+
+![admin.py](./static/images/testing/python_validator_membership_admin.PNG)
+
+apps.py
+
+![apps.py](./static/images/testing/python_validator_membership_apps.PNG)
+
+conext_processors.py
+
+![conext_processors.py](./static/images/testing/python_validator_membership_context_processors.PNG)
+
+forms.py
+
+![forms.py](./static/images/testing/python_validator_membership_forms.PNG)
+
+models.py
+
+![models.py](./static/images/testing/python_validator_membership_models.PNG)
+
+tasks.py
+
+![tasks.py](./static/images/testing/python_validator_membership_tasks.PNG)
+
+tests.py
+
+![tests.py](./static/images/testing/python_validator_membership_tests.PNG)
+
+urls.py
+
+![urls.py](./static/images/testing/python_validator_membership_urls.PNG)
+
+utils.py
+
+![utils.py](./static/images/testing/python_validator_membership_utils.PNG)
+
+views.py
+
+![views.py](./static/images/testing/python_validator_membership_views.PNG)
+
+webhook_handler.py
+
+![webhook_handler.py](./static/images/testing/python_validator_membership_webhook_handler.PNG)
+
+webhooks.py
+
+![webhooks.py](./static/images/testing/python_validator_membership_webhooks.PNG)
+
+
+**Pro_gainer project folder**
+
+settings.py
+
+![settings.py](./static/images/testing/python_validator_pro_gainer_settings.PNG)
+
+urls.py
+
+![urls.py](./static/images/testing/python_validator_pro_gainer_urls.PNG)
+
+views.py
+
+![views.py](./static/images/testing/python_validator_pro_gainer_views.PNG)
+
+
 ## Lighthouse testing
 
 Using the chrome developer tools we did the lighthouse testing to give a general overview of the site quality, more about this [Here](https://developer.chrome.com/docs/lighthouse/overview).
@@ -469,27 +568,3 @@ Footer
 |Footer links|On remove of hover the underline reappears|Hover mouse then remove||
 |Footer links|Footer links opens the corresponding website|Click link||
 |Footer links|Footer links open the link on a new tab|Click link||
-
-403 page
-| Feature | Expected Outcome | Testing Performed | Result | Pass/Fail/Potential improvements |
-|---------|-------------------|-------------------|--------|-----------|
-|403 page|Nav and footer appears in the page|Invoke a 403 page error, check page|||
-|403 page|403 error displays|Invoke a 403 page error, check page|||
-|Home button|Home button appears in the page|Invoke a 403 page error, check page|||
-|Home button redirection|On click the button redirects the user to the home page|Invoke a 403 page error, click the home button|||
-
-404 page
-| Feature | Expected Outcome | Testing Performed | Pass/Fail/Potential improvements |
-|---------|-------------------|-------------------|-----------|
-|404 page|Nav and footer appears in the page|Invoke a 404 page error, check page||
-|404 page|404 error displays|Invoke a 404 page error, check page||
-|Home button|Home button appears in the page|Invoke a 404 page error, check page||
-|Home button redirection|On click the button redirects the user to the home page|Invoke a 404 page error, click the home button||
-
-500 page
-| Feature | Expected Outcome | Testing Performed | Pass/Fail/Potential improvements |
-|---------|-------------------|-------------------|-----------|
-|500 page|Nav and footer appears in the page|Invoke a 500 page error, check page||
-|500 page|500 error displays|Invoke a 500 page error, check page||
-|Home button|Home button appears in the page|Invoke a 500 page error, check page||
-|Home button redirection|On click the button redirects the user to the home page|Invoke a 500 page error, click the home button||
