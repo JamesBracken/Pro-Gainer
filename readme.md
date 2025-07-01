@@ -270,6 +270,13 @@ A page title pertaining to the page the user is currently on is displayed on eve
 
 #### Unique features implemented 
 
+**Admin Full CRUD**
+
+Admins have full CRUD functionality with the exercises. Using the website functionality admins can do everything they need with the exercises.
+
+![Add exercise button](./static/images/readme/add_exercise_button.PNG)
+![Edit and delete exercise buttons](./static/images/readme/exercise_edit_and_delete_buttons.PNG)
+
 **Authentication**
 
 Using Django Allauth for our authentication gave us the base templates and functionality. Using the already created templates we tweaked them to our website styles and needs.
