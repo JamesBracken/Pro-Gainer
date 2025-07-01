@@ -356,21 +356,16 @@ header {
 /* MAIN CONTENT STYLES */
 
 #home-brand-heading {
-    position: absolute;
-    top: 130px;
-    left: 20%;
-    /* left: 30px; */
     color: var(--clr-white);
+    background-color: var(--clr-black);
 }
 
 .home-hero-img {
-    /* background-position: center; */
     height: 400px;
 }
 
 /* Home description cards  */
 .home-descriptions-card {
-    /* height: 250px; */
     border: 0;
 }
 
@@ -446,6 +441,7 @@ input {
     color: #000 !important;
     border: 1px solid #000 !important;
     border-radius: 0 !important;
+    max-width: 600px;
 }
 
 .StripeElement,
@@ -510,7 +506,6 @@ input {
 
     #home-brand-heading {
         font-size: 70px;
-        top: 110px;
     }
 
     .home-descriptions-card {
@@ -538,7 +533,6 @@ input {
 
     #home-brand-heading {
         font-size: 70px;
-        /* left: 20%; */
     }
 
     .home-descriptions-card {
@@ -550,9 +544,7 @@ input {
 
     #home-brand-heading {
         font-size: 100px;
-        position: relative;
-        top: auto;
-        left: auto;
-        color: var(--clr-black);
+        color: var(--clr-white);
+        background-color: var(--clr-black);
     }
 }

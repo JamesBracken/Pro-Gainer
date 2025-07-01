@@ -34,6 +34,7 @@ https://github.com/JamesBracken/Ember-Ash
     --fw-extra-bold: 800;
     --fw-bold: 700;
     --fw-semi-bold: 550;
+    --fw-medium: 425;
     --fw-regular: 300;
 
     --border-radius: 10px;
@@ -41,46 +42,52 @@ https://github.com/JamesBracken/Ember-Ash
     --transition-duration: 0.3s;
 }
 
-/* GLOBAL STYLES */
+/* GLOBAL STYLES----------------------------- */
 /* setting all styles across the website here to increase uniformity
 across the code and reduce unexpected behaviours and styles */
 
 html {
-    display: flex;
     justify-content: center;
     overflow-x: hidden;
 }
 
 /* Push the body below the header to make it visible */
 body {
-    padding-top: 100px;
-    max-width: 2500px !important;
-    /* max-width: 1800px !important; */
+    padding-top: 120px;
+    max-width: 1400px !important;
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-/* Push the home section up a bit to touch the header */
-.home-section {
-    margin-top: -15px;
+footer {
+    margin-top: auto !important;
 }
 
 h1 {
-    font-size: var(--fs-heading-1) !important;
+    font-size: var(--fs-heading-1);
     font-family: var(--text-primary);
+    font-weight: var(--fw-semi-bold);
+    font-style: italic;
 }
 
 h2 {
     font-size: var(--fs-heading-2) !important;
     font-family: var(--text-primary);
+    font-weight: var(--fw-medium);
 }
 
 h3 {
     font-size: var(--fs-heading-3) !important;
     font-family: var(--text-primary);
+    font-weight: var(--fw-medium);
 }
 
 h4 {
     font-size: var(--fs-heading-4) !important;
     font-family: var(--text-primary);
+    font-weight: var(--fw-medium);
 }
 
 .subheading {
@@ -93,7 +100,6 @@ p {
     font-weight: var(--fw-regular) !important;
 }
 
-input,
 button,
 select,
 textarea {
@@ -125,6 +131,10 @@ button:hover {
     box-sizing: border-box;
 }
 
+a i:hover {
+    color: #373D43;
+}
+
 img {
     object-fit: cover !important;
     width: 100% !important;
@@ -135,16 +145,147 @@ hr {
     color: rgba(0, 0, 0, 0.4)
 }
 
-i {
-    font-size: 40px;
+.large-icon,
+.social-icon {
+    font-size: 50px;
     display: inline-block;
 }
 
-.bg-light-grey {
+
+
+/* REUSABLE STYLES----------------------------------- */
+/* Background styles */
+.light-grey-bg {
     background-color: #EFF0F0;
 }
 
-/* HEADER STYLES */
+.primary-clr-bg {
+    background-color: var(--clr-primary);
+}
+
+.secondary-clr-bg {
+    background-color: var(--clr-secondary);
+}
+
+.black-bg {
+    background-color: var(--clr-black);
+}
+
+/* Text size styles */
+.sz-text-heading-1 {
+    font-size: var(--fs-heading-1) !important;
+    /* 50px */
+}
+
+.sz-text-heading-2 {
+    font-size: var(--fs-heading-2) !important;
+    /* 40px */
+}
+
+.sz-text-heading-3 {
+    font-size: var(--fs-heading-3) !important;
+    /* 35px */
+}
+
+.sz-text-heading-4 {
+    font-size: var(--fs-heading-4) !important;
+    /* 30px */
+}
+
+.sz-text-subheading {
+    font-size: var(--fs-subheading) !important;
+    /* 20px */
+}
+
+.sz-text-body {
+    font-size: var(--fs-body) !important;
+    /* 16px */
+}
+
+/* Font weight styles */
+.fw-text-extra-bold {
+    font-weight: var(--fw-extra-bold);
+}
+
+.fw-text-bold {
+    font-weight: var(--fw-bold);
+}
+
+.fw-text-semi-bold {
+    font-weight: var(--fw-semi-bold);
+}
+
+.fw-text-medium {
+    font-weight: var(--fw-medium);
+}
+
+.fw-text-regular {
+    font-weight: var(--fw-regular);
+}
+
+.underline {
+    border-bottom: var(--clr-black) 1px solid;
+}
+
+.white-text {
+    color: var(--clr-white);
+}
+
+.black-text {
+    color: var(--clr-black);
+}
+
+.secondary-clr-text {
+    color: var(--clr-secondary)
+}
+
+.inline-block {
+    display: inline-block;
+}
+
+/* General button styles */
+
+.container button,
+.button,
+.red-btn {
+    color: var(--clr-white);
+    padding: 9px 24px;
+    font-weight: var(--fw-semi-bold);
+    background-color: var(--clr-secondary);
+    border-radius: 0;
+    border: 0;
+}
+
+.container button:hover,
+.button:hover,
+.signup-button:hover,
+.red-btn:hover {
+    background-color: #c80a0a;
+    transition: 500ms ease-in-out;
+}
+
+.blue-btn {
+    color: var(--clr-white);
+    padding: 9px 24px;
+    font-weight: var(--fw-semi-bold);
+    background-color: rgb(41, 41, 155);
+    border-radius: 0;
+    border: 0;
+}
+
+/* Messages styles */
+
+.error {
+    background-color: #ffb6b9;
+    border: #ff2b32;
+}
+
+.success {
+    background-color: #d1e7dd;
+    border: #badbcc;
+}
+
+/* HEADER STYLES--------------------- */
 
 header {
     box-shadow: var(--box-shadow);
@@ -157,14 +298,12 @@ header {
     font-style: italic;
 }
 
-.nav-link,
-.footer-link {
+.nav-link {
     position: relative;
     display: inline-block;
 }
 
-.nav-link:after,
-.footer-link:after {
+.nav-link:after {
     content: '';
     position: absolute;
     left: 0;
@@ -175,18 +314,18 @@ header {
     transition: width 300ms;
 }
 
-.nav-link:hover:after,
-.footer-link:hover:after {
+.nav-link:hover:after {
     width: 100%;
 }
 
-.signup-button {
-    padding: 8px 0;
+.dropdown-menu {
+    border-radius: 0 !important;
 }
 
 /* Adding separate styles for the CTA to attract attention */
-.cta-btn {
-    margin: 0 !important;
+.cta-btn,
+.grey-btn,
+.signup-button {
     color: var(--clr-white);
     padding: 9px 24px;
     font-weight: var(--fw-semi-bold);
@@ -195,9 +334,14 @@ header {
     border: 0;
 }
 
-.cta-btn:hover {
+.cta-btn:hover,
+.grey-btn:hover {
     background-color: #595352;
     transition: 500ms ease-out;
+}
+
+.signup-button {
+    background-color: var(--clr-secondary);
 }
 
 .cta-li-container {
@@ -205,18 +349,23 @@ header {
     align-items: center;
 }
 
+.active {
+    font-weight: var(--fw-bold);
+}
 
 /* MAIN CONTENT STYLES */
 
-.home-hero-img-container {
-    background: url("../images/home_page/hero_image.jpg");
-    background-position: center;
+#home-brand-heading {
+    color: var(--clr-white);
+    background-color: var(--clr-black);
+}
+
+.home-hero-img {
     height: 400px;
 }
 
 /* Home description cards  */
 .home-descriptions-card {
-    height: 200px;
     border: 0;
 }
 
@@ -232,7 +381,7 @@ header {
 .cta-section-item-container {
     position: relative;
     right: 0px;
-    align-self:flex-end;
+    align-self: flex-end;
     justify-content: end;
     bottom: 30px;
 }
@@ -240,24 +389,138 @@ header {
 .cta-section-item {
     display: flex;
     justify-content: end;
-    /* position: relative;
-    right: 0px; */
+}
+
+/* Exercises styles */
+
+.exercise-item-header {
+    border-bottom: var(--clr-black) solid 1px;
+}
+
+.exercise-item-image,
+.exercise-item-image-container {
+    height: 250px !important;
+}
+
+.exercise-item-content-container {
+    background-color: var(--clr-primary);
+}
+
+/* Styles for the red heart image for favourite exercises */
+#fav-icon-container .favourite-btn {
+    color: var(--clr-black);
+}
+
+/* Bootstrap modal styles */
+
+.modal {
+    z-index: 999;
+    margin-top: 30px;
+    padding-top: 40px;
+}
+
+.modal-backdrop {
+    z-index: 998;
+}
+
+/* Stripe elements CSS */
+/* These styles were taken from the tutorial at https://www.youtube.com/watch?v=eUcMh5s_27I&t=456s */
+/* The styles were taken from stripe.com/docs/stripe-js 
+but this page no longer seems to have that content */
+
+
+.fieldset-label {
+    position: relative;
+    right: .5rem;
+}
+
+#payment-form .form-control,
+#card-element,
+select,
+input {
+    color: #000 !important;
+    border: 1px solid #000 !important;
+    border-radius: 0 !important;
+    max-width: 600px;
+}
+
+.StripeElement,
+.stripe-style-input {
+    box-sizing: border-box;
+    height: 40px;
+    padding: 10px 12px;
+    border: 1px solid transparent;
+    border-radius: 0px;
+    background-color: white;
+    box-shadow: 0 1px 3px 0 #e6ebf1;
+    -webkit-transition: box-shadow 150ms ease;
+    transition: box-shadow 150ms ease;
+}
+
+.StripeElement--focus,
+.stripe-style-input:focus,
+.stripe-style-input:active {
+    box-shadow: 0 1px 3px 0 #cfd7df;
+}
+
+.stripe-style-input::placeholder {
+    color: #aab7c4
+}
+
+.StripeElement--webkit-autofill {
+    background-color: #fefde5 !important;
+}
+
+/* Footer styles */
+
+
+.footer-link {
+    position: relative;
+    display: inline-block;
+}
+
+.footer-link:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    background-color: var(--clr-black);
+    height: 1px;
+    width: 100%;
+    transition: width 300ms;
+}
+
+.footer-link:hover:after {
+    width: 0;
+}
+
+
+
+@media screen and (min-width: 323px) {
+    body {
+        padding-top: 100px;
+    }
 }
 
 @media screen and (min-width: 576px) {
+
+    #home-brand-heading {
+        font-size: 70px;
+    }
+
     .home-descriptions-card {
         height: 280px;
     }
 
-    .home-hero-img-container {
+    .home-hero-img {
         height: 450px;
     }
 }
 
 @media screen and (min-width:768px) {
-    .home-hero-img-container {
-    height: 700px;
-}
+    .home-hero-img {
+        height: 700px;
+    }
 }
 
 @media screen and (min-width:1024px) {
@@ -267,7 +530,21 @@ header {
 }
 
 @media screen and (min-width:1200px) {
+
+    #home-brand-heading {
+        font-size: 70px;
+    }
+
     .home-descriptions-card {
         height: 200px;
+    }
+}
+
+@media screen and (min-width:2000px) {
+
+    #home-brand-heading {
+        font-size: 100px;
+        color: var(--clr-white);
+        background-color: var(--clr-black);
     }
 }
