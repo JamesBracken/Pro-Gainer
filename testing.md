@@ -273,18 +273,17 @@ My profile page
 
 | Story | Expected functionality | Result | Pass/Fail/Potential improvements |
 |---------|-------------------|-------------------|-----------|
-|As a user, I would like access to a navigation bar and footer so I can easily navigate the website(Must have)||||
-|As a user, I would like access to a navigation bar and footer so I can easily navigate the website(Must have)||||
-|As a user, I would like the site to be responsive so I can access it on multiple devices(Must have)||||
-|As a user, I would like to have access to a list of exercises so that I can gather inspiration for my next workout(Must have)||||
-|As a user, I would like to have access to details of each exercise so I can get a better grasp of each individual exercise(Must have)||||
-|As an interested customer, I would like to be able to register, sign in and sign out so I can access my membership benefits(Must have)||||
+|As a user, I would like access to a navigation bar and footer so I can easily navigate the website(Must have)|Navigation bar always present regardless of where the user is on the website|Navbar is always available|✅Passed|
+|As a user, I would like the site to be responsive so I can access it on multiple devices(Must have)|Each page responds well to window resizing and displays well on multiple screen sizes|All pages display well on multiple screen sizes, some adjustments made to home page header|✅Passed|
+|As a user, I would like to have access to a list of exercises so that I can gather inspiration for my next workout(Must have)|An exercise list is available for every user|A exercise list page is available for every user to access|✅Passed|
+|As a user, I would like to have access to details of each exercise so I can get a better grasp of each individual exercise(Must have)|A exercise detail page is available and users can access this to find out more details about each individual exercise|Exercise detail pages are available with all necessary information|✅Passed|
+|As an interested customer, I would like to be able to register, sign in and sign out so I can access my membership benefits(Must have)|There is an authentication system atleast including signup, login and logout|There is a full authentication system which can be further expanded, this was created with Allauth. Signup, login and logout pages are all available|✅Passed|
 |As an interested customer, I would like to be able to subscribe for a membership so I can access premium website functionality(Must have,this user story was originally --As an interested customer, I would like to be able to pay for my membership with a recurring fee so I dont need to worry about paying.
- This user story was altered after initially setting this due to being out of scope of the project. More about this on user story testing)||||
-|As a signed-in user, I would like to be able to save exercises as favourites so I can easily come back to them(Must have)||||
-|As an admin, I would like to be able to Create new exercises for the website(Must have)||||
-|As an admin, I would like to be able to Edit exercises within the website(Must have)||||
-|As an admin, I would like to be able to Delete exercises within the website(Must have)||||
+ This user story was altered after initially setting this due to being out of scope of the project.)|Members can pay for a membership to gain access to website functionality for a limited time|Membership system has been implemented fully. Users can signup for a membership and gain access to premium features for the period which they have paid for. When memberships expire users lose access to this premium functionality. Rather than having subscriptions which would be out of scope, we have instead implemented individual payments, this extra work problem has been mitigated by users having data saved so they dont need to input them repetitively and our membership lengths are every quater or annum rather than monthly|✅Passed|
+|As a signed-in user, I would like to be able to save exercises as favourites so I can easily come back to them(Must have)|There is a functionality to be able to save any individual exercise to the user's favourites list. This functionality is the heart icon located on every exercise detail page|The heart icon has been added to every exercise detail page and is accessible to all members. This dynamically adjusts styles to allow users to see if an exercise is already favourited or not|✅Passed|
+|As an admin, I would like to be able to Create new exercises for the website(Must have)|Admins should have access to a form where they can add new exercises|Admins have access to an add exercise button at the exercise list and they can add exercises|✅Passed|
+|As an admin, I would like to be able to Edit exercises within the website(Must have)|Admins have a way to access a form where they can edit the already existing instances of exercises on the page|There is an edit button which admins have access to on every single exercise detail page. The button leads to a form with pre filled information of the already existing exercise|✅Passed|
+|As an admin, I would like to be able to Delete exercises within the website(Must have)|Admins have access to delete any exercise|Each exercise detail page gives admins access to a delete button which will delete the corresponding exercise|✅Passed|
 
 
 *Out of scope user stories*
