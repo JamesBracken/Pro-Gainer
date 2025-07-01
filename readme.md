@@ -406,7 +406,9 @@ To display how we have distributed the time used and development cycle of the pr
 <!-- TOC --><a name="database-model"></a>
 #### Database model
 
-During the planning and preparation stage of my project I created an [ERD(Entity relationship diagram)](https://lucid.app/lucidchart/e56c3df0-fa20-4f96-bbe5-c9a29715c6cb/edit?page=0_0&invitationId=inv_c3f434bb-e3a8-488f-8737-9a391ade7cab#). I used this as a guide for creating my models and made some minor tweaks as I developed the project.
+![ERD(Entity relationship diagram)](./static/images/readme/entity_relationship_diagram.PNG)
+
+During the planning and preparation stage of my project I created an . I used this as a guide for creating my models and made some minor tweaks as I developed the project.
 
 I have 4 models in total, these being Membership, Exercise, Favourite Exercise and django allauth. All models have a relationship excluding the membership model. The relationships of each model are displayed on the diagram, additionally the type of relationship is listed here below. 
 
