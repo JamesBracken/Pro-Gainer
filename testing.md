@@ -15,22 +15,37 @@
 **IMAGE OF CODE FIX**
 ![Code for anchor element fix](./static/images/readme_bugs_and_issues/anchor_going_out_of_parent_element_code_fix.PNG)
 
-| Feature | Expected Outcome | Fix Performed | Result |
-|---------|-------------------|-------------------|--------|
-|||||
+| Feature | Expected Outcome | Outcome |Fix Performed | Result |
+|---------|-------------------|-------------------|--------|-------------------|
+|Deactivate memberships task|Memberships will be deactivated at the stipulated time in the APScheduler (00:00) |The task and APScheduler both worked correctly to perform this job of deactivating memberships. There was a side effect of the code however which was that it was querying the database prior to app initialisation which our code does not really like.|The way we made query's in our tasks.py was refactored to mitigate this problem. Other options were considered such as using Redis and Celery, however these are out of the scope of this project. Some fixes were attempted however these other task schedulers and job performers are not compatible with the version of Django used in this project. In the instance of a failure membership benefits checks have another layer which checks membership end date not only activity so this will not be a problem|✅Problem fully fixed, extra layer of authentication added to membership checks, now using membership end date on top of membership is active|
 
 **IMAGE OF PROBLEM**
 
-![]()
+![Code issue](./static/images/readme_bugs_and_issues/db_query_prior_to_init_problem.PNG)
 
 **IMAGE AFTER FIX**
 
-![]()
+![Fixed code](./static/images/readme_bugs_and_issues/db_query_prior_to_init_code_fix.PNG)
 
 **IMAGE OF CODE FIX**
 
-![]()
+![Fixed code](./static/images/readme_bugs_and_issues/db_query_prior_to_init_code_fix.PNG)
 
+| Feature | Expected Outcome | Outcome |Fix Performed | Result |
+|---------|-------------------|-------------------|--------|-------------------|
+|Dynamic stripe charges|If a user adjusts the membership length the price is updated|Price not updated|An if check was added to dynamically set the amount variable|✅Fully fixed|
+
+**IMAGE OF PROBLEM**
+
+![Stripe charge information broken](./static/images/readme_bugs_and_issues/stripe_charge_problem.PNG)
+
+**IMAGE AFTER FIX**
+
+![Stripe charge information fixed](./static/images/readme_bugs_and_issues/stripe_charge_fixed.PNG)
+
+**IMAGE OF CODE FIX**
+
+![If checks to dynamically set charge amount](./static/images/readme_bugs_and_issues/stripe_charge_code_fix.PNG)
 
 ## Validator testing
 
