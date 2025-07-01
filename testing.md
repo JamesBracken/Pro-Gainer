@@ -1,5 +1,25 @@
+<!-- TOC start (generated with https://github.com/derlin/bitdowntoc) -->
+
+- [Testing](#testing)
+   * [Bugs and issues during development](#bugs-and-issues-during-development)
+   * [Validator testing](#validator-testing)
+      + [HTML validation](#html-validation)
+      + [CSS validation](#css-validation)
+      + [JSHint validation](#jshint-validation)
+      + [Python validation](#python-validation)
+   * [Lighthouse testing](#lighthouse-testing)
+   * [User story testing](#user-story-testing)
+   * [Manual testing](#manual-testing)
+      + [Responsiveness](#responsiveness)
+      + [Browser testing](#browser-testing)
+      + [Website functionality testing](#website-functionality-testing)
+
+<!-- TOC end -->
+
+<!-- TOC --><a name="testing"></a>
 # Testing
 
+<!-- TOC --><a name="bugs-and-issues-during-development"></a>
 ## Bugs and issues during development
 
 | Feature | Outcome | Fix Performed | Result | Fixed/Unfixed |
@@ -47,10 +67,12 @@
 
 ![If checks to dynamically set charge amount](./static/images/readme_bugs_and_issues/stripe_charge_code_fix.PNG)
 
+<!-- TOC --><a name="validator-testing"></a>
 ## Validator testing
 
 To validate all of our pages we went through all the validators and validated every available page of the website. CSS stylesheets is the only exception here considering I only have 1 CSS stylesheet and you only need to validate the stylesheets available.
 
+<!-- TOC --><a name="html-validation"></a>
 ### HTML validation
 
 To validate our HTML we used the [W3C Validator](https://validator.w3.org/) and placed each individual page 
@@ -98,6 +120,7 @@ My profile page
 
 [My profile page](./static/images/testing/html_validator_my_profile_page.PNG)
 
+<!-- TOC --><a name="css-validation"></a>
 ### CSS validation
 
 To validate our CSS stylesheet we used the [W3C Jigsaw validator](https://jigsaw.w3.org/css-validator/)
@@ -107,6 +130,7 @@ No problems found in our CSS validations
 CSS Stylesheet
 [CSS Stylesheet](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fpro-gainer-85d1fcf0b9b4.herokuapp.com%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
 
+<!-- TOC --><a name="jshint-validation"></a>
 ### JSHint validation
 
 To validate our Javascript we are using the [JSHint validator](https://jshint.com/)
@@ -121,6 +145,7 @@ stripe_elements.js
 ![stripe_elements.js validation](./static/images/testing/javascript_validator_stripe_elements.PNG)
 
 
+<!-- TOC --><a name="python-validation"></a>
 ### Python validation
 
 All python validation has been performed using the [CI pep8 python linter](https://pep8ci.herokuapp.com/). This application displays any mistakes and assists in making sure our code is python code is pep8 compliant. Every application has been listed below including exercise and membership apps as well as the pro_gainer project level folder. Every single .py file within each folder has been ran through validation to ensure the website conforms to the pep8 standards.
@@ -222,6 +247,7 @@ views.py
 ![views.py](./static/images/testing/python_validator_pro_gainer_views.PNG)
 
 
+<!-- TOC --><a name="lighthouse-testing"></a>
 ## Lighthouse testing
 
 Using the chrome developer tools we did the lighthouse testing to give a general overview of the site quality, more about this [Here](https://developer.chrome.com/docs/lighthouse/overview).
@@ -269,6 +295,7 @@ My profile page
 ![My profile page](./static/images/testing/lighthouse_my_profile_page.PNG)./static/images/testing
 
 
+<!-- TOC --><a name="user-story-testing"></a>
 ## User story testing
 
 | Story | Expected functionality | Result | Pass/Fail/Potential improvements |
@@ -303,9 +330,11 @@ My profile page
 |As a signed-in user, I would like to be able to search for exercise content on the exercise list so I can find exercises faster(Could have)|||Out of scope not done|
 |As a signed-in user, I would like to be able to filter exercise search results on the exercise list so I can find exercises faster(Could have)|||Out of scope not done|
 
+<!-- TOC --><a name="manual-testing"></a>
 ## Manual testing
 
 
+<!-- TOC --><a name="responsiveness"></a>
 ### Responsiveness
 
 For my responsiveness testing I used the app [Responsively app](https://responsively.app/)
@@ -318,6 +347,7 @@ Initially I had a problem with the my profile page on mobile but that was an eas
 |Tablet|Tablet |768px| |
 |Laptop|Small Laptop/Desktop|1024px| |
 
+<!-- TOC --><a name="browser-testing"></a>
 ### Browser testing
 
 |Browser|Not Functioning|Partial Functioning|Full Functioning|
@@ -326,6 +356,7 @@ Initially I had a problem with the my profile page on mobile but that was an eas
 |<i class="fab fa-firefox-browser"></i>Mozilla Firefox| | ||
 |<i class="fab fa-edge"></i>Microsoft Edge| | ||
 
+<!-- TOC --><a name="website-functionality-testing"></a>
 ### Website functionality testing
 
 Nav bar & Footer
