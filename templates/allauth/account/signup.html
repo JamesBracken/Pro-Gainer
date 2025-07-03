@@ -2,11 +2,11 @@
 {% load allauth i18n crispy_forms_tags %}
 
 {% block meta %}
- <meta name="description" content="Sign up for an account " />
+  <meta name="description" content="Sign up for an account " />
 {% endblock %}
 
 {% block extra_title %}
-Sign up
+  Sign up
 {% endblock %}
 
 {% block head_title %}
@@ -14,51 +14,52 @@ Sign up
 {% endblock %}
 
 {% block content %}
-  {% comment %} Sign up section {% endcomment %}
+  {% comment %}Sign up section{% endcomment %}
   <section>
-    <div class="container my-5">
-
-      {% element h1 %}
+    <div class="container my-5 d-flex flex-column">
+      <div class="text-center">
+        {% element h1 %}
         {% trans 'Sign Up' %}
-      {% endelement %}
-
+        {% endelement %}
+      </div>
       {% setvar link %}
-        <a href="{{ login_url }}">
+      <a href="{{ login_url }}">
+        {% endsetvar %}
+        {% setvar end_link %}
+      </a>
       {% endsetvar %}
-      {% setvar end_link %}
-        </a>
-      {% endsetvar %}
-      {% element p %}
+      <div class="text-center">
+        {% element p %}
         {% blocktranslate %}Already have an account? Then please {{ link }}<span class="underline">sign in</span>{{ end_link }}.{% endblocktranslate %}
-      {% endelement %}
-
+        {% endelement %}
+      </div>
       {% if not SOCIALACCOUNT_ONLY %}
         {% url 'account_signup' as action_url %}
         {% element form method='post' action=action_url tags='entrance,signup' %}
-          {% slot body %}
-            {% csrf_token %}
-            {{ form|crispy }}
-            {{ redirect_field }}
-          {% endslot %}
-          {% slot actions %}
-            <button type="submit" class="btn btn-primary">
-              {% trans 'Sign Up' %}
-            </button>
-          {% endslot %}
+        {% slot body %}
+        {% csrf_token %}
+        {{ form|crispy }}
+        {{ redirect_field }}
+        {% endslot %}
+        {% slot actions %}
+        <div class="text-center">
+          <button type="submit" class="btn btn-primary">{% trans 'Sign Up' %}</button>
+        </div>
+        {% endslot %}
         {% endelement %}
       {% endif %}
 
       {% if PASSKEY_SIGNUP_ENABLED %}
-        {% element hr %}{% endelement %}
+        {% element hr %}
+        {% endelement %}
         {% element button href=signup_by_passkey_url tags='prominent,signup,outline,primary' %}
-          {% trans 'Sign up using a passkey' %}
+        {% trans 'Sign up using a passkey' %}
         {% endelement %}
       {% endif %}
 
       {% if SOCIALACCOUNT_ENABLED %}
         {% include 'socialaccount/snippets/login.html' with page_layout='entrance' %}
       {% endif %}
-
     </div>
   </section>
 {% endblock %}
