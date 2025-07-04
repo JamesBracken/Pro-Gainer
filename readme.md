@@ -222,13 +222,13 @@ For users to be able to navigate around the website we have implemented a main n
 
 **Navbar authenticated**
 
-![Navbar authenticated](./static/images/readme/navba_authenticated.PNG)
+![Navbar authenticated](./static/images/readme/navbar_authenticated.PNG)
 
 The same as the previous navbar except with the additional option to sign up for a membership
 
 **Navbar with membership**
 
-![Navbar authenticated and member](./static/images/readme/navba_authenticated_member.PNG)
+![Navbar authenticated and member](./static/images/readme/navbar_authenticated_member.PNG)
 
 The same as the previous navbar except with additional functionality of having an additional favourite list where users can find their favourite exercises which they have saved
 
@@ -365,7 +365,6 @@ When members add in new favourite exercises those reflect here in the favourite 
 
 Using this icon member users are able to save and unsave each exercise to add it to their favourites list.
 
-![Favourite exercise icon not saved]()
 
 Exercise favourited
 
@@ -522,7 +521,7 @@ To clone a repository follow these steps
 
 1. Login in to Github or create an account if you haven't already
 
-2. Go to this project repository [Ember & Ash](https://github.com/JamesBracken/Ember-Ash)
+2. Go to this project repository [Pro gainer](https://github.com/JamesBracken/Pro-Gainer?tab=readme-ov-file)
 
 3. Click on the *Code* button and select whether you would like to cline with HTTPS, SSH or the Github CLI and then copy the link shown
 
@@ -551,7 +550,7 @@ To fork this repository follow these steps
 
 1. Setup Git and make sure your git has github authentication
 
-2. Go to the web page repository [Ember & Ash](https://github.com/JamesBracken/Ember-Ash) 
+2. Go to the web page repository [Pro Gainer](https://github.com/JamesBracken/Pro-Gainer?tab=readme-ov-file) 
 
 3. Click on *fork* on the upper right portion of the page.
 
