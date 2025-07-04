@@ -602,13 +602,13 @@ Sign out page
 Footer
 | Feature | Expected Outcome | Testing Performed | Pass/Fail/Potential improvements |
 |---------|-------------------|-------------------|-----------|
-|Social media icons|Icons are present on the top of the footer and display well on multiple devices|Visual check and window resize||
-|Social media icons|Icons change color on hover|Hover mouse||
-|Social media icons|Icons open the corresponding social media page|Click icon||
-|Social media icons|Icons open the social media page in a new tab|Click icon||
-|Footer information|Information displays well on multiple screen sizes|Window resize||
-|Footer links|Start with an underline|Visual check||
-|Footer links|On hover the underline is removed|Hover mouse||
-|Footer links|On remove of hover the underline reappears|Hover mouse then remove||
-|Footer links|Footer links opens the corresponding website|Click link||
-|Footer links|Footer links open the link on a new tab|Click link||
+|Social media icons|Icons are present on the top of the footer and display well on multiple devices|Visual check and window resize|✅Passed|
+|Social media icons|Icons change color on hover|Hover mouse|✅Passed|
+|Social media icons|Icons open the corresponding social media page|Click icon|✅Passed|
+|Social media icons|Icons open the social media page in a new tab|Click icon|✅Passed|
+|Footer information|Information displays well on multiple screen sizes|Window resize|✅Passed|
+|Footer links|Start with an underline|Visual check|✅Passed|
+|Footer links|On hover the underline is removed|Hover mouse|✅Passed|
+|Footer links|On remove of hover the underline reappears|Hover mouse then remove|✅Passed|
+|Footer links|Footer links opens the corresponding website|Click link|✅Passed|
+|Footer links|Footer links open the link on a new tab|Click link|✅Passed|
