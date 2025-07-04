@@ -386,19 +386,19 @@ Nav bar
 Home page
 | Feature | Expected Outcome | Testing Performed | Pass/Fail/Potential improvements |
 |---------|-------------------|-------------------|-----------|
-|Page title|Page title is displayed in the tab|Visual check||
-|Hero image|The hero image displays well on multiple devices|Window resize||
-|Brand header|The brand header displays well on multiple devices|Visual check and window resize||
-|Membership description|All the information is displayed well and is correct|Visual check||
-|Membership section CTA|The membership button redirects to the membership page|Press button||
-|Membership section CTA|The membership button displays if the user is authenticated|Visual check||
-|Membership section CTA|The signup button displays if the user is not authenticated|Visual check||
-|Membership section CTA|The signup button redirects to the signup page|Click the button||
-|Join us now overlay|The join us now overlay displays well on all screen sizes|Window resize||
-|Join here button|If the user is not authenticated redirects to the signup page|Click button||
-|Join here button|If the user is authenticated redirects to the membership form|Click button||
-|Cards section|Cards display well on all screen sizes|Window resize||
-|Nav link|The home nav link is bold|Visual check||
+|Page title|Page title is displayed in the tab|Visual check|✅Passed|
+|Hero image|The hero image displays well on multiple devices|Window resize|✅Passed|
+|Brand header|The brand header displays well on multiple devices|Visual check and window resize|✅Passed|
+|Membership description|All the information is displayed well and is correct|Visual check|✅Passed|
+|Membership section CTA|The membership button redirects to the membership page|Press button|✅Passed|
+|Membership section CTA|The membership button displays if the user is authenticated|Visual check|✅Passed|
+|Membership section CTA|The signup button redirects to the signup page|Click the button|✅Passed|
+|Membership section CTA|The signup button displays if the user is not authenticated|Visual check|✅Passed|
+|Join us now overlay|The join us now overlay displays well on all screen sizes|Window resize|✅Passed|
+|Join here button|If the user is not authenticated redirects to the signup page|Click button|✅Passed|
+|Join here button|If the user is authenticated redirects to the membership form|Click button|✅Passed|
+|Cards section|Cards display well on all screen sizes|Window resize|✅Passed|
+|Nav link|The home nav link is bold|Visual check|✅Passed|
 
 Exercise List page
 | Feature | Expected Outcome | Testing Performed | Pass/Fail/Potential improvements |
