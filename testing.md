@@ -322,7 +322,7 @@ My profile page
 
 ## Automated testing
 
-Automated testing was performed inside the exercise application, we have generated a coverage report for the created automated tests. Anyone can generate this report using the command **start htmlcov\index.html**. This will generate a browser readable report and you can look at the coverage in detail. We achieved an overall coverage of 53%, you can find a screenshot of the report below as well.
+Automated testing was performed inside the exercise application, we have generated a coverage report for the created automated tests. Anyone can generate this report using the command **start htmlcov\index.html**. This will open an already generated browser readable report and you can look at the coverage in detail. We achieved an overall coverage of 53%, you can find a screenshot of the report below as well.
 
 ![Automated test coverage screenshot](./static/images/testing/automated_test_coverage1.PNG)
 
@@ -351,9 +351,9 @@ Initially I had a problem with the my profile page on mobile but that was an eas
 
 |Browser|Not Functioning|Partial Functioning|Full Functioning|
 |-------|---------------|-------------------|----------------|
-|<i class="fab fa-chrome"></i>Google Chrome| | ||
-|<i class="fab fa-firefox-browser"></i>Mozilla Firefox| | ||
-|<i class="fab fa-edge"></i>Microsoft Edge| | ||
+|<i class="fab fa-chrome"></i>Google Chrome| | |✅Passed|
+|<i class="fab fa-firefox-browser"></i>Mozilla Firefox| | |✅Passed|
+|<i class="fab fa-edge"></i>Microsoft Edge| | |✅Passed|
 
 <!-- TOC --><a name="website-functionality-testing"></a>
 ### Website functionality testing
