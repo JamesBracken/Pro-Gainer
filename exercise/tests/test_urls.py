@@ -1,8 +1,9 @@
 from django.test import SimpleTestCase
 from django.urls import reverse, resolve
 from exercise.views import (exercise_list, exercise_detail,
-edit_exercise_item, add_exercise_item,
-delete_exercise_item, favourite_exercise_list, toggle_is_favourite_exercise)
+                            edit_exercise_item, add_exercise_item,
+                            delete_exercise_item, favourite_exercise_list,
+                            toggle_is_favourite_exercise)
 
 
 class TestUrls(SimpleTestCase):

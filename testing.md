@@ -151,9 +151,17 @@ models.py
 
 ![models.py](./static/images/testing/python_validator_exercise_models.PNG)
 
-tests.py
+test_forms.py
 
-![tests.py](./static/images/testing/python_validator_exercise_tests.PNG)
+![test_forms.py](./static/images/testing/python_validator_exercise_test_forms.PNG)
+
+test_models.py
+
+![test_models.py](./static/images/testing/python_validator_exercise_test_models.PNG)
+
+test_urls.py
+
+![test_urls.py](./static/images/testing/python_validator_exercise_test_urls.PNG)
 
 urls.py
 
