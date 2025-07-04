@@ -563,25 +563,25 @@ Signup page
 Login page
 | Feature | Expected Outcome | Testing Performed | Pass/Fail/Potential improvements |
 |---------|-------------------|-------------------|-----------|
-|Page header|Page header displays well on multiple devices|Window resize||
-|Password|Password characters should be bullets|Type in characters||
-|Input labels|Each input has a corresponding label|Visual check||
-|Input labels|Required input labels have an asterisk next to them|Visual check||
-|Form submission|If the form is valid the form submits|Submit form with correct input data||
-|Form submission|If the form is not valid the form does not submit|Submit form with incorrect input data||
-|Feedback messages|If the user inputs correct data and submits a successful login message is displayed|Login||
+|Page header|Page header displays well on multiple devices|Window resize|✅Passed|
+|Password|Password characters should be bullets|Type in characters|✅Passed|
+|Input labels|Each input has a corresponding label|Visual check|✅Passed|
+|Input labels|Required input labels have an asterisk next to them|Visual check|✅Passed|
+|Form submission|If the form is valid the form submits|Submit form with correct input data|✅Passed|
+|Form submission|If the form is not valid the form does not submit|Submit form with incorrect input data|✅Passed|
+|Feedback messages|If the user inputs correct data and submits a successful login message is displayed|Login|✅Passed|
 |Feedback messages|If the user inputs incorrect data and submits a error message is displayed|Input incorrect data and submit||
-|Sign up link|The sign up button redirects the user to the sign up page|Click the button||
-|Forgot your password|The forgot your password link redirects the user to the forgot your password page|||
+|Sign up link|The sign up button redirects the user to the sign up page|Click the button|✅Passed|
+|Forgot your password|The forgot your password link redirects the user to the forgot your password page|Click link|✅Passed|
 
 Password reset page
 | Feature | Expected Outcome | Testing Performed | Pass/Fail/Potential improvements |
 |---------|-------------------|-------------------|-----------|
-|Form|The form displays well on multiple device sizes|Window resize||
-|Email input|The email input is present|Visual check||
-|Reset my password button|There is a reset my password button|Visual check||
-|Reset my password button|If the input is not an email HTML validation stops the form submission|Incorrectly input an email and submit||
-|Reset my password button|If the email is input correctly and submitted the user is redirected to a password successfully set page|||
+|Form|The form displays well on multiple device sizes|Window resize|✅Passed|
+|Email input|The email input is present|Visual check|✅Passed|
+|Reset my password button|There is a reset my password button|Visual check|✅Passed|
+|Reset my password button|If the input is not an email HTML validation stops the form submission|Incorrectly input an email and submit|✅Passed|
+|Reset my password button|If the email is input correctly and submitted the user is redirected to a password successfully set page|input a correctly formatted email and submit|✅Passed|
 
 Password successfully reset page
 | Feature | Expected Outcome | Testing Performed | Pass/Fail/Potential improvements |
