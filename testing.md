@@ -492,11 +492,11 @@ Add, edit & Delete exercise page
 My profile
 | Feature | Expected Outcome | Testing Performed | Pass/Fail/Potential improvements |
 |---------|-------------------|-------------------|-----------|
-|Information displayed|All information is displayed|Visual check||
-|Responsiveness|All information displays well |Visual check||
-|Responsiveness|Information collapses into 1 column on xs devices|Window resize||
-|Responsiveness|Information displays as label on the left and user information on the right|Window resize||
-|Information update|If information is updated this reflects on thsis page|Refill membership and check||
+|Information displayed|All information is displayed|Visual check|✅Passed|
+|Responsiveness|All information displays well |Visual check|✅Passed|
+|Responsiveness|Information collapses into 1 column on xs devices|Window resize|✅Passed|
+|Responsiveness|Information displays as label on the left and user information on the right|Window resize|✅Passed|
+|Information update|If information is updated this reflects on thsis page|Refill membership and check|✅Passed|
 
 Membership signup page
 | Feature | Expected Outcome | Testing Performed | Pass/Fail/Potential improvements |
