@@ -471,23 +471,23 @@ Favourite Exercises list page
 Add, edit & Delete exercise page
 | Feature | Expected Outcome | Testing Performed | Pass/Fail/Potential improvements |
 |---------|-------------------|-------------------|-----------|
-|Exercise form|The form displays well on difference device sizes|Window resize||
-|Exercise form|All inputs are present|Visual check||
-|Label inputs|All inputs have a corresponding label|Visual check||
-|Label inputs|If an input is required the label has an asterisk|Visual check||
-|Label inputs|If an input is not required there is no asterisk on the label|Visual check||
-|Exercise title|Must be unique|Add an already added title and submit||
-|Difficulty|Contains easy, medium and difficult selections|Visual check||
-|Difficulty|Users cannot type|Attempt to type||
-|Recommended sets|Users can only add integers|Type||
-|Recommended reps|Users can only add integers|Type||
-|Intensity|The options are light, moderate and intense|Visual check||
-|Intensity|Users cannot type|Attempt to type||
-|Form instance|If editing an exercise the information is pre-filled with the previous data|Visual check||
-|Form instance|If editing an exercise the selected instance is edited |Submit and check||
-|Form instance|If editing an exercise a new instance is not created|Submit and check||
-|Form|On form submission the data is added to the database|Submit form||
-|Form|If filled out incorrectly the form is not submitted|||
+|Exercise form|The form displays well on difference device sizes|Window resize|✅Passed|
+|Exercise form|All inputs are present|Visual check|✅Passed|
+|Label inputs|All inputs have a corresponding label|Visual check|✅Passed|
+|Label inputs|If an input is required the label has an asterisk|Visual check|✅Passed|
+|Label inputs|If an input is not required there is no asterisk on the label|Visual check|✅Passed|
+|Exercise title|Must be unique|Add an already added title and submit|✅Passed|
+|Difficulty|Contains easy, medium and difficult selections|Visual check|✅Passed|
+|Difficulty|Users cannot type|Attempt to type|✅Passed|
+|Recommended sets|Users can only add integers|Type|✅Passed|
+|Recommended reps|Users can only add integers|Type|✅Passed|
+|Intensity|The options are light, moderate and intense|Visual check|✅Passed|
+|Intensity|Users cannot type|Attempt to type|✅Passed|
+|Form instance|If editing an exercise the information is pre-filled with the previous data|Visual check|✅Passed|
+|Form instance|If editing an exercise the selected instance is edited |Submit and check|✅Passed|
+|Form instance|If editing an exercise a new instance is not created|Submit and check|✅Passed|
+|Form|On form submission the data is added to the database|Submit form|✅Passed|
+|Form|If filled out incorrectly the form is not submitted|Add incorrect data and submit|✅Passed|
 
 My profile
 | Feature | Expected Outcome | Testing Performed | Pass/Fail/Potential improvements |
