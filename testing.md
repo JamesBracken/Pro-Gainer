@@ -403,28 +403,28 @@ Home page
 Exercise List page
 | Feature | Expected Outcome | Testing Performed | Pass/Fail/Potential improvements |
 |---------|-------------------|-------------------|-----------|
-|Exercises intro|The exercise introduction displays well on multiple screen sizes|Window resize||
-|Add exercise btn|The button is present for admins|Visual check||
-|Add exercise btn|The button is not present for regular users|Visual check||
+|Exercises intro|The exercise introduction displays well on multiple screen sizes|Window resize|✅Passed|
+|Add exercise btn|The button is present for admins|Visual check|✅Passed|
+|Add exercise btn|The button is not present for regular users|Visual check|✅Passed|
 |Add exercise btn|The button redirects to the add exercise form|Click button||
-|Exercise list|All exercises are displayed|Visual check||
-|Exercise card|Each exercise card displays the required information title, difficulty, muscles targeted, equipment and image|Visual check||
-|Exercise card|Each exercise card can be clicked|Click card||
-|Exercise card|Each exercise card redirects to the corresponding detail page|Click card||
-|Exercise card|Each card displays as the same size as the card next to it|Visual check||
-|Exercise card|Each card displays with an alt tag equivalent to the input exercise title|||
-|Exercise list|The exercises are organised as newest first|Add an exercise and do a visual check||
-|Exercise card|The information is displayed by importance|Visual check||
-|Pagination|The current page is displayed properly|Visual check||
-|Pagination|The total amount of pages is displayed properly|Visual check||
-|Pagination|Given enough exercises there is a next page button|Visual check||
-|Pagination|The next page button works properly|Click button||
-|Pagination|Given enough exercises there is a last page button|Visual check||
-|Pagination|The last page button works properly|Click button||
-|Pagination|Given enough exercises there is a previous page button|Visual check||
-|Pagination|The previous page button works properly|Click button||
-|Pagination|Given enough exercises there is a first page button|Visual check||
-|Pagination|The first page button works properly|Click button||
+|Exercise list|All exercises are displayed|Visual check|✅Passed|
+|Exercise card|Each exercise card displays the required information title, difficulty, muscles targeted, equipment and image|Visual check|✅Passed|
+|Exercise card|Each exercise card can be clicked|Click card|✅Passed|
+|Exercise card|Each exercise card redirects to the corresponding detail page|Click card|✅Passed|
+|Exercise card|Each card displays as the same size as the card next to it|Visual check|✅Passed|
+|Exercise card|Each card displays with an alt tag equivalent to the input exercise title||✅Passed|
+|Exercise list|The exercises are organised as newest first|Add an exercise and do a visual check|✅Passed|
+|Exercise card|The information in each card is displayed by importance|Visual check|✅Passed|
+|Pagination|The current page is displayed properly|Visual check|✅Passed|
+|Pagination|The total amount of pages is displayed properly|Visual check|✅Passed|
+|Pagination|Given enough exercises there is a next page button|Visual check|✅Passed|
+|Pagination|The next page button works properly|Click button|✅Passed|
+|Pagination|Given enough exercises there is a last page button|Visual check|✅Passed|
+|Pagination|The last page button works properly|Click button|✅Passed|
+|Pagination|Given enough exercises there is a previous page button|Visual check|✅Passed|
+|Pagination|The previous page button works properly|Click button|✅Passed|
+|Pagination|Given enough exercises there is a first page button|Visual check|✅Passed|
+|Pagination|The first page button works properly|Click button|✅Passed|
 
 
 Exercise Details page 
