@@ -586,9 +586,9 @@ Password reset page
 Password successfully reset page
 | Feature | Expected Outcome | Testing Performed | Pass/Fail/Potential improvements |
 |---------|-------------------|-------------------|-----------|
-|Introduction|The page has a header and content letting the user know the password reset request has been made|||
-|Home button|There is a home button on the page|Visual check||
-|Home button|The home button redirects the user to the home page|Click button||
+|Introduction|The page has a header and content letting the user know the password reset request has been made|Visual check|✅Passed|
+|Home button|There is a home button on the page|Visual check|✅Passed|
+|Home button|The home button redirects the user to the home page|Click button|✅Passed|
 
 Sign out page
 | Feature | Expected Outcome | Testing Performed | Pass/Fail/Potential improvements |
