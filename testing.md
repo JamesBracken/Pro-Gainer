@@ -151,9 +151,17 @@ models.py
 
 ![models.py](./static/images/testing/python_validator_exercise_models.PNG)
 
-tests.py
+test_forms.py
 
-![tests.py](./static/images/testing/python_validator_exercise_tests.PNG)
+![test_forms.py](./static/images/testing/python_validator_exercise_test_forms.PNG)
+
+test_models.py
+
+![test_models.py](./static/images/testing/python_validator_exercise_test_models.PNG)
+
+test_urls.py
+
+![test_urls.py](./static/images/testing/python_validator_exercise_test_urls.PNG)
 
 urls.py
 
@@ -312,6 +320,15 @@ My profile page
 |As a signed-in user, I would like to be able to search for exercise content on the exercise list so I can find exercises faster(Could have)|||Out of scope not done|
 |As a signed-in user, I would like to be able to filter exercise search results on the exercise list so I can find exercises faster(Could have)|||Out of scope not done|
 
+## Automated testing
+
+Automated testing was performed inside the exercise application, we have generated a coverage report for the created automated tests. Anyone can generate this report using the command **start htmlcov\index.html**. This will open an already generated browser readable report and you can look at the coverage in detail. We achieved an overall coverage of 53%, you can find a screenshot of the report below as well.
+
+![Automated test coverage screenshot](./static/images/testing/automated_test_coverage1.PNG)
+
+![Automated test coverage screenshot](./static/images/testing/automated_test_coverage2.PNG)
+
+
 <!-- TOC --><a name="manual-testing"></a>
 ## Manual testing
 
@@ -325,273 +342,273 @@ Initially I had a problem with the my profile page on mobile but that was an eas
 
 |Screen Size|Device Type|Viewport Width|Pass/Fail|
 |-----------|-----------|--------------|---------|
-|Mobile|Smartphone|375px| |
-|Tablet|Tablet |768px| |
-|Laptop|Small Laptop/Desktop|1024px| |
+|Mobile|Smartphone|375px| ✅Passed|
+|Tablet|Tablet |768px| ✅Passed|
+|Laptop|Small Laptop/Desktop|1024px| ✅Passed|
 
 <!-- TOC --><a name="browser-testing"></a>
 ### Browser testing
 
 |Browser|Not Functioning|Partial Functioning|Full Functioning|
 |-------|---------------|-------------------|----------------|
-|<i class="fab fa-chrome"></i>Google Chrome| | ||
-|<i class="fab fa-firefox-browser"></i>Mozilla Firefox| | ||
-|<i class="fab fa-edge"></i>Microsoft Edge| | ||
+|<i class="fab fa-chrome"></i>Google Chrome| | |✅Passed|
+|<i class="fab fa-firefox-browser"></i>Mozilla Firefox| | |✅Passed|
+|<i class="fab fa-edge"></i>Microsoft Edge| | |✅Passed|
 
 <!-- TOC --><a name="website-functionality-testing"></a>
 ### Website functionality testing
 
-Nav bar & Footer
+Nav bar
 | Feature | Expected Outcome | Testing Performed | Pass/Fail/Potential improvements |
 |---------|-------------------|-------------------|-----------|
 |The company logo is displayed|You can see the logo on each page|Visual check||
-|Conditional displaying|If the user is not logged in the membership button is not there|Visual check||
-|Condition displaying|If the user is not logged in the profile icon is not there|Visual check||
-|Conditional displaying|If the user is not logged in the signup button is there|Visual check||
-|Conditional displaying|If the user is not logged in the Login button is there|Visual check||
-|Conditional displaying|If the user is logged in the membership button is displayed|Visual check||
-|Conditional displaying|If the user is logged in the view profile icon is displayed|Visual check||
-|Conditional displaying|If the user is logged in and an active member the favourites list is present|Visual check||
-|User redirection|On click of the home page the user is redirected to the home page|Click link||
-|User redirection|On click of the company logo the user is redirected to the home page|Click link||
-|User redirection|On click of the exercise lsit the user is redirected to the exercise list page|Click link||
-|User redirection|On click of the membership button the user is redirected to the membership checkout page|Click link||
-|User redirection|On click of the My favourites link the user is redirected to the favourites list|Click link||
-|User redirection|On click of the logout link the user is redirected to the logout confirmation page|Click link||
-|User redirection|On click of the my profile page the user is redirected to their my profile page|Click link||
-|CTA styles|The signup button stands out with a different style to other nav links|Visual check||
-|CTA styles|The login button stands out with a different style to other nav links|Visual check||
-|Active nav link|If the user is on the corresponding nav link's page then the link is bold|Visual check||
-|Hover styles|If not hovering the nav links there is no underline|Visual check||
-|Hover styles|On hover of the nav links a line transitions under it|Hover over nav links||
-|Hover styles|On remove of the mouse over the nav links the line transition disappears from under it|Hover over nav links||
+|Conditional displaying|If the user is not logged in the membership button is not there|Visual check|✅Passed|
+|Condition displaying|If the user is not logged in the profile icon is not there|Visual check|✅Passed|
+|Conditional displaying|If the user is not logged in the signup button is there|Visual check|✅Passed|
+|Conditional displaying|If the user is not logged in the Login button is there|Visual check|✅Passed|
+|Conditional displaying|If the user is logged in the membership button is displayed|Visual check|✅Passed|
+|Conditional displaying|If the user is logged in the view profile icon is displayed|Visual check|✅Passed|
+|Conditional displaying|If the user is logged in and an active member the favourites list is present|Visual check|✅Passed|
+|User redirection|On click of the home page the user is redirected to the home page|Click link|✅Passed|
+|User redirection|On click of the company logo the user is redirected to the home page|Click link|✅Passed|
+|User redirection|On click of the exercise list the user is redirected to the exercise list page|Click link|✅Passed|
+|User redirection|On click of the membership button the user is redirected to the membership checkout page|Click link|✅Passed|
+|User redirection|On click of the My favourites link the user is redirected to the favourites list|Click link|✅Passed|
+|User redirection|On click of the logout link the user is redirected to the logout confirmation page|Click link|✅Passed|
+|User redirection|On click of the my profile page the user is redirected to their my profile page|Click link|✅Passed|
+|CTA styles|The signup button stands out with a different style to other nav links|Visual check|✅Passed|
+|CTA styles|The login button stands out with a different style to other nav links|Visual check|✅Passed|
+|Active nav link|If the user is on the corresponding nav link's page then the link is bold|Visual check|✅Passed|
+|Hover styles|If not hovering the nav links there is no underline|Visual check|✅Passed|
+|Hover styles|On hover of the nav links a line transitions under it|Hover over nav links|✅Passed|
+|Hover styles|On remove of the mouse over the nav links the line transition disappears from under it|Hover over nav links|✅Passed|
 
 Home page
 | Feature | Expected Outcome | Testing Performed | Pass/Fail/Potential improvements |
 |---------|-------------------|-------------------|-----------|
-|Page title|Page title is displayed in the tab|Visual check||
-|Hero image|The hero image displays well on multiple devices|Window resize||
-|Brand header|The brand header displays well on multiple devices|Visual check and window resize||
-|Membership description|All the information is displayed well and is correct|Visual check||
-|Membership section CTA|The membership button redirects to the membership page|Press button||
-|Membership section CTA|The membership button displays if the user is authenticated|Visual check||
-|Membership section CTA|The signup button displays if the user is not authenticated|Visual check||
-|Membership section CTA|The signup button redirects to the signup page|Click the button||
-|Join us now overlay|The join us now overlay displays well on all screen sizes|Window resize||
-|Join here button|If the user is not authenticated redirects to the signup page|Click button||
-|Join here button|If the user is authenticated redirects to the membership form|Click button||
-|Cards section|Cards display well on all screen sizes|Window resize||
-|Nav link|The home nav link is bold|Visual check||
+|Page title|Page title is displayed in the tab|Visual check|✅Passed|
+|Hero image|The hero image displays well on multiple devices|Window resize|✅Passed|
+|Brand header|The brand header displays well on multiple devices|Visual check and window resize|✅Passed|
+|Membership description|All the information is displayed well and is correct|Visual check|✅Passed|
+|Membership section CTA|The membership button redirects to the membership page|Press button|✅Passed|
+|Membership section CTA|The membership button displays if the user is authenticated|Visual check|✅Passed|
+|Membership section CTA|The signup button redirects to the signup page|Click the button|✅Passed|
+|Membership section CTA|The signup button displays if the user is not authenticated|Visual check|✅Passed|
+|Join us now overlay|The join us now overlay displays well on all screen sizes|Window resize|✅Passed|
+|Join here button|If the user is not authenticated redirects to the signup page|Click button|✅Passed|
+|Join here button|If the user is authenticated redirects to the membership form|Click button|✅Passed|
+|Cards section|Cards display well on all screen sizes|Window resize|✅Passed|
+|Nav link|The home nav link is bold|Visual check|✅Passed|
 
 Exercise List page
 | Feature | Expected Outcome | Testing Performed | Pass/Fail/Potential improvements |
 |---------|-------------------|-------------------|-----------|
-|Exercises intro|The exercise introduction displays well on multiple screen sizes|Window resize||
-|Add exercise btn|The button is present for admins|Visual check||
-|Add exercise btn|The button is not present for regular users|Visual check||
+|Exercises intro|The exercise introduction displays well on multiple screen sizes|Window resize|✅Passed|
+|Add exercise btn|The button is present for admins|Visual check|✅Passed|
+|Add exercise btn|The button is not present for regular users|Visual check|✅Passed|
 |Add exercise btn|The button redirects to the add exercise form|Click button||
-|Exercise list|All exercises are displayed|Visual check||
-|Exercise card|Each exercise card displays the required information title, difficulty, muscles targeted, equipment and image|Visual check||
-|Exercise card|Each exercise card can be clicked|Click card||
-|Exercise card|Each exercise card redirects to the corresponding detail page|Click card||
-|Exercise card|Each card displays as the same size as the card next to it|Visual check||
-|Exercise card|Each card displays with an alt tag equivalent to the input exercise title|||
-|Exercise list|The exercises are organised as newest first|Add an exercise and do a visual check||
-|Exercise card|The information is displayed by importance|Visual check||
-|Pagination|The current page is displayed properly|Visual check||
-|Pagination|The total amount of pages is displayed properly|Visual check||
-|Pagination|Given enough exercises there is a next page button|Visual check||
-|Pagination|The next page button works properly|Click button||
-|Pagination|Given enough exercises there is a last page button|Visual check||
-|Pagination|The last page button works properly|Click button||
-|Pagination|Given enough exercises there is a previous page button|Visual check||
-|Pagination|The previous page button works properly|Click button||
-|Pagination|Given enough exercises there is a first page button|Visual check||
-|Pagination|The first page button works properly|Click button||
+|Exercise list|All exercises are displayed|Visual check|✅Passed|
+|Exercise card|Each exercise card displays the required information title, difficulty, muscles targeted, equipment and image|Visual check|✅Passed|
+|Exercise card|Each exercise card can be clicked|Click card|✅Passed|
+|Exercise card|Each exercise card redirects to the corresponding detail page|Click card|✅Passed|
+|Exercise card|Each card displays as the same size as the card next to it|Visual check|✅Passed|
+|Exercise card|Each card displays with an alt tag equivalent to the input exercise title||✅Passed|
+|Exercise list|The exercises are organised as newest first|Add an exercise and do a visual check|✅Passed|
+|Exercise card|The information in each card is displayed by importance|Visual check|✅Passed|
+|Pagination|The current page is displayed properly|Visual check|✅Passed|
+|Pagination|The total amount of pages is displayed properly|Visual check|✅Passed|
+|Pagination|Given enough exercises there is a next page button|Visual check|✅Passed|
+|Pagination|The next page button works properly|Click button|✅Passed|
+|Pagination|Given enough exercises there is a last page button|Visual check|✅Passed|
+|Pagination|The last page button works properly|Click button|✅Passed|
+|Pagination|Given enough exercises there is a previous page button|Visual check|✅Passed|
+|Pagination|The previous page button works properly|Click button|✅Passed|
+|Pagination|Given enough exercises there is a first page button|Visual check|✅Passed|
+|Pagination|The first page button works properly|Click button|✅Passed|
 
 
 Exercise Details page 
 | Feature | Expected Outcome | Testing Performed | Pass/Fail/Potential improvements |
 |---------|-------------------|-------------------|-----------|
-|Edit button|The edit button is displayed for admins|Visual check||
-|Deletebutton|The delete button is displayed for admins|Visual check||
-|Edit button|The edit button works properly|Click button||
-|Delete button|The delete button works properly|Click button||
-|Exercise image|The image displays well on multiple device sizes|Visual check||
-|Exercise information|All exercise information is displayed|Visual check||
-|Favourite exercise icon|Icon is present|Visual check||
-|Favourite exercise icon|Icon starts out black and not favourited|Visual check||
-|Favourite exercise icon|Icon has a indicator next to it|Visual check||
-|Favourite exercise icon|Icon is clickable|Click icon||
-|Favourite exercise icon|Icon becomes red on click if black|Click icon||
-|Favourite exercise icon|Icon becomes black on clik if red|Click icon||
-|Favourite exercise icon|If the icon is black and clicked the exercise is added to the user favourites|Click icon and check||
-|Favourite exercise icon|If the icon is red and clicked the exercise is removed from the user favourites|Click icon and check||
+|Edit button|The edit button is displayed for admins|Visual check|✅Passed|
+|Deletebutton|The delete button is displayed for admins|Visual check|✅Passed|
+|Edit button|The edit button works properly|Click button|✅Passed|
+|Delete button|The delete button works properly|Click button|✅Passed|
+|Exercise image|The image displays well on multiple device sizes|Visual check|✅Passed|
+|Exercise information|All exercise information is displayed|Visual check|✅Passed|
+|Favourite exercise icon|Icon is present|Visual check|✅Passed|
+|Favourite exercise icon|Icon starts out black and not favourited|Visual check|✅Passed|
+|Favourite exercise icon|Icon has a indicator next to it|Visual check|✅Passed|
+|Favourite exercise icon|Icon is clickable|Click icon|✅Passed|
+|Favourite exercise icon|Icon becomes red on click if black|Click icon|✅Passed|
+|Favourite exercise icon|Icon becomes black on clik if red|Click icon|✅Passed|
+|Favourite exercise icon|If the icon is black and clicked the exercise is added to the user favourites|Click icon and check|✅Passed|
+|Favourite exercise icon|If the icon is red and clicked the exercise is removed from the user favourites|Click icon and check|✅Passed|
 
 Favourite Exercises list page
 | Feature | Expected Outcome | Testing Performed | Pass/Fail/Potential improvements |
 |---------|-------------------|-------------------|-----------|
-|Favourites intro|Intro is displayed well on multiple device sizes|Window resize||
-|Favourites list|Favourite exercises is displayed|Visual check||
-|Favourites list|Favourite exercises is displayed by newest first|Visual check||
-|Favourites list|If there are no favourites yet the users has a feedback message|Visual check||
-|Exercise card|All information is displayed properly such as image, title, difficulty, muscles targeted and equipment|Visual check||
-|Exercise card|All information is displayed by importance title first, then difficulty, muscles and equipment last|||
+|Favourites intro|Intro is displayed well on multiple device sizes|Window resize|✅Passed|
+|Favourites list|Favourite exercises is displayed|Visual check|✅Passed|
+|Favourites list|Favourite exercises is displayed by newest first|Visual check|✅Passed|
+|Favourites list|If there are no favourites yet the users has a feedback message|Visual check|✅Passed|
+|Exercise card|All information is displayed properly such as image, title, difficulty, muscles targeted and equipment|Visual check|✅Passed|
+|Exercise card|All information is displayed by importance title first, then difficulty, muscles and equipment last|Visual check|✅Passed|
 |Exercise card|Each card can be clicked to redirect to the exercise page|Click card||
-|Exercise card|Each card redirects to the corresponding exercise detail page|Click card||
-|Exercise card|Each exercise image displays an alt tag equivalent to the exercise title|||
-|Pagination|The current page is displayed properly|Visual check||
-|Pagination|The total amount of pages is displayed properly|Visual check||
-|Pagination|Given enough exercises there is a next page button|Visual check||
-|Pagination|The next page button works properly|Click button||
-|Pagination|Given enough exercises there is a last page button|Visual check||
-|Pagination|The last page button works properly|Click button||
-|Pagination|Given enough exercises there is a previous page button|Visual check||
-|Pagination|The previous page button works properly|Click button||
-|Pagination|Given enough exercises there is a first page button|Visual check||
-|Pagination|The first page button works properly|Click button||
+|Exercise card|Each card redirects to the corresponding exercise detail page|Click card|✅Passed|
+|Exercise card|Each exercise image displays an alt tag equivalent to the exercise title|Check dev tools|✅Passed|
+|Pagination|The current page is displayed properly|Visual check|✅Passed|
+|Pagination|The total amount of pages is displayed properly|Visual check|✅Passed|
+|Pagination|Given enough exercises there is a next page button|Visual check|✅Passed|
+|Pagination|The next page button works properly|Click button|✅Passed|
+|Pagination|Given enough exercises there is a last page button|Visual check|✅Passed|
+|Pagination|The last page button works properly|Click button|✅Passed|
+|Pagination|Given enough exercises there is a previous page button|Visual check|✅Passed|
+|Pagination|The previous page button works properly|Click button|✅Passed|
+|Pagination|Given enough exercises there is a first page button|Visual check|✅Passed|
+|Pagination|The first page button works properly|Click button|✅Passed|
 
 Add, edit & Delete exercise page
 | Feature | Expected Outcome | Testing Performed | Pass/Fail/Potential improvements |
 |---------|-------------------|-------------------|-----------|
-|Exercise form|The form displays well on difference device sizes|Window resize||
-|Exercise form|All inputs are present|Visual check||
-|Label inputs|All inputs have a corresponding label|Visual check||
-|Label inputs|If an input is required the label has an asterisk|Visual check||
-|Label inputs|If an input is not required there is no asterisk on the label|Visual check||
-|Exercise title|Must be unique|Add an already added title and submit||
-|Difficulty|Contains easy, medium and difficult selections|Visual check||
-|Difficulty|Users cannot type|Attempt to type||
-|Recommended sets|Users can only add integers|Type||
-|Recommended reps|Users can only add integers|Type||
-|Intensity|The options are light, moderate and intense|Visual check||
-|Intensity|Users cannot type|Attempt to type||
-|Form instance|If editing an exercise the information is pre-filled with the previous data|Visual check||
-|Form instance|If editing an exercise the selected instance is edited |Submit and check||
-|Form instance|If editing an exercise a new instance is not created|Submit and check||
-|Form|On form submission the data is added to the database|Submit form||
-|Form|If filled out incorrectly the form is not submitted|||
+|Exercise form|The form displays well on difference device sizes|Window resize|✅Passed|
+|Exercise form|All inputs are present|Visual check|✅Passed|
+|Label inputs|All inputs have a corresponding label|Visual check|✅Passed|
+|Label inputs|If an input is required the label has an asterisk|Visual check|✅Passed|
+|Label inputs|If an input is not required there is no asterisk on the label|Visual check|✅Passed|
+|Exercise title|Must be unique|Add an already added title and submit|✅Passed|
+|Difficulty|Contains easy, medium and difficult selections|Visual check|✅Passed|
+|Difficulty|Users cannot type|Attempt to type|✅Passed|
+|Recommended sets|Users can only add integers|Type|✅Passed|
+|Recommended reps|Users can only add integers|Type|✅Passed|
+|Intensity|The options are light, moderate and intense|Visual check|✅Passed|
+|Intensity|Users cannot type|Attempt to type|✅Passed|
+|Form instance|If editing an exercise the information is pre-filled with the previous data|Visual check|✅Passed|
+|Form instance|If editing an exercise the selected instance is edited |Submit and check|✅Passed|
+|Form instance|If editing an exercise a new instance is not created|Submit and check|✅Passed|
+|Form|On form submission the data is added to the database|Submit form|✅Passed|
+|Form|If filled out incorrectly the form is not submitted|Add incorrect data and submit|✅Passed|
 
 My profile
 | Feature | Expected Outcome | Testing Performed | Pass/Fail/Potential improvements |
 |---------|-------------------|-------------------|-----------|
-|Information displayed|All information is displayed|Visual check||
-|Responsiveness|All information displays well |Visual check||
-|Responsiveness|Information collapses into 1 column on xs devices|Window resize||
-|Responsiveness|Information displays as label on the left and user information on the right|Window resize||
-|Information update|If information is updated this reflects on thsis page|Refill membership and check||
+|Information displayed|All information is displayed|Visual check|✅Passed|
+|Responsiveness|All information displays well |Visual check|✅Passed|
+|Responsiveness|Information collapses into 1 column on xs devices|Window resize|✅Passed|
+|Responsiveness|Information displays as label on the left and user information on the right|Window resize|✅Passed|
+|Information update|If information is updated this reflects on thsis page|Refill membership and check|✅Passed|
 
 Membership signup page
 | Feature | Expected Outcome | Testing Performed | Pass/Fail/Potential improvements |
 |---------|-------------------|-------------------|-----------|
-|Membership into|Intro displays well on multiple devices|Window resize||
-|Form input label|Each input has a corresponding label|Visual check||
-|Form input label|Each required input label has an asterisk|Visual check||
-|Form input label|Unrequired inputs label does not have an asterisk|Visual check||
-|Fieldset legend|Each fieldset section has a legend label |Visual check||
-|Form|The form propagates data to the backend on submit |Add data, submit and check||
+|Membership into|Intro displays well on multiple devices|Window resize|✅Passed|
+|Form input label|Each input has a corresponding label|Visual check|✅Passed|
+|Form input label|Each required input label has an asterisk|Visual check|✅Passed|
+|Form input label|Unrequired inputs label does not have an asterisk|Visual check|✅Passed|
+|Fieldset legend|Each fieldset section has a legend label |Visual check|✅Passed|
+|Form|The form propagates data to the backend on submit |Add data, submit and check|✅Passed|
 |Form|The form has the POST method|Inspect element||
-|Payment summary|Initially set to nothing here text and fill out the form|Visual check||
-|Payment summary|On fill out of the desired membership length update the payment summary membership costs|Select and check||
-|Payment summary|On fill out of the desired membership length update the payment Joining fee|Select and check||
-|Payment summary|On fill out of the desired membership length update the payment summary total payment costs|Select and check||
-|Payment summary|If the joining fee is changed in settings this is reflected on the membership page|Update and check||
-|Payment summary|If the membership costs is changed in settings this reflects in the membership page|||
-|Payment summary|If there is a joining fee this is calculated properly and added to the membership costs for the total|||
-|Payment summary|This summary displays well on multiple devices|Window resize||
-|Stripe element|The stripe element displays well on multiple devices|Window resize||
-|Stripe element|The stripe element follows the input design across all pages of the site|Visual check||
-|Stripe element|The card number should work with 4242424242424242|Type and submit||
-|Stripe element|The card number needs to be 16 digits long|Type shorter and test||
-|Stripe element|The card expiry date must be placed to work|Submit without the expiry||
-|Stripe element|If the card expiry input is in the past display an error message |Input a past date and submit||
-|Stripe element error handling|Error messages display properly|Incorrectly fill out the element and check the error||
-|Stripe element|A CVC must be input or the form will not submit|Dont fill out CVC and submit||
-|Stripe element|If a CVC is not input display an error|Input incorrect CVC and submit||
-|Form|If anything is filled out incorrectly in the form it does not submit |||
+|Payment summary|Initially set to nothing here text and fill out the form|Visual check|✅Passed|
+|Payment summary|On fill out of the desired membership length update the payment summary membership costs|Select and check|✅Passed|
+|Payment summary|On fill out of the desired membership length update the payment Joining fee|Select and check|✅Passed|
+|Payment summary|On fill out of the desired membership length update the payment summary total payment costs|Select and check|✅Passed|
+|Payment summary|If the joining fee is changed in settings this is reflected on the membership page|Update and check|✅Passed|
+|Payment summary|If the membership costs is changed in settings this reflects in the membership page|Change settings global prices and check|✅Passed|
+|Payment summary|If there is a joining fee this is calculated properly and added to the membership costs for the total|Change joining fee in settings.py and check|✅Passed|
+|Payment summary|This summary displays well on multiple devices|Window resize|✅Passed|
+|Stripe element|The stripe element displays well on multiple devices|Window resize|✅Passed|
+|Stripe element|The stripe element follows the input design across all pages of the site|Visual check|✅Passed|
+|Stripe element|The card number should work with 4242424242424242|Type and submit|✅Passed|
+|Stripe element|The card number needs to be 16 digits long|Type shorter and test|✅Passed|
+|Stripe element|The card expiry date must be placed to work|Submit without the expiry|✅Passed|
+|Stripe element|If the card expiry input is in the past display an error message |Input a past date and submit|✅Passed|
+|Stripe element error handling|Error messages display properly|Incorrectly fill out the element and check the error|✅Passed|
+|Stripe element|A CVC must be input or the form will not submit|Dont fill out CVC and submit|✅Passed|
+|Stripe element|If a CVC is not input display an error|Input incorrect CVC and submit|✅Passed|
+|Form|If anything is filled out incorrectly in the form it does not submit |Add invalid data and submit|✅Passed|
 
 Membership success page
 | Feature | Expected Outcome | Testing Performed | Pass/Fail/Potential improvements |
 |---------|-------------------|-------------------|-----------|
-|Thank you message|Thank you message displayed with some page intro below|Visual check||
-|Information displayed|All information is displayed|Visual check||
-|Responsiveness|All information displays well |Visual check||
-|Responsiveness|Information collapses into 1 column on xs devices|Window resize||
-|Responsiveness|Information displays as label on the left and user information on the right|Window resize||
-|Information update|If information is updated this reflects on thsis page|Refill membership and check||
-|Home button|Home button is displayed|Visual check||
-|Home button|Home button redirects to the home page|Click btn||
-|My profile|My profile button is displayed|Visual check||
-|My profile|My profile button redirects to the my profile page|Click btn||
+|Thank you message|Thank you message displayed with some page intro below|Visual check|✅Passed|
+|Information displayed|All information is displayed|Visual check|✅Passed|
+|Responsiveness|All information displays well |Visual check|✅Passed|
+|Responsiveness|Information collapses into 1 column on xs devices|Window resize|✅Passed|
+|Responsiveness|Information displays as label on the left and user information on the right|Window resize|✅Passed|
+|Information update|If information is updated this reflects on thsis page|Refill membership and check|✅Passed|
+|Home button|Home button is displayed|Visual check|✅Passed|
+|Home button|Home button redirects to the home page|Click btn|✅Passed|
+|My profile|My profile button is displayed|Visual check|✅Passed|
+|My profile|My profile button redirects to the my profile page|Click btn|✅Passed|
 
 Signup page
 | Feature | Expected Outcome | Testing Performed | Pass/Fail/Potential improvements |
 |---------|-------------------|-------------------|-----------|
-|Page header|Page header displays well on multiple devices|Window resize||
-|Email address|User emails must be input twice|Add once and submit||
-|Email address|Both emails input must be the same|Input different emails and submit||
-|Password|Password characters should be bullets|Type in characters||
-|Password|Passwords must meet certain criteria|Dont meet all criteria and submit||
-|Password|Password must be the same in both inputs|Input different ||
-|Input labels|Each input has a corresponding label|Visual check||
-|Input labels|Required input labels have an asterisk next to them|Visual check||
-|Input labels|Non required input labels dont have an asterisk next to them|Visual check||
-|Form submission|If the form is valid the form submits|Submit form with correct input data||
-|Form submission|If the form is not valid the form does not submit|Submit form with incorrect input data||
-|Form submission|If the form is valid the new account is created and added to the database|Submit and check DB||
-|Form submission|If the form is invalid the data is not propagated to the database| Submit incorrectly and check DB||
-|Form submission|If the form is correclty filled out and submitted the user is automatically logged in|Fill out form and submit||
-|Form submission|If the form is correctly filled out and submitted the user is logged in and displayed a feedback message|Fill out form and submit||
+|Page header|Page header displays well on multiple devices|Window resize|✅Passed|
+|Email address|User emails must be input twice|Add once and submit|✅Passed|
+|Email address|Both emails input must be the same|Input different emails and submit|✅Passed|
+|Password|Password characters should be bullets|Type in characters|✅Passed|
+|Password|Passwords must meet certain criteria|Dont meet all criteria and submit|✅Passed|
+|Password|Password must be the same in both inputs|Input different |✅Passed|
+|Input labels|Each input has a corresponding label|Visual check|✅Passed|
+|Input labels|Required input labels have an asterisk next to them|Visual check|✅Passed|
+|Input labels|Non required input labels dont have an asterisk next to them|Visual check|✅Passed|
+|Form submission|If the form is valid the form submits|Submit form with correct input data|✅Passed|
+|Form submission|If the form is not valid the form does not submit|Submit form with incorrect input data|✅Passed|
+|Form submission|If the form is valid the new account is created and added to the database|Submit and check DB|✅Passed|
+|Form submission|If the form is invalid the data is not propagated to the database| Submit incorrectly and check DB|✅Passed|
+|Form submission|If the form is correclty filled out and submitted the user is automatically logged in|Fill out form and submit|✅Passed|
+|Form submission|If the form is correctly filled out and submitted the user is logged in and displayed a feedback message|Fill out form and submit|✅Passed|
 
 Login page
 | Feature | Expected Outcome | Testing Performed | Pass/Fail/Potential improvements |
 |---------|-------------------|-------------------|-----------|
-|Page header|Page header displays well on multiple devices|Window resize||
-|Password|Password characters should be bullets|Type in characters||
-|Input labels|Each input has a corresponding label|Visual check||
-|Input labels|Required input labels have an asterisk next to them|Visual check||
-|Form submission|If the form is valid the form submits|Submit form with correct input data||
-|Form submission|If the form is not valid the form does not submit|Submit form with incorrect input data||
-|Feedback messages|If the user inputs correct data and submits a successful login message is displayed|Login||
+|Page header|Page header displays well on multiple devices|Window resize|✅Passed|
+|Password|Password characters should be bullets|Type in characters|✅Passed|
+|Input labels|Each input has a corresponding label|Visual check|✅Passed|
+|Input labels|Required input labels have an asterisk next to them|Visual check|✅Passed|
+|Form submission|If the form is valid the form submits|Submit form with correct input data|✅Passed|
+|Form submission|If the form is not valid the form does not submit|Submit form with incorrect input data|✅Passed|
+|Feedback messages|If the user inputs correct data and submits a successful login message is displayed|Login|✅Passed|
 |Feedback messages|If the user inputs incorrect data and submits a error message is displayed|Input incorrect data and submit||
-|Sign up link|The sign up button redirects the user to the sign up page|Click the button||
-|Forgot your password|The forgot your password link redirects the user to the forgot your password page|||
+|Sign up link|The sign up button redirects the user to the sign up page|Click the button|✅Passed|
+|Forgot your password|The forgot your password link redirects the user to the forgot your password page|Click link|✅Passed|
 
 Password reset page
 | Feature | Expected Outcome | Testing Performed | Pass/Fail/Potential improvements |
 |---------|-------------------|-------------------|-----------|
-|Form|The form displays well on multiple device sizes|Window resize||
-|Email input|The email input is present|Visual check||
-|Reset my password button|There is a reset my password button|Visual check||
-|Reset my password button|If the input is not an email HTML validation stops the form submission|Incorrectly input an email and submit||
-|Reset my password button|If the email is input correctly and submitted the user is redirected to a password successfully set page|||
+|Form|The form displays well on multiple device sizes|Window resize|✅Passed|
+|Email input|The email input is present|Visual check|✅Passed|
+|Reset my password button|There is a reset my password button|Visual check|✅Passed|
+|Reset my password button|If the input is not an email HTML validation stops the form submission|Incorrectly input an email and submit|✅Passed|
+|Reset my password button|If the email is input correctly and submitted the user is redirected to a password successfully set page|input a correctly formatted email and submit|✅Passed|
 
 Password successfully reset page
 | Feature | Expected Outcome | Testing Performed | Pass/Fail/Potential improvements |
 |---------|-------------------|-------------------|-----------|
-|Introduction|The page has a header and content letting the user know the password reset request has been made|||
-|Home button|There is a home button on the page|Visual check||
-|Home button|The home button redirects the user to the home page|Click button||
+|Introduction|The page has a header and content letting the user know the password reset request has been made|Visual check|✅Passed|
+|Home button|There is a home button on the page|Visual check|✅Passed|
+|Home button|The home button redirects the user to the home page|Click button|✅Passed|
 
 Sign out page
 | Feature | Expected Outcome | Testing Performed | Pass/Fail/Potential improvements |
 |---------|-------------------|-------------------|-----------|
-|Header|A header is present to display the purpose of the page|Visual check||
-|Sign out button|There is a button to sign out|Visual check||
-|Sign out button|The sign out button redirects the user to the home page|Click btn||
-|Sign out button|The sign out button signs the user out|Click button||
-|Sign out button|If the user is signed in on another page and signs out, the other page is also signed out|Click button and refresh other page||
+|Header|A header is present to display the purpose of the page|Visual check|✅Passed|
+|Sign out button|There is a button to sign out|Visual check|✅Passed|
+|Sign out button|The sign out button redirects the user to the home page|Click btn|✅Passed|
+|Sign out button|The sign out button signs the user out|Click button|✅Passed|
+|Sign out button|If the user is signed in on another page and signs out, the other page is also signed out|Click button and refresh other page|✅Passed|
 
 Footer
 | Feature | Expected Outcome | Testing Performed | Pass/Fail/Potential improvements |
 |---------|-------------------|-------------------|-----------|
-|Social media icons|Icons are present on the top of the footer and display well on multiple devices|Visual check and window resize||
-|Social media icons|Icons change color on hover|Hover mouse||
-|Social media icons|Icons open the corresponding social media page|Click icon||
-|Social media icons|Icons open the social media page in a new tab|Click icon||
-|Footer information|Information displays well on multiple screen sizes|Window resize||
-|Footer links|Start with an underline|Visual check||
-|Footer links|On hover the underline is removed|Hover mouse||
-|Footer links|On remove of hover the underline reappears|Hover mouse then remove||
-|Footer links|Footer links opens the corresponding website|Click link||
-|Footer links|Footer links open the link on a new tab|Click link||
+|Social media icons|Icons are present on the top of the footer and display well on multiple devices|Visual check and window resize|✅Passed|
+|Social media icons|Icons change color on hover|Hover mouse|✅Passed|
+|Social media icons|Icons open the corresponding social media page|Click icon|✅Passed|
+|Social media icons|Icons open the social media page in a new tab|Click icon|✅Passed|
+|Footer information|Information displays well on multiple screen sizes|Window resize|✅Passed|
+|Footer links|Start with an underline|Visual check|✅Passed|
+|Footer links|On hover the underline is removed|Hover mouse|✅Passed|
+|Footer links|On remove of hover the underline reappears|Hover mouse then remove|✅Passed|
+|Footer links|Footer links opens the corresponding website|Click link|✅Passed|
+|Footer links|Footer links open the link on a new tab|Click link|✅Passed|
