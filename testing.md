@@ -358,30 +358,30 @@ Initially I had a problem with the my profile page on mobile but that was an eas
 <!-- TOC --><a name="website-functionality-testing"></a>
 ### Website functionality testing
 
-Nav bar & Footer
+Nav bar
 | Feature | Expected Outcome | Testing Performed | Pass/Fail/Potential improvements |
 |---------|-------------------|-------------------|-----------|
 |The company logo is displayed|You can see the logo on each page|Visual check||
-|Conditional displaying|If the user is not logged in the membership button is not there|Visual check||
-|Condition displaying|If the user is not logged in the profile icon is not there|Visual check||
-|Conditional displaying|If the user is not logged in the signup button is there|Visual check||
-|Conditional displaying|If the user is not logged in the Login button is there|Visual check||
-|Conditional displaying|If the user is logged in the membership button is displayed|Visual check||
-|Conditional displaying|If the user is logged in the view profile icon is displayed|Visual check||
-|Conditional displaying|If the user is logged in and an active member the favourites list is present|Visual check||
-|User redirection|On click of the home page the user is redirected to the home page|Click link||
-|User redirection|On click of the company logo the user is redirected to the home page|Click link||
-|User redirection|On click of the exercise lsit the user is redirected to the exercise list page|Click link||
-|User redirection|On click of the membership button the user is redirected to the membership checkout page|Click link||
-|User redirection|On click of the My favourites link the user is redirected to the favourites list|Click link||
-|User redirection|On click of the logout link the user is redirected to the logout confirmation page|Click link||
-|User redirection|On click of the my profile page the user is redirected to their my profile page|Click link||
-|CTA styles|The signup button stands out with a different style to other nav links|Visual check||
-|CTA styles|The login button stands out with a different style to other nav links|Visual check||
-|Active nav link|If the user is on the corresponding nav link's page then the link is bold|Visual check||
-|Hover styles|If not hovering the nav links there is no underline|Visual check||
-|Hover styles|On hover of the nav links a line transitions under it|Hover over nav links||
-|Hover styles|On remove of the mouse over the nav links the line transition disappears from under it|Hover over nav links||
+|Conditional displaying|If the user is not logged in the membership button is not there|Visual check|✅Passed|
+|Condition displaying|If the user is not logged in the profile icon is not there|Visual check|✅Passed|
+|Conditional displaying|If the user is not logged in the signup button is there|Visual check|✅Passed|
+|Conditional displaying|If the user is not logged in the Login button is there|Visual check|✅Passed|
+|Conditional displaying|If the user is logged in the membership button is displayed|Visual check|✅Passed|
+|Conditional displaying|If the user is logged in the view profile icon is displayed|Visual check|✅Passed|
+|Conditional displaying|If the user is logged in and an active member the favourites list is present|Visual check|✅Passed|
+|User redirection|On click of the home page the user is redirected to the home page|Click link|✅Passed|
+|User redirection|On click of the company logo the user is redirected to the home page|Click link|✅Passed|
+|User redirection|On click of the exercise list the user is redirected to the exercise list page|Click link|✅Passed|
+|User redirection|On click of the membership button the user is redirected to the membership checkout page|Click link|✅Passed|
+|User redirection|On click of the My favourites link the user is redirected to the favourites list|Click link|✅Passed|
+|User redirection|On click of the logout link the user is redirected to the logout confirmation page|Click link|✅Passed|
+|User redirection|On click of the my profile page the user is redirected to their my profile page|Click link|✅Passed|
+|CTA styles|The signup button stands out with a different style to other nav links|Visual check|✅Passed|
+|CTA styles|The login button stands out with a different style to other nav links|Visual check|✅Passed|
+|Active nav link|If the user is on the corresponding nav link's page then the link is bold|Visual check|✅Passed|
+|Hover styles|If not hovering the nav links there is no underline|Visual check|✅Passed|
+|Hover styles|On hover of the nav links a line transitions under it|Hover over nav links|✅Passed|
+|Hover styles|On remove of the mouse over the nav links the line transition disappears from under it|Hover over nav links|✅Passed|
 
 Home page
 | Feature | Expected Outcome | Testing Performed | Pass/Fail/Potential improvements |
