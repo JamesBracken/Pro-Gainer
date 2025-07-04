@@ -342,9 +342,9 @@ Initially I had a problem with the my profile page on mobile but that was an eas
 
 |Screen Size|Device Type|Viewport Width|Pass/Fail|
 |-----------|-----------|--------------|---------|
-|Mobile|Smartphone|375px| |
-|Tablet|Tablet |768px| |
-|Laptop|Small Laptop/Desktop|1024px| |
+|Mobile|Smartphone|375px| ✅Passed|
+|Tablet|Tablet |768px| ✅Passed|
+|Laptop|Small Laptop/Desktop|1024px| ✅Passed|
 
 <!-- TOC --><a name="browser-testing"></a>
 ### Browser testing
