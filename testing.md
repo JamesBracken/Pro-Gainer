@@ -448,25 +448,25 @@ Exercise Details page
 Favourite Exercises list page
 | Feature | Expected Outcome | Testing Performed | Pass/Fail/Potential improvements |
 |---------|-------------------|-------------------|-----------|
-|Favourites intro|Intro is displayed well on multiple device sizes|Window resize||
-|Favourites list|Favourite exercises is displayed|Visual check||
-|Favourites list|Favourite exercises is displayed by newest first|Visual check||
-|Favourites list|If there are no favourites yet the users has a feedback message|Visual check||
-|Exercise card|All information is displayed properly such as image, title, difficulty, muscles targeted and equipment|Visual check||
-|Exercise card|All information is displayed by importance title first, then difficulty, muscles and equipment last|||
+|Favourites intro|Intro is displayed well on multiple device sizes|Window resize|✅Passed|
+|Favourites list|Favourite exercises is displayed|Visual check|✅Passed|
+|Favourites list|Favourite exercises is displayed by newest first|Visual check|✅Passed|
+|Favourites list|If there are no favourites yet the users has a feedback message|Visual check|✅Passed|
+|Exercise card|All information is displayed properly such as image, title, difficulty, muscles targeted and equipment|Visual check|✅Passed|
+|Exercise card|All information is displayed by importance title first, then difficulty, muscles and equipment last|Visual check|✅Passed|
 |Exercise card|Each card can be clicked to redirect to the exercise page|Click card||
-|Exercise card|Each card redirects to the corresponding exercise detail page|Click card||
-|Exercise card|Each exercise image displays an alt tag equivalent to the exercise title|||
-|Pagination|The current page is displayed properly|Visual check||
-|Pagination|The total amount of pages is displayed properly|Visual check||
-|Pagination|Given enough exercises there is a next page button|Visual check||
-|Pagination|The next page button works properly|Click button||
-|Pagination|Given enough exercises there is a last page button|Visual check||
-|Pagination|The last page button works properly|Click button||
-|Pagination|Given enough exercises there is a previous page button|Visual check||
-|Pagination|The previous page button works properly|Click button||
-|Pagination|Given enough exercises there is a first page button|Visual check||
-|Pagination|The first page button works properly|Click button||
+|Exercise card|Each card redirects to the corresponding exercise detail page|Click card|✅Passed|
+|Exercise card|Each exercise image displays an alt tag equivalent to the exercise title|Check dev tools|✅Passed|
+|Pagination|The current page is displayed properly|Visual check|✅Passed|
+|Pagination|The total amount of pages is displayed properly|Visual check|✅Passed|
+|Pagination|Given enough exercises there is a next page button|Visual check|✅Passed|
+|Pagination|The next page button works properly|Click button|✅Passed|
+|Pagination|Given enough exercises there is a last page button|Visual check|✅Passed|
+|Pagination|The last page button works properly|Click button|✅Passed|
+|Pagination|Given enough exercises there is a previous page button|Visual check|✅Passed|
+|Pagination|The previous page button works properly|Click button|✅Passed|
+|Pagination|Given enough exercises there is a first page button|Visual check|✅Passed|
+|Pagination|The first page button works properly|Click button|✅Passed|
 
 Add, edit & Delete exercise page
 | Feature | Expected Outcome | Testing Performed | Pass/Fail/Potential improvements |
