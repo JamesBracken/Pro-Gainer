@@ -430,20 +430,20 @@ Exercise List page
 Exercise Details page 
 | Feature | Expected Outcome | Testing Performed | Pass/Fail/Potential improvements |
 |---------|-------------------|-------------------|-----------|
-|Edit button|The edit button is displayed for admins|Visual check||
-|Deletebutton|The delete button is displayed for admins|Visual check||
-|Edit button|The edit button works properly|Click button||
-|Delete button|The delete button works properly|Click button||
-|Exercise image|The image displays well on multiple device sizes|Visual check||
-|Exercise information|All exercise information is displayed|Visual check||
-|Favourite exercise icon|Icon is present|Visual check||
-|Favourite exercise icon|Icon starts out black and not favourited|Visual check||
-|Favourite exercise icon|Icon has a indicator next to it|Visual check||
-|Favourite exercise icon|Icon is clickable|Click icon||
-|Favourite exercise icon|Icon becomes red on click if black|Click icon||
-|Favourite exercise icon|Icon becomes black on clik if red|Click icon||
-|Favourite exercise icon|If the icon is black and clicked the exercise is added to the user favourites|Click icon and check||
-|Favourite exercise icon|If the icon is red and clicked the exercise is removed from the user favourites|Click icon and check||
+|Edit button|The edit button is displayed for admins|Visual check|✅Passed|
+|Deletebutton|The delete button is displayed for admins|Visual check|✅Passed|
+|Edit button|The edit button works properly|Click button|✅Passed|
+|Delete button|The delete button works properly|Click button|✅Passed|
+|Exercise image|The image displays well on multiple device sizes|Visual check|✅Passed|
+|Exercise information|All exercise information is displayed|Visual check|✅Passed|
+|Favourite exercise icon|Icon is present|Visual check|✅Passed|
+|Favourite exercise icon|Icon starts out black and not favourited|Visual check|✅Passed|
+|Favourite exercise icon|Icon has a indicator next to it|Visual check|✅Passed|
+|Favourite exercise icon|Icon is clickable|Click icon|✅Passed|
+|Favourite exercise icon|Icon becomes red on click if black|Click icon|✅Passed|
+|Favourite exercise icon|Icon becomes black on clik if red|Click icon|✅Passed|
+|Favourite exercise icon|If the icon is black and clicked the exercise is added to the user favourites|Click icon and check|✅Passed|
+|Favourite exercise icon|If the icon is red and clicked the exercise is removed from the user favourites|Click icon and check|✅Passed|
 
 Favourite Exercises list page
 | Feature | Expected Outcome | Testing Performed | Pass/Fail/Potential improvements |
