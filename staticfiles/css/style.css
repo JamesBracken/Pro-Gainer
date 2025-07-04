@@ -8,7 +8,7 @@ https://github.com/JamesBracken/Ember-Ash
     --clr-secondary: #e10a0a;
     /* Red*/
     --clr-tertiary: #6F6866;
-    /* Fill out with tertiary color */
+    /* Dim Gray */
     --clr-black: #454545;
     /* Onyx */
     --clr-white: #ffffff;
@@ -442,6 +442,40 @@ input {
     border: 1px solid #000 !important;
     border-radius: 0 !important;
     max-width: 600px;
+    align-self: center;
+    justify-self: center;
+}
+
+input[type="checkbox"] {
+    display: none; /* hides all checkboxes */
+    width: 10px;
+    height: 10px;
+    color: white;
+}
+
+input[type="checkbox"] label {
+    color: white !important;
+}
+
+#div_id_remember {
+    color: white;
+    position: absolute;
+    top:-50px;
+    right:-50px;
+}
+
+form {
+    /* display: flex;
+    flex-direction: column; */
+    display: inline-block;
+    justify-content: center;
+    align-self: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+form label {
+    margin-left: auto;
 }
 
 .StripeElement,
@@ -520,6 +554,14 @@ input {
 @media screen and (min-width:768px) {
     .home-hero-img {
         height: 700px;
+    }
+
+    #payment-form .form-control,
+    #card-element,
+    select,
+    input {
+        min-width: 600px;
+        max-width: 600px;
     }
 }
 
