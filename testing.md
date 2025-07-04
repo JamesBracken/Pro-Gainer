@@ -9,6 +9,7 @@
       + [Python validation](#python-validation)
    * [Lighthouse testing](#lighthouse-testing)
    * [User story testing](#user-story-testing)
+   * [Automated testing](#automated-testing)
    * [Manual testing](#manual-testing)
       + [Responsiveness](#responsiveness)
       + [Browser testing](#browser-testing)
@@ -320,6 +321,7 @@ My profile page
 |As a signed-in user, I would like to be able to search for exercise content on the exercise list so I can find exercises faster(Could have)|||Out of scope not done|
 |As a signed-in user, I would like to be able to filter exercise search results on the exercise list so I can find exercises faster(Could have)|||Out of scope not done|
 
+<!-- TOC --><a name="automated-testing"></a>
 ## Automated testing
 
 Automated testing was performed inside the exercise application, we have generated a coverage report for the created automated tests. Anyone can generate this report using the command **start htmlcov\index.html**. This will open an already generated browser readable report and you can look at the coverage in detail. We achieved an overall coverage of 53%, you can find a screenshot of the report below as well.
